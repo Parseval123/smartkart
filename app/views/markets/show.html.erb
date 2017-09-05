@@ -1,0 +1,25 @@
+<% provide(:title, @market.group) %>
+  <div class="row">
+    <aside class="col-md-4">
+      <div align="center">
+      <h2>
+        <%= @market.group %></br>
+	 [<%= @market.address %>]
+      </h2>
+      </div>
+      <div align="left">
+        info:<%= @market.info %></br></br>
+        <%= link_to "Releases a comment", '#' %>
+      </div>
+    
+    </aside>
+    <div class="col-md-8">
+      <% if @market.microposts.any? %>
+        <h3>Microposts (<%= @market.microposts.count %>)</h3>
+        <ol class="microposts">
+          <%= render @microposts %>
+        </ol>
+        <%= will_paginate @microposts %>
+      <% end %>
+    </div>
+  </div>

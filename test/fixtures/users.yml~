@@ -1,0 +1,19 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  name: MyString
+  surname: MyString
+  email: MyString
+  yearofbirth: 2017-07-19 
+  address: MyString
+  latitude: 1.5
+  longitude: 1.5
+
+two:
+  name: MyString
+  surname: MyString
+  email: MyString
+  yearofbirth: 2017-07-19 
+  address: MyString
+  latitude: 1.5
+  longitude: 1.5

@@ -1,0 +1,33 @@
+
+<%= form_for @request do |f| %>
+
+
+    <%= f.label :prodotto %><br>
+    <%= f.select :product_id, @products.map { |c| [c.name, c.id] } %>
+ 
+    <%= f.hidden_field :shopper_id, value: session[:list_id] %>
+ 
+    <%= f.submit "add product", class: "btn btn-primary" %>
+
+<%end%>
+
+<div class="col-md-3">
+
+<% @list_requests.each do |r| %>
+
+<%= r.product.name %> </br>
+
+<% end %>
+
+</div>
+
+<div class="col-md-3">
+
+<% @list_requests.each do |r| %>
+
+ <%= link_to "delete", r, method: :delete,
+                                  data: { confirm: "You sure?" } %> </br>
+
+<% end %>
+
+</div>

@@ -1,0 +1,17 @@
+<% provide(:title, "Welcome") %>
+<h2>Welcome!!! <%= @user.name %></h2>
+<p>WHat do you want to do?</p>
+<ul>
+<li>Feedback Supermarket</li>
+<li>smart shopping</li>
+</ul>
+<%= form_for(:session, url: smart_shopping_path) do |f| %>
+<%= f.label :address %>
+<%= f.text_field :address, class: 'form-control' %>
+<%= f.label :range %>
+<%= f.number_field :range, class: 'form-control' %>
+<%= f.submit "Compose your shopping list", class: "btn btn-primary" %>
+<% end %>
+
+
+

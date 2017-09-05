@@ -1,0 +1,1114 @@
+  [1m[36m (7.7ms)[0m  [1mCREATE TABLE "markets" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "address" varchar, "group" varchar, "info" text, "created_at" datetime NOT NULL, "updated_at" datetime NOT NULL, "latitude" float, "longitude" float) [0m
+  [1m[35m (39.6ms)[0m  CREATE TABLE "microposts" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "content" text, "vote" integer, "user_id" integer, "market_id" integer, "created_at" datetime NOT NULL, "updated_at" datetime NOT NULL) 
+  [1m[36m (0.1ms)[0m  [1mselect sqlite_version(*)[0m
+  [1m[35m (11.2ms)[0m  CREATE  INDEX "index_microposts_on_market_id" ON "microposts" ("market_id")
+  [1m[36m (0.1ms)[0m  [1m            SELECT sql
+            FROM sqlite_master
+            WHERE name='index_microposts_on_market_id' AND type='index'
+            UNION ALL
+            SELECT sql
+            FROM sqlite_temp_master
+            WHERE name='index_microposts_on_market_id' AND type='index'
+[0m
+  [1m[35m (4.7ms)[0m  CREATE  INDEX "index_microposts_on_user_id" ON "microposts" ("user_id")
+  [1m[36m (5.2ms)[0m  [1mCREATE TABLE "products" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "name" varchar, "label" varchar, "package" varchar, "created_at" datetime NOT NULL, "updated_at" datetime NOT NULL) [0m
+  [1m[35m (10.3ms)[0m  CREATE TABLE "requests" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "shopper_id" integer, "product_id" integer, "created_at" datetime NOT NULL, "updated_at" datetime NOT NULL) 
+  [1m[36m (8.7ms)[0m  [1mCREATE  INDEX "index_requests_on_product_id" ON "requests" ("product_id")[0m
+  [1m[35m (0.2ms)[0m              SELECT sql
+            FROM sqlite_master
+            WHERE name='index_requests_on_product_id' AND type='index'
+            UNION ALL
+            SELECT sql
+            FROM sqlite_temp_master
+            WHERE name='index_requests_on_product_id' AND type='index'
+
+  [1m[36m (10.6ms)[0m  [1mCREATE  INDEX "index_requests_on_shopper_id" ON "requests" ("shopper_id")[0m
+  [1m[35m (13.3ms)[0m  CREATE TABLE "shoppers" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "user_id" integer, "created_at" datetime NOT NULL, "updated_at" datetime NOT NULL) 
+  [1m[36m (13.7ms)[0m  [1mCREATE  INDEX "index_shoppers_on_user_id" ON "shoppers" ("user_id")[0m
+  [1m[35m (13.2ms)[0m  CREATE TABLE "users" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "name" varchar, "surname" varchar, "email" varchar, "yearofbirth" integer, "address" varchar, "latitude" float, "longitude" float, "created_at" datetime NOT NULL, "updated_at" datetime NOT NULL, "password" varchar, "password_digest" varchar) 
+  [1m[36m (12.6ms)[0m  [1mCREATE TABLE "schema_migrations" ("version" varchar NOT NULL) [0m
+  [1m[35m (13.6ms)[0m  CREATE UNIQUE INDEX "unique_schema_migrations" ON "schema_migrations" ("version")
+  [1m[36m (0.3ms)[0m  [1mSELECT version FROM "schema_migrations"[0m
+  [1m[35m (12.2ms)[0m  INSERT INTO "schema_migrations" (version) VALUES ('20170721133211')
+  [1m[36m (12.7ms)[0m  [1mINSERT INTO "schema_migrations" (version) VALUES ('20170719155029')[0m
+  [1m[35m (12.3ms)[0m  INSERT INTO "schema_migrations" (version) VALUES ('20170721133145')
+  [1m[36m (15.8ms)[0m  [1mINSERT INTO "schema_migrations" (version) VALUES ('20170719134555')[0m
+  [1m[35m (13.1ms)[0m  INSERT INTO "schema_migrations" (version) VALUES ('20170721132013')
+  [1m[36m (11.0ms)[0m  [1mINSERT INTO "schema_migrations" (version) VALUES ('20170719154331')[0m
+  [1m[35m (11.8ms)[0m  INSERT INTO "schema_migrations" (version) VALUES ('20170719142959')
+  [1m[36m (10.8ms)[0m  [1mINSERT INTO "schema_migrations" (version) VALUES ('20170719154729')[0m
+  [1m[35m (12.5ms)[0m  INSERT INTO "schema_migrations" (version) VALUES ('20170719143143')
+  [1m[36m (27.6ms)[0m  [1mINSERT INTO "schema_migrations" (version) VALUES ('20170721131928')[0m
+  [1m[36mActiveRecord::SchemaMigration Load (0.4ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+  [1m[35m (0.3ms)[0m  begin transaction
+  [1m[36mFixture Delete (0.5ms)[0m  [1mDELETE FROM "users"[0m
+  [1m[35mFixture Insert (0.4ms)[0m  INSERT INTO "users" ("name", "surname", "email", "yearofbirth", "address", "latitude", "longitude", "created_at", "updated_at", "id") VALUES ('MyString', 'MyString', 'MyString', NULL, 'MyString', 1.5, 1.5, '2017-07-25 20:22:05', '2017-07-25 20:22:05', 980190962)
+  [1m[36mFixture Insert (0.3ms)[0m  [1mINSERT INTO "users" ("name", "surname", "email", "yearofbirth", "address", "latitude", "longitude", "created_at", "updated_at", "id") VALUES ('MyString', 'MyString', 'MyString', NULL, 'MyString', 1.5, 1.5, '2017-07-25 20:22:05', '2017-07-25 20:22:05', 298486374)[0m
+  [1m[35mFixture Delete (0.3ms)[0m  DELETE FROM "microposts"
+  [1m[36mFixture Insert (0.0ms)[0m  [1mINSERT INTO "microposts" ("content", "vote", "user_id", "market_id", "created_at", "updated_at", "id") VALUES ('MyText', 1, NULL, NULL, '2017-07-25 20:22:05', '2017-07-25 20:22:05', 980190962)[0m
+  [1m[35mFixture Insert (0.2ms)[0m  INSERT INTO "microposts" ("content", "vote", "user_id", "market_id", "created_at", "updated_at", "id") VALUES ('MyText', 1, NULL, NULL, '2017-07-25 20:22:05', '2017-07-25 20:22:05', 298486374)
+  [1m[36mFixture Delete (0.2ms)[0m  [1mDELETE FROM "products"[0m
+  [1m[35mFixture Insert (0.3ms)[0m  INSERT INTO "products" ("name", "label", "package", "created_at", "updated_at", "id") VALUES ('MyString', 'MyString', 'MyString', '2017-07-25 20:22:05', '2017-07-25 20:22:05', 980190962)
+  [1m[36mFixture Insert (0.2ms)[0m  [1mINSERT INTO "products" ("name", "label", "package", "created_at", "updated_at", "id") VALUES ('MyString', 'MyString', 'MyString', '2017-07-25 20:22:05', '2017-07-25 20:22:05', 298486374)[0m
+  [1m[35mFixture Delete (0.3ms)[0m  DELETE FROM "shoppers"
+  [1m[36mFixture Insert (0.2ms)[0m  [1mINSERT INTO "shoppers" ("user_id", "created_at", "updated_at", "id") VALUES (NULL, '2017-07-25 20:22:05', '2017-07-25 20:22:05', 980190962)[0m
+  [1m[35mFixture Insert (0.4ms)[0m  INSERT INTO "shoppers" ("user_id", "created_at", "updated_at", "id") VALUES (NULL, '2017-07-25 20:22:05', '2017-07-25 20:22:05', 298486374)
+  [1m[36mFixture Delete (0.3ms)[0m  [1mDELETE FROM "requests"[0m
+  [1m[35mFixture Insert (0.2ms)[0m  INSERT INTO "requests" ("shopper_id", "product_id", "created_at", "updated_at", "id") VALUES (NULL, NULL, '2017-07-25 20:22:05', '2017-07-25 20:22:05', 980190962)
+  [1m[36mFixture Insert (0.4ms)[0m  [1mINSERT INTO "requests" ("shopper_id", "product_id", "created_at", "updated_at", "id") VALUES (NULL, NULL, '2017-07-25 20:22:05', '2017-07-25 20:22:05', 298486374)[0m
+  [1m[35mFixture Delete (0.2ms)[0m  DELETE FROM "markets"
+  [1m[36mFixture Insert (0.2ms)[0m  [1mINSERT INTO "markets" ("address", "group", "info", "created_at", "updated_at", "id") VALUES ('MyString', 'MyString', 'MyText', '2017-07-25 20:22:05', '2017-07-25 20:22:05', 980190962)[0m
+  [1m[35mFixture Insert (0.2ms)[0m  INSERT INTO "markets" ("address", "group", "info", "created_at", "updated_at", "id") VALUES ('MyString', 'MyString', 'MyText', '2017-07-25 20:22:05', '2017-07-25 20:22:05', 298486374)
+  [1m[36m (12.7ms)[0m  [1mcommit transaction[0m
+  [1m[35m (0.2ms)[0m  begin transaction
+---------------------------------------------------------
+SmartShoppingControllerTest: test_should_get_corefunction
+---------------------------------------------------------
+Processing by SmartShoppingController#corefunction as HTML
+  Rendered smart_shopping/corefunction.html.erb within layouts/application (10.6ms)
+  [1m[36mUser Load (0.5ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."id" IS NULL LIMIT 1[0m
+Completed 200 OK in 11988ms (Views: 11986.8ms | ActiveRecord: 0.5ms)
+  [1m[35m (0.2ms)[0m  rollback transaction
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+-----------------------------------------------------
+SmartShoppingControllerTest: test_should_get_makelist
+-----------------------------------------------------
+Processing by SmartShoppingController#makelist as HTML
+  [1m[35mShopper Load (0.5ms)[0m  SELECT  "shoppers".* FROM "shoppers" WHERE "shoppers"."id" IS NULL LIMIT 1
+  [1m[36mUser Load (0.3ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."id" IS NULL LIMIT 1[0m
+Completed 500 Internal Server Error in 6ms (ActiveRecord: 0.8ms)
+  [1m[35m (0.4ms)[0m  rollback transaction
+  [1m[36m (0.3ms)[0m  [1mbegin transaction[0m
+-------------------------------------------
+SessionsControllerTest: test_should_get_new
+-------------------------------------------
+Processing by SessionsController#new as HTML
+  Rendered sessions/new.html.erb within layouts/application (71.7ms)
+  [1m[35mUser Load (0.7ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."id" IS NULL LIMIT 1
+Completed 200 OK in 90ms (Views: 88.8ms | ActiveRecord: 0.7ms)
+  [1m[36m (0.3ms)[0m  [1mrollback transaction[0m
+  [1m[35m (0.2ms)[0m  begin transaction
+-----------------------------------------
+UsersControllerTest: test_should_get_show
+-----------------------------------------
+  [1m[36m (0.3ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35mUser Exists (0.6ms)[0m  SELECT  1 AS one FROM "users" WHERE LOWER("users"."email") = LOWER('cla@gmail.com') LIMIT 1
+  [1m[36mSQL (0.8ms)[0m  [1mINSERT INTO "users" ("name", "surname", "email", "address", "yearofbirth", "password_digest", "latitude", "longitude", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?)[0m  [["name", "Claudio"], ["surname", "Alicino"], ["email", "cla@gmail.com"], ["address", "via alessandro severo ,roma ,italia"], ["yearofbirth", 1992], ["password_digest", "$2a$04$ZLwHU21K3pQmarYtNIliwuAGI9t4bX6C1mgyqEYa6RZcXlVzvi70u"], ["latitude", 41.854385], ["longitude", 12.4848919], ["created_at", "2017-07-25 20:22:18.809055"], ["updated_at", "2017-07-25 20:22:18.809055"]]
+  [1m[35m (0.5ms)[0m  RELEASE SAVEPOINT active_record_1
+Processing by UsersController#show as HTML
+  Parameters: {"id"=>"980190963"}
+  [1m[36mUser Load (0.5ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT 1[0m  [["id", 980190963]]
+  Rendered users/show.html.erb within layouts/application (8.0ms)
+  [1m[35mUser Load (0.5ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."id" IS NULL LIMIT 1
+Completed 200 OK in 32ms (Views: 24.9ms | ActiveRecord: 1.1ms)
+  [1m[36m (0.5ms)[0m  [1mrollback transaction[0m
+  [1m[35m (0.2ms)[0m  begin transaction
+----------------------------------------
+UsersControllerTest: test_should_get_new
+----------------------------------------
+  [1m[36m (0.1ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35mUser Exists (0.2ms)[0m  SELECT  1 AS one FROM "users" WHERE LOWER("users"."email") = LOWER('cla@gmail.com') LIMIT 1
+  [1m[36mSQL (0.5ms)[0m  [1mINSERT INTO "users" ("name", "surname", "email", "address", "yearofbirth", "password_digest", "latitude", "longitude", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?)[0m  [["name", "Claudio"], ["surname", "Alicino"], ["email", "cla@gmail.com"], ["address", "via alessandro severo ,roma ,italia"], ["yearofbirth", 1992], ["password_digest", "$2a$04$uM3fCiVZ.nWrNSccg6RkaO8YRWCLXGzFel5wxiH9LCMLBbd9pe4PO"], ["latitude", 41.854385], ["longitude", 12.4848919], ["created_at", "2017-07-25 20:22:19.046202"], ["updated_at", "2017-07-25 20:22:19.046202"]]
+  [1m[35m (0.2ms)[0m  RELEASE SAVEPOINT active_record_1
+Processing by UsersController#new as HTML
+  Rendered shared/_error_messages.html.erb (1.7ms)
+  Rendered users/new.html.erb within layouts/application (27.2ms)
+  [1m[36mUser Load (1.1ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."id" IS NULL LIMIT 1[0m
+Completed 200 OK in 39ms (Views: 37.4ms | ActiveRecord: 1.1ms)
+  [1m[35m (0.5ms)[0m  rollback transaction
+  [1m[36m (0.3ms)[0m  [1mbegin transaction[0m
+---------------------------------------
+MarketTest: test_info_should_be_present
+---------------------------------------
+  [1m[35m (0.2ms)[0m  SAVEPOINT active_record_1
+  [1m[36mSQL (0.9ms)[0m  [1mINSERT INTO "markets" ("address", "group", "info", "latitude", "longitude", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?)[0m  [["address", "Via Alessandro Severo ,Roma ,Italia"], ["group", "Conad"], ["info", "Orari di apertura"], ["latitude", 41.854385], ["longitude", 12.4848919], ["created_at", "2017-07-25 20:22:19.279905"], ["updated_at", "2017-07-25 20:22:19.279905"]]
+  [1m[35m (0.1ms)[0m  RELEASE SAVEPOINT active_record_1
+  [1m[36m (0.4ms)[0m  [1mrollback transaction[0m
+  [1m[35m (0.1ms)[0m  begin transaction
+------------------------------------------
+MarketTest: test_address_should_be_present
+------------------------------------------
+  [1m[36m (0.2ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.5ms)[0m  INSERT INTO "markets" ("address", "group", "info", "latitude", "longitude", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?)  [["address", "Via Alessandro Severo ,Roma ,Italia"], ["group", "Conad"], ["info", "Orari di apertura"], ["latitude", 41.854385], ["longitude", 12.4848919], ["created_at", "2017-07-25 20:22:19.607778"], ["updated_at", "2017-07-25 20:22:19.607778"]]
+  [1m[36m (0.3ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.4ms)[0m  rollback transaction
+  [1m[36m (0.4ms)[0m  [1mbegin transaction[0m
+---------------------------------------------
+MarketTest: test_group_should_not_be_too_long
+---------------------------------------------
+  [1m[35m (0.1ms)[0m  SAVEPOINT active_record_1
+  [1m[36mSQL (0.4ms)[0m  [1mINSERT INTO "markets" ("address", "group", "info", "latitude", "longitude", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?)[0m  [["address", "Via Alessandro Severo ,Roma ,Italia"], ["group", "Conad"], ["info", "Orari di apertura"], ["latitude", 41.854385], ["longitude", 12.4848919], ["created_at", "2017-07-25 20:22:19.766475"], ["updated_at", "2017-07-25 20:22:19.766475"]]
+  [1m[35m (0.3ms)[0m  RELEASE SAVEPOINT active_record_1
+  [1m[36m (0.4ms)[0m  [1mrollback transaction[0m
+  [1m[35m (0.1ms)[0m  begin transaction
+--------------------------------
+MarketTest: test_should_be_valid
+--------------------------------
+  [1m[36m (0.2ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.4ms)[0m  INSERT INTO "markets" ("address", "group", "info", "latitude", "longitude", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?)  [["address", "Via Alessandro Severo ,Roma ,Italia"], ["group", "Conad"], ["info", "Orari di apertura"], ["latitude", 41.854385], ["longitude", 12.4848919], ["created_at", "2017-07-25 20:22:20.045705"], ["updated_at", "2017-07-25 20:22:20.045705"]]
+  [1m[36m (0.2ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.4ms)[0m  rollback transaction
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+----------------------------------------
+MarketTest: test_group_should_be_present
+----------------------------------------
+  [1m[35m (0.2ms)[0m  SAVEPOINT active_record_1
+  [1m[36mSQL (0.4ms)[0m  [1mINSERT INTO "markets" ("address", "group", "info", "latitude", "longitude", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?)[0m  [["address", "Via Alessandro Severo ,Roma ,Italia"], ["group", "Conad"], ["info", "Orari di apertura"], ["latitude", 41.854385], ["longitude", 12.4848919], ["created_at", "2017-07-25 20:22:20.345630"], ["updated_at", "2017-07-25 20:22:20.345630"]]
+  [1m[35m (1.3ms)[0m  RELEASE SAVEPOINT active_record_1
+  [1m[36m (0.4ms)[0m  [1mrollback transaction[0m
+  [1m[35m (0.1ms)[0m  begin transaction
+--------------------------------------------
+MarketTest: test_info_should_not_be_too_long
+--------------------------------------------
+  [1m[36m (0.1ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.5ms)[0m  INSERT INTO "markets" ("address", "group", "info", "latitude", "longitude", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?)  [["address", "Via Alessandro Severo ,Roma ,Italia"], ["group", "Conad"], ["info", "Orari di apertura"], ["latitude", 41.854385], ["longitude", 12.4848919], ["created_at", "2017-07-25 20:22:20.653080"], ["updated_at", "2017-07-25 20:22:20.653080"]]
+  [1m[36m (0.2ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (1.0ms)[0m  rollback transaction
+  [1m[36m (0.3ms)[0m  [1mbegin transaction[0m
+-----------------------------------------------
+MarketTest: test_address_should_not_be_too_long
+-----------------------------------------------
+  [1m[35m (0.1ms)[0m  SAVEPOINT active_record_1
+  [1m[36mSQL (0.4ms)[0m  [1mINSERT INTO "markets" ("address", "group", "info", "latitude", "longitude", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?)[0m  [["address", "Via Alessandro Severo ,Roma ,Italia"], ["group", "Conad"], ["info", "Orari di apertura"], ["latitude", 41.854385], ["longitude", 12.4848919], ["created_at", "2017-07-25 20:22:20.956390"], ["updated_at", "2017-07-25 20:22:20.956390"]]
+  [1m[35m (0.2ms)[0m  RELEASE SAVEPOINT active_record_1
+  [1m[36m (0.5ms)[0m  [1mrollback transaction[0m
+  [1m[35m (0.1ms)[0m  begin transaction
+-------------------------------------------------------------------
+MarketTest: test_address_validation_should_reject_invalid_addresses
+-------------------------------------------------------------------
+  [1m[36m (0.1ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.5ms)[0m  INSERT INTO "markets" ("address", "group", "info", "latitude", "longitude", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?)  [["address", "Via Alessandro Severo ,Roma ,Italia"], ["group", "Conad"], ["info", "Orari di apertura"], ["latitude", 41.854385], ["longitude", 12.4848919], ["created_at", "2017-07-25 20:22:22.092125"], ["updated_at", "2017-07-25 20:22:22.092125"]]
+  [1m[36m (0.3ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.3ms)[0m  rollback transaction
+  [1m[36m (0.3ms)[0m  [1mbegin transaction[0m
+-----------------------------------------------------------------
+MarketTest: test_address_validation_should_accept_valid_addresses
+-----------------------------------------------------------------
+  [1m[35m (0.0ms)[0m  SAVEPOINT active_record_1
+  [1m[36mSQL (0.6ms)[0m  [1mINSERT INTO "markets" ("address", "group", "info", "latitude", "longitude", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?)[0m  [["address", "Via Alessandro Severo ,Roma ,Italia"], ["group", "Conad"], ["info", "Orari di apertura"], ["latitude", 41.854385], ["longitude", 12.4848919], ["created_at", "2017-07-25 20:22:22.558943"], ["updated_at", "2017-07-25 20:22:22.558943"]]
+  [1m[35m (0.4ms)[0m  RELEASE SAVEPOINT active_record_1
+  [1m[36m (0.5ms)[0m  [1mrollback transaction[0m
+  [1m[35m (0.2ms)[0m  begin transaction
+-----------------------------------
+MicropostTest: test_should_be_valid
+-----------------------------------
+  [1m[36m (0.1ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (9.2ms)[0m  INSERT INTO "markets" ("address", "group", "info", "latitude", "longitude", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?)  [["address", "Via Alessandro Severo ,Roma ,Italia"], ["group", "Conad"], ["info", "Orari di apertura"], ["latitude", 41.854385], ["longitude", 12.4848919], ["created_at", "2017-07-25 20:22:23.021668"], ["updated_at", "2017-07-25 20:22:23.021668"]]
+  [1m[36m (0.2ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.2ms)[0m  SAVEPOINT active_record_1
+  [1m[36mUser Exists (0.4ms)[0m  [1mSELECT  1 AS one FROM "users" WHERE LOWER("users"."email") = LOWER('cla@gmail.com') LIMIT 1[0m
+  [1m[35mSQL (0.5ms)[0m  INSERT INTO "users" ("name", "surname", "email", "address", "yearofbirth", "password_digest", "latitude", "longitude", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?)  [["name", "Claudio"], ["surname", "Alicino"], ["email", "cla@gmail.com"], ["address", "Via Alessandro Severo ,Roma ,Italia"], ["yearofbirth", 1992], ["password_digest", "$2a$04$TEre58F4jS1/jakYdleqyuaCKiZ/Lmd5/TE8PQBbEaGsBuStoKj1C"], ["latitude", 41.854385], ["longitude", 12.4848919], ["created_at", "2017-07-25 20:22:23.206007"], ["updated_at", "2017-07-25 20:22:23.206007"]]
+  [1m[36m (0.2ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.4ms)[0m  rollback transaction
+  [1m[36m (0.2ms)[0m  [1mbegin transaction[0m
+------------------------------------------
+MicropostTest: test_vote_should_be_present
+------------------------------------------
+  [1m[35m (0.1ms)[0m  SAVEPOINT active_record_1
+  [1m[36mSQL (0.6ms)[0m  [1mINSERT INTO "markets" ("address", "group", "info", "latitude", "longitude", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?)[0m  [["address", "Via Alessandro Severo ,Roma ,Italia"], ["group", "Conad"], ["info", "Orari di apertura"], ["latitude", 41.854385], ["longitude", 12.4848919], ["created_at", "2017-07-25 20:22:23.376514"], ["updated_at", "2017-07-25 20:22:23.376514"]]
+  [1m[35m (0.2ms)[0m  RELEASE SAVEPOINT active_record_1
+  [1m[36m (0.2ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35mUser Exists (0.3ms)[0m  SELECT  1 AS one FROM "users" WHERE LOWER("users"."email") = LOWER('cla@gmail.com') LIMIT 1
+  [1m[36mSQL (0.7ms)[0m  [1mINSERT INTO "users" ("name", "surname", "email", "address", "yearofbirth", "password_digest", "latitude", "longitude", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?)[0m  [["name", "Claudio"], ["surname", "Alicino"], ["email", "cla@gmail.com"], ["address", "Via Alessandro Severo ,Roma ,Italia"], ["yearofbirth", 1992], ["password_digest", "$2a$04$W6MRFqiW0PEbiaD5Idh5V.ncZZ1a121n5Sc9oiXwbUdF5x7ogY2IK"], ["latitude", 41.854385], ["longitude", 12.4848919], ["created_at", "2017-07-25 20:22:23.570483"], ["updated_at", "2017-07-25 20:22:23.570483"]]
+  [1m[35m (0.5ms)[0m  RELEASE SAVEPOINT active_record_1
+  [1m[36m (1.4ms)[0m  [1mrollback transaction[0m
+  [1m[35m (0.1ms)[0m  begin transaction
+--------------------------------------------------
+MicropostTest: test_content_should_not_be_too_long
+--------------------------------------------------
+  [1m[36m (0.2ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.5ms)[0m  INSERT INTO "markets" ("address", "group", "info", "latitude", "longitude", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?)  [["address", "Via Alessandro Severo ,Roma ,Italia"], ["group", "Conad"], ["info", "Orari di apertura"], ["latitude", 41.854385], ["longitude", 12.4848919], ["created_at", "2017-07-25 20:22:23.722346"], ["updated_at", "2017-07-25 20:22:23.722346"]]
+  [1m[36m (0.4ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.1ms)[0m  SAVEPOINT active_record_1
+  [1m[36mUser Exists (0.3ms)[0m  [1mSELECT  1 AS one FROM "users" WHERE LOWER("users"."email") = LOWER('cla@gmail.com') LIMIT 1[0m
+  [1m[35mSQL (0.9ms)[0m  INSERT INTO "users" ("name", "surname", "email", "address", "yearofbirth", "password_digest", "latitude", "longitude", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?)  [["name", "Claudio"], ["surname", "Alicino"], ["email", "cla@gmail.com"], ["address", "Via Alessandro Severo ,Roma ,Italia"], ["yearofbirth", 1992], ["password_digest", "$2a$04$aOZzaGRffCA/2IKdmFTNM.uScFvsK8f4vI/Io3/uvXx87bQ5OuB16"], ["latitude", 41.854385], ["longitude", 12.4848919], ["created_at", "2017-07-25 20:22:23.879392"], ["updated_at", "2017-07-25 20:22:23.879392"]]
+  [1m[36m (0.2ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.5ms)[0m  rollback transaction
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+---------------------------------------------
+MicropostTest: test_content_should_be_present
+---------------------------------------------
+  [1m[35m (0.3ms)[0m  SAVEPOINT active_record_1
+  [1m[36mSQL (0.7ms)[0m  [1mINSERT INTO "markets" ("address", "group", "info", "latitude", "longitude", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?)[0m  [["address", "Via Alessandro Severo ,Roma ,Italia"], ["group", "Conad"], ["info", "Orari di apertura"], ["latitude", 41.854385], ["longitude", 12.4848919], ["created_at", "2017-07-25 20:22:24.035578"], ["updated_at", "2017-07-25 20:22:24.035578"]]
+  [1m[35m (0.3ms)[0m  RELEASE SAVEPOINT active_record_1
+  [1m[36m (0.2ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35mUser Exists (0.4ms)[0m  SELECT  1 AS one FROM "users" WHERE LOWER("users"."email") = LOWER('cla@gmail.com') LIMIT 1
+  [1m[36mSQL (0.5ms)[0m  [1mINSERT INTO "users" ("name", "surname", "email", "address", "yearofbirth", "password_digest", "latitude", "longitude", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?)[0m  [["name", "Claudio"], ["surname", "Alicino"], ["email", "cla@gmail.com"], ["address", "Via Alessandro Severo ,Roma ,Italia"], ["yearofbirth", 1992], ["password_digest", "$2a$04$anLSCnGejtdWQ4Gkj1ZK7eRMNaIJ/dyM2k1AAJGYUtSbhSs7KgGra"], ["latitude", 41.854385], ["longitude", 12.4848919], ["created_at", "2017-07-25 20:22:24.192930"], ["updated_at", "2017-07-25 20:22:24.192930"]]
+  [1m[35m (0.2ms)[0m  RELEASE SAVEPOINT active_record_1
+  [1m[36m (0.4ms)[0m  [1mrollback transaction[0m
+  [1m[35m (0.2ms)[0m  begin transaction
+-----------------------------------------------
+MicropostTest: test_market_id_should_be_present
+-----------------------------------------------
+  [1m[36m (0.3ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.5ms)[0m  INSERT INTO "markets" ("address", "group", "info", "latitude", "longitude", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?)  [["address", "Via Alessandro Severo ,Roma ,Italia"], ["group", "Conad"], ["info", "Orari di apertura"], ["latitude", 41.854385], ["longitude", 12.4848919], ["created_at", "2017-07-25 20:22:24.346942"], ["updated_at", "2017-07-25 20:22:24.346942"]]
+  [1m[36m (0.4ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.2ms)[0m  SAVEPOINT active_record_1
+  [1m[36mUser Exists (0.3ms)[0m  [1mSELECT  1 AS one FROM "users" WHERE LOWER("users"."email") = LOWER('cla@gmail.com') LIMIT 1[0m
+  [1m[35mSQL (0.6ms)[0m  INSERT INTO "users" ("name", "surname", "email", "address", "yearofbirth", "password_digest", "latitude", "longitude", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?)  [["name", "Claudio"], ["surname", "Alicino"], ["email", "cla@gmail.com"], ["address", "Via Alessandro Severo ,Roma ,Italia"], ["yearofbirth", 1992], ["password_digest", "$2a$04$aLsOn.3sIuEMSVfAJbq7rusiytGCg7i0Obu3uL39wbhpMmI6GChU6"], ["latitude", 41.854385], ["longitude", 12.4848919], ["created_at", "2017-07-25 20:22:24.527007"], ["updated_at", "2017-07-25 20:22:24.527007"]]
+  [1m[36m (0.2ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.5ms)[0m  rollback transaction
+  [1m[36m (0.2ms)[0m  [1mbegin transaction[0m
+---------------------------------------------
+MicropostTest: test_user_id_should_be_present
+---------------------------------------------
+  [1m[35m (0.1ms)[0m  SAVEPOINT active_record_1
+  [1m[36mSQL (1.3ms)[0m  [1mINSERT INTO "markets" ("address", "group", "info", "latitude", "longitude", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?)[0m  [["address", "Via Alessandro Severo ,Roma ,Italia"], ["group", "Conad"], ["info", "Orari di apertura"], ["latitude", 41.854385], ["longitude", 12.4848919], ["created_at", "2017-07-25 20:22:24.664564"], ["updated_at", "2017-07-25 20:22:24.664564"]]
+  [1m[35m (0.2ms)[0m  RELEASE SAVEPOINT active_record_1
+  [1m[36m (0.2ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35mUser Exists (0.3ms)[0m  SELECT  1 AS one FROM "users" WHERE LOWER("users"."email") = LOWER('cla@gmail.com') LIMIT 1
+  [1m[36mSQL (0.8ms)[0m  [1mINSERT INTO "users" ("name", "surname", "email", "address", "yearofbirth", "password_digest", "latitude", "longitude", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?)[0m  [["name", "Claudio"], ["surname", "Alicino"], ["email", "cla@gmail.com"], ["address", "Via Alessandro Severo ,Roma ,Italia"], ["yearofbirth", 1992], ["password_digest", "$2a$04$oxztaHN2./Qwh9I2XVS7QeoflcHQz0Ljcvxsq6HpCxj8twMWMlGhG"], ["latitude", 41.854385], ["longitude", 12.4848919], ["created_at", "2017-07-25 20:22:24.827786"], ["updated_at", "2017-07-25 20:22:24.827786"]]
+  [1m[35m (0.2ms)[0m  RELEASE SAVEPOINT active_record_1
+  [1m[36m (0.9ms)[0m  [1mrollback transaction[0m
+  [1m[35m (0.3ms)[0m  begin transaction
+---------------------------------------------
+ProductTest: test_name_should_not_be_too_long
+---------------------------------------------
+  [1m[36m (0.3ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.7ms)[0m  INSERT INTO "products" ("name", "label", "package", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?)  [["name", "Pasta"], ["label", "Barilla"], ["package", "500 g"], ["created_at", "2017-07-25 20:22:24.858450"], ["updated_at", "2017-07-25 20:22:24.858450"]]
+  [1m[36m (0.2ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.6ms)[0m  rollback transaction
+  [1m[36m (0.4ms)[0m  [1mbegin transaction[0m
+------------------------------------------------
+ProductTest: test_package_should_not_be_too_long
+------------------------------------------------
+  [1m[35m (0.2ms)[0m  SAVEPOINT active_record_1
+  [1m[36mSQL (1.3ms)[0m  [1mINSERT INTO "products" ("name", "label", "package", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?)[0m  [["name", "Pasta"], ["label", "Barilla"], ["package", "500 g"], ["created_at", "2017-07-25 20:22:24.872781"], ["updated_at", "2017-07-25 20:22:24.872781"]]
+  [1m[35m (0.4ms)[0m  RELEASE SAVEPOINT active_record_1
+  [1m[36m (0.6ms)[0m  [1mrollback transaction[0m
+  [1m[35m (0.7ms)[0m  begin transaction
+-------------------------------------------
+ProductTest: test_package_should_be_present
+-------------------------------------------
+  [1m[36m (0.4ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.6ms)[0m  INSERT INTO "products" ("name", "label", "package", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?)  [["name", "Pasta"], ["label", "Barilla"], ["package", "500 g"], ["created_at", "2017-07-25 20:22:24.886180"], ["updated_at", "2017-07-25 20:22:24.886180"]]
+  [1m[36m (0.3ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.4ms)[0m  rollback transaction
+  [1m[36m (0.3ms)[0m  [1mbegin transaction[0m
+---------------------------------
+ProductTest: test_should_be_valid
+---------------------------------
+  [1m[35m (0.4ms)[0m  SAVEPOINT active_record_1
+  [1m[36mSQL (1.1ms)[0m  [1mINSERT INTO "products" ("name", "label", "package", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?)[0m  [["name", "Pasta"], ["label", "Barilla"], ["package", "500 g"], ["created_at", "2017-07-25 20:22:24.898220"], ["updated_at", "2017-07-25 20:22:24.898220"]]
+  [1m[35m (0.2ms)[0m  RELEASE SAVEPOINT active_record_1
+  [1m[36m (0.3ms)[0m  [1mrollback transaction[0m
+  [1m[35m (0.1ms)[0m  begin transaction
+----------------------------------------
+ProductTest: test_name_should_be_present
+----------------------------------------
+  [1m[36m (0.1ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.4ms)[0m  INSERT INTO "products" ("name", "label", "package", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?)  [["name", "Pasta"], ["label", "Barilla"], ["package", "500 g"], ["created_at", "2017-07-25 20:22:24.905921"], ["updated_at", "2017-07-25 20:22:24.905921"]]
+  [1m[36m (0.2ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.3ms)[0m  rollback transaction
+  [1m[36m (0.3ms)[0m  [1mbegin transaction[0m
+-----------------------------------------
+ProductTest: test_label_should_be_present
+-----------------------------------------
+  [1m[35m (0.1ms)[0m  SAVEPOINT active_record_1
+  [1m[36mSQL (0.6ms)[0m  [1mINSERT INTO "products" ("name", "label", "package", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?)[0m  [["name", "Pasta"], ["label", "Barilla"], ["package", "500 g"], ["created_at", "2017-07-25 20:22:24.914462"], ["updated_at", "2017-07-25 20:22:24.914462"]]
+  [1m[35m (0.2ms)[0m  RELEASE SAVEPOINT active_record_1
+  [1m[36m (0.3ms)[0m  [1mrollback transaction[0m
+  [1m[35m (0.2ms)[0m  begin transaction
+----------------------------------------------
+ProductTest: test_label_should_not_be_too_long
+----------------------------------------------
+  [1m[36m (0.2ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.4ms)[0m  INSERT INTO "products" ("name", "label", "package", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?)  [["name", "Pasta"], ["label", "Barilla"], ["package", "500 g"], ["created_at", "2017-07-25 20:22:24.924937"], ["updated_at", "2017-07-25 20:22:24.924937"]]
+  [1m[36m (0.4ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.6ms)[0m  rollback transaction
+  [1m[36m (0.2ms)[0m  [1mbegin transaction[0m
+-----------------------------------------
+PagesControllerTest: test_should_get_help
+-----------------------------------------
+Processing by PagesController#help as HTML
+  Rendered pages/help.html.erb within layouts/application (1.1ms)
+  [1m[35mUser Load (1.6ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."id" IS NULL LIMIT 1
+Completed 200 OK in 19ms (Views: 16.5ms | ActiveRecord: 1.6ms)
+  [1m[36m (0.2ms)[0m  [1mrollback transaction[0m
+  [1m[35m (0.1ms)[0m  begin transaction
+---------------------------------------------
+PagesControllerTest: test_should_get_homepage
+---------------------------------------------
+Processing by PagesController#homepage as HTML
+  Rendered pages/homepage.html.erb within layouts/application (2.7ms)
+  [1m[36mUser Load (0.6ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."id" IS NULL LIMIT 1[0m
+Completed 200 OK in 12ms (Views: 11.0ms | ActiveRecord: 0.6ms)
+  [1m[35m (0.2ms)[0m  rollback transaction
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+------------------------------------------
+PagesControllerTest: test_should_get_howto
+------------------------------------------
+Processing by PagesController#howto as HTML
+  Rendered pages/howto.html.erb within layouts/application (1.6ms)
+  [1m[35mUser Load (0.6ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."id" IS NULL LIMIT 1
+Completed 200 OK in 12ms (Views: 11.2ms | ActiveRecord: 0.6ms)
+  [1m[36m (0.2ms)[0m  [1mrollback transaction[0m
+  [1m[35m (0.1ms)[0m  begin transaction
+----------------------------------------------
+RequestTest: test_product_id_should_be_present
+----------------------------------------------
+  [1m[36m (0.1ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.5ms)[0m  INSERT INTO "products" ("name", "label", "package", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?)  [["name", "Pasta"], ["label", "Barilla"], ["package", "500 g"], ["created_at", "2017-07-25 20:22:25.005363"], ["updated_at", "2017-07-25 20:22:25.005363"]]
+  [1m[36m (0.2ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.2ms)[0m  SAVEPOINT active_record_1
+  [1m[36mUser Exists (0.3ms)[0m  [1mSELECT  1 AS one FROM "users" WHERE LOWER("users"."email") = LOWER('cla@gmail.com') LIMIT 1[0m
+  [1m[35mSQL (0.5ms)[0m  INSERT INTO "users" ("name", "surname", "email", "address", "yearofbirth", "password_digest", "latitude", "longitude", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?)  [["name", "Claudio"], ["surname", "Alicino"], ["email", "cla@gmail.com"], ["address", "Via Alessandro Severo ,Roma ,Italia"], ["yearofbirth", 1992], ["password_digest", "$2a$04$9RzxUl4tlczyHiUndUc1qeQsPugjCCeUXhi6ESTG7hQWIasmbAf6O"], ["latitude", 41.854385], ["longitude", 12.4848919], ["created_at", "2017-07-25 20:22:25.156073"], ["updated_at", "2017-07-25 20:22:25.156073"]]
+  [1m[36m (0.2ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.3ms)[0m  SAVEPOINT active_record_1
+  [1m[36mSQL (0.4ms)[0m  [1mINSERT INTO "shoppers" ("user_id", "created_at", "updated_at") VALUES (?, ?, ?)[0m  [["user_id", 980190963], ["created_at", "2017-07-25 20:22:25.168573"], ["updated_at", "2017-07-25 20:22:25.168573"]]
+  [1m[35m (0.2ms)[0m  RELEASE SAVEPOINT active_record_1
+  [1m[36m (0.6ms)[0m  [1mrollback transaction[0m
+  [1m[35m (0.1ms)[0m  begin transaction
+----------------------------------------------
+RequestTest: test_shopper_id_should_be_present
+----------------------------------------------
+  [1m[36m (0.2ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.4ms)[0m  INSERT INTO "products" ("name", "label", "package", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?)  [["name", "Pasta"], ["label", "Barilla"], ["package", "500 g"], ["created_at", "2017-07-25 20:22:25.187670"], ["updated_at", "2017-07-25 20:22:25.187670"]]
+  [1m[36m (0.2ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.1ms)[0m  SAVEPOINT active_record_1
+  [1m[36mUser Exists (0.3ms)[0m  [1mSELECT  1 AS one FROM "users" WHERE LOWER("users"."email") = LOWER('cla@gmail.com') LIMIT 1[0m
+  [1m[35mSQL (0.5ms)[0m  INSERT INTO "users" ("name", "surname", "email", "address", "yearofbirth", "password_digest", "latitude", "longitude", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?)  [["name", "Claudio"], ["surname", "Alicino"], ["email", "cla@gmail.com"], ["address", "Via Alessandro Severo ,Roma ,Italia"], ["yearofbirth", 1992], ["password_digest", "$2a$04$6c27tdrry/zKBNvKEvRcL.RvNUdKSIOt56pguRBfVxWN2EyZwcSXm"], ["latitude", 41.854385], ["longitude", 12.4848919], ["created_at", "2017-07-25 20:22:25.341383"], ["updated_at", "2017-07-25 20:22:25.341383"]]
+  [1m[36m (0.2ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.1ms)[0m  SAVEPOINT active_record_1
+  [1m[36mSQL (0.3ms)[0m  [1mINSERT INTO "shoppers" ("user_id", "created_at", "updated_at") VALUES (?, ?, ?)[0m  [["user_id", 980190963], ["created_at", "2017-07-25 20:22:25.347988"], ["updated_at", "2017-07-25 20:22:25.347988"]]
+  [1m[35m (0.2ms)[0m  RELEASE SAVEPOINT active_record_1
+  [1m[36m (0.5ms)[0m  [1mrollback transaction[0m
+  [1m[35m (0.1ms)[0m  begin transaction
+---------------------------------
+RequestTest: test_should_be_valid
+---------------------------------
+  [1m[36m (0.2ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.3ms)[0m  INSERT INTO "products" ("name", "label", "package", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?)  [["name", "Pasta"], ["label", "Barilla"], ["package", "500 g"], ["created_at", "2017-07-25 20:22:25.356712"], ["updated_at", "2017-07-25 20:22:25.356712"]]
+  [1m[36m (0.2ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.1ms)[0m  SAVEPOINT active_record_1
+  [1m[36mUser Exists (0.4ms)[0m  [1mSELECT  1 AS one FROM "users" WHERE LOWER("users"."email") = LOWER('cla@gmail.com') LIMIT 1[0m
+  [1m[35mSQL (0.6ms)[0m  INSERT INTO "users" ("name", "surname", "email", "address", "yearofbirth", "password_digest", "latitude", "longitude", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?)  [["name", "Claudio"], ["surname", "Alicino"], ["email", "cla@gmail.com"], ["address", "Via Alessandro Severo ,Roma ,Italia"], ["yearofbirth", 1992], ["password_digest", "$2a$04$8IOSoTFZvsgYEa22am8IsebFcHzf5QGVLet9br/s94TZ3FoceYqgO"], ["latitude", 41.854385], ["longitude", 12.4848919], ["created_at", "2017-07-25 20:22:25.516354"], ["updated_at", "2017-07-25 20:22:25.516354"]]
+  [1m[36m (0.2ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.4ms)[0m  SAVEPOINT active_record_1
+  [1m[36mSQL (0.5ms)[0m  [1mINSERT INTO "shoppers" ("user_id", "created_at", "updated_at") VALUES (?, ?, ?)[0m  [["user_id", 980190963], ["created_at", "2017-07-25 20:22:25.524243"], ["updated_at", "2017-07-25 20:22:25.524243"]]
+  [1m[35m (0.3ms)[0m  RELEASE SAVEPOINT active_record_1
+  [1m[36m (0.7ms)[0m  [1mrollback transaction[0m
+  [1m[35m (0.3ms)[0m  begin transaction
+-------------------------------------------
+UserTest: test_email_should_not_be_too_long
+-------------------------------------------
+  [1m[36m (0.2ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35mUser Exists (0.7ms)[0m  SELECT  1 AS one FROM "users" WHERE LOWER("users"."email") = LOWER('cla@gmail.com') LIMIT 1
+  [1m[36mSQL (0.5ms)[0m  [1mINSERT INTO "users" ("name", "surname", "email", "address", "yearofbirth", "password_digest", "latitude", "longitude", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?)[0m  [["name", "Claudio"], ["surname", "Alicino"], ["email", "cla@gmail.com"], ["address", "Via Alessandro Severo ,Roma ,Italia"], ["yearofbirth", 1992], ["password_digest", "$2a$04$dV6bcR1t9pUW.Cuy97gnBuU/ajV.FCBLm2LSrouPVfbD.At.gRYkq"], ["latitude", 41.854385], ["longitude", 12.4848919], ["created_at", "2017-07-25 20:22:25.729298"], ["updated_at", "2017-07-25 20:22:25.729298"]]
+  [1m[35m (0.7ms)[0m  RELEASE SAVEPOINT active_record_1
+  [1m[36mUser Exists (0.3ms)[0m  [1mSELECT  1 AS one FROM "users" WHERE (LOWER("users"."email") = LOWER('aaaaaaaaaaaaaaaaaaaaa@gmail.com') AND "users"."id" != 980190963) LIMIT 1[0m
+  [1m[35m (1.7ms)[0m  rollback transaction
+  [1m[36m (0.2ms)[0m  [1mbegin transaction[0m
+---------------------------------------------------------------
+UserTest: test_email_validation_should_reject_invalid_addresses
+---------------------------------------------------------------
+  [1m[35m (0.3ms)[0m  SAVEPOINT active_record_1
+  [1m[36mUser Exists (0.6ms)[0m  [1mSELECT  1 AS one FROM "users" WHERE LOWER("users"."email") = LOWER('cla@gmail.com') LIMIT 1[0m
+  [1m[35mSQL (0.5ms)[0m  INSERT INTO "users" ("name", "surname", "email", "address", "yearofbirth", "password_digest", "latitude", "longitude", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?)  [["name", "Claudio"], ["surname", "Alicino"], ["email", "cla@gmail.com"], ["address", "Via Alessandro Severo ,Roma ,Italia"], ["yearofbirth", 1992], ["password_digest", "$2a$04$HuPM0fORTQUvfteGk7E44uEgg7J2wxloydrpe0ab/A6706NJlbSUm"], ["latitude", 41.854385], ["longitude", 12.4848919], ["created_at", "2017-07-25 20:22:26.066378"], ["updated_at", "2017-07-25 20:22:26.066378"]]
+  [1m[36m (0.2ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35mUser Exists (0.3ms)[0m  SELECT  1 AS one FROM "users" WHERE (LOWER("users"."email") = LOWER('user@example,com') AND "users"."id" != 980190963) LIMIT 1
+  [1m[36mUser Exists (0.4ms)[0m  [1mSELECT  1 AS one FROM "users" WHERE (LOWER("users"."email") = LOWER('user_at_foo.org') AND "users"."id" != 980190963) LIMIT 1[0m
+  [1m[35mUser Exists (0.4ms)[0m  SELECT  1 AS one FROM "users" WHERE (LOWER("users"."email") = LOWER('user.name@example.') AND "users"."id" != 980190963) LIMIT 1
+  [1m[36mUser Exists (0.4ms)[0m  [1mSELECT  1 AS one FROM "users" WHERE (LOWER("users"."email") = LOWER('foo@bar_baz.com') AND "users"."id" != 980190963) LIMIT 1[0m
+  [1m[35mUser Exists (0.4ms)[0m  SELECT  1 AS one FROM "users" WHERE (LOWER("users"."email") = LOWER('foo@bar+baz.com') AND "users"."id" != 980190963) LIMIT 1
+  [1m[36m (0.4ms)[0m  [1mrollback transaction[0m
+  [1m[35m (0.3ms)[0m  begin transaction
+----------------------------------------
+UserTest: test_address_should_be_present
+----------------------------------------
+  [1m[36m (0.2ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35mUser Exists (1.3ms)[0m  SELECT  1 AS one FROM "users" WHERE LOWER("users"."email") = LOWER('cla@gmail.com') LIMIT 1
+  [1m[36mSQL (0.5ms)[0m  [1mINSERT INTO "users" ("name", "surname", "email", "address", "yearofbirth", "password_digest", "latitude", "longitude", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?)[0m  [["name", "Claudio"], ["surname", "Alicino"], ["email", "cla@gmail.com"], ["address", "Via Alessandro Severo ,Roma ,Italia"], ["yearofbirth", 1992], ["password_digest", "$2a$04$NQfB4YWHqsy8DJpA6QaRz.LB3OnxBUnMMqMJOkzMqGw3xtS51CHqO"], ["latitude", 41.854385], ["longitude", 12.4848919], ["created_at", "2017-07-25 20:22:26.930238"], ["updated_at", "2017-07-25 20:22:26.930238"]]
+  [1m[35m (0.2ms)[0m  RELEASE SAVEPOINT active_record_1
+  [1m[36mUser Exists (0.4ms)[0m  [1mSELECT  1 AS one FROM "users" WHERE (LOWER("users"."email") = LOWER('cla@gmail.com') AND "users"."id" != 980190963) LIMIT 1[0m
+  [1m[35m (0.5ms)[0m  rollback transaction
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+------------------------------------------
+UserTest: test_name_should_not_be_too_long
+------------------------------------------
+  [1m[35m (0.2ms)[0m  SAVEPOINT active_record_1
+  [1m[36mUser Exists (1.2ms)[0m  [1mSELECT  1 AS one FROM "users" WHERE LOWER("users"."email") = LOWER('cla@gmail.com') LIMIT 1[0m
+  [1m[35mSQL (0.0ms)[0m  INSERT INTO "users" ("name", "surname", "email", "address", "yearofbirth", "password_digest", "latitude", "longitude", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?)  [["name", "Claudio"], ["surname", "Alicino"], ["email", "cla@gmail.com"], ["address", "Via Alessandro Severo ,Roma ,Italia"], ["yearofbirth", 1992], ["password_digest", "$2a$04$hcYUnzZTBksN.prn8F7stuq6ellf0Xt0LdYOfEL8iKdmFnSQ.are."], ["latitude", 41.854385], ["longitude", 12.4848919], ["created_at", "2017-07-25 20:22:27.072682"], ["updated_at", "2017-07-25 20:22:27.072682"]]
+  [1m[36m (0.7ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35mUser Exists (0.4ms)[0m  SELECT  1 AS one FROM "users" WHERE (LOWER("users"."email") = LOWER('cla@gmail.com') AND "users"."id" != 980190963) LIMIT 1
+  [1m[36m (0.3ms)[0m  [1mrollback transaction[0m
+  [1m[35m (0.1ms)[0m  begin transaction
+----------------------------------------
+UserTest: test_surname_should_be_present
+----------------------------------------
+  [1m[36m (0.2ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35mUser Exists (3.1ms)[0m  SELECT  1 AS one FROM "users" WHERE LOWER("users"."email") = LOWER('cla@gmail.com') LIMIT 1
+  [1m[36mSQL (0.4ms)[0m  [1mINSERT INTO "users" ("name", "surname", "email", "address", "yearofbirth", "password_digest", "latitude", "longitude", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?)[0m  [["name", "Claudio"], ["surname", "Alicino"], ["email", "cla@gmail.com"], ["address", "Via Alessandro Severo ,Roma ,Italia"], ["yearofbirth", 1992], ["password_digest", "$2a$04$/drUsdMNu7TKaEpCkWQQXe.cCcKF8ANVLNPx6dUjITBrX2u//7yze"], ["latitude", 41.854385], ["longitude", 12.4848919], ["created_at", "2017-07-25 20:22:27.341608"], ["updated_at", "2017-07-25 20:22:27.341608"]]
+  [1m[35m (0.2ms)[0m  RELEASE SAVEPOINT active_record_1
+  [1m[36mUser Exists (0.3ms)[0m  [1mSELECT  1 AS one FROM "users" WHERE (LOWER("users"."email") = LOWER('cla@gmail.com') AND "users"."id" != 980190963) LIMIT 1[0m
+  [1m[35m (0.4ms)[0m  rollback transaction
+  [1m[36m (0.4ms)[0m  [1mbegin transaction[0m
+----------------------------------------------------
+UserTest: test_password_should_have_a_minimum_length
+----------------------------------------------------
+  [1m[35m (0.3ms)[0m  SAVEPOINT active_record_1
+  [1m[36mUser Exists (0.8ms)[0m  [1mSELECT  1 AS one FROM "users" WHERE LOWER("users"."email") = LOWER('cla@gmail.com') LIMIT 1[0m
+  [1m[35mSQL (0.5ms)[0m  INSERT INTO "users" ("name", "surname", "email", "address", "yearofbirth", "password_digest", "latitude", "longitude", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?)  [["name", "Claudio"], ["surname", "Alicino"], ["email", "cla@gmail.com"], ["address", "Via Alessandro Severo ,Roma ,Italia"], ["yearofbirth", 1992], ["password_digest", "$2a$04$3rS.gIrDlQJgyUBKoKdX5O1AVZXEMWGw9Z0/pSHAQ5YIDp7ENJNoi"], ["latitude", 41.854385], ["longitude", 12.4848919], ["created_at", "2017-07-25 20:22:27.638405"], ["updated_at", "2017-07-25 20:22:27.638405"]]
+  [1m[36m (0.2ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35mUser Exists (0.6ms)[0m  SELECT  1 AS one FROM "users" WHERE (LOWER("users"."email") = LOWER('cla@gmail.com') AND "users"."id" != 980190963) LIMIT 1
+  [1m[36m (1.1ms)[0m  [1mrollback transaction[0m
+  [1m[35m (0.1ms)[0m  begin transaction
+-------------------------------------------------------------
+UserTest: test_email_validation_should_accept_valid_addresses
+-------------------------------------------------------------
+  [1m[36m (0.2ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35mUser Exists (0.4ms)[0m  SELECT  1 AS one FROM "users" WHERE LOWER("users"."email") = LOWER('cla@gmail.com') LIMIT 1
+  [1m[36mSQL (0.5ms)[0m  [1mINSERT INTO "users" ("name", "surname", "email", "address", "yearofbirth", "password_digest", "latitude", "longitude", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?)[0m  [["name", "Claudio"], ["surname", "Alicino"], ["email", "cla@gmail.com"], ["address", "Via Alessandro Severo ,Roma ,Italia"], ["yearofbirth", 1992], ["password_digest", "$2a$04$cMXd7qNRWli/xaqI.qtAfeUJwcV6rBgiacXsRmahY7ED2lrIY7KWO"], ["latitude", 41.854385], ["longitude", 12.4848919], ["created_at", "2017-07-25 20:22:27.943973"], ["updated_at", "2017-07-25 20:22:27.943973"]]
+  [1m[35m (0.2ms)[0m  RELEASE SAVEPOINT active_record_1
+  [1m[36mUser Exists (0.4ms)[0m  [1mSELECT  1 AS one FROM "users" WHERE (LOWER("users"."email") = LOWER('user@example.com') AND "users"."id" != 980190963) LIMIT 1[0m
+  [1m[35mUser Exists (0.3ms)[0m  SELECT  1 AS one FROM "users" WHERE (LOWER("users"."email") = LOWER('USER@foo.COM') AND "users"."id" != 980190963) LIMIT 1
+  [1m[36mUser Exists (0.3ms)[0m  [1mSELECT  1 AS one FROM "users" WHERE (LOWER("users"."email") = LOWER('A_US-ER@foo.bar.org') AND "users"."id" != 980190963) LIMIT 1[0m
+  [1m[35mUser Exists (0.3ms)[0m  SELECT  1 AS one FROM "users" WHERE (LOWER("users"."email") = LOWER('first.last@foo.jp') AND "users"."id" != 980190963) LIMIT 1
+  [1m[36mUser Exists (0.6ms)[0m  [1mSELECT  1 AS one FROM "users" WHERE (LOWER("users"."email") = LOWER('alice+bob@baz.cn') AND "users"."id" != 980190963) LIMIT 1[0m
+  [1m[35m (0.6ms)[0m  rollback transaction
+  [1m[36m (0.3ms)[0m  [1mbegin transaction[0m
+---------------------------------------------
+UserTest: test_surname_should_not_be_too_long
+---------------------------------------------
+  [1m[35m (0.2ms)[0m  SAVEPOINT active_record_1
+  [1m[36mUser Exists (0.4ms)[0m  [1mSELECT  1 AS one FROM "users" WHERE LOWER("users"."email") = LOWER('cla@gmail.com') LIMIT 1[0m
+  [1m[35mSQL (0.5ms)[0m  INSERT INTO "users" ("name", "surname", "email", "address", "yearofbirth", "password_digest", "latitude", "longitude", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?)  [["name", "Claudio"], ["surname", "Alicino"], ["email", "cla@gmail.com"], ["address", "Via Alessandro Severo ,Roma ,Italia"], ["yearofbirth", 1992], ["password_digest", "$2a$04$aZLT8SYDsOw973WkcLEFBehefBnC3F9yJFo9M6joXnoxlM/y3h/yq"], ["latitude", 41.854385], ["longitude", 12.4848919], ["created_at", "2017-07-25 20:22:28.826116"], ["updated_at", "2017-07-25 20:22:28.826116"]]
+  [1m[36m (0.2ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35mUser Exists (0.3ms)[0m  SELECT  1 AS one FROM "users" WHERE (LOWER("users"."email") = LOWER('cla@gmail.com') AND "users"."id" != 980190963) LIMIT 1
+  [1m[36m (0.4ms)[0m  [1mrollback transaction[0m
+  [1m[35m (0.1ms)[0m  begin transaction
+--------------------------------------
+UserTest: test_email_should_be_present
+--------------------------------------
+  [1m[36m (0.1ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35mUser Exists (0.4ms)[0m  SELECT  1 AS one FROM "users" WHERE LOWER("users"."email") = LOWER('cla@gmail.com') LIMIT 1
+  [1m[36mSQL (0.4ms)[0m  [1mINSERT INTO "users" ("name", "surname", "email", "address", "yearofbirth", "password_digest", "latitude", "longitude", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?)[0m  [["name", "Claudio"], ["surname", "Alicino"], ["email", "cla@gmail.com"], ["address", "Via Alessandro Severo ,Roma ,Italia"], ["yearofbirth", 1992], ["password_digest", "$2a$04$u25ruZw/bGfPMvyLHlKrlOnHR6LMMy/X9UuTD8AIrPCHYUGiG06xe"], ["latitude", 41.854385], ["longitude", 12.4848919], ["created_at", "2017-07-25 20:22:29.113995"], ["updated_at", "2017-07-25 20:22:29.113995"]]
+  [1m[35m (0.3ms)[0m  RELEASE SAVEPOINT active_record_1
+  [1m[36mUser Exists (0.5ms)[0m  [1mSELECT  1 AS one FROM "users" WHERE (LOWER("users"."email") = LOWER('     ') AND "users"."id" != 980190963) LIMIT 1[0m
+  [1m[35m (0.5ms)[0m  rollback transaction
+  [1m[36m (0.2ms)[0m  [1mbegin transaction[0m
+------------------------------
+UserTest: test_should_be_valid
+------------------------------
+  [1m[35m (0.3ms)[0m  SAVEPOINT active_record_1
+  [1m[36mUser Exists (5.7ms)[0m  [1mSELECT  1 AS one FROM "users" WHERE LOWER("users"."email") = LOWER('cla@gmail.com') LIMIT 1[0m
+  [1m[35mSQL (0.5ms)[0m  INSERT INTO "users" ("name", "surname", "email", "address", "yearofbirth", "password_digest", "latitude", "longitude", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?)  [["name", "Claudio"], ["surname", "Alicino"], ["email", "cla@gmail.com"], ["address", "Via Alessandro Severo ,Roma ,Italia"], ["yearofbirth", 1992], ["password_digest", "$2a$04$oVCPSwl23hqqvOvDzQeyVuUTVvlkdlOhyIiW4tWRlum1imGiAyIK."], ["latitude", 41.854385], ["longitude", 12.4848919], ["created_at", "2017-07-25 20:22:29.409775"], ["updated_at", "2017-07-25 20:22:29.409775"]]
+  [1m[36m (0.2ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35mUser Exists (0.4ms)[0m  SELECT  1 AS one FROM "users" WHERE (LOWER("users"."email") = LOWER('cla@gmail.com') AND "users"."id" != 980190963) LIMIT 1
+  [1m[36m (0.5ms)[0m  [1mrollback transaction[0m
+  [1m[35m (0.2ms)[0m  begin transaction
+-----------------------------------------------------------------
+UserTest: test_address_validation_should_reject_invalid_addresses
+-----------------------------------------------------------------
+  [1m[36m (0.2ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35mUser Exists (0.5ms)[0m  SELECT  1 AS one FROM "users" WHERE LOWER("users"."email") = LOWER('cla@gmail.com') LIMIT 1
+  [1m[36mSQL (0.5ms)[0m  [1mINSERT INTO "users" ("name", "surname", "email", "address", "yearofbirth", "password_digest", "latitude", "longitude", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?)[0m  [["name", "Claudio"], ["surname", "Alicino"], ["email", "cla@gmail.com"], ["address", "Via Alessandro Severo ,Roma ,Italia"], ["yearofbirth", 1992], ["password_digest", "$2a$04$5xI8hT3NDzwxlN3ADh7PIec8MFrD3WZlaVvUsaMLOxm1MpHPMLvFK"], ["latitude", 41.854385], ["longitude", 12.4848919], ["created_at", "2017-07-25 20:22:29.703216"], ["updated_at", "2017-07-25 20:22:29.703216"]]
+  [1m[35m (0.2ms)[0m  RELEASE SAVEPOINT active_record_1
+  [1m[36mUser Exists (0.3ms)[0m  [1mSELECT  1 AS one FROM "users" WHERE (LOWER("users"."email") = LOWER('cla@gmail.com') AND "users"."id" != 980190963) LIMIT 1[0m
+  [1m[35mUser Exists (0.5ms)[0m  SELECT  1 AS one FROM "users" WHERE (LOWER("users"."email") = LOWER('cla@gmail.com') AND "users"."id" != 980190963) LIMIT 1
+  [1m[36m (0.4ms)[0m  [1mrollback transaction[0m
+  [1m[35m (0.1ms)[0m  begin transaction
+--------------------------------------------
+UserTest: test_yearofbirth_should_be_present
+--------------------------------------------
+  [1m[36m (0.2ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35mUser Exists (0.5ms)[0m  SELECT  1 AS one FROM "users" WHERE LOWER("users"."email") = LOWER('cla@gmail.com') LIMIT 1
+  [1m[36mSQL (0.4ms)[0m  [1mINSERT INTO "users" ("name", "surname", "email", "address", "yearofbirth", "password_digest", "latitude", "longitude", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?)[0m  [["name", "Claudio"], ["surname", "Alicino"], ["email", "cla@gmail.com"], ["address", "Via Alessandro Severo ,Roma ,Italia"], ["yearofbirth", 1992], ["password_digest", "$2a$04$XjEEWnbdcGsL.G5J4hU5dOnRm3nCL6bMDQYonzSrnIx1I56K6IAtu"], ["latitude", 41.854385], ["longitude", 12.4848919], ["created_at", "2017-07-25 20:22:30.475222"], ["updated_at", "2017-07-25 20:22:30.475222"]]
+  [1m[35m (0.2ms)[0m  RELEASE SAVEPOINT active_record_1
+  [1m[36mUser Exists (0.4ms)[0m  [1mSELECT  1 AS one FROM "users" WHERE (LOWER("users"."email") = LOWER('cla@gmail.com') AND "users"."id" != 980190963) LIMIT 1[0m
+  [1m[35m (0.4ms)[0m  rollback transaction
+  [1m[36m (0.2ms)[0m  [1mbegin transaction[0m
+---------------------------------------------------------------
+UserTest: test_address_validation_should_accept_valid_addresses
+---------------------------------------------------------------
+  [1m[35m (0.2ms)[0m  SAVEPOINT active_record_1
+  [1m[36mUser Exists (0.5ms)[0m  [1mSELECT  1 AS one FROM "users" WHERE LOWER("users"."email") = LOWER('cla@gmail.com') LIMIT 1[0m
+  [1m[35mSQL (0.4ms)[0m  INSERT INTO "users" ("name", "surname", "email", "address", "yearofbirth", "password_digest", "latitude", "longitude", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?)  [["name", "Claudio"], ["surname", "Alicino"], ["email", "cla@gmail.com"], ["address", "Via Alessandro Severo ,Roma ,Italia"], ["yearofbirth", 1992], ["password_digest", "$2a$04$KcyllPfldc/GmBV5pwU.AedoxikMmKJCrBsyQcdBEI8sgoiogTWY."], ["latitude", 41.854385], ["longitude", 12.4848919], ["created_at", "2017-07-25 20:22:30.763965"], ["updated_at", "2017-07-25 20:22:30.763965"]]
+  [1m[36m (0.2ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35mUser Exists (0.1ms)[0m  SELECT  1 AS one FROM "users" WHERE (LOWER("users"."email") = LOWER('cla@gmail.com') AND "users"."id" != 980190963) LIMIT 1
+  [1m[36mUser Exists (0.7ms)[0m  [1mSELECT  1 AS one FROM "users" WHERE (LOWER("users"."email") = LOWER('cla@gmail.com') AND "users"."id" != 980190963) LIMIT 1[0m
+  [1m[35m (0.5ms)[0m  rollback transaction
+  [1m[36m (0.2ms)[0m  [1mbegin transaction[0m
+--------------------------------------------
+UserTest: test_adress_should_not_be_too_long
+--------------------------------------------
+  [1m[35m (0.2ms)[0m  SAVEPOINT active_record_1
+  [1m[36mUser Exists (0.5ms)[0m  [1mSELECT  1 AS one FROM "users" WHERE LOWER("users"."email") = LOWER('cla@gmail.com') LIMIT 1[0m
+  [1m[35mSQL (0.4ms)[0m  INSERT INTO "users" ("name", "surname", "email", "address", "yearofbirth", "password_digest", "latitude", "longitude", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?)  [["name", "Claudio"], ["surname", "Alicino"], ["email", "cla@gmail.com"], ["address", "Via Alessandro Severo ,Roma ,Italia"], ["yearofbirth", 1992], ["password_digest", "$2a$04$Iw4V/SCe9RMxKdRd40qPjOFxjnKtXAlIqoXIWoe2uffY5dAN/OjW6"], ["latitude", 41.854385], ["longitude", 12.4848919], ["created_at", "2017-07-25 20:22:31.212756"], ["updated_at", "2017-07-25 20:22:31.212756"]]
+  [1m[36m (0.2ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35mUser Exists (0.5ms)[0m  SELECT  1 AS one FROM "users" WHERE (LOWER("users"."email") = LOWER('cla@gmail.com') AND "users"."id" != 980190963) LIMIT 1
+  [1m[36m (0.4ms)[0m  [1mrollback transaction[0m
+  [1m[35m (0.3ms)[0m  begin transaction
+-----------------------------------------------
+UserTest: test_email_addresses_should_be_unique
+-----------------------------------------------
+  [1m[36m (0.1ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35mUser Exists (0.3ms)[0m  SELECT  1 AS one FROM "users" WHERE LOWER("users"."email") = LOWER('cla@gmail.com') LIMIT 1
+  [1m[36mSQL (0.5ms)[0m  [1mINSERT INTO "users" ("name", "surname", "email", "address", "yearofbirth", "password_digest", "latitude", "longitude", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?)[0m  [["name", "Claudio"], ["surname", "Alicino"], ["email", "cla@gmail.com"], ["address", "Via Alessandro Severo ,Roma ,Italia"], ["yearofbirth", 1992], ["password_digest", "$2a$04$rKDDpG2HYO9NuEWgJtDF2OWUvir7ZdCCrFScHdp0yXSpIL3V.2Lbe"], ["latitude", 41.854385], ["longitude", 12.4848919], ["created_at", "2017-07-25 20:22:31.532460"], ["updated_at", "2017-07-25 20:22:31.532460"]]
+  [1m[35m (0.2ms)[0m  RELEASE SAVEPOINT active_record_1
+  [1m[36m (0.2ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35mUser Exists (0.4ms)[0m  SELECT  1 AS one FROM "users" WHERE (LOWER("users"."email") = LOWER('cla@gmail.com') AND "users"."id" != 980190963) LIMIT 1
+  [1m[36mSQL (0.6ms)[0m  [1mUPDATE "users" SET "email" = ?, "updated_at" = ? WHERE "users"."id" = ?[0m  [["email", "cla@gmail.com"], ["updated_at", "2017-07-25 20:22:31.692302"], ["id", 980190963]]
+  [1m[35m (0.2ms)[0m  RELEASE SAVEPOINT active_record_1
+  [1m[36mUser Exists (0.3ms)[0m  [1mSELECT  1 AS one FROM "users" WHERE LOWER("users"."email") = LOWER('CLA@GMAIL.COM') LIMIT 1[0m
+  [1m[35m (0.5ms)[0m  rollback transaction
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+-------------------------------------
+UserTest: test_name_should_be_present
+-------------------------------------
+  [1m[35m (0.1ms)[0m  SAVEPOINT active_record_1
+  [1m[36mUser Exists (0.6ms)[0m  [1mSELECT  1 AS one FROM "users" WHERE LOWER("users"."email") = LOWER('cla@gmail.com') LIMIT 1[0m
+  [1m[35mSQL (0.7ms)[0m  INSERT INTO "users" ("name", "surname", "email", "address", "yearofbirth", "password_digest", "latitude", "longitude", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?)  [["name", "Claudio"], ["surname", "Alicino"], ["email", "cla@gmail.com"], ["address", "Via Alessandro Severo ,Roma ,Italia"], ["yearofbirth", 1992], ["password_digest", "$2a$04$nN7d2KeYHwVxresE9bZY1.H/zX4Qw9YyhIt.d7Z1VONwBvF0.gjz."], ["latitude", 41.854385], ["longitude", 12.4848919], ["created_at", "2017-07-25 20:22:32.020348"], ["updated_at", "2017-07-25 20:22:32.020348"]]
+  [1m[36m (0.3ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35mUser Exists (0.4ms)[0m  SELECT  1 AS one FROM "users" WHERE (LOWER("users"."email") = LOWER('cla@gmail.com') AND "users"."id" != 980190963) LIMIT 1
+  [1m[36m (0.4ms)[0m  [1mrollback transaction[0m
+  [1m[35m (0.2ms)[0m  begin transaction
+---------------------------------
+ShopperTest: test_should_be_valid
+---------------------------------
+  [1m[36m (0.2ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35mUser Exists (1.0ms)[0m  SELECT  1 AS one FROM "users" WHERE LOWER("users"."email") = LOWER('cla@gmail.com') LIMIT 1
+  [1m[36mSQL (0.4ms)[0m  [1mINSERT INTO "users" ("name", "surname", "email", "address", "yearofbirth", "password_digest", "latitude", "longitude", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?)[0m  [["name", "Claudio"], ["surname", "Alicino"], ["email", "cla@gmail.com"], ["address", "Via Alessandro Severo ,Roma ,Italia"], ["yearofbirth", 1992], ["password_digest", "$2a$04$VQtCczxF15KkfEkcw7S59.oDS351mCnxk2E8UbDhncBe.HkIbUY86"], ["latitude", 41.854385], ["longitude", 12.4848919], ["created_at", "2017-07-25 20:22:32.360303"], ["updated_at", "2017-07-25 20:22:32.360303"]]
+  [1m[35m (0.2ms)[0m  RELEASE SAVEPOINT active_record_1
+  [1m[36m (0.7ms)[0m  [1mrollback transaction[0m
+  [1m[35m (0.3ms)[0m  begin transaction
+-------------------------------------------
+ShopperTest: test_user_id_should_be_present
+-------------------------------------------
+  [1m[36m (0.2ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35mUser Exists (0.5ms)[0m  SELECT  1 AS one FROM "users" WHERE LOWER("users"."email") = LOWER('cla@gmail.com') LIMIT 1
+  [1m[36mSQL (0.5ms)[0m  [1mINSERT INTO "users" ("name", "surname", "email", "address", "yearofbirth", "password_digest", "latitude", "longitude", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?)[0m  [["name", "Claudio"], ["surname", "Alicino"], ["email", "cla@gmail.com"], ["address", "Via Alessandro Severo ,Roma ,Italia"], ["yearofbirth", 1992], ["password_digest", "$2a$04$3wfc/1zwRSiv8aaaXhkmtORgjRz3piy06iLOm4Tzre6Ze98FTnuKO"], ["latitude", 41.854385], ["longitude", 12.4848919], ["created_at", "2017-07-25 20:22:32.514588"], ["updated_at", "2017-07-25 20:22:32.514588"]]
+  [1m[35m (0.3ms)[0m  RELEASE SAVEPOINT active_record_1
+  [1m[36m (0.5ms)[0m  [1mrollback transaction[0m
+  [1m[36mActiveRecord::SchemaMigration Load (0.1ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+  [1m[35m (0.4ms)[0m  begin transaction
+  [1m[36mFixture Delete (0.5ms)[0m  [1mDELETE FROM "users"[0m
+  [1m[35mFixture Insert (0.4ms)[0m  INSERT INTO "users" ("name", "surname", "email", "yearofbirth", "address", "latitude", "longitude", "created_at", "updated_at", "id") VALUES ('MyString', 'MyString', 'MyString', NULL, 'MyString', 1.5, 1.5, '2017-07-25 20:23:52', '2017-07-25 20:23:52', 980190962)
+  [1m[36mFixture Insert (0.4ms)[0m  [1mINSERT INTO "users" ("name", "surname", "email", "yearofbirth", "address", "latitude", "longitude", "created_at", "updated_at", "id") VALUES ('MyString', 'MyString', 'MyString', NULL, 'MyString', 1.5, 1.5, '2017-07-25 20:23:52', '2017-07-25 20:23:52', 298486374)[0m
+  [1m[35mFixture Delete (0.6ms)[0m  DELETE FROM "microposts"
+  [1m[36mFixture Insert (0.3ms)[0m  [1mINSERT INTO "microposts" ("content", "vote", "user_id", "market_id", "created_at", "updated_at", "id") VALUES ('MyText', 1, NULL, NULL, '2017-07-25 20:23:52', '2017-07-25 20:23:52', 980190962)[0m
+  [1m[35mFixture Insert (0.3ms)[0m  INSERT INTO "microposts" ("content", "vote", "user_id", "market_id", "created_at", "updated_at", "id") VALUES ('MyText', 1, NULL, NULL, '2017-07-25 20:23:52', '2017-07-25 20:23:52', 298486374)
+  [1m[36mFixture Delete (0.2ms)[0m  [1mDELETE FROM "products"[0m
+  [1m[35mFixture Insert (0.3ms)[0m  INSERT INTO "products" ("name", "label", "package", "created_at", "updated_at", "id") VALUES ('MyString', 'MyString', 'MyString', '2017-07-25 20:23:52', '2017-07-25 20:23:52', 980190962)
+  [1m[36mFixture Insert (0.2ms)[0m  [1mINSERT INTO "products" ("name", "label", "package", "created_at", "updated_at", "id") VALUES ('MyString', 'MyString', 'MyString', '2017-07-25 20:23:52', '2017-07-25 20:23:52', 298486374)[0m
+  [1m[35mFixture Delete (0.2ms)[0m  DELETE FROM "shoppers"
+  [1m[36mFixture Insert (0.2ms)[0m  [1mINSERT INTO "shoppers" ("user_id", "created_at", "updated_at", "id") VALUES (NULL, '2017-07-25 20:23:52', '2017-07-25 20:23:52', 980190962)[0m
+  [1m[35mFixture Insert (0.2ms)[0m  INSERT INTO "shoppers" ("user_id", "created_at", "updated_at", "id") VALUES (NULL, '2017-07-25 20:23:52', '2017-07-25 20:23:52', 298486374)
+  [1m[36mFixture Delete (0.2ms)[0m  [1mDELETE FROM "requests"[0m
+  [1m[35mFixture Insert (0.3ms)[0m  INSERT INTO "requests" ("shopper_id", "product_id", "created_at", "updated_at", "id") VALUES (NULL, NULL, '2017-07-25 20:23:52', '2017-07-25 20:23:52', 980190962)
+  [1m[36mFixture Insert (0.3ms)[0m  [1mINSERT INTO "requests" ("shopper_id", "product_id", "created_at", "updated_at", "id") VALUES (NULL, NULL, '2017-07-25 20:23:52', '2017-07-25 20:23:52', 298486374)[0m
+  [1m[35mFixture Delete (0.2ms)[0m  DELETE FROM "markets"
+  [1m[36mFixture Insert (0.3ms)[0m  [1mINSERT INTO "markets" ("address", "group", "info", "created_at", "updated_at", "id") VALUES ('MyString', 'MyString', 'MyText', '2017-07-25 20:23:52', '2017-07-25 20:23:52', 980190962)[0m
+  [1m[35mFixture Insert (0.4ms)[0m  INSERT INTO "markets" ("address", "group", "info", "created_at", "updated_at", "id") VALUES ('MyString', 'MyString', 'MyText', '2017-07-25 20:23:52', '2017-07-25 20:23:52', 298486374)
+  [1m[36m (66.6ms)[0m  [1mcommit transaction[0m
+  [1m[35m (0.2ms)[0m  begin transaction
+----------------------------------------------
+RequestTest: test_product_id_should_be_present
+----------------------------------------------
+  [1m[36m (0.2ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.7ms)[0m  INSERT INTO "products" ("name", "label", "package", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?)  [["name", "Pasta"], ["label", "Barilla"], ["package", "500 g"], ["created_at", "2017-07-25 20:23:52.946685"], ["updated_at", "2017-07-25 20:23:52.946685"]]
+  [1m[36m (0.1ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.3ms)[0m  SAVEPOINT active_record_1
+  [1m[36mUser Exists (0.3ms)[0m  [1mSELECT  1 AS one FROM "users" WHERE LOWER("users"."email") = LOWER('cla@gmail.com') LIMIT 1[0m
+  [1m[35mSQL (0.7ms)[0m  INSERT INTO "users" ("name", "surname", "email", "address", "yearofbirth", "password_digest", "latitude", "longitude", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?)  [["name", "Claudio"], ["surname", "Alicino"], ["email", "cla@gmail.com"], ["address", "Via Alessandro Severo ,Roma ,Italia"], ["yearofbirth", 1992], ["password_digest", "$2a$04$jZ8ZRH8mCwIa34GZIe46B.PFweGA/.nKER68/MctlKc0jaNFr0iNu"], ["latitude", 41.854385], ["longitude", 12.4848919], ["created_at", "2017-07-25 20:23:53.164542"], ["updated_at", "2017-07-25 20:23:53.164542"]]
+  [1m[36m (0.2ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.2ms)[0m  SAVEPOINT active_record_1
+  [1m[36mSQL (0.4ms)[0m  [1mINSERT INTO "shoppers" ("user_id", "created_at", "updated_at") VALUES (?, ?, ?)[0m  [["user_id", 980190963], ["created_at", "2017-07-25 20:23:53.178885"], ["updated_at", "2017-07-25 20:23:53.178885"]]
+  [1m[35m (0.1ms)[0m  RELEASE SAVEPOINT active_record_1
+  [1m[36m (0.5ms)[0m  [1mrollback transaction[0m
+  [1m[35m (0.1ms)[0m  begin transaction
+----------------------------------------------
+RequestTest: test_shopper_id_should_be_present
+----------------------------------------------
+  [1m[36m (0.2ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.4ms)[0m  INSERT INTO "products" ("name", "label", "package", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?)  [["name", "Pasta"], ["label", "Barilla"], ["package", "500 g"], ["created_at", "2017-07-25 20:23:53.209307"], ["updated_at", "2017-07-25 20:23:53.209307"]]
+  [1m[36m (0.1ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.2ms)[0m  SAVEPOINT active_record_1
+  [1m[36mUser Exists (0.3ms)[0m  [1mSELECT  1 AS one FROM "users" WHERE LOWER("users"."email") = LOWER('cla@gmail.com') LIMIT 1[0m
+  [1m[35mSQL (0.5ms)[0m  INSERT INTO "users" ("name", "surname", "email", "address", "yearofbirth", "password_digest", "latitude", "longitude", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?)  [["name", "Claudio"], ["surname", "Alicino"], ["email", "cla@gmail.com"], ["address", "Via Alessandro Severo ,Roma ,Italia"], ["yearofbirth", 1992], ["password_digest", "$2a$04$ueNaqoySkCk2XNn1DmBebutHfb4I/6dxCrPGkhtb42B.EC3eLAO5C"], ["latitude", 41.854385], ["longitude", 12.4848919], ["created_at", "2017-07-25 20:23:53.377307"], ["updated_at", "2017-07-25 20:23:53.377307"]]
+  [1m[36m (0.1ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.2ms)[0m  SAVEPOINT active_record_1
+  [1m[36mSQL (1.0ms)[0m  [1mINSERT INTO "shoppers" ("user_id", "created_at", "updated_at") VALUES (?, ?, ?)[0m  [["user_id", 980190963], ["created_at", "2017-07-25 20:23:53.383750"], ["updated_at", "2017-07-25 20:23:53.383750"]]
+  [1m[35m (0.2ms)[0m  RELEASE SAVEPOINT active_record_1
+  [1m[36m (0.3ms)[0m  [1mrollback transaction[0m
+  [1m[35m (0.1ms)[0m  begin transaction
+---------------------------------
+RequestTest: test_should_be_valid
+---------------------------------
+  [1m[36m (0.2ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.5ms)[0m  INSERT INTO "products" ("name", "label", "package", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?)  [["name", "Pasta"], ["label", "Barilla"], ["package", "500 g"], ["created_at", "2017-07-25 20:23:53.392751"], ["updated_at", "2017-07-25 20:23:53.392751"]]
+  [1m[36m (0.1ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.1ms)[0m  SAVEPOINT active_record_1
+  [1m[36mUser Exists (0.3ms)[0m  [1mSELECT  1 AS one FROM "users" WHERE LOWER("users"."email") = LOWER('cla@gmail.com') LIMIT 1[0m
+  [1m[35mSQL (0.5ms)[0m  INSERT INTO "users" ("name", "surname", "email", "address", "yearofbirth", "password_digest", "latitude", "longitude", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?)  [["name", "Claudio"], ["surname", "Alicino"], ["email", "cla@gmail.com"], ["address", "Via Alessandro Severo ,Roma ,Italia"], ["yearofbirth", 1992], ["password_digest", "$2a$04$IeTLGzq7IODt0xlBUaeaTefvwn57rHKWbAJ3sgxmHgjwMOfnwvnyO"], ["latitude", 41.854385], ["longitude", 12.4848919], ["created_at", "2017-07-25 20:23:53.545629"], ["updated_at", "2017-07-25 20:23:53.545629"]]
+  [1m[36m (0.2ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.2ms)[0m  SAVEPOINT active_record_1
+  [1m[36mSQL (0.3ms)[0m  [1mINSERT INTO "shoppers" ("user_id", "created_at", "updated_at") VALUES (?, ?, ?)[0m  [["user_id", 980190963], ["created_at", "2017-07-25 20:23:53.552120"], ["updated_at", "2017-07-25 20:23:53.552120"]]
+  [1m[35m (0.1ms)[0m  RELEASE SAVEPOINT active_record_1
+  [1m[36m (0.4ms)[0m  [1mrollback transaction[0m
+  [1m[35m (0.1ms)[0m  begin transaction
+---------------------------------------------------------
+SmartShoppingControllerTest: test_should_get_corefunction
+---------------------------------------------------------
+Processing by SmartShoppingController#corefunction as HTML
+  Rendered smart_shopping/corefunction.html.erb within layouts/application (3.1ms)
+  [1m[36mUser Load (0.2ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."id" IS NULL LIMIT 1[0m
+Completed 200 OK in 344ms (Views: 343.1ms | ActiveRecord: 0.2ms)
+  [1m[35m (0.1ms)[0m  rollback transaction
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+---------------------------------
+ShopperTest: test_should_be_valid
+---------------------------------
+  [1m[35m (0.1ms)[0m  SAVEPOINT active_record_1
+  [1m[36mUser Exists (0.1ms)[0m  [1mSELECT  1 AS one FROM "users" WHERE LOWER("users"."email") = LOWER('cla@gmail.com') LIMIT 1[0m
+  [1m[35mSQL (0.1ms)[0m  INSERT INTO "users" ("name", "surname", "email", "address", "yearofbirth", "password_digest", "latitude", "longitude", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?)  [["name", "Claudio"], ["surname", "Alicino"], ["email", "cla@gmail.com"], ["address", "Via Alessandro Severo ,Roma ,Italia"], ["yearofbirth", 1992], ["password_digest", "$2a$04$Qfr/M8P.JVoIYstzLzbSZuAgfYvQx16/s2WUUXIis72PDUuoyxvwK"], ["latitude", 41.854385], ["longitude", 12.4848919], ["created_at", "2017-07-25 20:23:54.196049"], ["updated_at", "2017-07-25 20:23:54.196049"]]
+  [1m[36m (0.1ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.1ms)[0m  rollback transaction
+  [1m[36m (0.0ms)[0m  [1mbegin transaction[0m
+-------------------------------------------
+ShopperTest: test_user_id_should_be_present
+-------------------------------------------
+  [1m[35m (0.0ms)[0m  SAVEPOINT active_record_1
+  [1m[36mUser Exists (0.1ms)[0m  [1mSELECT  1 AS one FROM "users" WHERE LOWER("users"."email") = LOWER('cla@gmail.com') LIMIT 1[0m
+  [1m[35mSQL (0.5ms)[0m  INSERT INTO "users" ("name", "surname", "email", "address", "yearofbirth", "password_digest", "latitude", "longitude", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?)  [["name", "Claudio"], ["surname", "Alicino"], ["email", "cla@gmail.com"], ["address", "Via Alessandro Severo ,Roma ,Italia"], ["yearofbirth", 1992], ["password_digest", "$2a$04$SwBo3R4JsIpLDLkzIj.TE.kAm9vdVa7IJqZ1gF7lPpPTgh6UkQIMy"], ["latitude", 41.854385], ["longitude", 12.4848919], ["created_at", "2017-07-25 20:23:54.342505"], ["updated_at", "2017-07-25 20:23:54.342505"]]
+  [1m[36m (0.2ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.4ms)[0m  rollback transaction
+  [1m[36m (0.0ms)[0m  [1mbegin transaction[0m
+---------------------------------------------------------------
+UserTest: test_address_validation_should_accept_valid_addresses
+---------------------------------------------------------------
+  [1m[35m (0.1ms)[0m  SAVEPOINT active_record_1
+  [1m[36mUser Exists (0.4ms)[0m  [1mSELECT  1 AS one FROM "users" WHERE LOWER("users"."email") = LOWER('cla@gmail.com') LIMIT 1[0m
+  [1m[35mSQL (0.5ms)[0m  INSERT INTO "users" ("name", "surname", "email", "address", "yearofbirth", "password_digest", "latitude", "longitude", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?)  [["name", "Claudio"], ["surname", "Alicino"], ["email", "cla@gmail.com"], ["address", "Via Alessandro Severo ,Roma ,Italia"], ["yearofbirth", 1992], ["password_digest", "$2a$04$EFO8LvM2jtdpUdZhPgXkiemaPJtcklNU3jk2tk2wk8D1KXCtztp4K"], ["latitude", 41.854385], ["longitude", 12.4848919], ["created_at", "2017-07-25 20:23:54.528231"], ["updated_at", "2017-07-25 20:23:54.528231"]]
+  [1m[36m (0.2ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35mUser Exists (0.3ms)[0m  SELECT  1 AS one FROM "users" WHERE (LOWER("users"."email") = LOWER('cla@gmail.com') AND "users"."id" != 980190963) LIMIT 1
+  [1m[36mUser Exists (0.4ms)[0m  [1mSELECT  1 AS one FROM "users" WHERE (LOWER("users"."email") = LOWER('cla@gmail.com') AND "users"."id" != 980190963) LIMIT 1[0m
+  [1m[35m (0.0ms)[0m  rollback transaction
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+-------------------------------------------
+UserTest: test_email_should_not_be_too_long
+-------------------------------------------
+  [1m[35m (0.2ms)[0m  SAVEPOINT active_record_1
+  [1m[36mUser Exists (0.4ms)[0m  [1mSELECT  1 AS one FROM "users" WHERE LOWER("users"."email") = LOWER('cla@gmail.com') LIMIT 1[0m
+  [1m[35mSQL (0.5ms)[0m  INSERT INTO "users" ("name", "surname", "email", "address", "yearofbirth", "password_digest", "latitude", "longitude", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?)  [["name", "Claudio"], ["surname", "Alicino"], ["email", "cla@gmail.com"], ["address", "Via Alessandro Severo ,Roma ,Italia"], ["yearofbirth", 1992], ["password_digest", "$2a$04$YzYDbvWHLPax3NVGrMongeuGYxJ.CExA11JcSLLkcwqT4APpGagSC"], ["latitude", 41.854385], ["longitude", 12.4848919], ["created_at", "2017-07-25 20:23:55.367452"], ["updated_at", "2017-07-25 20:23:55.367452"]]
+  [1m[36m (0.2ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35mUser Exists (0.4ms)[0m  SELECT  1 AS one FROM "users" WHERE (LOWER("users"."email") = LOWER('aaaaaaaaaaaaaaaaaaaaa@gmail.com') AND "users"."id" != 980190963) LIMIT 1
+  [1m[36m (0.6ms)[0m  [1mrollback transaction[0m
+  [1m[35m (0.1ms)[0m  begin transaction
+-------------------------------------
+UserTest: test_name_should_be_present
+-------------------------------------
+  [1m[36m (0.2ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35mUser Exists (1.5ms)[0m  SELECT  1 AS one FROM "users" WHERE LOWER("users"."email") = LOWER('cla@gmail.com') LIMIT 1
+  [1m[36mSQL (0.5ms)[0m  [1mINSERT INTO "users" ("name", "surname", "email", "address", "yearofbirth", "password_digest", "latitude", "longitude", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?)[0m  [["name", "Claudio"], ["surname", "Alicino"], ["email", "cla@gmail.com"], ["address", "Via Alessandro Severo ,Roma ,Italia"], ["yearofbirth", 1992], ["password_digest", "$2a$04$Lkl/ChHunYLq/kWNcJRgY.QrMJN5xsRBuP46ofcv5b05nUlrTUYse"], ["latitude", 41.854385], ["longitude", 12.4848919], ["created_at", "2017-07-25 20:23:55.657848"], ["updated_at", "2017-07-25 20:23:55.657848"]]
+  [1m[35m (0.1ms)[0m  RELEASE SAVEPOINT active_record_1
+  [1m[36mUser Exists (0.6ms)[0m  [1mSELECT  1 AS one FROM "users" WHERE (LOWER("users"."email") = LOWER('cla@gmail.com') AND "users"."id" != 980190963) LIMIT 1[0m
+  [1m[35m (0.5ms)[0m  rollback transaction
+  [1m[36m (0.3ms)[0m  [1mbegin transaction[0m
+---------------------------------------------
+UserTest: test_surname_should_not_be_too_long
+---------------------------------------------
+  [1m[35m (0.2ms)[0m  SAVEPOINT active_record_1
+  [1m[36mUser Exists (0.5ms)[0m  [1mSELECT  1 AS one FROM "users" WHERE LOWER("users"."email") = LOWER('cla@gmail.com') LIMIT 1[0m
+  [1m[35mSQL (0.6ms)[0m  INSERT INTO "users" ("name", "surname", "email", "address", "yearofbirth", "password_digest", "latitude", "longitude", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?)  [["name", "Claudio"], ["surname", "Alicino"], ["email", "cla@gmail.com"], ["address", "Via Alessandro Severo ,Roma ,Italia"], ["yearofbirth", 1992], ["password_digest", "$2a$04$MyTvobgjLb6DEqRZ95tZy.gMzafyUm4JEt73xiNa/2Lg3z0zeo6Uu"], ["latitude", 41.854385], ["longitude", 12.4848919], ["created_at", "2017-07-25 20:23:55.958047"], ["updated_at", "2017-07-25 20:23:55.958047"]]
+  [1m[36m (0.1ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35mUser Exists (0.6ms)[0m  SELECT  1 AS one FROM "users" WHERE (LOWER("users"."email") = LOWER('cla@gmail.com') AND "users"."id" != 980190963) LIMIT 1
+  [1m[36m (0.4ms)[0m  [1mrollback transaction[0m
+  [1m[35m (0.2ms)[0m  begin transaction
+-----------------------------------------------
+UserTest: test_email_addresses_should_be_unique
+-----------------------------------------------
+  [1m[36m (0.2ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35mUser Exists (0.4ms)[0m  SELECT  1 AS one FROM "users" WHERE LOWER("users"."email") = LOWER('cla@gmail.com') LIMIT 1
+  [1m[36mSQL (0.5ms)[0m  [1mINSERT INTO "users" ("name", "surname", "email", "address", "yearofbirth", "password_digest", "latitude", "longitude", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?)[0m  [["name", "Claudio"], ["surname", "Alicino"], ["email", "cla@gmail.com"], ["address", "Via Alessandro Severo ,Roma ,Italia"], ["yearofbirth", 1992], ["password_digest", "$2a$04$qNxzNAy5v0AxBbx2O02WJew4Ypkw3UaDBpaH2GrAh8m19WUVU4fgi"], ["latitude", 41.854385], ["longitude", 12.4848919], ["created_at", "2017-07-25 20:23:56.314595"], ["updated_at", "2017-07-25 20:23:56.314595"]]
+  [1m[35m (0.2ms)[0m  RELEASE SAVEPOINT active_record_1
+  [1m[36m (0.4ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35mUser Exists (0.4ms)[0m  SELECT  1 AS one FROM "users" WHERE (LOWER("users"."email") = LOWER('cla@gmail.com') AND "users"."id" != 980190963) LIMIT 1
+  [1m[36mSQL (0.6ms)[0m  [1mUPDATE "users" SET "email" = ?, "updated_at" = ? WHERE "users"."id" = ?[0m  [["email", "cla@gmail.com"], ["updated_at", "2017-07-25 20:23:56.461595"], ["id", 980190963]]
+  [1m[35m (0.2ms)[0m  RELEASE SAVEPOINT active_record_1
+  [1m[36mUser Exists (0.9ms)[0m  [1mSELECT  1 AS one FROM "users" WHERE LOWER("users"."email") = LOWER('CLA@GMAIL.COM') LIMIT 1[0m
+  [1m[35m (0.5ms)[0m  rollback transaction
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+-------------------------------------------------------------
+UserTest: test_email_validation_should_accept_valid_addresses
+-------------------------------------------------------------
+  [1m[35m (0.2ms)[0m  SAVEPOINT active_record_1
+  [1m[36mUser Exists (0.6ms)[0m  [1mSELECT  1 AS one FROM "users" WHERE LOWER("users"."email") = LOWER('cla@gmail.com') LIMIT 1[0m
+  [1m[35mSQL (0.4ms)[0m  INSERT INTO "users" ("name", "surname", "email", "address", "yearofbirth", "password_digest", "latitude", "longitude", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?)  [["name", "Claudio"], ["surname", "Alicino"], ["email", "cla@gmail.com"], ["address", "Via Alessandro Severo ,Roma ,Italia"], ["yearofbirth", 1992], ["password_digest", "$2a$04$rHiJf6uD1Rd5ZXywnhhJWuVZ.m6ZkbA4iZtYU2X2MgC60g8bEt9SG"], ["latitude", 41.854385], ["longitude", 12.4848919], ["created_at", "2017-07-25 20:23:56.779832"], ["updated_at", "2017-07-25 20:23:56.779832"]]
+  [1m[36m (0.2ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35mUser Exists (0.3ms)[0m  SELECT  1 AS one FROM "users" WHERE (LOWER("users"."email") = LOWER('user@example.com') AND "users"."id" != 980190963) LIMIT 1
+  [1m[36mUser Exists (0.3ms)[0m  [1mSELECT  1 AS one FROM "users" WHERE (LOWER("users"."email") = LOWER('USER@foo.COM') AND "users"."id" != 980190963) LIMIT 1[0m
+  [1m[35mUser Exists (0.4ms)[0m  SELECT  1 AS one FROM "users" WHERE (LOWER("users"."email") = LOWER('A_US-ER@foo.bar.org') AND "users"."id" != 980190963) LIMIT 1
+  [1m[36mUser Exists (0.1ms)[0m  [1mSELECT  1 AS one FROM "users" WHERE (LOWER("users"."email") = LOWER('first.last@foo.jp') AND "users"."id" != 980190963) LIMIT 1[0m
+  [1m[35mUser Exists (0.6ms)[0m  SELECT  1 AS one FROM "users" WHERE (LOWER("users"."email") = LOWER('alice+bob@baz.cn') AND "users"."id" != 980190963) LIMIT 1
+  [1m[36m (0.6ms)[0m  [1mrollback transaction[0m
+  [1m[35m (0.1ms)[0m  begin transaction
+----------------------------------------
+UserTest: test_address_should_be_present
+----------------------------------------
+  [1m[36m (0.1ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35mUser Exists (0.5ms)[0m  SELECT  1 AS one FROM "users" WHERE LOWER("users"."email") = LOWER('cla@gmail.com') LIMIT 1
+  [1m[36mSQL (0.5ms)[0m  [1mINSERT INTO "users" ("name", "surname", "email", "address", "yearofbirth", "password_digest", "latitude", "longitude", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?)[0m  [["name", "Claudio"], ["surname", "Alicino"], ["email", "cla@gmail.com"], ["address", "Via Alessandro Severo ,Roma ,Italia"], ["yearofbirth", 1992], ["password_digest", "$2a$04$.hzGtimSdpDg9hoBCjDKQuFKzVJ6ut1amxnEfAbW6QDQ0mlcs3hRG"], ["latitude", 41.854385], ["longitude", 12.4848919], ["created_at", "2017-07-25 20:23:57.722076"], ["updated_at", "2017-07-25 20:23:57.722076"]]
+  [1m[35m (0.2ms)[0m  RELEASE SAVEPOINT active_record_1
+  [1m[36mUser Exists (0.3ms)[0m  [1mSELECT  1 AS one FROM "users" WHERE (LOWER("users"."email") = LOWER('cla@gmail.com') AND "users"."id" != 980190963) LIMIT 1[0m
+  [1m[35m (0.4ms)[0m  rollback transaction
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+----------------------------------------------------
+UserTest: test_password_should_have_a_minimum_length
+----------------------------------------------------
+  [1m[35m (0.1ms)[0m  SAVEPOINT active_record_1
+  [1m[36mUser Exists (2.3ms)[0m  [1mSELECT  1 AS one FROM "users" WHERE LOWER("users"."email") = LOWER('cla@gmail.com') LIMIT 1[0m
+  [1m[35mSQL (0.4ms)[0m  INSERT INTO "users" ("name", "surname", "email", "address", "yearofbirth", "password_digest", "latitude", "longitude", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?)  [["name", "Claudio"], ["surname", "Alicino"], ["email", "cla@gmail.com"], ["address", "Via Alessandro Severo ,Roma ,Italia"], ["yearofbirth", 1992], ["password_digest", "$2a$04$MJrQxSUjXCxcfhVpI5BwD.sBlvGs/K/v4wL2sYRSkOwfQLfTHgz3q"], ["latitude", 41.854385], ["longitude", 12.4848919], ["created_at", "2017-07-25 20:23:57.884939"], ["updated_at", "2017-07-25 20:23:57.884939"]]
+  [1m[36m (2.3ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35mUser Exists (0.3ms)[0m  SELECT  1 AS one FROM "users" WHERE (LOWER("users"."email") = LOWER('cla@gmail.com') AND "users"."id" != 980190963) LIMIT 1
+  [1m[36m (0.5ms)[0m  [1mrollback transaction[0m
+  [1m[35m (0.2ms)[0m  begin transaction
+---------------------------------------------------------------
+UserTest: test_email_validation_should_reject_invalid_addresses
+---------------------------------------------------------------
+  [1m[36m (0.2ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35mUser Exists (0.5ms)[0m  SELECT  1 AS one FROM "users" WHERE LOWER("users"."email") = LOWER('cla@gmail.com') LIMIT 1
+  [1m[36mSQL (0.4ms)[0m  [1mINSERT INTO "users" ("name", "surname", "email", "address", "yearofbirth", "password_digest", "latitude", "longitude", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?)[0m  [["name", "Claudio"], ["surname", "Alicino"], ["email", "cla@gmail.com"], ["address", "Via Alessandro Severo ,Roma ,Italia"], ["yearofbirth", 1992], ["password_digest", "$2a$04$FFyMPM5aX8EOQRaNicrx1efYDa6k5/TXKxzZOeDDp5xQp7Ort9YhS"], ["latitude", 41.854385], ["longitude", 12.4848919], ["created_at", "2017-07-25 20:23:58.208942"], ["updated_at", "2017-07-25 20:23:58.208942"]]
+  [1m[35m (0.2ms)[0m  RELEASE SAVEPOINT active_record_1
+  [1m[36mUser Exists (0.5ms)[0m  [1mSELECT  1 AS one FROM "users" WHERE (LOWER("users"."email") = LOWER('user@example,com') AND "users"."id" != 980190963) LIMIT 1[0m
+  [1m[35mUser Exists (0.4ms)[0m  SELECT  1 AS one FROM "users" WHERE (LOWER("users"."email") = LOWER('user_at_foo.org') AND "users"."id" != 980190963) LIMIT 1
+  [1m[36mUser Exists (0.3ms)[0m  [1mSELECT  1 AS one FROM "users" WHERE (LOWER("users"."email") = LOWER('user.name@example.') AND "users"."id" != 980190963) LIMIT 1[0m
+  [1m[35mUser Exists (0.3ms)[0m  SELECT  1 AS one FROM "users" WHERE (LOWER("users"."email") = LOWER('foo@bar_baz.com') AND "users"."id" != 980190963) LIMIT 1
+  [1m[36mUser Exists (0.2ms)[0m  [1mSELECT  1 AS one FROM "users" WHERE (LOWER("users"."email") = LOWER('foo@bar+baz.com') AND "users"."id" != 980190963) LIMIT 1[0m
+  [1m[35m (0.6ms)[0m  rollback transaction
+  [1m[36m (0.2ms)[0m  [1mbegin transaction[0m
+------------------------------
+UserTest: test_should_be_valid
+------------------------------
+  [1m[35m (0.2ms)[0m  SAVEPOINT active_record_1
+  [1m[36mUser Exists (0.5ms)[0m  [1mSELECT  1 AS one FROM "users" WHERE LOWER("users"."email") = LOWER('cla@gmail.com') LIMIT 1[0m
+  [1m[35mSQL (0.4ms)[0m  INSERT INTO "users" ("name", "surname", "email", "address", "yearofbirth", "password_digest", "latitude", "longitude", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?)  [["name", "Claudio"], ["surname", "Alicino"], ["email", "cla@gmail.com"], ["address", "Via Alessandro Severo ,Roma ,Italia"], ["yearofbirth", 1992], ["password_digest", "$2a$04$hm0QHayOpMb0x8PSjw2wZ.COSSvoVQKH7UuXz/4T8ZXzv13GXX4Ly"], ["latitude", 41.854385], ["longitude", 12.4848919], ["created_at", "2017-07-25 20:23:59.176354"], ["updated_at", "2017-07-25 20:23:59.176354"]]
+  [1m[36m (0.2ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35mUser Exists (0.3ms)[0m  SELECT  1 AS one FROM "users" WHERE (LOWER("users"."email") = LOWER('cla@gmail.com') AND "users"."id" != 980190963) LIMIT 1
+  [1m[36m (0.4ms)[0m  [1mrollback transaction[0m
+  [1m[35m (0.1ms)[0m  begin transaction
+-----------------------------------------------------------------
+UserTest: test_address_validation_should_reject_invalid_addresses
+-----------------------------------------------------------------
+  [1m[36m (0.1ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35mUser Exists (0.5ms)[0m  SELECT  1 AS one FROM "users" WHERE LOWER("users"."email") = LOWER('cla@gmail.com') LIMIT 1
+  [1m[36mSQL (0.5ms)[0m  [1mINSERT INTO "users" ("name", "surname", "email", "address", "yearofbirth", "password_digest", "latitude", "longitude", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?)[0m  [["name", "Claudio"], ["surname", "Alicino"], ["email", "cla@gmail.com"], ["address", "Via Alessandro Severo ,Roma ,Italia"], ["yearofbirth", 1992], ["password_digest", "$2a$04$G4ARxQmGqh/CaxxCwg.4xenpoPBxUBzT35OvDSDUtDIt/3pSxj6Mm"], ["latitude", 41.854385], ["longitude", 12.4848919], ["created_at", "2017-07-25 20:23:59.497106"], ["updated_at", "2017-07-25 20:23:59.497106"]]
+  [1m[35m (0.4ms)[0m  RELEASE SAVEPOINT active_record_1
+  [1m[36mUser Exists (0.4ms)[0m  [1mSELECT  1 AS one FROM "users" WHERE (LOWER("users"."email") = LOWER('cla@gmail.com') AND "users"."id" != 980190963) LIMIT 1[0m
+  [1m[35mUser Exists (0.3ms)[0m  SELECT  1 AS one FROM "users" WHERE (LOWER("users"."email") = LOWER('cla@gmail.com') AND "users"."id" != 980190963) LIMIT 1
+  [1m[36m (0.6ms)[0m  [1mrollback transaction[0m
+  [1m[35m (0.2ms)[0m  begin transaction
+--------------------------------------------
+UserTest: test_yearofbirth_should_be_present
+--------------------------------------------
+  [1m[36m (0.3ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35mUser Exists (0.3ms)[0m  SELECT  1 AS one FROM "users" WHERE LOWER("users"."email") = LOWER('cla@gmail.com') LIMIT 1
+  [1m[36mSQL (1.5ms)[0m  [1mINSERT INTO "users" ("name", "surname", "email", "address", "yearofbirth", "password_digest", "latitude", "longitude", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?)[0m  [["name", "Claudio"], ["surname", "Alicino"], ["email", "cla@gmail.com"], ["address", "Via Alessandro Severo ,Roma ,Italia"], ["yearofbirth", 1992], ["password_digest", "$2a$04$yO9wmU3ToAQB3AEAbGj58OMXzc8g89hbLzefVpaMD7PUvyrCCzx9S"], ["latitude", 41.854385], ["longitude", 12.4848919], ["created_at", "2017-07-25 20:23:59.946984"], ["updated_at", "2017-07-25 20:23:59.946984"]]
+  [1m[35m (0.3ms)[0m  RELEASE SAVEPOINT active_record_1
+  [1m[36mUser Exists (0.8ms)[0m  [1mSELECT  1 AS one FROM "users" WHERE (LOWER("users"."email") = LOWER('cla@gmail.com') AND "users"."id" != 980190963) LIMIT 1[0m
+  [1m[35m (0.5ms)[0m  rollback transaction
+  [1m[36m (0.4ms)[0m  [1mbegin transaction[0m
+--------------------------------------------
+UserTest: test_adress_should_not_be_too_long
+--------------------------------------------
+  [1m[35m (0.2ms)[0m  SAVEPOINT active_record_1
+  [1m[36mUser Exists (0.4ms)[0m  [1mSELECT  1 AS one FROM "users" WHERE LOWER("users"."email") = LOWER('cla@gmail.com') LIMIT 1[0m
+  [1m[35mSQL (0.5ms)[0m  INSERT INTO "users" ("name", "surname", "email", "address", "yearofbirth", "password_digest", "latitude", "longitude", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?)  [["name", "Claudio"], ["surname", "Alicino"], ["email", "cla@gmail.com"], ["address", "Via Alessandro Severo ,Roma ,Italia"], ["yearofbirth", 1992], ["password_digest", "$2a$04$E9gKjD9mJPTLAJXeT6snxOBneTK.cuNSglfUcznUKUj0Mrf2k5OyK"], ["latitude", 41.854385], ["longitude", 12.4848919], ["created_at", "2017-07-25 20:24:00.566046"], ["updated_at", "2017-07-25 20:24:00.566046"]]
+  [1m[36m (0.2ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35mUser Exists (0.4ms)[0m  SELECT  1 AS one FROM "users" WHERE (LOWER("users"."email") = LOWER('cla@gmail.com') AND "users"."id" != 980190963) LIMIT 1
+  [1m[36m (0.8ms)[0m  [1mrollback transaction[0m
+  [1m[35m (0.2ms)[0m  begin transaction
+--------------------------------------
+UserTest: test_email_should_be_present
+--------------------------------------
+  [1m[36m (0.4ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35mUser Exists (0.3ms)[0m  SELECT  1 AS one FROM "users" WHERE LOWER("users"."email") = LOWER('cla@gmail.com') LIMIT 1
+  [1m[36mSQL (0.4ms)[0m  [1mINSERT INTO "users" ("name", "surname", "email", "address", "yearofbirth", "password_digest", "latitude", "longitude", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?)[0m  [["name", "Claudio"], ["surname", "Alicino"], ["email", "cla@gmail.com"], ["address", "Via Alessandro Severo ,Roma ,Italia"], ["yearofbirth", 1992], ["password_digest", "$2a$04$Kfjpn1YbHx9CkRVHaJesnuyUOeDBOsUrOFZg0WpTnnmBAaqvQRAmG"], ["latitude", 41.854385], ["longitude", 12.4848919], ["created_at", "2017-07-25 20:24:00.870411"], ["updated_at", "2017-07-25 20:24:00.870411"]]
+  [1m[35m (0.2ms)[0m  RELEASE SAVEPOINT active_record_1
+  [1m[36mUser Exists (0.3ms)[0m  [1mSELECT  1 AS one FROM "users" WHERE (LOWER("users"."email") = LOWER('     ') AND "users"."id" != 980190963) LIMIT 1[0m
+  [1m[35m (0.5ms)[0m  rollback transaction
+  [1m[36m (0.4ms)[0m  [1mbegin transaction[0m
+----------------------------------------
+UserTest: test_surname_should_be_present
+----------------------------------------
+  [1m[35m (0.1ms)[0m  SAVEPOINT active_record_1
+  [1m[36mUser Exists (1.4ms)[0m  [1mSELECT  1 AS one FROM "users" WHERE LOWER("users"."email") = LOWER('cla@gmail.com') LIMIT 1[0m
+  [1m[35mSQL (0.4ms)[0m  INSERT INTO "users" ("name", "surname", "email", "address", "yearofbirth", "password_digest", "latitude", "longitude", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?)  [["name", "Claudio"], ["surname", "Alicino"], ["email", "cla@gmail.com"], ["address", "Via Alessandro Severo ,Roma ,Italia"], ["yearofbirth", 1992], ["password_digest", "$2a$04$Oq7rlt04MHoDgJTNExyST.AZdqLK4lM5E4cVCK/pbQ2cZ56UCv6q6"], ["latitude", 41.854385], ["longitude", 12.4848919], ["created_at", "2017-07-25 20:24:01.185273"], ["updated_at", "2017-07-25 20:24:01.185273"]]
+  [1m[36m (0.2ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35mUser Exists (0.3ms)[0m  SELECT  1 AS one FROM "users" WHERE (LOWER("users"."email") = LOWER('cla@gmail.com') AND "users"."id" != 980190963) LIMIT 1
+  [1m[36m (1.4ms)[0m  [1mrollback transaction[0m
+  [1m[35m (0.1ms)[0m  begin transaction
+------------------------------------------
+UserTest: test_name_should_not_be_too_long
+------------------------------------------
+  [1m[36m (0.1ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35mUser Exists (0.5ms)[0m  SELECT  1 AS one FROM "users" WHERE LOWER("users"."email") = LOWER('cla@gmail.com') LIMIT 1
+  [1m[36mSQL (0.8ms)[0m  [1mINSERT INTO "users" ("name", "surname", "email", "address", "yearofbirth", "password_digest", "latitude", "longitude", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?)[0m  [["name", "Claudio"], ["surname", "Alicino"], ["email", "cla@gmail.com"], ["address", "Via Alessandro Severo ,Roma ,Italia"], ["yearofbirth", 1992], ["password_digest", "$2a$04$L1Ii5Gs22mfDfgVn2qEvQ.jzFrUTFYYq21AnhMkY0dm3i4YY7ZoBS"], ["latitude", 41.854385], ["longitude", 12.4848919], ["created_at", "2017-07-25 20:24:01.532923"], ["updated_at", "2017-07-25 20:24:01.532923"]]
+  [1m[35m (0.2ms)[0m  RELEASE SAVEPOINT active_record_1
+  [1m[36mUser Exists (0.3ms)[0m  [1mSELECT  1 AS one FROM "users" WHERE (LOWER("users"."email") = LOWER('cla@gmail.com') AND "users"."id" != 980190963) LIMIT 1[0m
+  [1m[35m (0.4ms)[0m  rollback transaction
+  [1m[36m (0.8ms)[0m  [1mbegin transaction[0m
+-----------------------------------------
+PagesControllerTest: test_should_get_help
+-----------------------------------------
+Processing by PagesController#help as HTML
+  Rendered pages/help.html.erb within layouts/application (1.0ms)
+  [1m[35mUser Load (0.6ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."id" IS NULL LIMIT 1
+Completed 200 OK in 20ms (Views: 19.0ms | ActiveRecord: 0.6ms)
+  [1m[36m (0.2ms)[0m  [1mrollback transaction[0m
+  [1m[35m (0.1ms)[0m  begin transaction
+------------------------------------------
+PagesControllerTest: test_should_get_howto
+------------------------------------------
+Processing by PagesController#howto as HTML
+  Rendered pages/howto.html.erb within layouts/application (1.5ms)
+  [1m[36mUser Load (0.5ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."id" IS NULL LIMIT 1[0m
+Completed 200 OK in 11ms (Views: 10.4ms | ActiveRecord: 0.5ms)
+  [1m[35m (0.6ms)[0m  rollback transaction
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+---------------------------------------------
+PagesControllerTest: test_should_get_homepage
+---------------------------------------------
+Processing by PagesController#homepage as HTML
+  Rendered pages/homepage.html.erb within layouts/application (1.7ms)
+  [1m[35mUser Load (0.5ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."id" IS NULL LIMIT 1
+Completed 200 OK in 13ms (Views: 11.7ms | ActiveRecord: 0.5ms)
+  [1m[36m (0.2ms)[0m  [1mrollback transaction[0m
+  [1m[35m (0.1ms)[0m  begin transaction
+-----------------------------------
+MicropostTest: test_should_be_valid
+-----------------------------------
+  [1m[36m (0.2ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.6ms)[0m  INSERT INTO "markets" ("address", "group", "info", "latitude", "longitude", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?)  [["address", "Via Alessandro Severo ,Roma ,Italia"], ["group", "Conad"], ["info", "Orari di apertura"], ["latitude", 41.854385], ["longitude", 12.4848919], ["created_at", "2017-07-25 20:24:01.903125"], ["updated_at", "2017-07-25 20:24:01.903125"]]
+  [1m[36m (0.5ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.2ms)[0m  SAVEPOINT active_record_1
+  [1m[36mUser Exists (0.3ms)[0m  [1mSELECT  1 AS one FROM "users" WHERE LOWER("users"."email") = LOWER('cla@gmail.com') LIMIT 1[0m
+  [1m[35mSQL (0.5ms)[0m  INSERT INTO "users" ("name", "surname", "email", "address", "yearofbirth", "password_digest", "latitude", "longitude", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?)  [["name", "Claudio"], ["surname", "Alicino"], ["email", "cla@gmail.com"], ["address", "Via Alessandro Severo ,Roma ,Italia"], ["yearofbirth", 1992], ["password_digest", "$2a$04$j5Eo1oAs7icL63XQUW93lO.1E.iHU/T..HoHI.pWubtvG2bQcmlom"], ["latitude", 41.854385], ["longitude", 12.4848919], ["created_at", "2017-07-25 20:24:02.062071"], ["updated_at", "2017-07-25 20:24:02.062071"]]
+  [1m[36m (0.2ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.6ms)[0m  rollback transaction
+  [1m[36m (0.2ms)[0m  [1mbegin transaction[0m
+-----------------------------------------------
+MicropostTest: test_market_id_should_be_present
+-----------------------------------------------
+  [1m[35m (0.1ms)[0m  SAVEPOINT active_record_1
+  [1m[36mSQL (0.5ms)[0m  [1mINSERT INTO "markets" ("address", "group", "info", "latitude", "longitude", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?)[0m  [["address", "Via Alessandro Severo ,Roma ,Italia"], ["group", "Conad"], ["info", "Orari di apertura"], ["latitude", 41.854385], ["longitude", 12.4848919], ["created_at", "2017-07-25 20:24:02.294116"], ["updated_at", "2017-07-25 20:24:02.294116"]]
+  [1m[35m (0.2ms)[0m  RELEASE SAVEPOINT active_record_1
+  [1m[36m (0.2ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35mUser Exists (0.4ms)[0m  SELECT  1 AS one FROM "users" WHERE LOWER("users"."email") = LOWER('cla@gmail.com') LIMIT 1
+  [1m[36mSQL (0.4ms)[0m  [1mINSERT INTO "users" ("name", "surname", "email", "address", "yearofbirth", "password_digest", "latitude", "longitude", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?)[0m  [["name", "Claudio"], ["surname", "Alicino"], ["email", "cla@gmail.com"], ["address", "Via Alessandro Severo ,Roma ,Italia"], ["yearofbirth", 1992], ["password_digest", "$2a$04$muOcJBAKeHw5QadV8tZ9UuUUlTPvYO8bd.p0z0pakG1sFknVA7B2K"], ["latitude", 41.854385], ["longitude", 12.4848919], ["created_at", "2017-07-25 20:24:02.450339"], ["updated_at", "2017-07-25 20:24:02.450339"]]
+  [1m[35m (0.4ms)[0m  RELEASE SAVEPOINT active_record_1
+  [1m[36m (0.4ms)[0m  [1mrollback transaction[0m
+  [1m[35m (0.2ms)[0m  begin transaction
+------------------------------------------
+MicropostTest: test_vote_should_be_present
+------------------------------------------
+  [1m[36m (0.1ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO "markets" ("address", "group", "info", "latitude", "longitude", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?)  [["address", "Via Alessandro Severo ,Roma ,Italia"], ["group", "Conad"], ["info", "Orari di apertura"], ["latitude", 41.854385], ["longitude", 12.4848919], ["created_at", "2017-07-25 20:24:02.608083"], ["updated_at", "2017-07-25 20:24:02.608083"]]
+  [1m[36m (0.2ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.2ms)[0m  SAVEPOINT active_record_1
+  [1m[36mUser Exists (0.4ms)[0m  [1mSELECT  1 AS one FROM "users" WHERE LOWER("users"."email") = LOWER('cla@gmail.com') LIMIT 1[0m
+  [1m[35mSQL (0.5ms)[0m  INSERT INTO "users" ("name", "surname", "email", "address", "yearofbirth", "password_digest", "latitude", "longitude", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?)  [["name", "Claudio"], ["surname", "Alicino"], ["email", "cla@gmail.com"], ["address", "Via Alessandro Severo ,Roma ,Italia"], ["yearofbirth", 1992], ["password_digest", "$2a$04$CUT6SBpaLi1eEwE1BxEcwO7LvRtwaRtCXj.1B.YwtVGOyMIk72Xli"], ["latitude", 41.854385], ["longitude", 12.4848919], ["created_at", "2017-07-25 20:24:02.750761"], ["updated_at", "2017-07-25 20:24:02.750761"]]
+  [1m[36m (0.2ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.4ms)[0m  rollback transaction
+  [1m[36m (0.2ms)[0m  [1mbegin transaction[0m
+---------------------------------------------
+MicropostTest: test_content_should_be_present
+---------------------------------------------
+  [1m[35m (0.3ms)[0m  SAVEPOINT active_record_1
+  [1m[36mSQL (0.6ms)[0m  [1mINSERT INTO "markets" ("address", "group", "info", "latitude", "longitude", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?)[0m  [["address", "Via Alessandro Severo ,Roma ,Italia"], ["group", "Conad"], ["info", "Orari di apertura"], ["latitude", 41.854385], ["longitude", 12.4848919], ["created_at", "2017-07-25 20:24:02.903010"], ["updated_at", "2017-07-25 20:24:02.903010"]]
+  [1m[35m (0.2ms)[0m  RELEASE SAVEPOINT active_record_1
+  [1m[36m (0.2ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35mUser Exists (0.4ms)[0m  SELECT  1 AS one FROM "users" WHERE LOWER("users"."email") = LOWER('cla@gmail.com') LIMIT 1
+  [1m[36mSQL (0.5ms)[0m  [1mINSERT INTO "users" ("name", "surname", "email", "address", "yearofbirth", "password_digest", "latitude", "longitude", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?)[0m  [["name", "Claudio"], ["surname", "Alicino"], ["email", "cla@gmail.com"], ["address", "Via Alessandro Severo ,Roma ,Italia"], ["yearofbirth", 1992], ["password_digest", "$2a$04$y8oz6IEKqtl4hlUpFtsk0edgqGOU0ZShyCyGnFl.A1s0ZgfxbUAuG"], ["latitude", 41.854385], ["longitude", 12.4848919], ["created_at", "2017-07-25 20:24:03.045139"], ["updated_at", "2017-07-25 20:24:03.045139"]]
+  [1m[35m (1.3ms)[0m  RELEASE SAVEPOINT active_record_1
+  [1m[36m (0.4ms)[0m  [1mrollback transaction[0m
+  [1m[35m (0.1ms)[0m  begin transaction
+--------------------------------------------------
+MicropostTest: test_content_should_not_be_too_long
+--------------------------------------------------
+  [1m[36m (0.1ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (1.3ms)[0m  INSERT INTO "markets" ("address", "group", "info", "latitude", "longitude", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?)  [["address", "Via Alessandro Severo ,Roma ,Italia"], ["group", "Conad"], ["info", "Orari di apertura"], ["latitude", 41.854385], ["longitude", 12.4848919], ["created_at", "2017-07-25 20:24:03.201668"], ["updated_at", "2017-07-25 20:24:03.201668"]]
+  [1m[36m (0.2ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.1ms)[0m  SAVEPOINT active_record_1
+  [1m[36mUser Exists (0.3ms)[0m  [1mSELECT  1 AS one FROM "users" WHERE LOWER("users"."email") = LOWER('cla@gmail.com') LIMIT 1[0m
+  [1m[35mSQL (0.6ms)[0m  INSERT INTO "users" ("name", "surname", "email", "address", "yearofbirth", "password_digest", "latitude", "longitude", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?)  [["name", "Claudio"], ["surname", "Alicino"], ["email", "cla@gmail.com"], ["address", "Via Alessandro Severo ,Roma ,Italia"], ["yearofbirth", 1992], ["password_digest", "$2a$04$yNsxdsbHEsSVoHJ/ftdH8ebXKPVGjl2gyI/PlobtvRHDINlM3SII2"], ["latitude", 41.854385], ["longitude", 12.4848919], ["created_at", "2017-07-25 20:24:03.349434"], ["updated_at", "2017-07-25 20:24:03.349434"]]
+  [1m[36m (0.2ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.4ms)[0m  rollback transaction
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+---------------------------------------------
+MicropostTest: test_user_id_should_be_present
+---------------------------------------------
+  [1m[35m (0.1ms)[0m  SAVEPOINT active_record_1
+  [1m[36mSQL (0.4ms)[0m  [1mINSERT INTO "markets" ("address", "group", "info", "latitude", "longitude", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?)[0m  [["address", "Via Alessandro Severo ,Roma ,Italia"], ["group", "Conad"], ["info", "Orari di apertura"], ["latitude", 41.854385], ["longitude", 12.4848919], ["created_at", "2017-07-25 20:24:03.502514"], ["updated_at", "2017-07-25 20:24:03.502514"]]
+  [1m[35m (0.3ms)[0m  RELEASE SAVEPOINT active_record_1
+  [1m[36m (0.2ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35mUser Exists (0.5ms)[0m  SELECT  1 AS one FROM "users" WHERE LOWER("users"."email") = LOWER('cla@gmail.com') LIMIT 1
+  [1m[36mSQL (0.5ms)[0m  [1mINSERT INTO "users" ("name", "surname", "email", "address", "yearofbirth", "password_digest", "latitude", "longitude", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?)[0m  [["name", "Claudio"], ["surname", "Alicino"], ["email", "cla@gmail.com"], ["address", "Via Alessandro Severo ,Roma ,Italia"], ["yearofbirth", 1992], ["password_digest", "$2a$04$ZCRl5HeXt7.byrmx56UnAOXmhlTM8uw6TuQi/9.SA74rhSIDpaq1W"], ["latitude", 41.854385], ["longitude", 12.4848919], ["created_at", "2017-07-25 20:24:03.662251"], ["updated_at", "2017-07-25 20:24:03.662251"]]
+  [1m[35m (0.2ms)[0m  RELEASE SAVEPOINT active_record_1
+  [1m[36m (0.5ms)[0m  [1mrollback transaction[0m
+  [1m[35m (0.2ms)[0m  begin transaction
+-----------------------------------------
+ProductTest: test_label_should_be_present
+-----------------------------------------
+  [1m[36m (0.1ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.5ms)[0m  INSERT INTO "products" ("name", "label", "package", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?)  [["name", "Pasta"], ["label", "Barilla"], ["package", "500 g"], ["created_at", "2017-07-25 20:24:03.674897"], ["updated_at", "2017-07-25 20:24:03.674897"]]
+  [1m[36m (0.2ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.2ms)[0m  rollback transaction
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+----------------------------------------------
+ProductTest: test_label_should_not_be_too_long
+----------------------------------------------
+  [1m[35m (0.1ms)[0m  SAVEPOINT active_record_1
+  [1m[36mSQL (0.6ms)[0m  [1mINSERT INTO "products" ("name", "label", "package", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?)[0m  [["name", "Pasta"], ["label", "Barilla"], ["package", "500 g"], ["created_at", "2017-07-25 20:24:03.685831"], ["updated_at", "2017-07-25 20:24:03.685831"]]
+  [1m[35m (0.2ms)[0m  RELEASE SAVEPOINT active_record_1
+  [1m[36m (0.3ms)[0m  [1mrollback transaction[0m
+  [1m[35m (0.1ms)[0m  begin transaction
+---------------------------------
+ProductTest: test_should_be_valid
+---------------------------------
+  [1m[36m (0.1ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.5ms)[0m  INSERT INTO "products" ("name", "label", "package", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?)  [["name", "Pasta"], ["label", "Barilla"], ["package", "500 g"], ["created_at", "2017-07-25 20:24:03.693981"], ["updated_at", "2017-07-25 20:24:03.693981"]]
+  [1m[36m (1.1ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.6ms)[0m  rollback transaction
+  [1m[36m (0.2ms)[0m  [1mbegin transaction[0m
+------------------------------------------------
+ProductTest: test_package_should_not_be_too_long
+------------------------------------------------
+  [1m[35m (0.2ms)[0m  SAVEPOINT active_record_1
+  [1m[36mSQL (0.4ms)[0m  [1mINSERT INTO "products" ("name", "label", "package", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?)[0m  [["name", "Pasta"], ["label", "Barilla"], ["package", "500 g"], ["created_at", "2017-07-25 20:24:03.703599"], ["updated_at", "2017-07-25 20:24:03.703599"]]
+  [1m[35m (0.1ms)[0m  RELEASE SAVEPOINT active_record_1
+  [1m[36m (0.3ms)[0m  [1mrollback transaction[0m
+  [1m[35m (0.1ms)[0m  begin transaction
+---------------------------------------------
+ProductTest: test_name_should_not_be_too_long
+---------------------------------------------
+  [1m[36m (0.1ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (1.1ms)[0m  INSERT INTO "products" ("name", "label", "package", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?)  [["name", "Pasta"], ["label", "Barilla"], ["package", "500 g"], ["created_at", "2017-07-25 20:24:03.712074"], ["updated_at", "2017-07-25 20:24:03.712074"]]
+  [1m[36m (0.1ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.3ms)[0m  rollback transaction
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+-------------------------------------------
+ProductTest: test_package_should_be_present
+-------------------------------------------
+  [1m[35m (0.2ms)[0m  SAVEPOINT active_record_1
+  [1m[36mSQL (0.3ms)[0m  [1mINSERT INTO "products" ("name", "label", "package", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?)[0m  [["name", "Pasta"], ["label", "Barilla"], ["package", "500 g"], ["created_at", "2017-07-25 20:24:03.720398"], ["updated_at", "2017-07-25 20:24:03.720398"]]
+  [1m[35m (0.2ms)[0m  RELEASE SAVEPOINT active_record_1
+  [1m[36m (1.6ms)[0m  [1mrollback transaction[0m
+  [1m[35m (0.1ms)[0m  begin transaction
+----------------------------------------
+ProductTest: test_name_should_be_present
+----------------------------------------
+  [1m[36m (0.2ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.4ms)[0m  INSERT INTO "products" ("name", "label", "package", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?)  [["name", "Pasta"], ["label", "Barilla"], ["package", "500 g"], ["created_at", "2017-07-25 20:24:03.729590"], ["updated_at", "2017-07-25 20:24:03.729590"]]
+  [1m[36m (0.2ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (1.0ms)[0m  rollback transaction
+  [1m[36m (0.2ms)[0m  [1mbegin transaction[0m
+-------------------------------------------
+SessionsControllerTest: test_should_get_new
+-------------------------------------------
+Processing by SessionsController#new as HTML
+  Rendered sessions/new.html.erb within layouts/application (26.3ms)
+  [1m[35mUser Load (0.4ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."id" IS NULL LIMIT 1
+Completed 200 OK in 43ms (Views: 41.7ms | ActiveRecord: 0.4ms)
+  [1m[36m (0.2ms)[0m  [1mrollback transaction[0m
+  [1m[35m (0.3ms)[0m  begin transaction
+-------------------------------------------------------------------
+MarketTest: test_address_validation_should_reject_invalid_addresses
+-------------------------------------------------------------------
+  [1m[36m (0.1ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.5ms)[0m  INSERT INTO "markets" ("address", "group", "info", "latitude", "longitude", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?)  [["address", "Via Alessandro Severo ,Roma ,Italia"], ["group", "Conad"], ["info", "Orari di apertura"], ["latitude", 41.854385], ["longitude", 12.4848919], ["created_at", "2017-07-25 20:24:03.942231"], ["updated_at", "2017-07-25 20:24:03.942231"]]
+  [1m[36m (0.2ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.1ms)[0m  rollback transaction
+  [1m[36m (0.2ms)[0m  [1mbegin transaction[0m
+----------------------------------------
+MarketTest: test_group_should_be_present
+----------------------------------------
+  [1m[35m (0.1ms)[0m  SAVEPOINT active_record_1
+  [1m[36mSQL (0.4ms)[0m  [1mINSERT INTO "markets" ("address", "group", "info", "latitude", "longitude", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?)[0m  [["address", "Via Alessandro Severo ,Roma ,Italia"], ["group", "Conad"], ["info", "Orari di apertura"], ["latitude", 41.854385], ["longitude", 12.4848919], ["created_at", "2017-07-25 20:24:04.401515"], ["updated_at", "2017-07-25 20:24:04.401515"]]
+  [1m[35m (0.2ms)[0m  RELEASE SAVEPOINT active_record_1
+  [1m[36m (0.5ms)[0m  [1mrollback transaction[0m
+  [1m[35m (0.2ms)[0m  begin transaction
+---------------------------------------------
+MarketTest: test_group_should_not_be_too_long
+---------------------------------------------
+  [1m[36m (0.2ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.5ms)[0m  INSERT INTO "markets" ("address", "group", "info", "latitude", "longitude", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?)  [["address", "Via Alessandro Severo ,Roma ,Italia"], ["group", "Conad"], ["info", "Orari di apertura"], ["latitude", 41.854385], ["longitude", 12.4848919], ["created_at", "2017-07-25 20:24:04.665275"], ["updated_at", "2017-07-25 20:24:04.665275"]]
+  [1m[36m (0.2ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.5ms)[0m  rollback transaction
+  [1m[36m (0.2ms)[0m  [1mbegin transaction[0m
+------------------------------------------
+MarketTest: test_address_should_be_present
+------------------------------------------
+  [1m[35m (0.3ms)[0m  SAVEPOINT active_record_1
+  [1m[36mSQL (0.4ms)[0m  [1mINSERT INTO "markets" ("address", "group", "info", "latitude", "longitude", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?)[0m  [["address", "Via Alessandro Severo ,Roma ,Italia"], ["group", "Conad"], ["info", "Orari di apertura"], ["latitude", 41.854385], ["longitude", 12.4848919], ["created_at", "2017-07-25 20:24:04.948201"], ["updated_at", "2017-07-25 20:24:04.948201"]]
+  [1m[35m (0.2ms)[0m  RELEASE SAVEPOINT active_record_1
+  [1m[36m (0.5ms)[0m  [1mrollback transaction[0m
+  [1m[35m (0.2ms)[0m  begin transaction
+-----------------------------------------------
+MarketTest: test_address_should_not_be_too_long
+-----------------------------------------------
+  [1m[36m (0.1ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.5ms)[0m  INSERT INTO "markets" ("address", "group", "info", "latitude", "longitude", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?)  [["address", "Via Alessandro Severo ,Roma ,Italia"], ["group", "Conad"], ["info", "Orari di apertura"], ["latitude", 41.854385], ["longitude", 12.4848919], ["created_at", "2017-07-25 20:24:05.100584"], ["updated_at", "2017-07-25 20:24:05.100584"]]
+  [1m[36m (0.2ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.5ms)[0m  rollback transaction
+  [1m[36m (0.4ms)[0m  [1mbegin transaction[0m
+---------------------------------------
+MarketTest: test_info_should_be_present
+---------------------------------------
+  [1m[35m (0.1ms)[0m  SAVEPOINT active_record_1
+  [1m[36mSQL (0.4ms)[0m  [1mINSERT INTO "markets" ("address", "group", "info", "latitude", "longitude", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?)[0m  [["address", "Via Alessandro Severo ,Roma ,Italia"], ["group", "Conad"], ["info", "Orari di apertura"], ["latitude", 41.854385], ["longitude", 12.4848919], ["created_at", "2017-07-25 20:24:05.536282"], ["updated_at", "2017-07-25 20:24:05.536282"]]
+  [1m[35m (0.2ms)[0m  RELEASE SAVEPOINT active_record_1
+  [1m[36m (0.3ms)[0m  [1mrollback transaction[0m
+  [1m[35m (0.2ms)[0m  begin transaction
+--------------------------------
+MarketTest: test_should_be_valid
+--------------------------------
+  [1m[36m (0.2ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.4ms)[0m  INSERT INTO "markets" ("address", "group", "info", "latitude", "longitude", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?)  [["address", "Via Alessandro Severo ,Roma ,Italia"], ["group", "Conad"], ["info", "Orari di apertura"], ["latitude", 41.854385], ["longitude", 12.4848919], ["created_at", "2017-07-25 20:24:05.798129"], ["updated_at", "2017-07-25 20:24:05.798129"]]
+  [1m[36m (0.1ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.7ms)[0m  rollback transaction
+  [1m[36m (0.2ms)[0m  [1mbegin transaction[0m
+-----------------------------------------------------------------
+MarketTest: test_address_validation_should_accept_valid_addresses
+-----------------------------------------------------------------
+  [1m[35m (0.1ms)[0m  SAVEPOINT active_record_1
+  [1m[36mSQL (0.5ms)[0m  [1mINSERT INTO "markets" ("address", "group", "info", "latitude", "longitude", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?)[0m  [["address", "Via Alessandro Severo ,Roma ,Italia"], ["group", "Conad"], ["info", "Orari di apertura"], ["latitude", 41.854385], ["longitude", 12.4848919], ["created_at", "2017-07-25 20:24:06.075832"], ["updated_at", "2017-07-25 20:24:06.075832"]]
+  [1m[35m (0.2ms)[0m  RELEASE SAVEPOINT active_record_1
+  [1m[36m (1.0ms)[0m  [1mrollback transaction[0m
+  [1m[35m (0.2ms)[0m  begin transaction
+--------------------------------------------
+MarketTest: test_info_should_not_be_too_long
+--------------------------------------------
+  [1m[36m (0.2ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.6ms)[0m  INSERT INTO "markets" ("address", "group", "info", "latitude", "longitude", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?)  [["address", "Via Alessandro Severo ,Roma ,Italia"], ["group", "Conad"], ["info", "Orari di apertura"], ["latitude", 41.854385], ["longitude", 12.4848919], ["created_at", "2017-07-25 20:24:06.562187"], ["updated_at", "2017-07-25 20:24:06.562187"]]
+  [1m[36m (0.2ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.5ms)[0m  rollback transaction
+  [1m[36m (0.0ms)[0m  [1mbegin transaction[0m
+----------------------------------------
+UsersControllerTest: test_should_get_new
+----------------------------------------
+  [1m[35m (0.2ms)[0m  SAVEPOINT active_record_1
+  [1m[36mUser Exists (0.4ms)[0m  [1mSELECT  1 AS one FROM "users" WHERE LOWER("users"."email") = LOWER('cla@gmail.com') LIMIT 1[0m
+  [1m[35mSQL (0.5ms)[0m  INSERT INTO "users" ("name", "surname", "email", "address", "yearofbirth", "password_digest", "latitude", "longitude", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?)  [["name", "Claudio"], ["surname", "Alicino"], ["email", "cla@gmail.com"], ["address", "via alessandro severo ,roma ,italia"], ["yearofbirth", 1992], ["password_digest", "$2a$04$6l1l8S22m6.XVfVvTdPJvujzkIJYyxn.VrNWotl4sM5HLu0bFE.oK"], ["latitude", 41.854385], ["longitude", 12.4848919], ["created_at", "2017-07-25 20:24:06.851471"], ["updated_at", "2017-07-25 20:24:06.851471"]]
+  [1m[36m (0.2ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+Processing by UsersController#new as HTML
+  Rendered shared/_error_messages.html.erb (2.0ms)
+  Rendered users/new.html.erb within layouts/application (24.7ms)
+  [1m[35mUser Load (0.4ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."id" IS NULL LIMIT 1
+Completed 200 OK in 40ms (Views: 39.1ms | ActiveRecord: 0.4ms)
+  [1m[36m (0.6ms)[0m  [1mrollback transaction[0m
+  [1m[35m (0.1ms)[0m  begin transaction
+-----------------------------------------
+UsersControllerTest: test_should_get_show
+-----------------------------------------
+  [1m[36m (0.2ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35mUser Exists (0.5ms)[0m  SELECT  1 AS one FROM "users" WHERE LOWER("users"."email") = LOWER('cla@gmail.com') LIMIT 1
+  [1m[36mSQL (0.5ms)[0m  [1mINSERT INTO "users" ("name", "surname", "email", "address", "yearofbirth", "password_digest", "latitude", "longitude", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?)[0m  [["name", "Claudio"], ["surname", "Alicino"], ["email", "cla@gmail.com"], ["address", "via alessandro severo ,roma ,italia"], ["yearofbirth", 1992], ["password_digest", "$2a$04$IF7AA9egJauzfaA6buOcbutmcmcilpJ.h1wyUqYEDKR/NnDOV8Nh6"], ["latitude", 41.854385], ["longitude", 12.4848919], ["created_at", "2017-07-25 20:24:07.050948"], ["updated_at", "2017-07-25 20:24:07.050948"]]
+  [1m[35m (0.1ms)[0m  RELEASE SAVEPOINT active_record_1
+Processing by UsersController#show as HTML
+  Parameters: {"id"=>"980190963"}
+  [1m[36mUser Load (0.5ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT 1[0m  [["id", 980190963]]
+  Rendered users/show.html.erb within layouts/application (4.2ms)
+  [1m[35mUser Load (0.5ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."id" IS NULL LIMIT 1
+Completed 200 OK in 20ms (Views: 13.0ms | ActiveRecord: 1.0ms)
+  [1m[36m (0.5ms)[0m  [1mrollback transaction[0m
