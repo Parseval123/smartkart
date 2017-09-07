@@ -2103,3 +2103,2839 @@ Processing by SmartShoppingController#makelist as HTML
   Rendered smart_shopping/makelist.html.erb within layouts/application (3.1ms)
   [1m[36mUser Load (1.0ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT 1[0m  [["id", 1]]
 Completed 200 OK in 57ms (Views: 53.2ms | ActiveRecord: 1.3ms)
+  [1m[36mActiveRecord::SchemaMigration Load (0.3ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+Migrating to CreateManagers (20170906202441)
+  [1m[35m (0.3ms)[0m  begin transaction
+  [1m[36m (0.6ms)[0m  [1mCREATE TABLE "managers" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "name" varchar, "surname" varchar, "yearofbirth" integer, "tel" varchar, "email" varchar, "curriculum" text, "password" varchar, "created_at" datetime NOT NULL, "updated_at" datetime NOT NULL) [0m
+  [1m[35mSQL (0.3ms)[0m  INSERT INTO "schema_migrations" ("version") VALUES (?)  [["version", "20170906202441"]]
+  [1m[36m (9.6ms)[0m  [1mcommit transaction[0m
+  [1m[35mActiveRecord::SchemaMigration Load (0.2ms)[0m  SELECT "schema_migrations".* FROM "schema_migrations"
+  [1m[36m (0.2ms)[0m  [1m            SELECT sql
+            FROM sqlite_master
+            WHERE name='index_microposts_on_market_id' AND type='index'
+            UNION ALL
+            SELECT sql
+            FROM sqlite_temp_master
+            WHERE name='index_microposts_on_market_id' AND type='index'
+[0m
+  [1m[35m (0.3ms)[0m              SELECT sql
+            FROM sqlite_master
+            WHERE name='index_microposts_on_user_id' AND type='index'
+            UNION ALL
+            SELECT sql
+            FROM sqlite_temp_master
+            WHERE name='index_microposts_on_user_id' AND type='index'
+
+  [1m[36m (0.2ms)[0m  [1m            SELECT sql
+            FROM sqlite_master
+            WHERE name='index_owners_on_market_id' AND type='index'
+            UNION ALL
+            SELECT sql
+            FROM sqlite_temp_master
+            WHERE name='index_owners_on_market_id' AND type='index'
+[0m
+  [1m[35m (0.2ms)[0m              SELECT sql
+            FROM sqlite_master
+            WHERE name='index_owners_on_product_id' AND type='index'
+            UNION ALL
+            SELECT sql
+            FROM sqlite_temp_master
+            WHERE name='index_owners_on_product_id' AND type='index'
+
+  [1m[36m (0.2ms)[0m  [1m            SELECT sql
+            FROM sqlite_master
+            WHERE name='index_requests_on_product_id' AND type='index'
+            UNION ALL
+            SELECT sql
+            FROM sqlite_temp_master
+            WHERE name='index_requests_on_product_id' AND type='index'
+[0m
+  [1m[35m (0.1ms)[0m              SELECT sql
+            FROM sqlite_master
+            WHERE name='index_requests_on_shopper_id' AND type='index'
+            UNION ALL
+            SELECT sql
+            FROM sqlite_temp_master
+            WHERE name='index_requests_on_shopper_id' AND type='index'
+
+  [1m[36m (0.1ms)[0m  [1m            SELECT sql
+            FROM sqlite_master
+            WHERE name='index_shoppers_on_user_id' AND type='index'
+            UNION ALL
+            SELECT sql
+            FROM sqlite_temp_master
+            WHERE name='index_shoppers_on_user_id' AND type='index'
+[0m
+  [1m[36mActiveRecord::SchemaMigration Load (0.2ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+Migrating to AddManagerIdToMarkets (20170906202651)
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36m (0.6ms)[0m  [1mALTER TABLE "markets" ADD "manager_id" integer[0m
+  [1m[35m (0.1ms)[0m  select sqlite_version(*)
+  [1m[36m (0.2ms)[0m  [1mCREATE  INDEX "index_markets_on_manager_id" ON "markets" ("manager_id")[0m
+  [1m[35mSQL (0.4ms)[0m  INSERT INTO "schema_migrations" ("version") VALUES (?)  [["version", "20170906202651"]]
+  [1m[36m (9.6ms)[0m  [1mcommit transaction[0m
+  [1m[35mActiveRecord::SchemaMigration Load (0.3ms)[0m  SELECT "schema_migrations".* FROM "schema_migrations"
+  [1m[36m (0.2ms)[0m  [1m            SELECT sql
+            FROM sqlite_master
+            WHERE name='index_markets_on_manager_id' AND type='index'
+            UNION ALL
+            SELECT sql
+            FROM sqlite_temp_master
+            WHERE name='index_markets_on_manager_id' AND type='index'
+[0m
+  [1m[35m (0.2ms)[0m              SELECT sql
+            FROM sqlite_master
+            WHERE name='index_microposts_on_market_id' AND type='index'
+            UNION ALL
+            SELECT sql
+            FROM sqlite_temp_master
+            WHERE name='index_microposts_on_market_id' AND type='index'
+
+  [1m[36m (0.1ms)[0m  [1m            SELECT sql
+            FROM sqlite_master
+            WHERE name='index_microposts_on_user_id' AND type='index'
+            UNION ALL
+            SELECT sql
+            FROM sqlite_temp_master
+            WHERE name='index_microposts_on_user_id' AND type='index'
+[0m
+  [1m[35m (0.3ms)[0m              SELECT sql
+            FROM sqlite_master
+            WHERE name='index_owners_on_market_id' AND type='index'
+            UNION ALL
+            SELECT sql
+            FROM sqlite_temp_master
+            WHERE name='index_owners_on_market_id' AND type='index'
+
+  [1m[36m (0.2ms)[0m  [1m            SELECT sql
+            FROM sqlite_master
+            WHERE name='index_owners_on_product_id' AND type='index'
+            UNION ALL
+            SELECT sql
+            FROM sqlite_temp_master
+            WHERE name='index_owners_on_product_id' AND type='index'
+[0m
+  [1m[35m (0.2ms)[0m              SELECT sql
+            FROM sqlite_master
+            WHERE name='index_requests_on_product_id' AND type='index'
+            UNION ALL
+            SELECT sql
+            FROM sqlite_temp_master
+            WHERE name='index_requests_on_product_id' AND type='index'
+
+  [1m[36m (0.1ms)[0m  [1m            SELECT sql
+            FROM sqlite_master
+            WHERE name='index_requests_on_shopper_id' AND type='index'
+            UNION ALL
+            SELECT sql
+            FROM sqlite_temp_master
+            WHERE name='index_requests_on_shopper_id' AND type='index'
+[0m
+  [1m[35m (0.2ms)[0m              SELECT sql
+            FROM sqlite_master
+            WHERE name='index_shoppers_on_user_id' AND type='index'
+            UNION ALL
+            SELECT sql
+            FROM sqlite_temp_master
+            WHERE name='index_shoppers_on_user_id' AND type='index'
+
+  [1m[36mActiveRecord::SchemaMigration Load (0.2ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+Migrating to AddPasswordDigestToManagers (20170906202945)
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36m (0.6ms)[0m  [1mALTER TABLE "managers" ADD "password_digest" varchar[0m
+  [1m[35mSQL (0.4ms)[0m  INSERT INTO "schema_migrations" ("version") VALUES (?)  [["version", "20170906202945"]]
+  [1m[36m (10.0ms)[0m  [1mcommit transaction[0m
+  [1m[35mActiveRecord::SchemaMigration Load (1.1ms)[0m  SELECT "schema_migrations".* FROM "schema_migrations"
+  [1m[36m (0.2ms)[0m  [1m            SELECT sql
+            FROM sqlite_master
+            WHERE name='index_markets_on_manager_id' AND type='index'
+            UNION ALL
+            SELECT sql
+            FROM sqlite_temp_master
+            WHERE name='index_markets_on_manager_id' AND type='index'
+[0m
+  [1m[35m (0.2ms)[0m              SELECT sql
+            FROM sqlite_master
+            WHERE name='index_microposts_on_market_id' AND type='index'
+            UNION ALL
+            SELECT sql
+            FROM sqlite_temp_master
+            WHERE name='index_microposts_on_market_id' AND type='index'
+
+  [1m[36m (0.2ms)[0m  [1m            SELECT sql
+            FROM sqlite_master
+            WHERE name='index_microposts_on_user_id' AND type='index'
+            UNION ALL
+            SELECT sql
+            FROM sqlite_temp_master
+            WHERE name='index_microposts_on_user_id' AND type='index'
+[0m
+  [1m[35m (0.2ms)[0m              SELECT sql
+            FROM sqlite_master
+            WHERE name='index_owners_on_market_id' AND type='index'
+            UNION ALL
+            SELECT sql
+            FROM sqlite_temp_master
+            WHERE name='index_owners_on_market_id' AND type='index'
+
+  [1m[36m (0.1ms)[0m  [1m            SELECT sql
+            FROM sqlite_master
+            WHERE name='index_owners_on_product_id' AND type='index'
+            UNION ALL
+            SELECT sql
+            FROM sqlite_temp_master
+            WHERE name='index_owners_on_product_id' AND type='index'
+[0m
+  [1m[35m (0.2ms)[0m              SELECT sql
+            FROM sqlite_master
+            WHERE name='index_requests_on_product_id' AND type='index'
+            UNION ALL
+            SELECT sql
+            FROM sqlite_temp_master
+            WHERE name='index_requests_on_product_id' AND type='index'
+
+  [1m[36m (0.2ms)[0m  [1m            SELECT sql
+            FROM sqlite_master
+            WHERE name='index_requests_on_shopper_id' AND type='index'
+            UNION ALL
+            SELECT sql
+            FROM sqlite_temp_master
+            WHERE name='index_requests_on_shopper_id' AND type='index'
+[0m
+  [1m[35m (0.1ms)[0m              SELECT sql
+            FROM sqlite_master
+            WHERE name='index_shoppers_on_user_id' AND type='index'
+            UNION ALL
+            SELECT sql
+            FROM sqlite_temp_master
+            WHERE name='index_shoppers_on_user_id' AND type='index'
+
+  [1m[36mActiveRecord::SchemaMigration Load (0.5ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+  [1m[35mActiveRecord::SchemaMigration Load (0.4ms)[0m  SELECT "schema_migrations".* FROM "schema_migrations"
+  [1m[36m (0.7ms)[0m  [1m            SELECT sql
+            FROM sqlite_master
+            WHERE name='index_markets_on_manager_id' AND type='index'
+            UNION ALL
+            SELECT sql
+            FROM sqlite_temp_master
+            WHERE name='index_markets_on_manager_id' AND type='index'
+[0m
+  [1m[35m (0.8ms)[0m              SELECT sql
+            FROM sqlite_master
+            WHERE name='index_microposts_on_market_id' AND type='index'
+            UNION ALL
+            SELECT sql
+            FROM sqlite_temp_master
+            WHERE name='index_microposts_on_market_id' AND type='index'
+
+  [1m[36m (0.3ms)[0m  [1m            SELECT sql
+            FROM sqlite_master
+            WHERE name='index_microposts_on_user_id' AND type='index'
+            UNION ALL
+            SELECT sql
+            FROM sqlite_temp_master
+            WHERE name='index_microposts_on_user_id' AND type='index'
+[0m
+  [1m[35m (1.1ms)[0m              SELECT sql
+            FROM sqlite_master
+            WHERE name='index_owners_on_market_id' AND type='index'
+            UNION ALL
+            SELECT sql
+            FROM sqlite_temp_master
+            WHERE name='index_owners_on_market_id' AND type='index'
+
+  [1m[36m (0.7ms)[0m  [1m            SELECT sql
+            FROM sqlite_master
+            WHERE name='index_owners_on_product_id' AND type='index'
+            UNION ALL
+            SELECT sql
+            FROM sqlite_temp_master
+            WHERE name='index_owners_on_product_id' AND type='index'
+[0m
+  [1m[35m (0.7ms)[0m              SELECT sql
+            FROM sqlite_master
+            WHERE name='index_requests_on_product_id' AND type='index'
+            UNION ALL
+            SELECT sql
+            FROM sqlite_temp_master
+            WHERE name='index_requests_on_product_id' AND type='index'
+
+  [1m[36m (0.6ms)[0m  [1m            SELECT sql
+            FROM sqlite_master
+            WHERE name='index_requests_on_shopper_id' AND type='index'
+            UNION ALL
+            SELECT sql
+            FROM sqlite_temp_master
+            WHERE name='index_requests_on_shopper_id' AND type='index'
+[0m
+  [1m[35m (0.4ms)[0m              SELECT sql
+            FROM sqlite_master
+            WHERE name='index_shoppers_on_user_id' AND type='index'
+            UNION ALL
+            SELECT sql
+            FROM sqlite_temp_master
+            WHERE name='index_shoppers_on_user_id' AND type='index'
+
+
+
+Started GET "/" for 127.0.0.1 at 2017-09-07 01:26:40 +0200
+  [1m[36mActiveRecord::SchemaMigration Load (1.2ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+Processing by PagesController#homepage as HTML
+  Rendered pages/homepage.html.erb within layouts/application (3.4ms)
+  [1m[35mUser Load (0.6ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."id" IS NULL LIMIT 1
+Completed 200 OK in 1760ms (Views: 1722.3ms | ActiveRecord: 1.1ms)
+
+
+Started GET "/assets/sessionsm.self-e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855.css?body=1" for 127.0.0.1 at 2017-09-07 01:26:43 +0200
+
+
+Started GET "/assets/sessionsm.self-877aef30ae1b040ab8a3aba4e3e309a11d7f2612f44dde450b5c157aa5f95c05.js?body=1" for 127.0.0.1 at 2017-09-07 01:26:43 +0200
+
+
+Started GET "/users/new" for 127.0.0.1 at 2017-09-07 01:26:49 +0200
+Processing by UsersController#new as HTML
+  Rendered shared/_error_messages.html.erb (3.3ms)
+  Rendered users/new.html.erb within layouts/application (133.2ms)
+  [1m[36mUser Load (0.6ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."id" IS NULL LIMIT 1[0m
+Completed 200 OK in 337ms (Views: 309.4ms | ActiveRecord: 1.9ms)
+
+
+Started GET "/" for 127.0.0.1 at 2017-09-07 01:27:02 +0200
+Processing by PagesController#homepage as HTML
+  Rendered pages/homepage.html.erb within layouts/application (0.7ms)
+  [1m[35mUser Load (0.7ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."id" IS NULL LIMIT 1
+Completed 200 OK in 195ms (Views: 192.4ms | ActiveRecord: 0.7ms)
+
+
+Started GET "/" for 127.0.0.1 at 2017-09-07 01:27:06 +0200
+Processing by PagesController#homepage as HTML
+  Rendered pages/homepage.html.erb within layouts/application (0.9ms)
+  [1m[36mUser Load (0.4ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."id" IS NULL LIMIT 1[0m
+Completed 200 OK in 248ms (Views: 245.3ms | ActiveRecord: 0.4ms)
+
+
+Started GET "/" for 127.0.0.1 at 2017-09-07 01:27:43 +0200
+Processing by PagesController#homepage as HTML
+  Rendered pages/homepage.html.erb within layouts/application (2.3ms)
+  [1m[35mUser Load (0.5ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."id" IS NULL LIMIT 1
+Completed 200 OK in 209ms (Views: 206.3ms | ActiveRecord: 0.5ms)
+
+
+Started GET "/managers/new" for 127.0.0.1 at 2017-09-07 01:27:47 +0200
+Processing by ManagersController#new as HTML
+  Rendered shared/_error_messages2.html.erb (1.4ms)
+  Rendered managers/new.html.erb within layouts/application (29.4ms)
+  [1m[36mUser Load (0.8ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."id" IS NULL LIMIT 1[0m
+Completed 200 OK in 263ms (Views: 203.7ms | ActiveRecord: 1.8ms)
+
+
+Started POST "/managers" for 127.0.0.1 at 2017-09-07 01:28:04 +0200
+Processing by ManagersController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"iEsVto+dvLWKdPuM6ubvaHzwbOunHOyOEZDyYAUd6qpK+ZbrJJZVGIi/qBzYLb/EEen9EYwWeQqcKSpwOkCaVQ==", "manager"=>{"name"=>"", "surname"=>"", "yearofbirth"=>"1", "email"=>"", "tel"=>"Via Paolo Paruta 20", "curriculum"=>"", "password"=>"[FILTERED]", "password_confirmation"=>"[FILTERED]"}, "commit"=>"Create my account"}
+  [1m[35m (0.3ms)[0m  begin transaction
+  [1m[36mManager Exists (1.3ms)[0m  [1mSELECT  1 AS one FROM "managers" WHERE LOWER("managers"."email") = LOWER('') LIMIT 1[0m
+  [1m[35m (2.8ms)[0m  rollback transaction
+  Rendered shared/_error_messages2.html.erb (11.1ms)
+  Rendered managers/new.html.erb within layouts/application (21.0ms)
+  [1m[36mUser Load (1.0ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."id" IS NULL LIMIT 1[0m
+Completed 200 OK in 439ms (Views: 268.1ms | ActiveRecord: 5.3ms)
+
+
+Started GET "/login" for 127.0.0.1 at 2017-09-07 01:28:28 +0200
+Processing by SessionsController#new as HTML
+  Rendered sessions/new.html.erb within layouts/application (9.1ms)
+  [1m[35mUser Load (0.5ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."id" IS NULL LIMIT 1
+Completed 200 OK in 207ms (Views: 204.7ms | ActiveRecord: 0.5ms)
+
+
+Started GET "/login" for 127.0.0.1 at 2017-09-07 01:28:32 +0200
+Processing by SessionsController#new as HTML
+  Rendered sessions/new.html.erb within layouts/application (2.4ms)
+  [1m[36mUser Load (0.6ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."id" IS NULL LIMIT 1[0m
+Completed 200 OK in 202ms (Views: 198.4ms | ActiveRecord: 0.6ms)
+
+
+Started GET "/login" for 127.0.0.1 at 2017-09-07 01:28:42 +0200
+Processing by SessionsController#new as HTML
+  Rendered sessions/new.html.erb within layouts/application (2.4ms)
+  [1m[35mUser Load (0.4ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."id" IS NULL LIMIT 1
+Completed 200 OK in 197ms (Views: 195.1ms | ActiveRecord: 0.4ms)
+
+
+Started GET "/" for 127.0.0.1 at 2017-09-07 01:29:33 +0200
+Processing by PagesController#homepage as HTML
+  Rendered pages/homepage.html.erb within layouts/application (1.3ms)
+  [1m[36mUser Load (0.5ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."id" IS NULL LIMIT 1[0m
+Completed 200 OK in 205ms (Views: 202.5ms | ActiveRecord: 0.5ms)
+
+
+Started GET "/loginm" for 127.0.0.1 at 2017-09-07 01:29:37 +0200
+Processing by SessionsmController#new as HTML
+  Rendered sessionsm/new.html.erb within layouts/application (8.3ms)
+  [1m[35mUser Load (0.5ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."id" IS NULL LIMIT 1
+Completed 200 OK in 228ms (Views: 225.4ms | ActiveRecord: 0.5ms)
+
+
+Started GET "/managers/new" for 127.0.0.1 at 2017-09-07 01:29:54 +0200
+Processing by ManagersController#new as HTML
+  Rendered shared/_error_messages2.html.erb (0.2ms)
+  Rendered managers/new.html.erb within layouts/application (17.3ms)
+  [1m[36mUser Load (0.5ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."id" IS NULL LIMIT 1[0m
+Completed 200 OK in 268ms (Views: 265.4ms | ActiveRecord: 0.5ms)
+
+
+Started POST "/managers" for 127.0.0.1 at 2017-09-07 01:30:35 +0200
+Processing by ManagersController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"rtUfxzqg5ZG5fpjykySn/G13rH5iDwFKDJ0yNygEQnVsZ5yakasMPLu1y2Kh7/dQAG49hEkFlM6BJOonF1kyig==", "manager"=>{"name"=>"Mario", "surname"=>"Rossi", "yearofbirth"=>"1957", "email"=>"rossi@gmail.com", "tel"=>"3398267248", "curriculum"=>"BLABLABLA", "password"=>"[FILTERED]", "password_confirmation"=>"[FILTERED]"}, "commit"=>"Create my account"}
+  [1m[35m (0.2ms)[0m  begin transaction
+  [1m[36mManager Exists (0.5ms)[0m  [1mSELECT  1 AS one FROM "managers" WHERE LOWER("managers"."email") = LOWER('rossi@gmail.com') LIMIT 1[0m
+  [1m[35mSQL (2.1ms)[0m  INSERT INTO "managers" ("name", "surname", "tel", "yearofbirth", "email", "curriculum", "password_digest", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?)  [["name", "Mario"], ["surname", "Rossi"], ["tel", "3398267248"], ["yearofbirth", 1957], ["email", "rossi@gmail.com"], ["curriculum", "BLABLABLA"], ["password_digest", "$2a$10$sJWXGGnGYlKpGzCXQhTcSuBmv/fThqQ5rxNVuB2wjzehBgIjvpqym"], ["created_at", "2017-09-06 23:30:35.675813"], ["updated_at", "2017-09-06 23:30:35.675813"]]
+  [1m[36m (15.0ms)[0m  [1mcommit transaction[0m
+Completed 500 Internal Server Error in 198ms (ActiveRecord: 17.8ms)
+
+NoMethodError (undefined method `log_in_m' for #<ManagersController:0x007f33c6fe6090>
+Did you mean?  log_in):
+  app/controllers/managers_controller.rb:12:in `create'
+
+
+  Rendered /home/biar/.rvm/gems/ruby-2.3.0/gems/actionpack-4.2.5.1/lib/action_dispatch/middleware/templates/rescues/_source.erb (18.3ms)
+  Rendered /home/biar/.rvm/gems/ruby-2.3.0/gems/actionpack-4.2.5.1/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (7.4ms)
+  Rendered /home/biar/.rvm/gems/ruby-2.3.0/gems/actionpack-4.2.5.1/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (2.7ms)
+  Rendered /home/biar/.rvm/gems/ruby-2.3.0/gems/actionpack-4.2.5.1/lib/action_dispatch/middleware/templates/rescues/diagnostics.html.erb within rescues/layout (78.8ms)
+  Rendered /home/biar/.rvm/gems/ruby-2.3.0/gems/web-console-2.3.0/lib/web_console/templates/_markup.html.erb (0.9ms)
+  Rendered /home/biar/.rvm/gems/ruby-2.3.0/gems/web-console-2.3.0/lib/web_console/templates/_inner_console_markup.html.erb within layouts/inlined_string (0.3ms)
+  Rendered /home/biar/.rvm/gems/ruby-2.3.0/gems/web-console-2.3.0/lib/web_console/templates/_prompt_box_markup.html.erb within layouts/inlined_string (0.4ms)
+  Rendered /home/biar/.rvm/gems/ruby-2.3.0/gems/web-console-2.3.0/lib/web_console/templates/style.css.erb within layouts/inlined_string (1.4ms)
+  Rendered /home/biar/.rvm/gems/ruby-2.3.0/gems/web-console-2.3.0/lib/web_console/templates/console.js.erb within layouts/javascript (44.2ms)
+  Rendered /home/biar/.rvm/gems/ruby-2.3.0/gems/web-console-2.3.0/lib/web_console/templates/main.js.erb within layouts/javascript (1.2ms)
+  Rendered /home/biar/.rvm/gems/ruby-2.3.0/gems/web-console-2.3.0/lib/web_console/templates/error_page.js.erb within layouts/javascript (1.6ms)
+  Rendered /home/biar/.rvm/gems/ruby-2.3.0/gems/web-console-2.3.0/lib/web_console/templates/index.html.erb (93.4ms)
+
+
+Started GET "/" for 127.0.0.1 at 2017-09-07 01:33:34 +0200
+Processing by PagesController#homepage as HTML
+  Rendered pages/homepage.html.erb within layouts/application (0.8ms)
+  [1m[35mUser Load (2.2ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."id" IS NULL LIMIT 1
+Completed 200 OK in 237ms (Views: 232.4ms | ActiveRecord: 2.8ms)
+
+
+Started GET "/loginm" for 127.0.0.1 at 2017-09-07 01:33:38 +0200
+Processing by SessionsmController#new as HTML
+  Rendered sessionsm/new.html.erb within layouts/application (5.6ms)
+  [1m[36mUser Load (0.7ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."id" IS NULL LIMIT 1[0m
+Completed 200 OK in 227ms (Views: 224.2ms | ActiveRecord: 0.7ms)
+
+
+Started GET "/managers/new" for 127.0.0.1 at 2017-09-07 01:33:41 +0200
+Processing by ManagersController#new as HTML
+  Rendered shared/_error_messages2.html.erb (0.4ms)
+  Rendered managers/new.html.erb within layouts/application (21.2ms)
+  [1m[35mUser Load (0.9ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."id" IS NULL LIMIT 1
+Completed 200 OK in 302ms (Views: 250.3ms | ActiveRecord: 2.6ms)
+
+
+Started POST "/managers" for 127.0.0.1 at 2017-09-07 01:33:46 +0200
+Processing by ManagersController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"8cZ+eH1speH5BI/mEEoGOzbpHvT1NadJDOqtH0ZW+lQzdP0l1mdMTPvP3HYigVaXW/CPDt4/Ms2BU3UPeQuKqw==", "manager"=>{"name"=>"M", "surname"=>"", "yearofbirth"=>"", "email"=>"", "tel"=>"Via Paolo Paruta 20", "curriculum"=>"", "password"=>"[FILTERED]", "password_confirmation"=>"[FILTERED]"}, "commit"=>"Create my account"}
+  [1m[36m (0.4ms)[0m  [1mbegin transaction[0m
+  [1m[35mManager Exists (0.7ms)[0m  SELECT  1 AS one FROM "managers" WHERE LOWER("managers"."email") = LOWER('') LIMIT 1
+  [1m[36m (0.5ms)[0m  [1mrollback transaction[0m
+  Rendered shared/_error_messages2.html.erb (15.8ms)
+  Rendered managers/new.html.erb within layouts/application (31.0ms)
+  [1m[35mUser Load (0.9ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."id" IS NULL LIMIT 1
+Completed 200 OK in 384ms (Views: 216.1ms | ActiveRecord: 2.5ms)
+
+
+Started POST "/managers" for 127.0.0.1 at 2017-09-07 01:34:29 +0200
+Processing by ManagersController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"yHcgOqBSLH0JfI/LEmq3jxJu7rBZJ6FqKDog7OMYPeAKxaNnC1nF0Au33Fsgoecjf3d/SnItNO6lg/j83EVNHw==", "manager"=>{"name"=>"Mario", "surname"=>"Rossi", "yearofbirth"=>"1957", "email"=>"rossi@gmail.com", "tel"=>"3398267248", "curriculum"=>"BLA BLA BLA", "password"=>"[FILTERED]", "password_confirmation"=>"[FILTERED]"}, "commit"=>"Create my account"}
+  [1m[36m (0.5ms)[0m  [1mbegin transaction[0m
+  [1m[35mManager Exists (0.9ms)[0m  SELECT  1 AS one FROM "managers" WHERE LOWER("managers"."email") = LOWER('rossi@gmail.com') LIMIT 1
+  [1m[36m (0.6ms)[0m  [1mrollback transaction[0m
+  Rendered shared/_error_messages2.html.erb (2.7ms)
+  Rendered managers/new.html.erb within layouts/application (24.0ms)
+  [1m[35mUser Load (1.2ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."id" IS NULL LIMIT 1
+Completed 200 OK in 335ms (Views: 200.1ms | ActiveRecord: 3.2ms)
+
+
+Started POST "/managers" for 127.0.0.1 at 2017-09-07 01:34:56 +0200
+Processing by ManagersController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"nJ7iUhKbQeF6pys6YIYk6oGnWaZTU6HZ6iNQTiST9UdeLGEPuZCoTHhseKpSTXRG7L7IXHhZNF1nmoheG86FuA==", "manager"=>{"name"=>"Mario", "surname"=>"Rossi", "yearofbirth"=>"1957", "email"=>"rossimario@gmail.com", "tel"=>"3398267248", "curriculum"=>"BLA BLA BLA", "password"=>"[FILTERED]", "password_confirmation"=>"[FILTERED]"}, "commit"=>"Create my account"}
+  [1m[36m (0.3ms)[0m  [1mbegin transaction[0m
+  [1m[35mManager Exists (0.9ms)[0m  SELECT  1 AS one FROM "managers" WHERE LOWER("managers"."email") = LOWER('rossimario@gmail.com') LIMIT 1
+  [1m[36mSQL (0.9ms)[0m  [1mINSERT INTO "managers" ("name", "surname", "tel", "yearofbirth", "email", "curriculum", "password_digest", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?)[0m  [["name", "Mario"], ["surname", "Rossi"], ["tel", "3398267248"], ["yearofbirth", 1957], ["email", "rossimario@gmail.com"], ["curriculum", "BLA BLA BLA"], ["password_digest", "$2a$10$hc4QvVE85tWtmEpVcZ.mceVfTzknT2pPi31rPG0HBoqMhHkFg48Lu"], ["created_at", "2017-09-06 23:34:56.366619"], ["updated_at", "2017-09-06 23:34:56.366619"]]
+  [1m[35m (18.3ms)[0m  commit transaction
+Redirected to http://localhost:3000/managers/2
+Completed 302 Found in 160ms (ActiveRecord: 20.4ms)
+
+
+Started GET "/managers/2" for 127.0.0.1 at 2017-09-07 01:34:56 +0200
+
+AbstractController::ActionNotFound (The action 'show' could not be found for ManagersController):
+  actionpack (4.2.5.1) lib/abstract_controller/base.rb:132:in `process'
+  actionview (4.2.5.1) lib/action_view/rendering.rb:30:in `process'
+  actionpack (4.2.5.1) lib/action_controller/metal.rb:196:in `dispatch'
+  actionpack (4.2.5.1) lib/action_controller/metal/rack_delegation.rb:13:in `dispatch'
+  actionpack (4.2.5.1) lib/action_controller/metal.rb:237:in `block in action'
+  actionpack (4.2.5.1) lib/action_dispatch/routing/route_set.rb:74:in `dispatch'
+  actionpack (4.2.5.1) lib/action_dispatch/routing/route_set.rb:43:in `serve'
+  actionpack (4.2.5.1) lib/action_dispatch/journey/router.rb:43:in `block in serve'
+  actionpack (4.2.5.1) lib/action_dispatch/journey/router.rb:30:in `each'
+  actionpack (4.2.5.1) lib/action_dispatch/journey/router.rb:30:in `serve'
+  actionpack (4.2.5.1) lib/action_dispatch/routing/route_set.rb:815:in `call'
+  rack (1.6.5) lib/rack/etag.rb:24:in `call'
+  rack (1.6.5) lib/rack/conditionalget.rb:25:in `call'
+  rack (1.6.5) lib/rack/head.rb:13:in `call'
+  actionpack (4.2.5.1) lib/action_dispatch/middleware/params_parser.rb:27:in `call'
+  actionpack (4.2.5.1) lib/action_dispatch/middleware/flash.rb:260:in `call'
+  rack (1.6.5) lib/rack/session/abstract/id.rb:225:in `context'
+  rack (1.6.5) lib/rack/session/abstract/id.rb:220:in `call'
+  actionpack (4.2.5.1) lib/action_dispatch/middleware/cookies.rb:560:in `call'
+  activerecord (4.2.5.1) lib/active_record/query_cache.rb:36:in `call'
+  activerecord (4.2.5.1) lib/active_record/connection_adapters/abstract/connection_pool.rb:653:in `call'
+  activerecord (4.2.5.1) lib/active_record/migration.rb:377:in `call'
+  actionpack (4.2.5.1) lib/action_dispatch/middleware/callbacks.rb:29:in `block in call'
+  activesupport (4.2.5.1) lib/active_support/callbacks.rb:88:in `__run_callbacks__'
+  activesupport (4.2.5.1) lib/active_support/callbacks.rb:778:in `_run_call_callbacks'
+  activesupport (4.2.5.1) lib/active_support/callbacks.rb:81:in `run_callbacks'
+  actionpack (4.2.5.1) lib/action_dispatch/middleware/callbacks.rb:27:in `call'
+  actionpack (4.2.5.1) lib/action_dispatch/middleware/reloader.rb:73:in `call'
+  actionpack (4.2.5.1) lib/action_dispatch/middleware/remote_ip.rb:78:in `call'
+  actionpack (4.2.5.1) lib/action_dispatch/middleware/debug_exceptions.rb:17:in `call'
+  web-console (2.3.0) lib/web_console/middleware.rb:28:in `block in call'
+  web-console (2.3.0) lib/web_console/middleware.rb:18:in `catch'
+  web-console (2.3.0) lib/web_console/middleware.rb:18:in `call'
+  actionpack (4.2.5.1) lib/action_dispatch/middleware/show_exceptions.rb:30:in `call'
+  railties (4.2.5.1) lib/rails/rack/logger.rb:38:in `call_app'
+  railties (4.2.5.1) lib/rails/rack/logger.rb:20:in `block in call'
+  activesupport (4.2.5.1) lib/active_support/tagged_logging.rb:68:in `block in tagged'
+  activesupport (4.2.5.1) lib/active_support/tagged_logging.rb:26:in `tagged'
+  activesupport (4.2.5.1) lib/active_support/tagged_logging.rb:68:in `tagged'
+  railties (4.2.5.1) lib/rails/rack/logger.rb:20:in `call'
+  actionpack (4.2.5.1) lib/action_dispatch/middleware/request_id.rb:21:in `call'
+  rack (1.6.5) lib/rack/methodoverride.rb:22:in `call'
+  rack (1.6.5) lib/rack/runtime.rb:18:in `call'
+  activesupport (4.2.5.1) lib/active_support/cache/strategy/local_cache_middleware.rb:28:in `call'
+  rack (1.6.5) lib/rack/lock.rb:17:in `call'
+  actionpack (4.2.5.1) lib/action_dispatch/middleware/static.rb:116:in `call'
+  rack (1.6.5) lib/rack/sendfile.rb:113:in `call'
+  railties (4.2.5.1) lib/rails/engine.rb:518:in `call'
+  railties (4.2.5.1) lib/rails/application.rb:165:in `call'
+  rack (1.6.5) lib/rack/lock.rb:17:in `call'
+  rack (1.6.5) lib/rack/content_length.rb:15:in `call'
+  rack (1.6.5) lib/rack/handler/webrick.rb:88:in `service'
+  /home/biar/.rvm/rubies/ruby-2.3.0/lib/ruby/2.3.0/webrick/httpserver.rb:140:in `service'
+  /home/biar/.rvm/rubies/ruby-2.3.0/lib/ruby/2.3.0/webrick/httpserver.rb:96:in `run'
+  /home/biar/.rvm/rubies/ruby-2.3.0/lib/ruby/2.3.0/webrick/server.rb:296:in `block in start_thread'
+
+
+  Rendered /home/biar/.rvm/gems/ruby-2.3.0/gems/actionpack-4.2.5.1/lib/action_dispatch/middleware/templates/rescues/unknown_action.html.erb within rescues/layout (0.8ms)
+  Rendered /home/biar/.rvm/gems/ruby-2.3.0/gems/web-console-2.3.0/lib/web_console/templates/_markup.html.erb (2.2ms)
+  Rendered /home/biar/.rvm/gems/ruby-2.3.0/gems/web-console-2.3.0/lib/web_console/templates/_inner_console_markup.html.erb within layouts/inlined_string (1.3ms)
+  Rendered /home/biar/.rvm/gems/ruby-2.3.0/gems/web-console-2.3.0/lib/web_console/templates/_prompt_box_markup.html.erb within layouts/inlined_string (1.7ms)
+  Rendered /home/biar/.rvm/gems/ruby-2.3.0/gems/web-console-2.3.0/lib/web_console/templates/style.css.erb within layouts/inlined_string (1.8ms)
+  Rendered /home/biar/.rvm/gems/ruby-2.3.0/gems/web-console-2.3.0/lib/web_console/templates/console.js.erb within layouts/javascript (66.8ms)
+  Rendered /home/biar/.rvm/gems/ruby-2.3.0/gems/web-console-2.3.0/lib/web_console/templates/main.js.erb within layouts/javascript (1.6ms)
+  Rendered /home/biar/.rvm/gems/ruby-2.3.0/gems/web-console-2.3.0/lib/web_console/templates/error_page.js.erb within layouts/javascript (2.3ms)
+  Rendered /home/biar/.rvm/gems/ruby-2.3.0/gems/web-console-2.3.0/lib/web_console/templates/index.html.erb (106.8ms)
+  [1m[36mManager Load (4.1ms)[0m  [1mSELECT "managers".* FROM "managers"[0m
+
+
+Started GET "/" for 127.0.0.1 at 2017-09-07 01:41:25 +0200
+Processing by PagesController#homepage as HTML
+  Rendered pages/homepage.html.erb within layouts/application (1.0ms)
+  [1m[36mUser Load (1.4ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."id" IS NULL LIMIT 1[0m
+Completed 200 OK in 252ms (Views: 225.0ms | ActiveRecord: 1.9ms)
+
+
+Started GET "/loginm" for 127.0.0.1 at 2017-09-07 01:41:35 +0200
+Processing by SessionsmController#new as HTML
+  Rendered sessionsm/new.html.erb within layouts/application (6.6ms)
+  [1m[35mUser Load (1.0ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."id" IS NULL LIMIT 1
+Completed 200 OK in 276ms (Views: 272.5ms | ActiveRecord: 1.0ms)
+
+
+Started POST "/loginm" for 127.0.0.1 at 2017-09-07 01:41:51 +0200
+Processing by SessionsmController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"kufrDRxuoDRBQT79bmYUEZVmi9ms+ZrQOG9RbRPZCOdQVWhQt2VJmUOKbW1crUS9+H8aI4fzD1S11ol9LIR4GA==", "session"=>{"email"=>"rossi@gmail.com", "password"=>"[FILTERED]"}, "commit"=>"Log in"}
+  [1m[36mManager Load (1.0ms)[0m  [1mSELECT  "managers".* FROM "managers" WHERE "managers"."email" = ? LIMIT 1[0m  [["email", "rossi@gmail.com"]]
+Redirected to 
+Completed 500 Internal Server Error in 208ms (ActiveRecord: 3.4ms)
+
+ActionController::ActionControllerError (Cannot redirect to nil!):
+  app/controllers/sessionsm_controller.rb:9:in `create'
+
+
+  Rendered /home/biar/.rvm/gems/ruby-2.3.0/gems/actionpack-4.2.5.1/lib/action_dispatch/middleware/templates/rescues/_source.erb (17.3ms)
+  Rendered /home/biar/.rvm/gems/ruby-2.3.0/gems/actionpack-4.2.5.1/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (13.9ms)
+  Rendered /home/biar/.rvm/gems/ruby-2.3.0/gems/actionpack-4.2.5.1/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (5.4ms)
+  Rendered /home/biar/.rvm/gems/ruby-2.3.0/gems/actionpack-4.2.5.1/lib/action_dispatch/middleware/templates/rescues/diagnostics.html.erb within rescues/layout (67.2ms)
+  Rendered /home/biar/.rvm/gems/ruby-2.3.0/gems/web-console-2.3.0/lib/web_console/templates/_markup.html.erb (1.8ms)
+  Rendered /home/biar/.rvm/gems/ruby-2.3.0/gems/web-console-2.3.0/lib/web_console/templates/_inner_console_markup.html.erb within layouts/inlined_string (1.2ms)
+  Rendered /home/biar/.rvm/gems/ruby-2.3.0/gems/web-console-2.3.0/lib/web_console/templates/_prompt_box_markup.html.erb within layouts/inlined_string (1.3ms)
+  Rendered /home/biar/.rvm/gems/ruby-2.3.0/gems/web-console-2.3.0/lib/web_console/templates/style.css.erb within layouts/inlined_string (2.8ms)
+  Rendered /home/biar/.rvm/gems/ruby-2.3.0/gems/web-console-2.3.0/lib/web_console/templates/console.js.erb within layouts/javascript (47.3ms)
+  Rendered /home/biar/.rvm/gems/ruby-2.3.0/gems/web-console-2.3.0/lib/web_console/templates/main.js.erb within layouts/javascript (1.6ms)
+  Rendered /home/biar/.rvm/gems/ruby-2.3.0/gems/web-console-2.3.0/lib/web_console/templates/error_page.js.erb within layouts/javascript (2.8ms)
+  Rendered /home/biar/.rvm/gems/ruby-2.3.0/gems/web-console-2.3.0/lib/web_console/templates/index.html.erb (96.6ms)
+  [1m[35mUser Load (0.8ms)[0m  SELECT "users".* FROM "users"
+
+
+Started GET "/" for 127.0.0.1 at 2017-09-07 01:46:06 +0200
+Processing by PagesController#homepage as HTML
+  Rendered pages/homepage.html.erb within layouts/application (1.5ms)
+  [1m[35mUser Load (1.3ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."id" IS NULL LIMIT 1
+Completed 200 OK in 360ms (Views: 355.3ms | ActiveRecord: 2.0ms)
+
+
+Started GET "/login" for 127.0.0.1 at 2017-09-07 01:46:09 +0200
+Processing by SessionsController#new as HTML
+  Rendered sessions/new.html.erb within layouts/application (6.0ms)
+  [1m[36mUser Load (0.5ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."id" IS NULL LIMIT 1[0m
+Completed 200 OK in 212ms (Views: 209.8ms | ActiveRecord: 0.5ms)
+
+
+Started POST "/login" for 127.0.0.1 at 2017-09-07 01:46:23 +0200
+Processing by SessionsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"WH47I4zcU4SDE0b4QcTGBczJPZIcggk/EyLKv//OWY6azLh+J9e6KYHYFWhzD5apodCsaDeInLuemxKvwJMpcQ==", "session"=>{"email"=>"flavio@gmail.com", "password"=>"[FILTERED]"}, "commit"=>"Log in"}
+  [1m[35mUser Load (0.9ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."email" = ? LIMIT 1  [["email", "flavio@gmail.com"]]
+Redirected to http://localhost:3000/users/1
+Completed 302 Found in 151ms (ActiveRecord: 1.8ms)
+
+
+Started GET "/users/1" for 127.0.0.1 at 2017-09-07 01:46:23 +0200
+Processing by UsersController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mUser Load (1.0ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT 1[0m  [["id", 1]]
+  Rendered users/show.html.erb within layouts/application (7.0ms)
+  [1m[35mUser Load (0.5ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT 1  [["id", 1]]
+Completed 200 OK in 246ms (Views: 237.0ms | ActiveRecord: 1.5ms)
+
+
+Started DELETE "/logout" for 127.0.0.1 at 2017-09-07 01:49:01 +0200
+Processing by SessionsController#destroy as HTML
+  Parameters: {"authenticity_token"=>"fnGgjJlPnRXOqCVfO+NcTP/wdZ2ocKjJggzYlFgMCDG8wyPRMkR0uMxjds8JKAzgkunkZ4N6PU0PtQCEZ1F4zg=="}
+Redirected to http://localhost:3000/
+Completed 302 Found in 3ms (ActiveRecord: 0.0ms)
+
+
+Started GET "/" for 127.0.0.1 at 2017-09-07 01:49:02 +0200
+Processing by PagesController#homepage as HTML
+  Rendered pages/homepage.html.erb within layouts/application (0.7ms)
+  [1m[36mUser Load (1.6ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."id" IS NULL LIMIT 1[0m
+Completed 200 OK in 225ms (Views: 221.1ms | ActiveRecord: 2.1ms)
+
+
+Started GET "/loginm" for 127.0.0.1 at 2017-09-07 01:49:07 +0200
+Processing by SessionsmController#new as HTML
+  Rendered sessionsm/new.html.erb within layouts/application (2.9ms)
+  [1m[35mUser Load (0.6ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."id" IS NULL LIMIT 1
+Completed 200 OK in 226ms (Views: 224.6ms | ActiveRecord: 0.6ms)
+
+
+Started POST "/loginm" for 127.0.0.1 at 2017-09-07 01:49:21 +0200
+Processing by SessionsmController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"djTf4+EKs4mVS19v3I2Q4Vx2AT3pewv6Ag8+d9iuzjG0hly+SgFaJJeADP/uRsBNMW+Qx8Jxnn6PtuZn5/O+zg==", "session"=>{"email"=>"rossi@gmail.com", "password"=>"[FILTERED]"}, "commit"=>"Log in"}
+  [1m[36mManager Load (0.7ms)[0m  [1mSELECT  "managers".* FROM "managers" WHERE "managers"."email" = ? LIMIT 1[0m  [["email", "rossi@gmail.com"]]
+Redirected to http://localhost:3000/managers/1
+Completed 302 Found in 152ms (ActiveRecord: 2.2ms)
+
+
+Started GET "/managers/1" for 127.0.0.1 at 2017-09-07 01:49:21 +0200
+Processing by ManagersController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[35mManager Load (0.5ms)[0m  SELECT  "managers".* FROM "managers" WHERE "managers"."id" = ? LIMIT 1  [["id", 1]]
+  Rendered managers/show.html.erb within layouts/application (2.1ms)
+  [1m[36mUser Load (0.8ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."id" IS NULL LIMIT 1[0m
+Completed 200 OK in 235ms (Views: 230.6ms | ActiveRecord: 1.3ms)
+
+
+Started GET "/" for 127.0.0.1 at 2017-09-07 01:53:27 +0200
+Processing by PagesController#homepage as HTML
+  Rendered pages/homepage.html.erb within layouts/application (0.7ms)
+  [1m[35mUser Load (0.8ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."id" IS NULL LIMIT 1
+Completed 200 OK in 254ms (Views: 251.3ms | ActiveRecord: 0.8ms)
+
+
+Started GET "/login" for 127.0.0.1 at 2017-09-07 01:53:33 +0200
+Processing by SessionsController#new as HTML
+  Rendered sessions/new.html.erb within layouts/application (2.9ms)
+  [1m[36mUser Load (0.4ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."id" IS NULL LIMIT 1[0m
+Completed 200 OK in 219ms (Views: 216.7ms | ActiveRecord: 0.4ms)
+
+
+Started POST "/login" for 127.0.0.1 at 2017-09-07 01:53:46 +0200
+Processing by SessionsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"jXYgvbwURAn4IIESa+yoZ6eP4zyaho+F0zG3toCwIoRPxKPgFx+tpPrr0oJZJ/jLypZyxrGMGgFeiG+mv+1Sew==", "session"=>{"email"=>"flavio@gmail.com", "password"=>"[FILTERED]"}, "commit"=>"Log in"}
+  [1m[35mUser Load (0.6ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."email" = ? LIMIT 1  [["email", "flavio@gmail.com"]]
+Redirected to http://localhost:3000/users/1
+Completed 302 Found in 128ms (ActiveRecord: 1.9ms)
+
+
+Started GET "/users/1" for 127.0.0.1 at 2017-09-07 01:53:46 +0200
+Processing by UsersController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mUser Load (0.2ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT 1[0m  [["id", 1]]
+  Rendered users/show.html.erb within layouts/application (4.0ms)
+  [1m[35mUser Load (0.4ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT 1  [["id", 1]]
+Completed 200 OK in 253ms (Views: 247.1ms | ActiveRecord: 0.6ms)
+
+
+Started DELETE "/logout" for 127.0.0.1 at 2017-09-07 01:53:53 +0200
+Processing by SessionsController#destroy as HTML
+  Parameters: {"authenticity_token"=>"/8eSNQMKrylinGrJHzpPPz6PxtRsD78hDocPIbn2AGw9dRFoqAFGhGBXOVkt8R+TU5ZXLkcFKqWDPtcxhqtwkw=="}
+Redirected to http://localhost:3000/
+Completed 302 Found in 4ms (ActiveRecord: 0.0ms)
+
+
+Started GET "/" for 127.0.0.1 at 2017-09-07 01:53:53 +0200
+Processing by PagesController#homepage as HTML
+  Rendered pages/homepage.html.erb within layouts/application (0.8ms)
+  [1m[36mUser Load (1.8ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."id" IS NULL LIMIT 1[0m
+Completed 200 OK in 211ms (Views: 206.1ms | ActiveRecord: 1.8ms)
+
+
+Started GET "/loginm" for 127.0.0.1 at 2017-09-07 01:53:56 +0200
+Processing by SessionsmController#new as HTML
+  Rendered sessionsm/new.html.erb within layouts/application (3.2ms)
+  [1m[35mUser Load (0.6ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."id" IS NULL LIMIT 1
+Completed 200 OK in 211ms (Views: 209.4ms | ActiveRecord: 0.6ms)
+
+
+Started POST "/loginm" for 127.0.0.1 at 2017-09-07 01:54:08 +0200
+Processing by SessionsmController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"VDQAuhPZYB1toos93BbnyM23xupHScEOjCTwloLpCD2WhoPnuNKJsG9p2K3u3bdkoK5XEGxDVIoBnSiGvbR4wg==", "session"=>{"email"=>"rossi@gmail.com", "password"=>"[FILTERED]"}, "commit"=>"Log in"}
+  [1m[36mManager Load (0.3ms)[0m  [1mSELECT  "managers".* FROM "managers" WHERE "managers"."email" = ? LIMIT 1[0m  [["email", "rossi@gmail.com"]]
+Redirected to http://localhost:3000/managers/1
+Completed 302 Found in 111ms (ActiveRecord: 0.3ms)
+
+
+Started GET "/managers/1" for 127.0.0.1 at 2017-09-07 01:54:09 +0200
+Processing by ManagersController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[35mManager Load (0.3ms)[0m  SELECT  "managers".* FROM "managers" WHERE "managers"."id" = ? LIMIT 1  [["id", 1]]
+  Rendered managers/show.html.erb within layouts/application (0.2ms)
+  [1m[36mUser Load (0.6ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."id" IS NULL LIMIT 1[0m
+Completed 200 OK in 238ms (Views: 233.7ms | ActiveRecord: 1.0ms)
+
+
+Started GET "/managers/1" for 127.0.0.1 at 2017-09-07 01:54:54 +0200
+Processing by ManagersController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[35mManager Load (0.5ms)[0m  SELECT  "managers".* FROM "managers" WHERE "managers"."id" = ? LIMIT 1  [["id", 1]]
+  Rendered managers/show.html.erb within layouts/application (0.2ms)
+  [1m[36mUser Load (0.5ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."id" IS NULL LIMIT 1[0m
+Completed 200 OK in 220ms (Views: 213.8ms | ActiveRecord: 1.0ms)
+
+
+Started GET "/assets/custom.self-f31f07b26381b305141783fdd83c91c9b935b29a06fa0937aaa35d8e0c443568.css?body=1" for 127.0.0.1 at 2017-09-07 01:54:54 +0200
+
+
+Started GET "/assets/managers.self-e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855.css?body=1" for 127.0.0.1 at 2017-09-07 01:54:54 +0200
+
+
+Started GET "/assets/microposts.self-e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855.css?body=1" for 127.0.0.1 at 2017-09-07 01:54:54 +0200
+
+
+Started GET "/assets/markets.self-e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855.css?body=1" for 127.0.0.1 at 2017-09-07 01:54:54 +0200
+
+
+Started GET "/assets/pages.self-e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855.css?body=1" for 127.0.0.1 at 2017-09-07 01:54:54 +0200
+
+
+Started GET "/assets/sessions.self-e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855.css?body=1" for 127.0.0.1 at 2017-09-07 01:54:55 +0200
+
+
+Started GET "/assets/sessionsm.self-e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855.css?body=1" for 127.0.0.1 at 2017-09-07 01:54:55 +0200
+
+
+Started GET "/assets/smart_shopping.self-e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855.css?body=1" for 127.0.0.1 at 2017-09-07 01:54:55 +0200
+
+
+Started GET "/assets/bootstrap/affix.self-d2b642d8fbfc1d7041e2edefd66683ada567a980789dcd6f94fddda0b33408b5.js?body=1" for 127.0.0.1 at 2017-09-07 01:54:55 +0200
+
+
+Started GET "/assets/application.self-e80e8f2318043e8af94dddc2adad5a4f09739a8ebb323b3ab31cd71d45fd9113.css?body=1" for 127.0.0.1 at 2017-09-07 01:54:55 +0200
+
+
+Started GET "/assets/users.self-e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855.css?body=1" for 127.0.0.1 at 2017-09-07 01:54:55 +0200
+
+
+Started GET "/assets/jquery.self-bd7ddd393353a8d2480a622e80342adf488fb6006d667e8b42e4c0073393abee.js?body=1" for 127.0.0.1 at 2017-09-07 01:54:55 +0200
+
+
+Started GET "/assets/jquery_ujs.self-784a997f6726036b1993eb2217c9cb558e1cbb801c6da88105588c56f13b466a.js?body=1" for 127.0.0.1 at 2017-09-07 01:54:55 +0200
+
+
+Started GET "/assets/turbolinks.self-c5acd7a204f5f25ce7a1d8a0e4d92e28d34c9e2df2c7371cd7af88e147e4ad82.js?body=1" for 127.0.0.1 at 2017-09-07 01:54:55 +0200
+
+
+Started GET "/assets/bootstrap/alert.self-a29e91e8cd3ddaba9bbc466901d53ec2127e9256b9b941905d525a3a716bd1a5.js?body=1" for 127.0.0.1 at 2017-09-07 01:54:55 +0200
+
+
+Started GET "/assets/bootstrap.min.self-f0ac71a63207973b5b1ad57e55be7fdbf03e684db1ec6dfeccc294db81110ead.js?body=1" for 127.0.0.1 at 2017-09-07 01:54:55 +0200
+
+
+Started GET "/assets/bootstrap.self-9acfc28c4d35348d353eb47afc72c287bc271ea4f7e8c9b05f2f9554ddc3f202.js?body=1" for 127.0.0.1 at 2017-09-07 01:54:55 +0200
+
+
+Started GET "/assets/managers.self-877aef30ae1b040ab8a3aba4e3e309a11d7f2612f44dde450b5c157aa5f95c05.js?body=1" for 127.0.0.1 at 2017-09-07 01:54:55 +0200
+
+
+Started GET "/assets/markets.self-877aef30ae1b040ab8a3aba4e3e309a11d7f2612f44dde450b5c157aa5f95c05.js?body=1" for 127.0.0.1 at 2017-09-07 01:54:55 +0200
+
+
+Started GET "/assets/microposts.self-877aef30ae1b040ab8a3aba4e3e309a11d7f2612f44dde450b5c157aa5f95c05.js?body=1" for 127.0.0.1 at 2017-09-07 01:54:55 +0200
+
+
+Started GET "/assets/bootstrap/button.self-a6cb16785434acb365ae426aef9f1fce05ed553cae7a965e4471c3da71509175.js?body=1" for 127.0.0.1 at 2017-09-07 01:54:55 +0200
+
+
+Started GET "/assets/sessions.self-877aef30ae1b040ab8a3aba4e3e309a11d7f2612f44dde450b5c157aa5f95c05.js?body=1" for 127.0.0.1 at 2017-09-07 01:54:55 +0200
+
+
+Started GET "/assets/pages.self-877aef30ae1b040ab8a3aba4e3e309a11d7f2612f44dde450b5c157aa5f95c05.js?body=1" for 127.0.0.1 at 2017-09-07 01:54:55 +0200
+
+
+Started GET "/assets/sessionsm.self-877aef30ae1b040ab8a3aba4e3e309a11d7f2612f44dde450b5c157aa5f95c05.js?body=1" for 127.0.0.1 at 2017-09-07 01:54:55 +0200
+
+
+Started GET "/assets/smart_shopping.self-877aef30ae1b040ab8a3aba4e3e309a11d7f2612f44dde450b5c157aa5f95c05.js?body=1" for 127.0.0.1 at 2017-09-07 01:54:55 +0200
+
+
+Started GET "/assets/users.self-877aef30ae1b040ab8a3aba4e3e309a11d7f2612f44dde450b5c157aa5f95c05.js?body=1" for 127.0.0.1 at 2017-09-07 01:54:55 +0200
+
+
+Started GET "/assets/bootstrap/carousel.self-57eb8422043cf0a85b7a9dc6843916eb0a3e35b419c7798a5eb254b918997631.js?body=1" for 127.0.0.1 at 2017-09-07 01:54:55 +0200
+
+
+Started GET "/assets/bootstrap/dropdown.self-9314126777c6be5443e37ea7f7967d7914d72b3e60449ba50edc967446373059.js?body=1" for 127.0.0.1 at 2017-09-07 01:54:55 +0200
+
+
+Started GET "/assets/bootstrap/collapse.self-7dc8bfbc2fbfabd2bad62c58ff8ffeaf8f20fb87c7ca6cd35f06d4dc19632587.js?body=1" for 127.0.0.1 at 2017-09-07 01:54:55 +0200
+
+
+Started GET "/assets/bootstrap/tab.self-122235057fbd4c6c7da377d59dc58f47b44cb1088a2e38e6ee6ce9d8ac29a26a.js?body=1" for 127.0.0.1 at 2017-09-07 01:54:55 +0200
+
+
+Started GET "/assets/bootstrap/transition.self-09ff30b1e8a93d1f7728b9855f55d9c9d8d5734c8861e0d8139994e50944572a.js?body=1" for 127.0.0.1 at 2017-09-07 01:54:55 +0200
+
+
+Started GET "/assets/bootstrap/scrollspy.self-a155b9d4b2f978905f0326c0f6635e1134fe91c6bfbfcbad079fa24a9fef2b0e.js?body=1" for 127.0.0.1 at 2017-09-07 01:54:55 +0200
+
+
+Started GET "/assets/bootstrap/modal.self-72f95ffa1071297725a9ac91989693d56d1abf23f441a47455073b0da2857a5b.js?body=1" for 127.0.0.1 at 2017-09-07 01:54:55 +0200
+
+
+Started GET "/assets/bootstrap-sprockets.self-fbfa5ad7d9aa0afe439ec4ff3883acc4cb92b62cb67c40d674320c9aa1d4642d.js?body=1" for 127.0.0.1 at 2017-09-07 01:54:55 +0200
+
+
+Started GET "/assets/bootstrap/tooltip.self-11cf547be953f25f511cec668f6690473fd97b2f65502e4032f4030999a3f0c3.js?body=1" for 127.0.0.1 at 2017-09-07 01:54:55 +0200
+
+
+Started GET "/assets/application.self-f8806224e027f3e3f0138ea9ce99319e298dfdb323304d1f1be6eae8e8c74724.js?body=1" for 127.0.0.1 at 2017-09-07 01:54:55 +0200
+
+
+Started GET "/assets/bootstrap/popover.self-77d8e3a2499c1104ef146396a68b82469ee2bdb365199b874694698d10405e9a.js?body=1" for 127.0.0.1 at 2017-09-07 01:54:55 +0200
+
+
+Started GET "/assets/logo-26789614b681dcd891d324f6f2e2515eb06380d438d6ce7f729464e64ceb127e.jpg" for 127.0.0.1 at 2017-09-07 01:54:55 +0200
+
+
+Started GET "/loginm" for 127.0.0.1 at 2017-09-07 01:55:02 +0200
+Processing by SessionsmController#new as HTML
+  Rendered sessionsm/new.html.erb within layouts/application (2.8ms)
+  [1m[35mUser Load (0.5ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."id" IS NULL LIMIT 1
+Completed 200 OK in 319ms (Views: 316.4ms | ActiveRecord: 0.5ms)
+
+
+Started GET "/login" for 127.0.0.1 at 2017-09-07 01:56:02 +0200
+Processing by SessionsController#new as HTML
+  Rendered sessions/new.html.erb within layouts/application (3.4ms)
+  [1m[36mUser Load (0.7ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."id" IS NULL LIMIT 1[0m
+Completed 200 OK in 326ms (Views: 324.4ms | ActiveRecord: 0.7ms)
+
+
+Started POST "/login" for 127.0.0.1 at 2017-09-07 01:56:14 +0200
+Processing by SessionsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"Te9tqJ/P1fMczI5YZnbSfbuv7sLM+ZgDcJcnUxjUxniPXe71NMQ8Xh4H3chUvYLR1rZ/OOfzDYf9Lv9DJ4m2hw==", "session"=>{"email"=>"flavio@gmail.com", "password"=>"[FILTERED]"}, "commit"=>"Log in"}
+  [1m[35mUser Load (0.4ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."email" = ? LIMIT 1  [["email", "flavio@gmail.com"]]
+Redirected to http://localhost:3000/users/1
+Completed 302 Found in 105ms (ActiveRecord: 0.4ms)
+
+
+Started GET "/users/1" for 127.0.0.1 at 2017-09-07 01:56:14 +0200
+Processing by UsersController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mUser Load (0.5ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT 1[0m  [["id", 1]]
+  Rendered users/show.html.erb within layouts/application (4.0ms)
+  [1m[35mUser Load (0.4ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT 1  [["id", 1]]
+Completed 200 OK in 201ms (Views: 197.3ms | ActiveRecord: 0.9ms)
+
+
+Started GET "/" for 127.0.0.1 at 2017-09-07 01:58:20 +0200
+Processing by PagesController#homepage as HTML
+  Rendered pages/homepage.html.erb within layouts/application (1.1ms)
+  [1m[36mUser Load (0.3ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT 1[0m  [["id", 1]]
+Completed 200 OK in 193ms (Views: 189.8ms | ActiveRecord: 0.3ms)
+
+
+Started DELETE "/logout" for 127.0.0.1 at 2017-09-07 01:58:27 +0200
+Processing by SessionsController#destroy as HTML
+  Parameters: {"authenticity_token"=>"IUJhk+eypeNpwAYewlcZ45NY3tmaqCDfu+qsi/vy/fTj8OLOTLlMTmsLVY7wnElP/kFPI7GitVs2U3SbxK+NCw=="}
+Redirected to http://localhost:3000/
+Completed 302 Found in 5ms (ActiveRecord: 0.0ms)
+
+
+Started GET "/" for 127.0.0.1 at 2017-09-07 01:58:27 +0200
+Processing by PagesController#homepage as HTML
+  Rendered pages/homepage.html.erb within layouts/application (0.6ms)
+  [1m[35mUser Load (1.7ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."id" IS NULL LIMIT 1
+Completed 200 OK in 219ms (Views: 215.3ms | ActiveRecord: 1.7ms)
+
+
+Started GET "/" for 127.0.0.1 at 2017-09-07 01:58:30 +0200
+Processing by PagesController#homepage as HTML
+  Rendered pages/homepage.html.erb within layouts/application (1.4ms)
+  [1m[36mUser Load (0.8ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."id" IS NULL LIMIT 1[0m
+Completed 200 OK in 225ms (Views: 222.4ms | ActiveRecord: 0.8ms)
+
+
+Started GET "/login" for 127.0.0.1 at 2017-09-07 01:58:34 +0200
+Processing by SessionsController#new as HTML
+  Rendered sessions/new.html.erb within layouts/application (4.3ms)
+  [1m[35mUser Load (0.6ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."id" IS NULL LIMIT 1
+Completed 200 OK in 209ms (Views: 206.3ms | ActiveRecord: 0.6ms)
+
+
+Started POST "/login" for 127.0.0.1 at 2017-09-07 01:58:46 +0200
+Processing by SessionsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"r1h8Jn5O0vGpWW303Mp6r92AQgg5WPAZU/ZFEXZooRZt6v971UU7XKuSPmTuASoDsJnT8hJSZZ3eT50BSTXR6Q==", "session"=>{"email"=>"flavio@gmail.com", "password"=>"[FILTERED]"}, "commit"=>"Log in"}
+  [1m[36mUser Load (0.6ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."email" = ? LIMIT 1[0m  [["email", "flavio@gmail.com"]]
+Redirected to http://localhost:3000/users/1
+Completed 302 Found in 114ms (ActiveRecord: 0.6ms)
+
+
+Started GET "/users/1" for 127.0.0.1 at 2017-09-07 01:58:46 +0200
+Processing by UsersController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[35mUser Load (0.3ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT 1  [["id", 1]]
+  Rendered users/show.html.erb within layouts/application (2.8ms)
+  [1m[36mUser Load (0.3ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT 1[0m  [["id", 1]]
+Completed 200 OK in 212ms (Views: 208.3ms | ActiveRecord: 0.7ms)
+
+
+Started DELETE "/logout" for 127.0.0.1 at 2017-09-07 01:58:52 +0200
+Processing by SessionsController#destroy as HTML
+  Parameters: {"authenticity_token"=>"mNqOX5a/8mMuiM2jno9ma+jX7J1T9E4g2gUUKhdObsRaaA0CPbQbzixDnjOsRDbHhc59Z3j+26RXvMw6KBMeOw=="}
+Redirected to http://localhost:3000/
+Completed 302 Found in 4ms (ActiveRecord: 0.0ms)
+
+
+Started GET "/" for 127.0.0.1 at 2017-09-07 01:58:52 +0200
+Processing by PagesController#homepage as HTML
+  Rendered pages/homepage.html.erb within layouts/application (0.6ms)
+  [1m[35mUser Load (0.9ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."id" IS NULL LIMIT 1
+Completed 200 OK in 210ms (Views: 208.4ms | ActiveRecord: 0.9ms)
+
+
+Started GET "/loginm" for 127.0.0.1 at 2017-09-07 01:58:55 +0200
+Processing by SessionsmController#new as HTML
+  Rendered sessionsm/new.html.erb within layouts/application (6.0ms)
+  [1m[36mUser Load (0.7ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."id" IS NULL LIMIT 1[0m
+Completed 200 OK in 221ms (Views: 217.8ms | ActiveRecord: 0.7ms)
+
+
+Started POST "/loginm" for 127.0.0.1 at 2017-09-07 01:59:06 +0200
+Processing by SessionsmController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"l+EckAaZD7WhFVpwJBH0J92s7+iE1Fr4BptGyB65ekRVU5/NrZLmGKPeCeAW2qSLsLV+Eq/ez3yLIp7YIeQKuw==", "session"=>{"email"=>"rossi@gmail.com", "password"=>"[FILTERED]"}, "commit"=>"Log in"}
+  [1m[35mManager Load (0.6ms)[0m  SELECT  "managers".* FROM "managers" WHERE "managers"."email" = ? LIMIT 1  [["email", "rossi@gmail.com"]]
+Redirected to http://localhost:3000/managers/1
+Completed 302 Found in 104ms (ActiveRecord: 0.6ms)
+
+
+Started GET "/managers/1" for 127.0.0.1 at 2017-09-07 01:59:07 +0200
+Processing by ManagersController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mManager Load (0.5ms)[0m  [1mSELECT  "managers".* FROM "managers" WHERE "managers"."id" = ? LIMIT 1[0m  [["id", 1]]
+  Rendered managers/show.html.erb within layouts/application (0.2ms)
+  [1m[35mUser Load (0.6ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."id" IS NULL LIMIT 1
+Completed 200 OK in 239ms (Views: 234.1ms | ActiveRecord: 1.1ms)
+
+
+Started GET "/" for 127.0.0.1 at 2017-09-07 02:00:21 +0200
+Processing by PagesController#homepage as HTML
+  Rendered pages/homepage.html.erb within layouts/application (0.7ms)
+  [1m[36mUser Load (0.5ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."id" IS NULL LIMIT 1[0m
+Completed 200 OK in 211ms (Views: 208.4ms | ActiveRecord: 0.5ms)
+
+
+Started GET "/login" for 127.0.0.1 at 2017-09-07 02:00:25 +0200
+Processing by SessionsController#new as HTML
+  Rendered sessions/new.html.erb within layouts/application (5.6ms)
+  [1m[35mUser Load (0.8ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."id" IS NULL LIMIT 1
+Completed 200 OK in 233ms (Views: 227.1ms | ActiveRecord: 0.8ms)
+
+
+Started POST "/login" for 127.0.0.1 at 2017-09-07 02:00:38 +0200
+Processing by SessionsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"laW4FQ7NwpUDxEUPHiPy3arnI9bh6DP19BOOdWEC8mFXFztIpcYrOAEPFp8s6KJxx/6yLMripnF5qlZlXl+Cng==", "session"=>{"email"=>"flavio@gmail.com", "password"=>"[FILTERED]"}, "commit"=>"Log in"}
+  [1m[36mUser Load (1.3ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."email" = ? LIMIT 1[0m  [["email", "flavio@gmail.com"]]
+Redirected to http://localhost:3000/users/1
+Completed 302 Found in 118ms (ActiveRecord: 1.3ms)
+
+
+Started GET "/users/1" for 127.0.0.1 at 2017-09-07 02:00:38 +0200
+Processing by UsersController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[35mUser Load (0.7ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT 1  [["id", 1]]
+  Rendered users/show.html.erb within layouts/application (3.0ms)
+  [1m[36mUser Load (0.5ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT 1[0m  [["id", 1]]
+Completed 200 OK in 232ms (Views: 228.1ms | ActiveRecord: 1.2ms)
+
+
+Started DELETE "/logout" for 127.0.0.1 at 2017-09-07 02:00:43 +0200
+Processing by SessionsController#destroy as HTML
+  Parameters: {"authenticity_token"=>"sJc2dfO/K1c36ndAO/I8e2+LVmkCC+xnDNqSWI1iBlVyJbUoWLTC+jUhJNAJOWzXApLHkykBeeOBY0pIsj92qg=="}
+Redirected to http://localhost:3000/
+Completed 302 Found in 3ms (ActiveRecord: 0.0ms)
+
+
+Started GET "/" for 127.0.0.1 at 2017-09-07 02:00:43 +0200
+Processing by PagesController#homepage as HTML
+  Rendered pages/homepage.html.erb within layouts/application (0.7ms)
+  [1m[35mUser Load (0.6ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."id" IS NULL LIMIT 1
+Completed 200 OK in 160ms (Views: 157.7ms | ActiveRecord: 0.6ms)
+
+
+Started GET "/loginm" for 127.0.0.1 at 2017-09-07 02:00:47 +0200
+Processing by SessionsmController#new as HTML
+  Rendered sessionsm/new.html.erb within layouts/application (7.6ms)
+  [1m[36mUser Load (0.6ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."id" IS NULL LIMIT 1[0m
+Completed 200 OK in 225ms (Views: 222.4ms | ActiveRecord: 0.6ms)
+
+
+Started POST "/loginm" for 127.0.0.1 at 2017-09-07 02:00:58 +0200
+Processing by SessionsmController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"TZV4z2CFzb2//9Us/xE08Mq280o1wqZM8fsCHdo6UwuPJ/uSy44kEL00hrzN2mRcp69isB7IM8h8QtoN5Wcj9A==", "session"=>{"email"=>"rossi@gmail.com", "password"=>"[FILTERED]"}, "commit"=>"Log in"}
+  [1m[35mManager Load (0.3ms)[0m  SELECT  "managers".* FROM "managers" WHERE "managers"."email" = ? LIMIT 1  [["email", "rossi@gmail.com"]]
+Redirected to http://localhost:3000/managers/1
+Completed 302 Found in 114ms (ActiveRecord: 0.3ms)
+
+
+Started GET "/managers/1" for 127.0.0.1 at 2017-09-07 02:00:58 +0200
+Processing by ManagersController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mManager Load (0.5ms)[0m  [1mSELECT  "managers".* FROM "managers" WHERE "managers"."id" = ? LIMIT 1[0m  [["id", 1]]
+  Rendered managers/show.html.erb within layouts/application (0.2ms)
+  [1m[35mUser Load (0.9ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."id" IS NULL LIMIT 1
+Completed 200 OK in 204ms (Views: 199.3ms | ActiveRecord: 1.4ms)
+
+
+Started GET "/" for 127.0.0.1 at 2017-09-07 02:01:06 +0200
+Processing by PagesController#homepage as HTML
+  Rendered pages/homepage.html.erb within layouts/application (0.7ms)
+  [1m[36mUser Load (0.2ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."id" IS NULL LIMIT 1[0m
+Completed 200 OK in 218ms (Views: 215.3ms | ActiveRecord: 0.2ms)
+
+
+Started GET "/login" for 127.0.0.1 at 2017-09-07 02:01:09 +0200
+Processing by SessionsController#new as HTML
+  Rendered sessions/new.html.erb within layouts/application (4.5ms)
+  [1m[35mUser Load (0.6ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."id" IS NULL LIMIT 1
+Completed 200 OK in 235ms (Views: 231.9ms | ActiveRecord: 0.6ms)
+
+
+Started POST "/login" for 127.0.0.1 at 2017-09-07 02:01:21 +0200
+Processing by SessionsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"YUoy1UKfevnsqV2IMrRLsJ38RuivlcrIUCaKIgtSlmaj+LGI6ZSTVO5iDhgAfxsc8OXXEoSfX0zdn1IyNA/mmQ==", "session"=>{"email"=>"flavio@gmail.com", "password"=>"[FILTERED]"}, "commit"=>"Log in"}
+  [1m[36mUser Load (0.3ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."email" = ? LIMIT 1[0m  [["email", "flavio@gmail.com"]]
+Redirected to http://localhost:3000/users/1
+Completed 302 Found in 108ms (ActiveRecord: 0.3ms)
+
+
+Started GET "/users/1" for 127.0.0.1 at 2017-09-07 02:01:21 +0200
+Processing by UsersController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[35mUser Load (0.4ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT 1  [["id", 1]]
+  Rendered users/show.html.erb within layouts/application (2.6ms)
+  [1m[36mUser Load (0.3ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT 1[0m  [["id", 1]]
+Completed 200 OK in 216ms (Views: 211.8ms | ActiveRecord: 0.8ms)
+
+
+Started DELETE "/logout" for 127.0.0.1 at 2017-09-07 02:01:29 +0200
+Processing by SessionsController#destroy as HTML
+  Parameters: {"authenticity_token"=>"5PIVIf+eKf03CvYePi6a1eW4xpR+EQOKAq96MyZcQjImQJZ8VJXAUDXBpY4M5cp5iKFXblUblg6PFqIjGQEyzQ=="}
+Redirected to http://localhost:3000/
+Completed 302 Found in 3ms (ActiveRecord: 0.0ms)
+
+
+Started GET "/" for 127.0.0.1 at 2017-09-07 02:01:29 +0200
+Processing by PagesController#homepage as HTML
+  Rendered pages/homepage.html.erb within layouts/application (0.5ms)
+  [1m[35mUser Load (0.6ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."id" IS NULL LIMIT 1
+Completed 200 OK in 245ms (Views: 241.5ms | ActiveRecord: 0.6ms)
+
+
+Started GET "/loginm" for 127.0.0.1 at 2017-09-07 02:01:33 +0200
+Processing by SessionsmController#new as HTML
+  Rendered sessionsm/new.html.erb within layouts/application (3.6ms)
+  [1m[36mUser Load (0.4ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."id" IS NULL LIMIT 1[0m
+Completed 200 OK in 246ms (Views: 244.3ms | ActiveRecord: 0.4ms)
+
+
+Started POST "/loginm" for 127.0.0.1 at 2017-09-07 02:01:43 +0200
+Processing by SessionsmController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"uCHjxgQsJ0GAA/azq7FlZT98FDWilMTgGugJCfynepB6k2CbryfO7ILIpSOZejXJUmWFz4meUWSXUdEZw/oKbw==", "session"=>{"email"=>"rossi@gmail.com", "password"=>"[FILTERED]"}, "commit"=>"Log in"}
+  [1m[35mManager Load (0.4ms)[0m  SELECT  "managers".* FROM "managers" WHERE "managers"."email" = ? LIMIT 1  [["email", "rossi@gmail.com"]]
+  Rendered sessionsm/new.html.erb within layouts/application (3.1ms)
+  [1m[36mUser Load (0.6ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."id" IS NULL LIMIT 1[0m
+Completed 200 OK in 353ms (Views: 235.8ms | ActiveRecord: 1.0ms)
+
+
+Started POST "/loginm" for 127.0.0.1 at 2017-09-07 02:02:01 +0200
+Processing by SessionsmController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"jba6iIJ5IQSSuHfu+7ULd156AKzjI14fO3LQYEVKXPpPBDnVKXLIqZBzJH7JflvbM2ORVsgpy5u2ywhwehcsBQ==", "session"=>{"email"=>"rossi@gmail.com", "password"=>"[FILTERED]"}, "commit"=>"Log in"}
+  [1m[35mManager Load (0.4ms)[0m  SELECT  "managers".* FROM "managers" WHERE "managers"."email" = ? LIMIT 1  [["email", "rossi@gmail.com"]]
+Redirected to http://localhost:3000/managers/1
+Completed 302 Found in 117ms (ActiveRecord: 0.4ms)
+
+
+Started GET "/managers/1" for 127.0.0.1 at 2017-09-07 02:02:01 +0200
+Processing by ManagersController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mManager Load (0.2ms)[0m  [1mSELECT  "managers".* FROM "managers" WHERE "managers"."id" = ? LIMIT 1[0m  [["id", 1]]
+  Rendered managers/show.html.erb within layouts/application (0.2ms)
+  [1m[35mUser Load (0.3ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."id" IS NULL LIMIT 1
+Completed 200 OK in 178ms (Views: 174.1ms | ActiveRecord: 0.5ms)
+
+
+Started GET "/" for 127.0.0.1 at 2017-09-07 02:18:23 +0200
+Processing by PagesController#homepage as HTML
+  Rendered pages/homepage.html.erb within layouts/application (1.2ms)
+  [1m[36mUser Load (0.8ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."id" IS NULL LIMIT 1[0m
+Completed 200 OK in 340ms (Views: 338.4ms | ActiveRecord: 0.8ms)
+
+
+Started GET "/loginm" for 127.0.0.1 at 2017-09-07 02:18:27 +0200
+Processing by SessionsmController#new as HTML
+  Rendered sessionsm/new.html.erb within layouts/application (2.9ms)
+  [1m[35mUser Load (0.6ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."id" IS NULL LIMIT 1
+Completed 200 OK in 240ms (Views: 237.8ms | ActiveRecord: 0.6ms)
+
+
+Started POST "/loginm" for 127.0.0.1 at 2017-09-07 02:18:37 +0200
+Processing by SessionsmController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"uOwrsRc1EsgdLKh6vSdrtiMKRgfuM+btQ/DRvvT0S9oqGumogksDsCgvf4pQoNZD+mj45SATE8fgCPzdP678/g==", "session"=>{"email"=>"rossi@gmail.com", "password"=>"[FILTERED]"}, "commit"=>"Log in"}
+  [1m[36mManager Load (1.2ms)[0m  [1mSELECT  "managers".* FROM "managers" WHERE "managers"."email" = ? LIMIT 1[0m  [["email", "rossi@gmail.com"]]
+Redirected to http://localhost:3000/managers/1
+Completed 302 Found in 108ms (ActiveRecord: 1.2ms)
+
+
+Started GET "/managers/1" for 127.0.0.1 at 2017-09-07 02:18:37 +0200
+Processing by ManagersController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[35mManager Load (2.6ms)[0m  SELECT  "managers".* FROM "managers" WHERE "managers"."id" = ? LIMIT 1  [["id", 1]]
+  Rendered managers/show.html.erb within layouts/application (0.2ms)
+  [1m[36mUser Load (0.7ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."id" IS NULL LIMIT 1[0m
+Completed 200 OK in 216ms (Views: 207.9ms | ActiveRecord: 3.3ms)
+
+
+Started GET "/" for 127.0.0.1 at 2017-09-07 02:22:35 +0200
+Processing by PagesController#homepage as HTML
+  Rendered pages/homepage.html.erb within layouts/application (1.7ms)
+  [1m[35mUser Load (0.0ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."id" IS NULL LIMIT 1
+Completed 200 OK in 249ms (Views: 246.9ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/login" for 127.0.0.1 at 2017-09-07 02:22:38 +0200
+Processing by SessionsController#new as HTML
+  Rendered sessions/new.html.erb within layouts/application (4.5ms)
+  [1m[36mUser Load (1.1ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."id" IS NULL LIMIT 1[0m
+Completed 200 OK in 182ms (Views: 179.1ms | ActiveRecord: 1.1ms)
+
+
+Started POST "/login" for 127.0.0.1 at 2017-09-07 02:22:51 +0200
+Processing by SessionsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"vxTTS4ml2YRY6VI6/7XqDemLcd0IVkd742pXfwzu0lct4hFSHNvI/G3qhcoSMlf4MOnPP8Z2slFAknocx7Rlcw==", "session"=>{"email"=>"flavio@gmail.com", "password"=>"[FILTERED]"}, "commit"=>"Log in"}
+  [1m[35mUser Load (0.2ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."email" = ? LIMIT 1  [["email", "flavio@gmail.com"]]
+Redirected to http://localhost:3000/users/1
+Completed 302 Found in 115ms (ActiveRecord: 0.2ms)
+
+
+Started GET "/users/1" for 127.0.0.1 at 2017-09-07 02:22:51 +0200
+Processing by UsersController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mUser Load (0.3ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT 1[0m  [["id", 1]]
+  Rendered users/show.html.erb within layouts/application (4.5ms)
+  [1m[35mUser Load (0.3ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT 1  [["id", 1]]
+Completed 200 OK in 177ms (Views: 172.9ms | ActiveRecord: 0.6ms)
+
+
+Started DELETE "/logout" for 127.0.0.1 at 2017-09-07 02:22:56 +0200
+Processing by SessionsController#destroy as HTML
+  Parameters: {"authenticity_token"=>"y+8wPnrc0N+KkoHJhdxX5whjXJbZ9eeQKojQNCvOIF1ZGfIn76LBp7+RVjloW+oS0QHidBfVErqJcP1X4JSXeQ=="}
+Redirected to http://localhost:3000/
+Completed 302 Found in 3ms (ActiveRecord: 0.0ms)
+
+
+Started GET "/" for 127.0.0.1 at 2017-09-07 02:22:56 +0200
+Processing by PagesController#homepage as HTML
+  Rendered pages/homepage.html.erb within layouts/application (1.0ms)
+  [1m[36mUser Load (0.9ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."id" IS NULL LIMIT 1[0m
+Completed 200 OK in 211ms (Views: 208.7ms | ActiveRecord: 0.9ms)
+
+
+Started GET "/loginm" for 127.0.0.1 at 2017-09-07 02:22:59 +0200
+Processing by SessionsmController#new as HTML
+  Rendered sessionsm/new.html.erb within layouts/application (3.5ms)
+  [1m[35mUser Load (0.9ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."id" IS NULL LIMIT 1
+Completed 200 OK in 244ms (Views: 241.0ms | ActiveRecord: 0.9ms)
+
+
+Started POST "/loginm" for 127.0.0.1 at 2017-09-07 02:23:12 +0200
+Processing by SessionsmController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"fopGHq9L6Ls9ClDn/OHXC5fQB8HCAFWlgHujjY9dwhzsfIQHOjX5wwgJhxcRZmr+TrK5IwwgoI8jg47uRAd1OA==", "session"=>{"email"=>"rossi@gmail.com", "password"=>"[FILTERED]"}, "commit"=>"Log in"}
+  [1m[36mManager Load (0.2ms)[0m  [1mSELECT  "managers".* FROM "managers" WHERE "managers"."email" = ? LIMIT 1[0m  [["email", "rossi@gmail.com"]]
+Redirected to http://localhost:3000/managers/1
+Completed 302 Found in 113ms (ActiveRecord: 0.2ms)
+
+
+Started GET "/managers/1" for 127.0.0.1 at 2017-09-07 02:23:12 +0200
+Processing by ManagersController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[35mManager Load (0.6ms)[0m  SELECT  "managers".* FROM "managers" WHERE "managers"."id" = ? LIMIT 1  [["id", 1]]
+  Rendered managers/show.html.erb within layouts/application (0.2ms)
+  [1m[36mUser Load (0.7ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."id" IS NULL LIMIT 1[0m
+Completed 200 OK in 181ms (Views: 176.9ms | ActiveRecord: 1.3ms)
+
+
+Started GET "/" for 127.0.0.1 at 2017-09-07 02:25:53 +0200
+Processing by PagesController#homepage as HTML
+  Rendered pages/homepage.html.erb within layouts/application (1.1ms)
+  [1m[35mUser Load (0.3ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."id" IS NULL LIMIT 1
+Completed 200 OK in 255ms (Views: 251.1ms | ActiveRecord: 0.3ms)
+
+
+Started GET "/loginm" for 127.0.0.1 at 2017-09-07 02:25:56 +0200
+Processing by SessionsmController#new as HTML
+  Rendered sessionsm/new.html.erb within layouts/application (7.7ms)
+  [1m[36mUser Load (0.6ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."id" IS NULL LIMIT 1[0m
+Completed 200 OK in 226ms (Views: 222.6ms | ActiveRecord: 0.6ms)
+
+
+Started POST "/loginm" for 127.0.0.1 at 2017-09-07 02:26:08 +0200
+Processing by SessionsmController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"khQxb9Cc3hbCAbcs3ULM3pHItbQ8uyGdrR9p7pT/q6gA4vN2ReLPbvcCYNwwxXErSKoLVvKb1LcO50SNX6UcjA==", "session"=>{"email"=>"rossi@gmail.com", "password"=>"[FILTERED]"}, "commit"=>"Log in"}
+  [1m[35mManager Load (0.4ms)[0m  SELECT  "managers".* FROM "managers" WHERE "managers"."email" = ? LIMIT 1  [["email", "rossi@gmail.com"]]
+Redirected to http://localhost:3000/managers/1
+Completed 302 Found in 110ms (ActiveRecord: 0.4ms)
+
+
+Started GET "/managers/1" for 127.0.0.1 at 2017-09-07 02:26:08 +0200
+Processing by ManagersController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mManager Load (0.4ms)[0m  [1mSELECT  "managers".* FROM "managers" WHERE "managers"."id" = ? LIMIT 1[0m  [["id", 1]]
+  Rendered managers/show.html.erb within layouts/application (0.3ms)
+  [1m[35mUser Load (0.7ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."id" IS NULL LIMIT 1
+Completed 200 OK in 297ms (Views: 293.0ms | ActiveRecord: 1.1ms)
+
+
+Started GET "/howto" for 127.0.0.1 at 2017-09-07 02:26:13 +0200
+Processing by PagesController#howto as HTML
+  Rendered pages/howto.html.erb within layouts/application (2.5ms)
+  [1m[36mUser Load (0.5ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."id" IS NULL LIMIT 1[0m
+Completed 200 OK in 277ms (Views: 273.7ms | ActiveRecord: 0.5ms)
+
+
+Started GET "/help" for 127.0.0.1 at 2017-09-07 02:26:15 +0200
+Processing by PagesController#help as HTML
+  Rendered pages/help.html.erb within layouts/application (1.6ms)
+  [1m[35mUser Load (0.6ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."id" IS NULL LIMIT 1
+Completed 200 OK in 235ms (Views: 232.9ms | ActiveRecord: 0.6ms)
+
+
+Started GET "/" for 127.0.0.1 at 2017-09-07 02:26:16 +0200
+Processing by PagesController#homepage as HTML
+  Rendered pages/homepage.html.erb within layouts/application (0.6ms)
+  [1m[36mUser Load (0.7ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."id" IS NULL LIMIT 1[0m
+Completed 200 OK in 254ms (Views: 251.7ms | ActiveRecord: 0.7ms)
+
+
+Started GET "/" for 127.0.0.1 at 2017-09-07 02:27:34 +0200
+Processing by PagesController#homepage as HTML
+  Rendered pages/homepage.html.erb within layouts/application (1.0ms)
+  [1m[35mUser Load (2.4ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."id" IS NULL LIMIT 1
+Completed 200 OK in 255ms (Views: 251.7ms | ActiveRecord: 2.4ms)
+
+
+Started GET "/login" for 127.0.0.1 at 2017-09-07 02:27:38 +0200
+Processing by SessionsController#new as HTML
+  Rendered sessions/new.html.erb within layouts/application (5.3ms)
+  [1m[36mUser Load (1.0ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."id" IS NULL LIMIT 1[0m
+Completed 200 OK in 211ms (Views: 209.0ms | ActiveRecord: 1.0ms)
+
+
+Started POST "/login" for 127.0.0.1 at 2017-09-07 02:27:49 +0200
+Processing by SessionsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"Y94HvF4MifryDtqM96nsPz3jB/skrk0hcuEB4cPdBoLxKMWly3KYgscNDXwaLlHK5IG5GeqOuAvRGSyCCIexpg==", "session"=>{"email"=>"flavio@gmail.com", "password"=>"[FILTERED]"}, "commit"=>"Log in"}
+  [1m[35mUser Load (0.4ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."email" = ? LIMIT 1  [["email", "flavio@gmail.com"]]
+Redirected to http://localhost:3000/users/1
+Completed 302 Found in 111ms (ActiveRecord: 0.4ms)
+
+
+Started GET "/users/1" for 127.0.0.1 at 2017-09-07 02:27:49 +0200
+Processing by UsersController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mUser Load (0.3ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT 1[0m  [["id", 1]]
+  Rendered users/show.html.erb within layouts/application (5.0ms)
+  [1m[35mUser Load (0.1ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT 1  [["id", 1]]
+Completed 200 OK in 205ms (Views: 200.6ms | ActiveRecord: 0.4ms)
+
+
+Started DELETE "/logout" for 127.0.0.1 at 2017-09-07 02:28:06 +0200
+Processing by SessionsController#destroy as HTML
+  Parameters: {"authenticity_token"=>"f5zpR9NFaQJ5tEJL6JWPLk2e5xGq476AN/L3F7Vc+prtaiteRjt4eky3lbsFEjLblPxZ82TDS6qUCtp0fgZNvg=="}
+Redirected to http://localhost:3000/
+Completed 302 Found in 8ms (ActiveRecord: 0.0ms)
+
+
+Started GET "/" for 127.0.0.1 at 2017-09-07 02:28:06 +0200
+Processing by PagesController#homepage as HTML
+  Rendered pages/homepage.html.erb within layouts/application (1.0ms)
+  [1m[36mUser Load (0.7ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."id" IS NULL LIMIT 1[0m
+Completed 200 OK in 226ms (Views: 224.0ms | ActiveRecord: 0.7ms)
+
+
+Started GET "/loginm" for 127.0.0.1 at 2017-09-07 02:28:10 +0200
+Processing by SessionsmController#new as HTML
+  Rendered sessionsm/new.html.erb within layouts/application (2.9ms)
+  [1m[35mUser Load (0.7ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."id" IS NULL LIMIT 1
+Completed 200 OK in 227ms (Views: 223.0ms | ActiveRecord: 0.7ms)
+
+
+Started POST "/loginm" for 127.0.0.1 at 2017-09-07 02:28:24 +0200
+Processing by SessionsmController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"Fl2/FkCgN5+LhC4KRR31xWEP6tDT7cRzEIh9Sxv/MMGEq30P1d4m576H+fqomkgwuG1UMh3NMVmzcFAo0KWH5Q==", "session"=>{"email"=>"rossi@gmail.com", "password"=>"[FILTERED]"}, "commit"=>"Log in"}
+  [1m[36mManager Load (0.3ms)[0m  [1mSELECT  "managers".* FROM "managers" WHERE "managers"."email" = ? LIMIT 1[0m  [["email", "rossi@gmail.com"]]
+Redirected to http://localhost:3000/managers/1
+Completed 302 Found in 126ms (ActiveRecord: 0.3ms)
+
+
+Started GET "/managers/1" for 127.0.0.1 at 2017-09-07 02:28:24 +0200
+Processing by ManagersController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[35mManager Load (0.3ms)[0m  SELECT  "managers".* FROM "managers" WHERE "managers"."id" = ? LIMIT 1  [["id", 1]]
+  Rendered managers/show.html.erb within layouts/application (0.2ms)
+  [1m[36mUser Load (0.7ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."id" IS NULL LIMIT 1[0m
+Completed 200 OK in 212ms (Views: 207.6ms | ActiveRecord: 1.0ms)
+
+
+Started GET "/howto" for 127.0.0.1 at 2017-09-07 02:37:41 +0200
+Processing by PagesController#howto as HTML
+  Rendered pages/howto.html.erb within layouts/application (0.3ms)
+  [1m[35mUser Load (0.6ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."id" IS NULL LIMIT 1
+Completed 200 OK in 227ms (Views: 224.4ms | ActiveRecord: 0.6ms)
+
+
+Started GET "/help" for 127.0.0.1 at 2017-09-07 02:37:43 +0200
+Processing by PagesController#help as HTML
+  Rendered pages/help.html.erb within layouts/application (0.2ms)
+  [1m[36mUser Load (0.5ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."id" IS NULL LIMIT 1[0m
+Completed 200 OK in 217ms (Views: 215.1ms | ActiveRecord: 0.5ms)
+
+
+Started GET "/" for 127.0.0.1 at 2017-09-07 02:37:45 +0200
+Processing by PagesController#homepage as HTML
+  Rendered pages/homepage.html.erb within layouts/application (1.0ms)
+  [1m[35mUser Load (1.0ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."id" IS NULL LIMIT 1
+Completed 200 OK in 216ms (Views: 213.2ms | ActiveRecord: 1.0ms)
+
+
+Started GET "/loginm" for 127.0.0.1 at 2017-09-07 02:37:50 +0200
+Processing by SessionsmController#new as HTML
+  Rendered sessionsm/new.html.erb within layouts/application (2.5ms)
+  [1m[36mUser Load (1.1ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."id" IS NULL LIMIT 1[0m
+Completed 200 OK in 257ms (Views: 253.2ms | ActiveRecord: 1.1ms)
+
+
+Started GET "/" for 127.0.0.1 at 2017-09-07 02:52:11 +0200
+Processing by PagesController#homepage as HTML
+  Rendered pages/homepage.html.erb within layouts/application (0.7ms)
+Completed 500 Internal Server Error in 9ms (ActiveRecord: 0.0ms)
+
+SyntaxError (/home/biar/Desktop/smartkart2/app/views/layouts/application.html.erb:78: syntax error, unexpected keyword_ensure, expecting keyword_end
+/home/biar/Desktop/smartkart2/app/views/layouts/application.html.erb:80: syntax error, unexpected end-of-input, expecting keyword_end):
+  app/views/layouts/application.html.erb:78: syntax error, unexpected keyword_ensure, expecting keyword_end
+  app/views/layouts/application.html.erb:80: syntax error, unexpected end-of-input, expecting keyword_end
+
+
+  Rendered /home/biar/.rvm/gems/ruby-2.3.0/gems/actionpack-4.2.5.1/lib/action_dispatch/middleware/templates/rescues/_source.erb (19.3ms)
+  Rendered /home/biar/.rvm/gems/ruby-2.3.0/gems/actionpack-4.2.5.1/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (9.0ms)
+  Rendered /home/biar/.rvm/gems/ruby-2.3.0/gems/actionpack-4.2.5.1/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (2.5ms)
+  Rendered /home/biar/.rvm/gems/ruby-2.3.0/gems/actionpack-4.2.5.1/lib/action_dispatch/middleware/templates/rescues/diagnostics.html.erb within rescues/layout (56.5ms)
+  Rendered /home/biar/.rvm/gems/ruby-2.3.0/gems/web-console-2.3.0/lib/web_console/templates/_markup.html.erb (1.3ms)
+  Rendered /home/biar/.rvm/gems/ruby-2.3.0/gems/web-console-2.3.0/lib/web_console/templates/_inner_console_markup.html.erb within layouts/inlined_string (1.6ms)
+  Rendered /home/biar/.rvm/gems/ruby-2.3.0/gems/web-console-2.3.0/lib/web_console/templates/_prompt_box_markup.html.erb within layouts/inlined_string (0.9ms)
+  Rendered /home/biar/.rvm/gems/ruby-2.3.0/gems/web-console-2.3.0/lib/web_console/templates/style.css.erb within layouts/inlined_string (2.9ms)
+  Rendered /home/biar/.rvm/gems/ruby-2.3.0/gems/web-console-2.3.0/lib/web_console/templates/console.js.erb within layouts/javascript (51.4ms)
+  Rendered /home/biar/.rvm/gems/ruby-2.3.0/gems/web-console-2.3.0/lib/web_console/templates/main.js.erb within layouts/javascript (1.2ms)
+  Rendered /home/biar/.rvm/gems/ruby-2.3.0/gems/web-console-2.3.0/lib/web_console/templates/error_page.js.erb within layouts/javascript (3.1ms)
+  Rendered /home/biar/.rvm/gems/ruby-2.3.0/gems/web-console-2.3.0/lib/web_console/templates/index.html.erb (90.0ms)
+
+
+Started GET "/" for 127.0.0.1 at 2017-09-07 02:54:16 +0200
+Processing by PagesController#homepage as HTML
+  Rendered pages/homepage.html.erb within layouts/application (1.1ms)
+Completed 500 Internal Server Error in 12ms (ActiveRecord: 0.0ms)
+
+SyntaxError (/home/biar/Desktop/smartkart2/app/views/layouts/application.html.erb:78: syntax error, unexpected keyword_ensure, expecting keyword_end
+/home/biar/Desktop/smartkart2/app/views/layouts/application.html.erb:80: syntax error, unexpected end-of-input, expecting keyword_end):
+  app/views/layouts/application.html.erb:78: syntax error, unexpected keyword_ensure, expecting keyword_end
+  app/views/layouts/application.html.erb:80: syntax error, unexpected end-of-input, expecting keyword_end
+
+
+  Rendered /home/biar/.rvm/gems/ruby-2.3.0/gems/actionpack-4.2.5.1/lib/action_dispatch/middleware/templates/rescues/_source.erb (19.4ms)
+  Rendered /home/biar/.rvm/gems/ruby-2.3.0/gems/actionpack-4.2.5.1/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (10.6ms)
+  Rendered /home/biar/.rvm/gems/ruby-2.3.0/gems/actionpack-4.2.5.1/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (2.8ms)
+  Rendered /home/biar/.rvm/gems/ruby-2.3.0/gems/actionpack-4.2.5.1/lib/action_dispatch/middleware/templates/rescues/diagnostics.html.erb within rescues/layout (66.7ms)
+  Rendered /home/biar/.rvm/gems/ruby-2.3.0/gems/web-console-2.3.0/lib/web_console/templates/_markup.html.erb (1.4ms)
+  Rendered /home/biar/.rvm/gems/ruby-2.3.0/gems/web-console-2.3.0/lib/web_console/templates/_inner_console_markup.html.erb within layouts/inlined_string (1.3ms)
+  Rendered /home/biar/.rvm/gems/ruby-2.3.0/gems/web-console-2.3.0/lib/web_console/templates/_prompt_box_markup.html.erb within layouts/inlined_string (1.0ms)
+  Rendered /home/biar/.rvm/gems/ruby-2.3.0/gems/web-console-2.3.0/lib/web_console/templates/style.css.erb within layouts/inlined_string (1.3ms)
+  Rendered /home/biar/.rvm/gems/ruby-2.3.0/gems/web-console-2.3.0/lib/web_console/templates/console.js.erb within layouts/javascript (36.2ms)
+  Rendered /home/biar/.rvm/gems/ruby-2.3.0/gems/web-console-2.3.0/lib/web_console/templates/main.js.erb within layouts/javascript (1.2ms)
+  Rendered /home/biar/.rvm/gems/ruby-2.3.0/gems/web-console-2.3.0/lib/web_console/templates/error_page.js.erb within layouts/javascript (1.2ms)
+  Rendered /home/biar/.rvm/gems/ruby-2.3.0/gems/web-console-2.3.0/lib/web_console/templates/index.html.erb (72.0ms)
+
+
+Started GET "/" for 127.0.0.1 at 2017-09-07 02:54:18 +0200
+Processing by PagesController#homepage as HTML
+  Rendered pages/homepage.html.erb within layouts/application (1.2ms)
+Completed 500 Internal Server Error in 16ms (ActiveRecord: 0.0ms)
+
+SyntaxError (/home/biar/Desktop/smartkart2/app/views/layouts/application.html.erb:78: syntax error, unexpected keyword_ensure, expecting keyword_end
+/home/biar/Desktop/smartkart2/app/views/layouts/application.html.erb:80: syntax error, unexpected end-of-input, expecting keyword_end):
+  app/views/layouts/application.html.erb:78: syntax error, unexpected keyword_ensure, expecting keyword_end
+  app/views/layouts/application.html.erb:80: syntax error, unexpected end-of-input, expecting keyword_end
+
+
+  Rendered /home/biar/.rvm/gems/ruby-2.3.0/gems/actionpack-4.2.5.1/lib/action_dispatch/middleware/templates/rescues/_source.erb (20.7ms)
+  Rendered /home/biar/.rvm/gems/ruby-2.3.0/gems/actionpack-4.2.5.1/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (7.3ms)
+  Rendered /home/biar/.rvm/gems/ruby-2.3.0/gems/actionpack-4.2.5.1/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (3.3ms)
+  Rendered /home/biar/.rvm/gems/ruby-2.3.0/gems/actionpack-4.2.5.1/lib/action_dispatch/middleware/templates/rescues/diagnostics.html.erb within rescues/layout (58.1ms)
+  Rendered /home/biar/.rvm/gems/ruby-2.3.0/gems/web-console-2.3.0/lib/web_console/templates/_markup.html.erb (1.3ms)
+  Rendered /home/biar/.rvm/gems/ruby-2.3.0/gems/web-console-2.3.0/lib/web_console/templates/_inner_console_markup.html.erb within layouts/inlined_string (1.3ms)
+  Rendered /home/biar/.rvm/gems/ruby-2.3.0/gems/web-console-2.3.0/lib/web_console/templates/_prompt_box_markup.html.erb within layouts/inlined_string (0.4ms)
+  Rendered /home/biar/.rvm/gems/ruby-2.3.0/gems/web-console-2.3.0/lib/web_console/templates/style.css.erb within layouts/inlined_string (1.7ms)
+  Rendered /home/biar/.rvm/gems/ruby-2.3.0/gems/web-console-2.3.0/lib/web_console/templates/console.js.erb within layouts/javascript (38.4ms)
+  Rendered /home/biar/.rvm/gems/ruby-2.3.0/gems/web-console-2.3.0/lib/web_console/templates/main.js.erb within layouts/javascript (1.0ms)
+  Rendered /home/biar/.rvm/gems/ruby-2.3.0/gems/web-console-2.3.0/lib/web_console/templates/error_page.js.erb within layouts/javascript (1.4ms)
+  Rendered /home/biar/.rvm/gems/ruby-2.3.0/gems/web-console-2.3.0/lib/web_console/templates/index.html.erb (74.5ms)
+
+
+Started GET "/" for 127.0.0.1 at 2017-09-07 02:56:17 +0200
+Processing by PagesController#homepage as HTML
+  Rendered pages/homepage.html.erb within layouts/application (1.4ms)
+  [1m[35mUser Load (0.7ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."id" IS NULL LIMIT 1
+Completed 500 Internal Server Error in 307ms (ActiveRecord: 0.7ms)
+
+ActionView::Template::Error (undefined local variable or method `logged_in_m' for #<#<Class:0x007f33c6c2f898>:0x007f33c70196c0>
+Did you mean?  logged_in_m?
+               logged_in?
+               log_in_m):
+    32: 						<li><%= link_to "How to", howto_path %></li>
+    33: 						<li class="dropdown"><a class="dropdown-toggle" data-toggle="dropdown" href="#">Log In <span 							class="caret"></span></a>
+    34: 							<ul class="dropdown-menu">
+    35: 							<% if !logged_in?  && !logged_in_m%>
+    36: 							  <li><%= link_to "Log in as User", login_path %></li>
+    37: 							  <li><%= link_to "Log in as Manager",loginm_path %></a></li>
+    38: 							<% else %>
+  app/views/layouts/application.html.erb:35:in `_app_views_layouts_application_html_erb___1023232783471473129_69930179375540'
+
+
+  Rendered /home/biar/.rvm/gems/ruby-2.3.0/gems/actionpack-4.2.5.1/lib/action_dispatch/middleware/templates/rescues/_source.erb (17.4ms)
+  Rendered /home/biar/.rvm/gems/ruby-2.3.0/gems/actionpack-4.2.5.1/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (14.0ms)
+  Rendered /home/biar/.rvm/gems/ruby-2.3.0/gems/actionpack-4.2.5.1/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (3.4ms)
+  Rendered /home/biar/.rvm/gems/ruby-2.3.0/gems/actionpack-4.2.5.1/lib/action_dispatch/middleware/templates/rescues/template_error.html.erb within rescues/layout (64.5ms)
+  Rendered /home/biar/.rvm/gems/ruby-2.3.0/gems/web-console-2.3.0/lib/web_console/templates/_markup.html.erb (1.5ms)
+  Rendered /home/biar/.rvm/gems/ruby-2.3.0/gems/web-console-2.3.0/lib/web_console/templates/_inner_console_markup.html.erb within layouts/inlined_string (1.0ms)
+  Rendered /home/biar/.rvm/gems/ruby-2.3.0/gems/web-console-2.3.0/lib/web_console/templates/_prompt_box_markup.html.erb within layouts/inlined_string (1.1ms)
+  Rendered /home/biar/.rvm/gems/ruby-2.3.0/gems/web-console-2.3.0/lib/web_console/templates/style.css.erb within layouts/inlined_string (1.2ms)
+  Rendered /home/biar/.rvm/gems/ruby-2.3.0/gems/web-console-2.3.0/lib/web_console/templates/console.js.erb within layouts/javascript (36.6ms)
+  Rendered /home/biar/.rvm/gems/ruby-2.3.0/gems/web-console-2.3.0/lib/web_console/templates/main.js.erb within layouts/javascript (1.6ms)
+  Rendered /home/biar/.rvm/gems/ruby-2.3.0/gems/web-console-2.3.0/lib/web_console/templates/error_page.js.erb within layouts/javascript (1.5ms)
+  Rendered /home/biar/.rvm/gems/ruby-2.3.0/gems/web-console-2.3.0/lib/web_console/templates/index.html.erb (74.1ms)
+
+
+Started GET "/" for 127.0.0.1 at 2017-09-07 02:56:37 +0200
+Processing by PagesController#homepage as HTML
+  Rendered pages/homepage.html.erb within layouts/application (2.4ms)
+  [1m[36mUser Load (0.5ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."id" IS NULL LIMIT 1[0m
+  [1m[35mManager Load (0.3ms)[0m  SELECT  "managers".* FROM "managers" WHERE "managers"."id" = ? LIMIT 1  [["id", 1]]
+  [1m[36mCACHE (0.1ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."id" IS NULL LIMIT 1[0m
+Completed 200 OK in 232ms (Views: 229.4ms | ActiveRecord: 1.0ms)
+
+
+Started GET "/assets/custom.self-f31f07b26381b305141783fdd83c91c9b935b29a06fa0937aaa35d8e0c443568.css?body=1" for 127.0.0.1 at 2017-09-07 02:56:38 +0200
+
+
+Started GET "/assets/managers.self-e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855.css?body=1" for 127.0.0.1 at 2017-09-07 02:56:38 +0200
+
+
+Started GET "/assets/sessionsm.self-e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855.css?body=1" for 127.0.0.1 at 2017-09-07 02:56:38 +0200
+
+
+Started GET "/assets/sessions.self-e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855.css?body=1" for 127.0.0.1 at 2017-09-07 02:56:38 +0200
+
+
+Started GET "/assets/microposts.self-e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855.css?body=1" for 127.0.0.1 at 2017-09-07 02:56:38 +0200
+
+
+Started GET "/assets/pages.self-e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855.css?body=1" for 127.0.0.1 at 2017-09-07 02:56:38 +0200
+
+
+Started GET "/assets/markets.self-e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855.css?body=1" for 127.0.0.1 at 2017-09-07 02:56:38 +0200
+
+
+Started GET "/assets/jquery.self-bd7ddd393353a8d2480a622e80342adf488fb6006d667e8b42e4c0073393abee.js?body=1" for 127.0.0.1 at 2017-09-07 02:56:38 +0200
+
+
+Started GET "/assets/users.self-e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855.css?body=1" for 127.0.0.1 at 2017-09-07 02:56:38 +0200
+
+
+Started GET "/assets/application.self-e80e8f2318043e8af94dddc2adad5a4f09739a8ebb323b3ab31cd71d45fd9113.css?body=1" for 127.0.0.1 at 2017-09-07 02:56:38 +0200
+
+
+Started GET "/assets/bootstrap/button.self-a6cb16785434acb365ae426aef9f1fce05ed553cae7a965e4471c3da71509175.js?body=1" for 127.0.0.1 at 2017-09-07 02:56:38 +0200
+
+
+Started GET "/assets/jquery_ujs.self-784a997f6726036b1993eb2217c9cb558e1cbb801c6da88105588c56f13b466a.js?body=1" for 127.0.0.1 at 2017-09-07 02:56:38 +0200
+
+
+Started GET "/assets/smart_shopping.self-e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855.css?body=1" for 127.0.0.1 at 2017-09-07 02:56:38 +0200
+
+
+Started GET "/assets/managers.self-877aef30ae1b040ab8a3aba4e3e309a11d7f2612f44dde450b5c157aa5f95c05.js?body=1" for 127.0.0.1 at 2017-09-07 02:56:38 +0200
+
+
+Started GET "/assets/bootstrap.self-9acfc28c4d35348d353eb47afc72c287bc271ea4f7e8c9b05f2f9554ddc3f202.js?body=1" for 127.0.0.1 at 2017-09-07 02:56:38 +0200
+
+
+Started GET "/assets/bootstrap.min.self-f0ac71a63207973b5b1ad57e55be7fdbf03e684db1ec6dfeccc294db81110ead.js?body=1" for 127.0.0.1 at 2017-09-07 02:56:38 +0200
+
+
+Started GET "/assets/bootstrap/carousel.self-57eb8422043cf0a85b7a9dc6843916eb0a3e35b419c7798a5eb254b918997631.js?body=1" for 127.0.0.1 at 2017-09-07 02:56:38 +0200
+
+
+Started GET "/assets/markets.self-877aef30ae1b040ab8a3aba4e3e309a11d7f2612f44dde450b5c157aa5f95c05.js?body=1" for 127.0.0.1 at 2017-09-07 02:56:38 +0200
+
+
+Started GET "/assets/turbolinks.self-c5acd7a204f5f25ce7a1d8a0e4d92e28d34c9e2df2c7371cd7af88e147e4ad82.js?body=1" for 127.0.0.1 at 2017-09-07 02:56:38 +0200
+
+
+Started GET "/assets/pages.self-877aef30ae1b040ab8a3aba4e3e309a11d7f2612f44dde450b5c157aa5f95c05.js?body=1" for 127.0.0.1 at 2017-09-07 02:56:38 +0200
+
+
+Started GET "/assets/sessionsm.self-877aef30ae1b040ab8a3aba4e3e309a11d7f2612f44dde450b5c157aa5f95c05.js?body=1" for 127.0.0.1 at 2017-09-07 02:56:38 +0200
+
+
+Started GET "/assets/sessions.self-877aef30ae1b040ab8a3aba4e3e309a11d7f2612f44dde450b5c157aa5f95c05.js?body=1" for 127.0.0.1 at 2017-09-07 02:56:38 +0200
+
+
+Started GET "/assets/bootstrap/collapse.self-7dc8bfbc2fbfabd2bad62c58ff8ffeaf8f20fb87c7ca6cd35f06d4dc19632587.js?body=1" for 127.0.0.1 at 2017-09-07 02:56:38 +0200
+
+
+Started GET "/assets/smart_shopping.self-877aef30ae1b040ab8a3aba4e3e309a11d7f2612f44dde450b5c157aa5f95c05.js?body=1" for 127.0.0.1 at 2017-09-07 02:56:38 +0200
+
+
+Started GET "/assets/bootstrap/affix.self-d2b642d8fbfc1d7041e2edefd66683ada567a980789dcd6f94fddda0b33408b5.js?body=1" for 127.0.0.1 at 2017-09-07 02:56:38 +0200
+
+
+Started GET "/assets/microposts.self-877aef30ae1b040ab8a3aba4e3e309a11d7f2612f44dde450b5c157aa5f95c05.js?body=1" for 127.0.0.1 at 2017-09-07 02:56:38 +0200
+
+
+Started GET "/assets/bootstrap/alert.self-a29e91e8cd3ddaba9bbc466901d53ec2127e9256b9b941905d525a3a716bd1a5.js?body=1" for 127.0.0.1 at 2017-09-07 02:56:38 +0200
+
+
+Started GET "/assets/bootstrap/tab.self-122235057fbd4c6c7da377d59dc58f47b44cb1088a2e38e6ee6ce9d8ac29a26a.js?body=1" for 127.0.0.1 at 2017-09-07 02:56:38 +0200
+
+
+Started GET "/assets/bootstrap/transition.self-09ff30b1e8a93d1f7728b9855f55d9c9d8d5734c8861e0d8139994e50944572a.js?body=1" for 127.0.0.1 at 2017-09-07 02:56:38 +0200
+
+
+Started GET "/assets/bootstrap/dropdown.self-9314126777c6be5443e37ea7f7967d7914d72b3e60449ba50edc967446373059.js?body=1" for 127.0.0.1 at 2017-09-07 02:56:38 +0200
+
+
+Started GET "/assets/bootstrap/modal.self-72f95ffa1071297725a9ac91989693d56d1abf23f441a47455073b0da2857a5b.js?body=1" for 127.0.0.1 at 2017-09-07 02:56:38 +0200
+
+
+Started GET "/assets/users.self-877aef30ae1b040ab8a3aba4e3e309a11d7f2612f44dde450b5c157aa5f95c05.js?body=1" for 127.0.0.1 at 2017-09-07 02:56:38 +0200
+
+
+Started GET "/assets/bootstrap/tooltip.self-11cf547be953f25f511cec668f6690473fd97b2f65502e4032f4030999a3f0c3.js?body=1" for 127.0.0.1 at 2017-09-07 02:56:38 +0200
+
+
+Started GET "/assets/bootstrap-sprockets.self-fbfa5ad7d9aa0afe439ec4ff3883acc4cb92b62cb67c40d674320c9aa1d4642d.js?body=1" for 127.0.0.1 at 2017-09-07 02:56:38 +0200
+
+
+Started GET "/assets/application.self-f8806224e027f3e3f0138ea9ce99319e298dfdb323304d1f1be6eae8e8c74724.js?body=1" for 127.0.0.1 at 2017-09-07 02:56:39 +0200
+
+
+Started GET "/assets/bootstrap/popover.self-77d8e3a2499c1104ef146396a68b82469ee2bdb365199b874694698d10405e9a.js?body=1" for 127.0.0.1 at 2017-09-07 02:56:39 +0200
+
+
+Started GET "/assets/bootstrap/scrollspy.self-a155b9d4b2f978905f0326c0f6635e1134fe91c6bfbfcbad079fa24a9fef2b0e.js?body=1" for 127.0.0.1 at 2017-09-07 02:56:39 +0200
+
+
+Started GET "/assets/logo-26789614b681dcd891d324f6f2e2515eb06380d438d6ce7f729464e64ceb127e.jpg" for 127.0.0.1 at 2017-09-07 02:56:39 +0200
+
+
+Started GET "/" for 127.0.0.1 at 2017-09-07 03:00:20 +0200
+Processing by PagesController#homepage as HTML
+  Rendered pages/homepage.html.erb within layouts/application (0.8ms)
+  [1m[35mUser Load (0.3ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."id" IS NULL LIMIT 1
+  [1m[36mManager Load (0.3ms)[0m  [1mSELECT  "managers".* FROM "managers" WHERE "managers"."id" = ? LIMIT 1[0m  [["id", 1]]
+  [1m[35mCACHE (0.1ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."id" IS NULL LIMIT 1
+Completed 200 OK in 307ms (Views: 305.1ms | ActiveRecord: 0.7ms)
+
+
+Started GET "/" for 127.0.0.1 at 2017-09-07 03:00:42 +0200
+Processing by PagesController#homepage as HTML
+  Rendered pages/homepage.html.erb within layouts/application (0.8ms)
+  [1m[36mUser Load (0.6ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."id" IS NULL LIMIT 1[0m
+Completed 200 OK in 322ms (Views: 319.7ms | ActiveRecord: 0.6ms)
+
+
+Started GET "/assets/custom.self-f31f07b26381b305141783fdd83c91c9b935b29a06fa0937aaa35d8e0c443568.css?body=1" for 127.0.0.1 at 2017-09-07 03:00:43 +0200
+
+
+Started GET "/assets/microposts.self-e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855.css?body=1" for 127.0.0.1 at 2017-09-07 03:00:43 +0200
+
+
+Started GET "/assets/markets.self-e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855.css?body=1" for 127.0.0.1 at 2017-09-07 03:00:43 +0200
+
+
+Started GET "/assets/managers.self-e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855.css?body=1" for 127.0.0.1 at 2017-09-07 03:00:43 +0200
+
+
+Started GET "/assets/turbolinks.self-c5acd7a204f5f25ce7a1d8a0e4d92e28d34c9e2df2c7371cd7af88e147e4ad82.js?body=1" for 127.0.0.1 at 2017-09-07 03:00:43 +0200
+
+
+Started GET "/assets/sessions.self-e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855.css?body=1" for 127.0.0.1 at 2017-09-07 03:00:43 +0200
+
+
+Started GET "/assets/users.self-877aef30ae1b040ab8a3aba4e3e309a11d7f2612f44dde450b5c157aa5f95c05.js?body=1" for 127.0.0.1 at 2017-09-07 03:00:43 +0200
+
+
+Started GET "/assets/microposts.self-877aef30ae1b040ab8a3aba4e3e309a11d7f2612f44dde450b5c157aa5f95c05.js?body=1" for 127.0.0.1 at 2017-09-07 03:00:43 +0200
+
+
+Started GET "/assets/pages.self-e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855.css?body=1" for 127.0.0.1 at 2017-09-07 03:00:43 +0200
+
+
+Started GET "/assets/sessionsm.self-e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855.css?body=1" for 127.0.0.1 at 2017-09-07 03:00:43 +0200
+
+
+Started GET "/assets/users.self-e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855.css?body=1" for 127.0.0.1 at 2017-09-07 03:00:43 +0200
+
+
+Started GET "/assets/bootstrap.self-9acfc28c4d35348d353eb47afc72c287bc271ea4f7e8c9b05f2f9554ddc3f202.js?body=1" for 127.0.0.1 at 2017-09-07 03:00:43 +0200
+
+
+Started GET "/assets/bootstrap/affix.self-d2b642d8fbfc1d7041e2edefd66683ada567a980789dcd6f94fddda0b33408b5.js?body=1" for 127.0.0.1 at 2017-09-07 03:00:43 +0200
+
+
+Started GET "/assets/pages.self-877aef30ae1b040ab8a3aba4e3e309a11d7f2612f44dde450b5c157aa5f95c05.js?body=1" for 127.0.0.1 at 2017-09-07 03:00:43 +0200
+
+
+Started GET "/assets/jquery_ujs.self-784a997f6726036b1993eb2217c9cb558e1cbb801c6da88105588c56f13b466a.js?body=1" for 127.0.0.1 at 2017-09-07 03:00:43 +0200
+
+
+Started GET "/assets/application.self-e80e8f2318043e8af94dddc2adad5a4f09739a8ebb323b3ab31cd71d45fd9113.css?body=1" for 127.0.0.1 at 2017-09-07 03:00:43 +0200
+
+
+Started GET "/assets/smart_shopping.self-e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855.css?body=1" for 127.0.0.1 at 2017-09-07 03:00:43 +0200
+
+
+Started GET "/assets/bootstrap.min.self-f0ac71a63207973b5b1ad57e55be7fdbf03e684db1ec6dfeccc294db81110ead.js?body=1" for 127.0.0.1 at 2017-09-07 03:00:43 +0200
+
+
+Started GET "/assets/bootstrap/alert.self-a29e91e8cd3ddaba9bbc466901d53ec2127e9256b9b941905d525a3a716bd1a5.js?body=1" for 127.0.0.1 at 2017-09-07 03:00:43 +0200
+
+
+Started GET "/assets/sessions.self-877aef30ae1b040ab8a3aba4e3e309a11d7f2612f44dde450b5c157aa5f95c05.js?body=1" for 127.0.0.1 at 2017-09-07 03:00:43 +0200
+
+
+Started GET "/assets/smart_shopping.self-877aef30ae1b040ab8a3aba4e3e309a11d7f2612f44dde450b5c157aa5f95c05.js?body=1" for 127.0.0.1 at 2017-09-07 03:00:43 +0200
+
+
+Started GET "/assets/jquery.self-bd7ddd393353a8d2480a622e80342adf488fb6006d667e8b42e4c0073393abee.js?body=1" for 127.0.0.1 at 2017-09-07 03:00:43 +0200
+
+
+Started GET "/assets/markets.self-877aef30ae1b040ab8a3aba4e3e309a11d7f2612f44dde450b5c157aa5f95c05.js?body=1" for 127.0.0.1 at 2017-09-07 03:00:43 +0200
+
+
+Started GET "/assets/managers.self-877aef30ae1b040ab8a3aba4e3e309a11d7f2612f44dde450b5c157aa5f95c05.js?body=1" for 127.0.0.1 at 2017-09-07 03:00:43 +0200
+
+
+Started GET "/assets/bootstrap/transition.self-09ff30b1e8a93d1f7728b9855f55d9c9d8d5734c8861e0d8139994e50944572a.js?body=1" for 127.0.0.1 at 2017-09-07 03:00:43 +0200
+
+
+Started GET "/assets/bootstrap/dropdown.self-9314126777c6be5443e37ea7f7967d7914d72b3e60449ba50edc967446373059.js?body=1" for 127.0.0.1 at 2017-09-07 03:00:43 +0200
+
+
+Started GET "/assets/sessionsm.self-877aef30ae1b040ab8a3aba4e3e309a11d7f2612f44dde450b5c157aa5f95c05.js?body=1" for 127.0.0.1 at 2017-09-07 03:00:43 +0200
+
+
+Started GET "/assets/bootstrap/carousel.self-57eb8422043cf0a85b7a9dc6843916eb0a3e35b419c7798a5eb254b918997631.js?body=1" for 127.0.0.1 at 2017-09-07 03:00:44 +0200
+
+
+Started GET "/assets/bootstrap/collapse.self-7dc8bfbc2fbfabd2bad62c58ff8ffeaf8f20fb87c7ca6cd35f06d4dc19632587.js?body=1" for 127.0.0.1 at 2017-09-07 03:00:44 +0200
+
+
+Started GET "/assets/bootstrap/button.self-a6cb16785434acb365ae426aef9f1fce05ed553cae7a965e4471c3da71509175.js?body=1" for 127.0.0.1 at 2017-09-07 03:00:44 +0200
+
+
+Started GET "/assets/bootstrap-sprockets.self-fbfa5ad7d9aa0afe439ec4ff3883acc4cb92b62cb67c40d674320c9aa1d4642d.js?body=1" for 127.0.0.1 at 2017-09-07 03:00:44 +0200
+
+
+Started GET "/assets/bootstrap/scrollspy.self-a155b9d4b2f978905f0326c0f6635e1134fe91c6bfbfcbad079fa24a9fef2b0e.js?body=1" for 127.0.0.1 at 2017-09-07 03:00:44 +0200
+
+
+Started GET "/assets/bootstrap/tooltip.self-11cf547be953f25f511cec668f6690473fd97b2f65502e4032f4030999a3f0c3.js?body=1" for 127.0.0.1 at 2017-09-07 03:00:44 +0200
+
+
+Started GET "/assets/bootstrap/tab.self-122235057fbd4c6c7da377d59dc58f47b44cb1088a2e38e6ee6ce9d8ac29a26a.js?body=1" for 127.0.0.1 at 2017-09-07 03:00:44 +0200
+
+
+Started GET "/assets/bootstrap/modal.self-72f95ffa1071297725a9ac91989693d56d1abf23f441a47455073b0da2857a5b.js?body=1" for 127.0.0.1 at 2017-09-07 03:00:44 +0200
+
+
+Started GET "/assets/application.self-f8806224e027f3e3f0138ea9ce99319e298dfdb323304d1f1be6eae8e8c74724.js?body=1" for 127.0.0.1 at 2017-09-07 03:00:44 +0200
+
+
+Started GET "/assets/bootstrap/popover.self-77d8e3a2499c1104ef146396a68b82469ee2bdb365199b874694698d10405e9a.js?body=1" for 127.0.0.1 at 2017-09-07 03:00:44 +0200
+
+
+Started GET "/assets/logo-26789614b681dcd891d324f6f2e2515eb06380d438d6ce7f729464e64ceb127e.jpg" for 127.0.0.1 at 2017-09-07 03:00:44 +0200
+
+
+Started GET "/" for 127.0.0.1 at 2017-09-07 03:02:18 +0200
+Processing by PagesController#homepage as HTML
+  Rendered pages/homepage.html.erb within layouts/application (2.3ms)
+  [1m[35mUser Load (22.8ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."id" IS NULL LIMIT 1
+Completed 200 OK in 1838ms (Views: 1762.0ms | ActiveRecord: 22.8ms)
+
+
+Started GET "/assets/custom.self-f31f07b26381b305141783fdd83c91c9b935b29a06fa0937aaa35d8e0c443568.css?body=1" for 127.0.0.1 at 2017-09-07 03:02:20 +0200
+
+
+Started GET "/assets/managers.self-e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855.css?body=1" for 127.0.0.1 at 2017-09-07 03:02:20 +0200
+
+
+Started GET "/assets/markets.self-e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855.css?body=1" for 127.0.0.1 at 2017-09-07 03:02:20 +0200
+
+
+Started GET "/assets/turbolinks.self-c5acd7a204f5f25ce7a1d8a0e4d92e28d34c9e2df2c7371cd7af88e147e4ad82.js?body=1" for 127.0.0.1 at 2017-09-07 03:02:20 +0200
+
+
+Started GET "/assets/microposts.self-877aef30ae1b040ab8a3aba4e3e309a11d7f2612f44dde450b5c157aa5f95c05.js?body=1" for 127.0.0.1 at 2017-09-07 03:02:20 +0200
+
+
+Started GET "/assets/users.self-877aef30ae1b040ab8a3aba4e3e309a11d7f2612f44dde450b5c157aa5f95c05.js?body=1" for 127.0.0.1 at 2017-09-07 03:02:20 +0200
+
+
+Started GET "/assets/microposts.self-e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855.css?body=1" for 127.0.0.1 at 2017-09-07 03:02:20 +0200
+
+
+Started GET "/assets/pages.self-e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855.css?body=1" for 127.0.0.1 at 2017-09-07 03:02:20 +0200
+
+
+Started GET "/assets/sessions.self-e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855.css?body=1" for 127.0.0.1 at 2017-09-07 03:02:20 +0200
+
+
+Started GET "/assets/bootstrap.self-9acfc28c4d35348d353eb47afc72c287bc271ea4f7e8c9b05f2f9554ddc3f202.js?body=1" for 127.0.0.1 at 2017-09-07 03:02:20 +0200
+
+
+Started GET "/assets/pages.self-877aef30ae1b040ab8a3aba4e3e309a11d7f2612f44dde450b5c157aa5f95c05.js?body=1" for 127.0.0.1 at 2017-09-07 03:02:20 +0200
+
+
+Started GET "/assets/bootstrap/affix.self-d2b642d8fbfc1d7041e2edefd66683ada567a980789dcd6f94fddda0b33408b5.js?body=1" for 127.0.0.1 at 2017-09-07 03:02:20 +0200
+
+
+Started GET "/assets/sessionsm.self-e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855.css?body=1" for 127.0.0.1 at 2017-09-07 03:02:20 +0200
+
+
+Started GET "/assets/smart_shopping.self-e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855.css?body=1" for 127.0.0.1 at 2017-09-07 03:02:20 +0200
+
+
+Started GET "/assets/users.self-e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855.css?body=1" for 127.0.0.1 at 2017-09-07 03:02:21 +0200
+
+
+Started GET "/assets/bootstrap.min.self-f0ac71a63207973b5b1ad57e55be7fdbf03e684db1ec6dfeccc294db81110ead.js?body=1" for 127.0.0.1 at 2017-09-07 03:02:21 +0200
+
+
+Started GET "/assets/sessions.self-877aef30ae1b040ab8a3aba4e3e309a11d7f2612f44dde450b5c157aa5f95c05.js?body=1" for 127.0.0.1 at 2017-09-07 03:02:21 +0200
+
+
+Started GET "/assets/bootstrap/alert.self-a29e91e8cd3ddaba9bbc466901d53ec2127e9256b9b941905d525a3a716bd1a5.js?body=1" for 127.0.0.1 at 2017-09-07 03:02:21 +0200
+
+
+Started GET "/assets/application.self-e80e8f2318043e8af94dddc2adad5a4f09739a8ebb323b3ab31cd71d45fd9113.css?body=1" for 127.0.0.1 at 2017-09-07 03:02:21 +0200
+
+
+Started GET "/assets/jquery.self-bd7ddd393353a8d2480a622e80342adf488fb6006d667e8b42e4c0073393abee.js?body=1" for 127.0.0.1 at 2017-09-07 03:02:21 +0200
+
+
+Started GET "/assets/markets.self-877aef30ae1b040ab8a3aba4e3e309a11d7f2612f44dde450b5c157aa5f95c05.js?body=1" for 127.0.0.1 at 2017-09-07 03:02:21 +0200
+
+
+Started GET "/assets/jquery_ujs.self-784a997f6726036b1993eb2217c9cb558e1cbb801c6da88105588c56f13b466a.js?body=1" for 127.0.0.1 at 2017-09-07 03:02:21 +0200
+
+
+Started GET "/assets/smart_shopping.self-877aef30ae1b040ab8a3aba4e3e309a11d7f2612f44dde450b5c157aa5f95c05.js?body=1" for 127.0.0.1 at 2017-09-07 03:02:21 +0200
+
+
+Started GET "/assets/bootstrap/button.self-a6cb16785434acb365ae426aef9f1fce05ed553cae7a965e4471c3da71509175.js?body=1" for 127.0.0.1 at 2017-09-07 03:02:21 +0200
+
+
+Started GET "/assets/managers.self-877aef30ae1b040ab8a3aba4e3e309a11d7f2612f44dde450b5c157aa5f95c05.js?body=1" for 127.0.0.1 at 2017-09-07 03:02:21 +0200
+
+
+Started GET "/assets/sessionsm.self-877aef30ae1b040ab8a3aba4e3e309a11d7f2612f44dde450b5c157aa5f95c05.js?body=1" for 127.0.0.1 at 2017-09-07 03:02:21 +0200
+
+
+Started GET "/assets/bootstrap/scrollspy.self-a155b9d4b2f978905f0326c0f6635e1134fe91c6bfbfcbad079fa24a9fef2b0e.js?body=1" for 127.0.0.1 at 2017-09-07 03:02:21 +0200
+
+
+Started GET "/assets/bootstrap/transition.self-09ff30b1e8a93d1f7728b9855f55d9c9d8d5734c8861e0d8139994e50944572a.js?body=1" for 127.0.0.1 at 2017-09-07 03:02:21 +0200
+
+
+Started GET "/assets/bootstrap/collapse.self-7dc8bfbc2fbfabd2bad62c58ff8ffeaf8f20fb87c7ca6cd35f06d4dc19632587.js?body=1" for 127.0.0.1 at 2017-09-07 03:02:21 +0200
+
+
+Started GET "/assets/bootstrap/modal.self-72f95ffa1071297725a9ac91989693d56d1abf23f441a47455073b0da2857a5b.js?body=1" for 127.0.0.1 at 2017-09-07 03:02:21 +0200
+
+
+Started GET "/assets/bootstrap/carousel.self-57eb8422043cf0a85b7a9dc6843916eb0a3e35b419c7798a5eb254b918997631.js?body=1" for 127.0.0.1 at 2017-09-07 03:02:21 +0200
+
+
+Started GET "/assets/bootstrap/tooltip.self-11cf547be953f25f511cec668f6690473fd97b2f65502e4032f4030999a3f0c3.js?body=1" for 127.0.0.1 at 2017-09-07 03:02:21 +0200
+
+
+Started GET "/assets/bootstrap/dropdown.self-9314126777c6be5443e37ea7f7967d7914d72b3e60449ba50edc967446373059.js?body=1" for 127.0.0.1 at 2017-09-07 03:02:21 +0200
+
+
+Started GET "/assets/bootstrap/tab.self-122235057fbd4c6c7da377d59dc58f47b44cb1088a2e38e6ee6ce9d8ac29a26a.js?body=1" for 127.0.0.1 at 2017-09-07 03:02:21 +0200
+
+
+Started GET "/assets/bootstrap/popover.self-77d8e3a2499c1104ef146396a68b82469ee2bdb365199b874694698d10405e9a.js?body=1" for 127.0.0.1 at 2017-09-07 03:02:21 +0200
+
+
+Started GET "/assets/bootstrap-sprockets.self-fbfa5ad7d9aa0afe439ec4ff3883acc4cb92b62cb67c40d674320c9aa1d4642d.js?body=1" for 127.0.0.1 at 2017-09-07 03:02:21 +0200
+
+
+Started GET "/assets/application.self-f8806224e027f3e3f0138ea9ce99319e298dfdb323304d1f1be6eae8e8c74724.js?body=1" for 127.0.0.1 at 2017-09-07 03:02:21 +0200
+
+
+Started GET "/assets/logo-26789614b681dcd891d324f6f2e2515eb06380d438d6ce7f729464e64ceb127e.jpg" for 127.0.0.1 at 2017-09-07 03:02:21 +0200
+
+
+Started GET "/" for 127.0.0.1 at 2017-09-07 03:02:34 +0200
+Processing by PagesController#homepage as HTML
+  Rendered pages/homepage.html.erb within layouts/application (1.0ms)
+  [1m[36mUser Load (0.6ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."id" IS NULL LIMIT 1[0m
+  [1m[35mManager Load (0.3ms)[0m  SELECT  "managers".* FROM "managers" WHERE "managers"."id" = ? LIMIT 1  [["id", 1]]
+  [1m[36mCACHE (0.3ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."id" IS NULL LIMIT 1[0m
+Completed 200 OK in 259ms (Views: 255.1ms | ActiveRecord: 1.1ms)
+
+
+Started GET "/assets/custom.self-f31f07b26381b305141783fdd83c91c9b935b29a06fa0937aaa35d8e0c443568.css?body=1" for 127.0.0.1 at 2017-09-07 03:02:35 +0200
+
+
+Started GET "/assets/managers.self-e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855.css?body=1" for 127.0.0.1 at 2017-09-07 03:02:35 +0200
+
+
+Started GET "/assets/markets.self-e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855.css?body=1" for 127.0.0.1 at 2017-09-07 03:02:35 +0200
+
+
+Started GET "/assets/turbolinks.self-c5acd7a204f5f25ce7a1d8a0e4d92e28d34c9e2df2c7371cd7af88e147e4ad82.js?body=1" for 127.0.0.1 at 2017-09-07 03:02:35 +0200
+
+
+Started GET "/assets/microposts.self-e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855.css?body=1" for 127.0.0.1 at 2017-09-07 03:02:35 +0200
+
+
+Started GET "/assets/microposts.self-877aef30ae1b040ab8a3aba4e3e309a11d7f2612f44dde450b5c157aa5f95c05.js?body=1" for 127.0.0.1 at 2017-09-07 03:02:35 +0200
+
+
+Started GET "/assets/users.self-877aef30ae1b040ab8a3aba4e3e309a11d7f2612f44dde450b5c157aa5f95c05.js?body=1" for 127.0.0.1 at 2017-09-07 03:02:35 +0200
+
+
+Started GET "/assets/bootstrap.self-9acfc28c4d35348d353eb47afc72c287bc271ea4f7e8c9b05f2f9554ddc3f202.js?body=1" for 127.0.0.1 at 2017-09-07 03:02:35 +0200
+
+
+Started GET "/assets/pages.self-e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855.css?body=1" for 127.0.0.1 at 2017-09-07 03:02:35 +0200
+
+
+Started GET "/assets/sessions.self-e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855.css?body=1" for 127.0.0.1 at 2017-09-07 03:02:35 +0200
+
+
+Started GET "/assets/sessionsm.self-e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855.css?body=1" for 127.0.0.1 at 2017-09-07 03:02:35 +0200
+
+
+Started GET "/assets/bootstrap/affix.self-d2b642d8fbfc1d7041e2edefd66683ada567a980789dcd6f94fddda0b33408b5.js?body=1" for 127.0.0.1 at 2017-09-07 03:02:35 +0200
+
+
+Started GET "/assets/pages.self-877aef30ae1b040ab8a3aba4e3e309a11d7f2612f44dde450b5c157aa5f95c05.js?body=1" for 127.0.0.1 at 2017-09-07 03:02:35 +0200
+
+
+Started GET "/assets/bootstrap.min.self-f0ac71a63207973b5b1ad57e55be7fdbf03e684db1ec6dfeccc294db81110ead.js?body=1" for 127.0.0.1 at 2017-09-07 03:02:35 +0200
+
+
+Started GET "/assets/users.self-e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855.css?body=1" for 127.0.0.1 at 2017-09-07 03:02:35 +0200
+
+
+Started GET "/assets/smart_shopping.self-e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855.css?body=1" for 127.0.0.1 at 2017-09-07 03:02:35 +0200
+
+
+Started GET "/assets/application.self-e80e8f2318043e8af94dddc2adad5a4f09739a8ebb323b3ab31cd71d45fd9113.css?body=1" for 127.0.0.1 at 2017-09-07 03:02:35 +0200
+
+
+Started GET "/assets/bootstrap/alert.self-a29e91e8cd3ddaba9bbc466901d53ec2127e9256b9b941905d525a3a716bd1a5.js?body=1" for 127.0.0.1 at 2017-09-07 03:02:35 +0200
+
+
+Started GET "/assets/sessions.self-877aef30ae1b040ab8a3aba4e3e309a11d7f2612f44dde450b5c157aa5f95c05.js?body=1" for 127.0.0.1 at 2017-09-07 03:02:35 +0200
+
+
+Started GET "/assets/markets.self-877aef30ae1b040ab8a3aba4e3e309a11d7f2612f44dde450b5c157aa5f95c05.js?body=1" for 127.0.0.1 at 2017-09-07 03:02:35 +0200
+
+
+Started GET "/assets/jquery_ujs.self-784a997f6726036b1993eb2217c9cb558e1cbb801c6da88105588c56f13b466a.js?body=1" for 127.0.0.1 at 2017-09-07 03:02:35 +0200
+
+
+Started GET "/assets/managers.self-877aef30ae1b040ab8a3aba4e3e309a11d7f2612f44dde450b5c157aa5f95c05.js?body=1" for 127.0.0.1 at 2017-09-07 03:02:35 +0200
+
+
+Started GET "/assets/jquery.self-bd7ddd393353a8d2480a622e80342adf488fb6006d667e8b42e4c0073393abee.js?body=1" for 127.0.0.1 at 2017-09-07 03:02:35 +0200
+
+
+Started GET "/assets/bootstrap/carousel.self-57eb8422043cf0a85b7a9dc6843916eb0a3e35b419c7798a5eb254b918997631.js?body=1" for 127.0.0.1 at 2017-09-07 03:02:35 +0200
+
+
+Started GET "/assets/bootstrap/dropdown.self-9314126777c6be5443e37ea7f7967d7914d72b3e60449ba50edc967446373059.js?body=1" for 127.0.0.1 at 2017-09-07 03:02:35 +0200
+
+
+Started GET "/assets/smart_shopping.self-877aef30ae1b040ab8a3aba4e3e309a11d7f2612f44dde450b5c157aa5f95c05.js?body=1" for 127.0.0.1 at 2017-09-07 03:02:35 +0200
+
+
+Started GET "/assets/bootstrap/button.self-a6cb16785434acb365ae426aef9f1fce05ed553cae7a965e4471c3da71509175.js?body=1" for 127.0.0.1 at 2017-09-07 03:02:35 +0200
+
+
+Started GET "/assets/bootstrap/collapse.self-7dc8bfbc2fbfabd2bad62c58ff8ffeaf8f20fb87c7ca6cd35f06d4dc19632587.js?body=1" for 127.0.0.1 at 2017-09-07 03:02:35 +0200
+
+
+Started GET "/assets/bootstrap/scrollspy.self-a155b9d4b2f978905f0326c0f6635e1134fe91c6bfbfcbad079fa24a9fef2b0e.js?body=1" for 127.0.0.1 at 2017-09-07 03:02:35 +0200
+
+
+Started GET "/assets/bootstrap/tooltip.self-11cf547be953f25f511cec668f6690473fd97b2f65502e4032f4030999a3f0c3.js?body=1" for 127.0.0.1 at 2017-09-07 03:02:35 +0200
+
+
+Started GET "/assets/bootstrap/transition.self-09ff30b1e8a93d1f7728b9855f55d9c9d8d5734c8861e0d8139994e50944572a.js?body=1" for 127.0.0.1 at 2017-09-07 03:02:35 +0200
+
+
+Started GET "/assets/bootstrap/modal.self-72f95ffa1071297725a9ac91989693d56d1abf23f441a47455073b0da2857a5b.js?body=1" for 127.0.0.1 at 2017-09-07 03:02:35 +0200
+
+
+Started GET "/assets/sessionsm.self-877aef30ae1b040ab8a3aba4e3e309a11d7f2612f44dde450b5c157aa5f95c05.js?body=1" for 127.0.0.1 at 2017-09-07 03:02:35 +0200
+
+
+Started GET "/assets/bootstrap/popover.self-77d8e3a2499c1104ef146396a68b82469ee2bdb365199b874694698d10405e9a.js?body=1" for 127.0.0.1 at 2017-09-07 03:02:35 +0200
+
+
+Started GET "/assets/application.self-f8806224e027f3e3f0138ea9ce99319e298dfdb323304d1f1be6eae8e8c74724.js?body=1" for 127.0.0.1 at 2017-09-07 03:02:35 +0200
+
+
+Started GET "/assets/bootstrap/tab.self-122235057fbd4c6c7da377d59dc58f47b44cb1088a2e38e6ee6ce9d8ac29a26a.js?body=1" for 127.0.0.1 at 2017-09-07 03:02:35 +0200
+
+
+Started GET "/assets/bootstrap-sprockets.self-fbfa5ad7d9aa0afe439ec4ff3883acc4cb92b62cb67c40d674320c9aa1d4642d.js?body=1" for 127.0.0.1 at 2017-09-07 03:02:35 +0200
+
+
+Started GET "/assets/logo-26789614b681dcd891d324f6f2e2515eb06380d438d6ce7f729464e64ceb127e.jpg" for 127.0.0.1 at 2017-09-07 03:02:35 +0200
+
+
+Started GET "/" for 127.0.0.1 at 2017-09-07 03:03:14 +0200
+Processing by PagesController#homepage as HTML
+  Rendered pages/homepage.html.erb within layouts/application (1.0ms)
+  [1m[35mUser Load (0.5ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."id" IS NULL LIMIT 1
+Completed 200 OK in 264ms (Views: 260.3ms | ActiveRecord: 0.5ms)
+
+
+Started GET "/assets/custom.self-f31f07b26381b305141783fdd83c91c9b935b29a06fa0937aaa35d8e0c443568.css?body=1" for 127.0.0.1 at 2017-09-07 03:03:14 +0200
+
+
+Started GET "/assets/managers.self-e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855.css?body=1" for 127.0.0.1 at 2017-09-07 03:03:14 +0200
+
+
+Started GET "/assets/pages.self-e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855.css?body=1" for 127.0.0.1 at 2017-09-07 03:03:14 +0200
+
+
+Started GET "/assets/turbolinks.self-c5acd7a204f5f25ce7a1d8a0e4d92e28d34c9e2df2c7371cd7af88e147e4ad82.js?body=1" for 127.0.0.1 at 2017-09-07 03:03:14 +0200
+
+
+Started GET "/assets/markets.self-e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855.css?body=1" for 127.0.0.1 at 2017-09-07 03:03:14 +0200
+
+
+Started GET "/assets/microposts.self-877aef30ae1b040ab8a3aba4e3e309a11d7f2612f44dde450b5c157aa5f95c05.js?body=1" for 127.0.0.1 at 2017-09-07 03:03:14 +0200
+
+
+Started GET "/assets/smart_shopping.self-877aef30ae1b040ab8a3aba4e3e309a11d7f2612f44dde450b5c157aa5f95c05.js?body=1" for 127.0.0.1 at 2017-09-07 03:03:14 +0200
+
+
+Started GET "/assets/sessionsm.self-e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855.css?body=1" for 127.0.0.1 at 2017-09-07 03:03:14 +0200
+
+
+Started GET "/assets/sessions.self-e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855.css?body=1" for 127.0.0.1 at 2017-09-07 03:03:14 +0200
+
+
+Started GET "/assets/bootstrap.self-9acfc28c4d35348d353eb47afc72c287bc271ea4f7e8c9b05f2f9554ddc3f202.js?body=1" for 127.0.0.1 at 2017-09-07 03:03:14 +0200
+
+
+Started GET "/assets/microposts.self-e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855.css?body=1" for 127.0.0.1 at 2017-09-07 03:03:14 +0200
+
+
+Started GET "/assets/pages.self-877aef30ae1b040ab8a3aba4e3e309a11d7f2612f44dde450b5c157aa5f95c05.js?body=1" for 127.0.0.1 at 2017-09-07 03:03:14 +0200
+
+
+Started GET "/assets/users.self-877aef30ae1b040ab8a3aba4e3e309a11d7f2612f44dde450b5c157aa5f95c05.js?body=1" for 127.0.0.1 at 2017-09-07 03:03:14 +0200
+
+
+Started GET "/assets/application.self-e80e8f2318043e8af94dddc2adad5a4f09739a8ebb323b3ab31cd71d45fd9113.css?body=1" for 127.0.0.1 at 2017-09-07 03:03:14 +0200
+
+
+Started GET "/assets/users.self-e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855.css?body=1" for 127.0.0.1 at 2017-09-07 03:03:14 +0200
+
+
+Started GET "/assets/smart_shopping.self-e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855.css?body=1" for 127.0.0.1 at 2017-09-07 03:03:14 +0200
+
+
+Started GET "/assets/bootstrap.min.self-f0ac71a63207973b5b1ad57e55be7fdbf03e684db1ec6dfeccc294db81110ead.js?body=1" for 127.0.0.1 at 2017-09-07 03:03:15 +0200
+
+
+Started GET "/assets/sessions.self-877aef30ae1b040ab8a3aba4e3e309a11d7f2612f44dde450b5c157aa5f95c05.js?body=1" for 127.0.0.1 at 2017-09-07 03:03:15 +0200
+
+
+Started GET "/assets/bootstrap/affix.self-d2b642d8fbfc1d7041e2edefd66683ada567a980789dcd6f94fddda0b33408b5.js?body=1" for 127.0.0.1 at 2017-09-07 03:03:15 +0200
+
+
+Started GET "/assets/managers.self-877aef30ae1b040ab8a3aba4e3e309a11d7f2612f44dde450b5c157aa5f95c05.js?body=1" for 127.0.0.1 at 2017-09-07 03:03:15 +0200
+
+
+Started GET "/assets/jquery.self-bd7ddd393353a8d2480a622e80342adf488fb6006d667e8b42e4c0073393abee.js?body=1" for 127.0.0.1 at 2017-09-07 03:03:15 +0200
+
+
+Started GET "/assets/bootstrap/collapse.self-7dc8bfbc2fbfabd2bad62c58ff8ffeaf8f20fb87c7ca6cd35f06d4dc19632587.js?body=1" for 127.0.0.1 at 2017-09-07 03:03:15 +0200
+
+
+Started GET "/assets/markets.self-877aef30ae1b040ab8a3aba4e3e309a11d7f2612f44dde450b5c157aa5f95c05.js?body=1" for 127.0.0.1 at 2017-09-07 03:03:15 +0200
+
+
+Started GET "/assets/sessionsm.self-877aef30ae1b040ab8a3aba4e3e309a11d7f2612f44dde450b5c157aa5f95c05.js?body=1" for 127.0.0.1 at 2017-09-07 03:03:15 +0200
+
+
+Started GET "/assets/bootstrap/button.self-a6cb16785434acb365ae426aef9f1fce05ed553cae7a965e4471c3da71509175.js?body=1" for 127.0.0.1 at 2017-09-07 03:03:15 +0200
+
+
+Started GET "/assets/jquery_ujs.self-784a997f6726036b1993eb2217c9cb558e1cbb801c6da88105588c56f13b466a.js?body=1" for 127.0.0.1 at 2017-09-07 03:03:15 +0200
+
+
+Started GET "/assets/bootstrap/alert.self-a29e91e8cd3ddaba9bbc466901d53ec2127e9256b9b941905d525a3a716bd1a5.js?body=1" for 127.0.0.1 at 2017-09-07 03:03:15 +0200
+
+
+Started GET "/assets/bootstrap/tab.self-122235057fbd4c6c7da377d59dc58f47b44cb1088a2e38e6ee6ce9d8ac29a26a.js?body=1" for 127.0.0.1 at 2017-09-07 03:03:15 +0200
+
+
+Started GET "/assets/bootstrap/popover.self-77d8e3a2499c1104ef146396a68b82469ee2bdb365199b874694698d10405e9a.js?body=1" for 127.0.0.1 at 2017-09-07 03:03:15 +0200
+
+
+Started GET "/assets/bootstrap/transition.self-09ff30b1e8a93d1f7728b9855f55d9c9d8d5734c8861e0d8139994e50944572a.js?body=1" for 127.0.0.1 at 2017-09-07 03:03:15 +0200
+
+
+Started GET "/assets/bootstrap/scrollspy.self-a155b9d4b2f978905f0326c0f6635e1134fe91c6bfbfcbad079fa24a9fef2b0e.js?body=1" for 127.0.0.1 at 2017-09-07 03:03:15 +0200
+
+
+Started GET "/assets/bootstrap/carousel.self-57eb8422043cf0a85b7a9dc6843916eb0a3e35b419c7798a5eb254b918997631.js?body=1" for 127.0.0.1 at 2017-09-07 03:03:15 +0200
+
+
+Started GET "/assets/bootstrap/dropdown.self-9314126777c6be5443e37ea7f7967d7914d72b3e60449ba50edc967446373059.js?body=1" for 127.0.0.1 at 2017-09-07 03:03:15 +0200
+
+
+Started GET "/assets/application.self-f8806224e027f3e3f0138ea9ce99319e298dfdb323304d1f1be6eae8e8c74724.js?body=1" for 127.0.0.1 at 2017-09-07 03:03:15 +0200
+
+
+Started GET "/assets/bootstrap/tooltip.self-11cf547be953f25f511cec668f6690473fd97b2f65502e4032f4030999a3f0c3.js?body=1" for 127.0.0.1 at 2017-09-07 03:03:15 +0200
+
+
+Started GET "/assets/bootstrap/modal.self-72f95ffa1071297725a9ac91989693d56d1abf23f441a47455073b0da2857a5b.js?body=1" for 127.0.0.1 at 2017-09-07 03:03:15 +0200
+
+
+Started GET "/assets/bootstrap-sprockets.self-fbfa5ad7d9aa0afe439ec4ff3883acc4cb92b62cb67c40d674320c9aa1d4642d.js?body=1" for 127.0.0.1 at 2017-09-07 03:03:15 +0200
+
+
+Started GET "/assets/logo-26789614b681dcd891d324f6f2e2515eb06380d438d6ce7f729464e64ceb127e.jpg" for 127.0.0.1 at 2017-09-07 03:03:15 +0200
+
+
+Started GET "/login" for 127.0.0.1 at 2017-09-07 03:03:17 +0200
+Processing by SessionsController#new as HTML
+  Rendered sessions/new.html.erb within layouts/application (5.4ms)
+  [1m[36mUser Load (0.8ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."id" IS NULL LIMIT 1[0m
+Completed 200 OK in 233ms (Views: 230.4ms | ActiveRecord: 0.8ms)
+
+
+Started POST "/login" for 127.0.0.1 at 2017-09-07 03:03:29 +0200
+Processing by SessionsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"/c6zwXPrPSEiv4FR9AsJh8lmStzbWxS/c0FA0MJr4dVvOHHY5pUsWRe8VqEZjLRyEAT0PhV74ZXQuW2zCTFW8Q==", "session"=>{"email"=>"flavio@gmail.com", "password"=>"[FILTERED]"}, "commit"=>"Log in"}
+  [1m[35mUser Load (0.7ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."email" = ? LIMIT 1  [["email", "flavio@gmail.com"]]
+Redirected to http://localhost:3000/users/1
+Completed 302 Found in 128ms (ActiveRecord: 0.7ms)
+
+
+Started GET "/users/1" for 127.0.0.1 at 2017-09-07 03:03:29 +0200
+Processing by UsersController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mUser Load (0.6ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT 1[0m  [["id", 1]]
+  Rendered users/show.html.erb within layouts/application (2.5ms)
+  [1m[35mUser Load (0.3ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT 1  [["id", 1]]
+  [1m[36mManager Load (0.3ms)[0m  [1mSELECT  "managers".* FROM "managers" WHERE "managers"."id" = ? LIMIT 1[0m  [["id", 1]]
+Completed 200 OK in 192ms (Views: 186.2ms | ActiveRecord: 1.2ms)
+
+
+Started DELETE "/logout" for 127.0.0.1 at 2017-09-07 03:03:33 +0200
+Processing by SessionsController#destroy as HTML
+  Parameters: {"authenticity_token"=>"nijReqI+phF2Qyx4klU4Z9RdPwshD7N87Ha42XugASsM3hNjN0C3aUNA+4h/0oWSDT+B6e8vRlZPjpW6sPq2Dw=="}
+Redirected to http://localhost:3000/
+Completed 302 Found in 5ms (ActiveRecord: 0.0ms)
+
+
+Started GET "/" for 127.0.0.1 at 2017-09-07 03:03:33 +0200
+Processing by PagesController#homepage as HTML
+  Rendered pages/homepage.html.erb within layouts/application (0.6ms)
+  [1m[35mUser Load (1.1ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."id" IS NULL LIMIT 1
+Completed 200 OK in 162ms (Views: 158.6ms | ActiveRecord: 1.1ms)
+
+
+Started GET "/loginm" for 127.0.0.1 at 2017-09-07 03:03:36 +0200
+Processing by SessionsmController#new as HTML
+  Rendered sessionsm/new.html.erb within layouts/application (4.3ms)
+  [1m[36mUser Load (0.5ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."id" IS NULL LIMIT 1[0m
+Completed 200 OK in 244ms (Views: 240.9ms | ActiveRecord: 0.5ms)
+
+
+Started POST "/loginm" for 127.0.0.1 at 2017-09-07 03:03:51 +0200
+Processing by SessionsmController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"Mf/OYfcnNGxBlvj+wpXw+hFbPLnStITGOu4t6nDIyPSjCQx4YlklFHSVLw4vEk0PyDmCWxyUceyZFgCJu5J/0A==", "session"=>{"email"=>"rossi@gmail.com", "password"=>"[FILTERED]"}, "commit"=>"Log in"}
+  [1m[35mManager Load (0.2ms)[0m  SELECT  "managers".* FROM "managers" WHERE "managers"."email" = ? LIMIT 1  [["email", "rossi@gmail.com"]]
+Redirected to http://localhost:3000/managers/1
+Completed 302 Found in 107ms (ActiveRecord: 0.2ms)
+
+
+Started GET "/managers/1" for 127.0.0.1 at 2017-09-07 03:03:51 +0200
+Processing by ManagersController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mManager Load (0.2ms)[0m  [1mSELECT  "managers".* FROM "managers" WHERE "managers"."id" = ? LIMIT 1[0m  [["id", 1]]
+  Rendered managers/show.html.erb within layouts/application (0.2ms)
+  [1m[35mUser Load (0.5ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."id" IS NULL LIMIT 1
+Completed 200 OK in 271ms (Views: 268.3ms | ActiveRecord: 0.7ms)
+
+
+Started GET "/" for 127.0.0.1 at 2017-09-07 03:07:05 +0200
+Processing by PagesController#homepage as HTML
+  Rendered pages/homepage.html.erb within layouts/application (0.7ms)
+  [1m[36mUser Load (0.7ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."id" IS NULL LIMIT 1[0m
+Completed 200 OK in 267ms (Views: 264.5ms | ActiveRecord: 0.7ms)
+
+
+Started GET "/login" for 127.0.0.1 at 2017-09-07 03:07:09 +0200
+Processing by SessionsController#new as HTML
+  Rendered sessions/new.html.erb within layouts/application (3.7ms)
+  [1m[35mUser Load (0.5ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."id" IS NULL LIMIT 1
+Completed 200 OK in 355ms (Views: 352.9ms | ActiveRecord: 0.5ms)
+
+
+Started POST "/login" for 127.0.0.1 at 2017-09-07 03:07:21 +0200
+Processing by SessionsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"7LFwfVHxdt9k7yyyLfezxFlfy5ky6+/LwuHdjibElvd+R7JkxI9np1Hs+0LAcA4xgD11e/zLGuFhGfDt7Z4h0w==", "session"=>{"email"=>"flavio@gmail.com", "password"=>"[FILTERED]"}, "commit"=>"Log in"}
+  [1m[36mUser Load (0.5ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."email" = ? LIMIT 1[0m  [["email", "flavio@gmail.com"]]
+Redirected to http://localhost:3000/users/1
+Completed 302 Found in 115ms (ActiveRecord: 0.5ms)
+
+
+Started GET "/users/1" for 127.0.0.1 at 2017-09-07 03:07:21 +0200
+Processing by UsersController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[35mUser Load (0.2ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT 1  [["id", 1]]
+  Rendered users/show.html.erb within layouts/application (4.0ms)
+  [1m[36mUser Load (0.4ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT 1[0m  [["id", 1]]
+  [1m[35mManager Load (0.4ms)[0m  SELECT  "managers".* FROM "managers" WHERE "managers"."id" = ? LIMIT 1  [["id", 1]]
+Completed 200 OK in 296ms (Views: 292.6ms | ActiveRecord: 1.0ms)
+
+
+Started DELETE "/logout" for 127.0.0.1 at 2017-09-07 03:07:25 +0200
+Processing by SessionsController#destroy as HTML
+  Parameters: {"authenticity_token"=>"9cEKJF20oDEF8/SbWBRUiLEvRfWEg6Eeopcoxw4e0ChnN8g9yMqxSTDwI2u1k+l9aE37F0qjVDQBbwWkxURnDA=="}
+Redirected to http://localhost:3000/
+Completed 302 Found in 4ms (ActiveRecord: 0.0ms)
+
+
+Started GET "/" for 127.0.0.1 at 2017-09-07 03:07:25 +0200
+Processing by PagesController#homepage as HTML
+  Rendered pages/homepage.html.erb within layouts/application (1.3ms)
+  [1m[36mUser Load (1.0ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."id" IS NULL LIMIT 1[0m
+Completed 200 OK in 200ms (Views: 196.9ms | ActiveRecord: 1.0ms)
+
+
+Started GET "/loginm" for 127.0.0.1 at 2017-09-07 03:07:28 +0200
+Processing by SessionsmController#new as HTML
+  Rendered sessionsm/new.html.erb within layouts/application (2.6ms)
+  [1m[35mUser Load (0.6ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."id" IS NULL LIMIT 1
+Completed 200 OK in 216ms (Views: 213.0ms | ActiveRecord: 0.6ms)
+
+
+Started POST "/loginm" for 127.0.0.1 at 2017-09-07 03:07:39 +0200
+Processing by SessionsmController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"3+PmpSzd1utycmSM2W1eagthJwlF+re0lgk8x2M2COlNFSS8uaPHk0dxs3w06uOf0gOZ64vaQp418RGkqGy/zQ==", "session"=>{"email"=>"rossi@gmail.com", "password"=>"[FILTERED]"}, "commit"=>"Log in"}
+  [1m[36mManager Load (0.5ms)[0m  [1mSELECT  "managers".* FROM "managers" WHERE "managers"."email" = ? LIMIT 1[0m  [["email", "rossi@gmail.com"]]
+Redirected to http://localhost:3000/managers/1
+Completed 302 Found in 116ms (ActiveRecord: 0.5ms)
+
+
+Started GET "/managers/1" for 127.0.0.1 at 2017-09-07 03:07:39 +0200
+Processing by ManagersController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[35mManager Load (0.4ms)[0m  SELECT  "managers".* FROM "managers" WHERE "managers"."id" = ? LIMIT 1  [["id", 1]]
+  Rendered managers/show.html.erb within layouts/application (0.1ms)
+  [1m[36mUser Load (0.6ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."id" IS NULL LIMIT 1[0m
+Completed 200 OK in 206ms (Views: 201.4ms | ActiveRecord: 1.0ms)
+
+
+Started GET "/" for 127.0.0.1 at 2017-09-07 03:09:27 +0200
+Processing by PagesController#homepage as HTML
+  Rendered pages/homepage.html.erb within layouts/application (1.0ms)
+  [1m[35mUser Load (0.7ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."id" IS NULL LIMIT 1
+Completed 200 OK in 219ms (Views: 216.9ms | ActiveRecord: 0.7ms)
+
+
+Started GET "/login" for 127.0.0.1 at 2017-09-07 03:09:30 +0200
+Processing by SessionsController#new as HTML
+  Rendered sessions/new.html.erb within layouts/application (5.3ms)
+  [1m[36mUser Load (0.4ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."id" IS NULL LIMIT 1[0m
+Completed 200 OK in 215ms (Views: 213.0ms | ActiveRecord: 0.4ms)
+
+
+Started POST "/login" for 127.0.0.1 at 2017-09-07 03:09:42 +0200
+Processing by SessionsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"9HhSbiD7oGKmglFhZ1aNWCOnSU84aITyWQ/WkcHutBdmjpB3tYWxGpOBhpGK0TCt+sX3rfZIcdj69/vyCrQDMw==", "session"=>{"email"=>"flavio@gmail.com", "password"=>"[FILTERED]"}, "commit"=>"Log in"}
+  [1m[35mUser Load (0.6ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."email" = ? LIMIT 1  [["email", "flavio@gmail.com"]]
+Redirected to http://localhost:3000/users/1
+Completed 302 Found in 116ms (ActiveRecord: 0.6ms)
+
+
+Started GET "/users/1" for 127.0.0.1 at 2017-09-07 03:09:42 +0200
+Processing by UsersController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mUser Load (0.5ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT 1[0m  [["id", 1]]
+  Rendered users/show.html.erb within layouts/application (3.0ms)
+  [1m[35mUser Load (0.4ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT 1  [["id", 1]]
+  [1m[36mManager Load (0.3ms)[0m  [1mSELECT  "managers".* FROM "managers" WHERE "managers"."id" = ? LIMIT 1[0m  [["id", 1]]
+Completed 200 OK in 226ms (Views: 220.7ms | ActiveRecord: 1.2ms)
+
+
+Started DELETE "/logout" for 127.0.0.1 at 2017-09-07 03:09:50 +0200
+Processing by SessionsController#destroy as HTML
+  Parameters: {"authenticity_token"=>"bxWN+xgsW0y2lVGNhFO+V0kcUeeHJJu0uGLSQs8VHKv940/ijVJKNIOWhn1p1AOikH7vBUkEbp4bmv8hBE+rjw=="}
+Redirected to http://localhost:3000/
+Completed 302 Found in 2ms (ActiveRecord: 0.0ms)
+
+
+Started GET "/" for 127.0.0.1 at 2017-09-07 03:09:50 +0200
+Processing by PagesController#homepage as HTML
+  Rendered pages/homepage.html.erb within layouts/application (1.2ms)
+  [1m[35mUser Load (1.1ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."id" IS NULL LIMIT 1
+Completed 200 OK in 219ms (Views: 216.0ms | ActiveRecord: 1.1ms)
+
+
+Started GET "/loginm" for 127.0.0.1 at 2017-09-07 03:09:52 +0200
+Processing by SessionsmController#new as HTML
+  Rendered sessionsm/new.html.erb within layouts/application (4.4ms)
+  [1m[36mUser Load (0.6ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."id" IS NULL LIMIT 1[0m
+Completed 200 OK in 209ms (Views: 206.7ms | ActiveRecord: 0.6ms)
+
+
+Started POST "/loginm" for 127.0.0.1 at 2017-09-07 03:10:03 +0200
+Processing by SessionsmController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"v3W6rwaUpYtyQmG1wajVAiykdwYIQygx9OWje7+v5T4tg3i2k+q080dBtkUsL2j39cbJ5MZj3RtXHY4YdPVSGg==", "session"=>{"email"=>"rossi@gmail.com", "password"=>"[FILTERED]"}, "commit"=>"Log in"}
+  [1m[35mManager Load (0.4ms)[0m  SELECT  "managers".* FROM "managers" WHERE "managers"."email" = ? LIMIT 1  [["email", "rossi@gmail.com"]]
+Redirected to http://localhost:3000/managers/1
+Completed 302 Found in 117ms (ActiveRecord: 0.4ms)
+
+
+Started GET "/managers/1" for 127.0.0.1 at 2017-09-07 03:10:03 +0200
+Processing by ManagersController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mManager Load (0.3ms)[0m  [1mSELECT  "managers".* FROM "managers" WHERE "managers"."id" = ? LIMIT 1[0m  [["id", 1]]
+  Rendered managers/show.html.erb within layouts/application (0.2ms)
+  [1m[35mUser Load (0.6ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."id" IS NULL LIMIT 1
+Completed 200 OK in 236ms (Views: 231.5ms | ActiveRecord: 0.9ms)
+
+
+Started GET "/" for 127.0.0.1 at 2017-09-07 15:39:34 +0200
+  [1m[36mActiveRecord::SchemaMigration Load (0.3ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+Processing by PagesController#homepage as HTML
+  Rendered pages/homepage.html.erb within layouts/application (3.2ms)
+  [1m[35mUser Load (1.5ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."id" IS NULL LIMIT 1
+Completed 200 OK in 4768ms (Views: 4743.4ms | ActiveRecord: 1.6ms)
+
+
+Started GET "/login" for 127.0.0.1 at 2017-09-07 15:39:45 +0200
+Processing by SessionsController#new as HTML
+  Rendered sessions/new.html.erb within layouts/application (125.1ms)
+  [1m[36mUser Load (0.4ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."id" IS NULL LIMIT 1[0m
+Completed 200 OK in 244ms (Views: 242.6ms | ActiveRecord: 0.4ms)
+
+
+Started POST "/login" for 127.0.0.1 at 2017-09-07 15:40:03 +0200
+Processing by SessionsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"+zByKnTcEj8YVTSsaQJfmhNVh+ZMglldUW1nHF1TIhesVYC3VQnvkIfXysXcFeHzTtNnYzsxvtA0DF/aTQlAPw==", "session"=>{"email"=>"flavio@gmail.com", "password"=>"[FILTERED]"}, "commit"=>"Log in"}
+  [1m[35mUser Load (0.5ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."email" = ? LIMIT 1  [["email", "flavio@gmail.com"]]
+Redirected to http://localhost:3000/users/1
+Completed 302 Found in 165ms (ActiveRecord: 0.9ms)
+
+
+Started GET "/users/1" for 127.0.0.1 at 2017-09-07 15:40:03 +0200
+Processing by UsersController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mUser Load (0.4ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT 1[0m  [["id", 1]]
+  Rendered users/show.html.erb within layouts/application (20.3ms)
+  [1m[35mUser Load (0.1ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT 1  [["id", 1]]
+  [1m[36mManager Load (0.4ms)[0m  [1mSELECT  "managers".* FROM "managers" WHERE "managers"."id" IS NULL LIMIT 1[0m
+Completed 200 OK in 188ms (Views: 184.4ms | ActiveRecord: 1.1ms)
+
+
+Started GET "/" for 127.0.0.1 at 2017-09-07 15:40:15 +0200
+Processing by PagesController#homepage as HTML
+  Rendered pages/homepage.html.erb within layouts/application (0.4ms)
+  [1m[35mUser Load (0.2ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT 1  [["id", 1]]
+  [1m[36mManager Load (0.3ms)[0m  [1mSELECT  "managers".* FROM "managers" WHERE "managers"."id" IS NULL LIMIT 1[0m
+Completed 200 OK in 96ms (Views: 94.8ms | ActiveRecord: 0.5ms)
+
+
+Started GET "/loginm" for 127.0.0.1 at 2017-09-07 15:40:18 +0200
+Processing by SessionsmController#new as HTML
+  Rendered sessionsm/new.html.erb within layouts/application (1.9ms)
+  [1m[35mUser Load (0.2ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT 1  [["id", 1]]
+  [1m[36mManager Load (0.3ms)[0m  [1mSELECT  "managers".* FROM "managers" WHERE "managers"."id" IS NULL LIMIT 1[0m
+Completed 200 OK in 166ms (Views: 164.8ms | ActiveRecord: 0.5ms)
+
+
+Started POST "/loginm" for 127.0.0.1 at 2017-09-07 15:40:29 +0200
+Processing by SessionsmController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"e1hgptlRHwOFBZVmIBKWcJiYI2Nltkqp9ZuKxlQCN2gsPZI7+ITirBqHaw+VBSgZxR7D5hIFrSSQ+rIARFhVQA==", "session"=>{"email"=>"rossi@gmail.com", "password"=>"[FILTERED]"}, "commit"=>"Log in"}
+  [1m[35mManager Load (0.6ms)[0m  SELECT  "managers".* FROM "managers" WHERE "managers"."email" = ? LIMIT 1  [["email", "rossi@gmail.com"]]
+Redirected to http://localhost:3000/managers/1
+Completed 302 Found in 113ms (ActiveRecord: 0.9ms)
+
+
+Started GET "/managers/1" for 127.0.0.1 at 2017-09-07 15:40:29 +0200
+Processing by ManagersController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mManager Load (0.4ms)[0m  [1mSELECT  "managers".* FROM "managers" WHERE "managers"."id" = ? LIMIT 1[0m  [["id", 1]]
+  Rendered managers/show.html.erb within layouts/application (0.6ms)
+  [1m[35mUser Load (0.2ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT 1  [["id", 1]]
+  [1m[36mManager Load (0.1ms)[0m  [1mSELECT  "managers".* FROM "managers" WHERE "managers"."id" = ? LIMIT 1[0m  [["id", 1]]
+Completed 200 OK in 107ms (Views: 104.0ms | ActiveRecord: 0.7ms)
+
+
+Started GET "/" for 127.0.0.1 at 2017-09-07 15:41:12 +0200
+Processing by PagesController#homepage as HTML
+  Rendered pages/homepage.html.erb within layouts/application (0.7ms)
+  [1m[35mUser Load (0.2ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT 1  [["id", 1]]
+Completed 200 OK in 99ms (Views: 96.8ms | ActiveRecord: 0.2ms)
+
+
+Started GET "/" for 127.0.0.1 at 2017-09-07 15:41:36 +0200
+Processing by PagesController#homepage as HTML
+  Rendered pages/homepage.html.erb within layouts/application (0.4ms)
+  [1m[36mUser Load (0.2ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT 1[0m  [["id", 1]]
+Completed 200 OK in 107ms (Views: 106.3ms | ActiveRecord: 0.2ms)
+
+
+Started GET "/assets/custom.self-f31f07b26381b305141783fdd83c91c9b935b29a06fa0937aaa35d8e0c443568.css?body=1" for 127.0.0.1 at 2017-09-07 15:41:36 +0200
+
+
+Started GET "/assets/pages.self-e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855.css?body=1" for 127.0.0.1 at 2017-09-07 15:41:36 +0200
+
+
+Started GET "/assets/microposts.self-e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855.css?body=1" for 127.0.0.1 at 2017-09-07 15:41:36 +0200
+
+
+Started GET "/assets/markets.self-e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855.css?body=1" for 127.0.0.1 at 2017-09-07 15:41:36 +0200
+
+
+Started GET "/assets/sessions.self-e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855.css?body=1" for 127.0.0.1 at 2017-09-07 15:41:36 +0200
+
+
+Started GET "/assets/sessionsm.self-e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855.css?body=1" for 127.0.0.1 at 2017-09-07 15:41:36 +0200
+
+
+Started GET "/assets/managers.self-e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855.css?body=1" for 127.0.0.1 at 2017-09-07 15:41:36 +0200
+
+
+Started GET "/assets/smart_shopping.self-e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855.css?body=1" for 127.0.0.1 at 2017-09-07 15:41:36 +0200
+
+
+Started GET "/assets/users.self-e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855.css?body=1" for 127.0.0.1 at 2017-09-07 15:41:36 +0200
+
+
+Started GET "/assets/application.self-e80e8f2318043e8af94dddc2adad5a4f09739a8ebb323b3ab31cd71d45fd9113.css?body=1" for 127.0.0.1 at 2017-09-07 15:41:36 +0200
+
+
+Started GET "/assets/jquery_ujs.self-784a997f6726036b1993eb2217c9cb558e1cbb801c6da88105588c56f13b466a.js?body=1" for 127.0.0.1 at 2017-09-07 15:41:36 +0200
+
+
+Started GET "/assets/jquery.self-bd7ddd393353a8d2480a622e80342adf488fb6006d667e8b42e4c0073393abee.js?body=1" for 127.0.0.1 at 2017-09-07 15:41:36 +0200
+
+
+Started GET "/assets/turbolinks.self-c5acd7a204f5f25ce7a1d8a0e4d92e28d34c9e2df2c7371cd7af88e147e4ad82.js?body=1" for 127.0.0.1 at 2017-09-07 15:41:36 +0200
+
+
+Started GET "/assets/bootstrap/collapse.self-7dc8bfbc2fbfabd2bad62c58ff8ffeaf8f20fb87c7ca6cd35f06d4dc19632587.js?body=1" for 127.0.0.1 at 2017-09-07 15:41:36 +0200
+
+
+Started GET "/assets/bootstrap.self-9acfc28c4d35348d353eb47afc72c287bc271ea4f7e8c9b05f2f9554ddc3f202.js?body=1" for 127.0.0.1 at 2017-09-07 15:41:36 +0200
+
+
+Started GET "/assets/bootstrap.min.self-f0ac71a63207973b5b1ad57e55be7fdbf03e684db1ec6dfeccc294db81110ead.js?body=1" for 127.0.0.1 at 2017-09-07 15:41:36 +0200
+
+
+Started GET "/assets/markets.self-877aef30ae1b040ab8a3aba4e3e309a11d7f2612f44dde450b5c157aa5f95c05.js?body=1" for 127.0.0.1 at 2017-09-07 15:41:36 +0200
+
+
+Started GET "/assets/managers.self-877aef30ae1b040ab8a3aba4e3e309a11d7f2612f44dde450b5c157aa5f95c05.js?body=1" for 127.0.0.1 at 2017-09-07 15:41:36 +0200
+
+
+Started GET "/assets/microposts.self-877aef30ae1b040ab8a3aba4e3e309a11d7f2612f44dde450b5c157aa5f95c05.js?body=1" for 127.0.0.1 at 2017-09-07 15:41:36 +0200
+
+
+Started GET "/assets/bootstrap/dropdown.self-9314126777c6be5443e37ea7f7967d7914d72b3e60449ba50edc967446373059.js?body=1" for 127.0.0.1 at 2017-09-07 15:41:36 +0200
+
+
+Started GET "/assets/pages.self-877aef30ae1b040ab8a3aba4e3e309a11d7f2612f44dde450b5c157aa5f95c05.js?body=1" for 127.0.0.1 at 2017-09-07 15:41:36 +0200
+
+
+Started GET "/assets/sessions.self-877aef30ae1b040ab8a3aba4e3e309a11d7f2612f44dde450b5c157aa5f95c05.js?body=1" for 127.0.0.1 at 2017-09-07 15:41:36 +0200
+
+
+Started GET "/assets/sessionsm.self-877aef30ae1b040ab8a3aba4e3e309a11d7f2612f44dde450b5c157aa5f95c05.js?body=1" for 127.0.0.1 at 2017-09-07 15:41:36 +0200
+
+
+Started GET "/assets/smart_shopping.self-877aef30ae1b040ab8a3aba4e3e309a11d7f2612f44dde450b5c157aa5f95c05.js?body=1" for 127.0.0.1 at 2017-09-07 15:41:36 +0200
+
+
+Started GET "/assets/users.self-877aef30ae1b040ab8a3aba4e3e309a11d7f2612f44dde450b5c157aa5f95c05.js?body=1" for 127.0.0.1 at 2017-09-07 15:41:36 +0200
+
+
+Started GET "/assets/bootstrap/tab.self-122235057fbd4c6c7da377d59dc58f47b44cb1088a2e38e6ee6ce9d8ac29a26a.js?body=1" for 127.0.0.1 at 2017-09-07 15:41:36 +0200
+
+
+Started GET "/assets/bootstrap/affix.self-d2b642d8fbfc1d7041e2edefd66683ada567a980789dcd6f94fddda0b33408b5.js?body=1" for 127.0.0.1 at 2017-09-07 15:41:36 +0200
+
+
+Started GET "/assets/bootstrap/alert.self-a29e91e8cd3ddaba9bbc466901d53ec2127e9256b9b941905d525a3a716bd1a5.js?body=1" for 127.0.0.1 at 2017-09-07 15:41:36 +0200
+
+
+Started GET "/assets/bootstrap/button.self-a6cb16785434acb365ae426aef9f1fce05ed553cae7a965e4471c3da71509175.js?body=1" for 127.0.0.1 at 2017-09-07 15:41:36 +0200
+
+
+Started GET "/assets/bootstrap/carousel.self-57eb8422043cf0a85b7a9dc6843916eb0a3e35b419c7798a5eb254b918997631.js?body=1" for 127.0.0.1 at 2017-09-07 15:41:36 +0200
+
+
+Started GET "/assets/bootstrap/scrollspy.self-a155b9d4b2f978905f0326c0f6635e1134fe91c6bfbfcbad079fa24a9fef2b0e.js?body=1" for 127.0.0.1 at 2017-09-07 15:41:36 +0200
+
+
+Started GET "/assets/bootstrap/modal.self-72f95ffa1071297725a9ac91989693d56d1abf23f441a47455073b0da2857a5b.js?body=1" for 127.0.0.1 at 2017-09-07 15:41:36 +0200
+
+
+Started GET "/assets/bootstrap/transition.self-09ff30b1e8a93d1f7728b9855f55d9c9d8d5734c8861e0d8139994e50944572a.js?body=1" for 127.0.0.1 at 2017-09-07 15:41:36 +0200
+
+
+Started GET "/assets/bootstrap/tooltip.self-11cf547be953f25f511cec668f6690473fd97b2f65502e4032f4030999a3f0c3.js?body=1" for 127.0.0.1 at 2017-09-07 15:41:36 +0200
+
+
+Started GET "/assets/bootstrap/popover.self-77d8e3a2499c1104ef146396a68b82469ee2bdb365199b874694698d10405e9a.js?body=1" for 127.0.0.1 at 2017-09-07 15:41:36 +0200
+
+
+Started GET "/assets/bootstrap-sprockets.self-fbfa5ad7d9aa0afe439ec4ff3883acc4cb92b62cb67c40d674320c9aa1d4642d.js?body=1" for 127.0.0.1 at 2017-09-07 15:41:36 +0200
+
+
+Started GET "/assets/application.self-f8806224e027f3e3f0138ea9ce99319e298dfdb323304d1f1be6eae8e8c74724.js?body=1" for 127.0.0.1 at 2017-09-07 15:41:36 +0200
+
+
+Started GET "/assets/logo-26789614b681dcd891d324f6f2e2515eb06380d438d6ce7f729464e64ceb127e.jpg" for 127.0.0.1 at 2017-09-07 15:41:36 +0200
+
+
+Started GET "/" for 127.0.0.1 at 2017-09-07 15:41:37 +0200
+Processing by PagesController#homepage as HTML
+  Rendered pages/homepage.html.erb within layouts/application (0.4ms)
+  [1m[35mUser Load (0.6ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT 1  [["id", 1]]
+Completed 200 OK in 109ms (Views: 107.4ms | ActiveRecord: 0.6ms)
+
+
+Started GET "/assets/custom.self-f31f07b26381b305141783fdd83c91c9b935b29a06fa0937aaa35d8e0c443568.css?body=1" for 127.0.0.1 at 2017-09-07 15:41:37 +0200
+
+
+Started GET "/assets/managers.self-e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855.css?body=1" for 127.0.0.1 at 2017-09-07 15:41:37 +0200
+
+
+Started GET "/assets/markets.self-e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855.css?body=1" for 127.0.0.1 at 2017-09-07 15:41:37 +0200
+
+
+Started GET "/assets/turbolinks.self-c5acd7a204f5f25ce7a1d8a0e4d92e28d34c9e2df2c7371cd7af88e147e4ad82.js?body=1" for 127.0.0.1 at 2017-09-07 15:41:37 +0200
+
+
+Started GET "/assets/microposts.self-877aef30ae1b040ab8a3aba4e3e309a11d7f2612f44dde450b5c157aa5f95c05.js?body=1" for 127.0.0.1 at 2017-09-07 15:41:37 +0200
+
+
+Started GET "/assets/smart_shopping.self-877aef30ae1b040ab8a3aba4e3e309a11d7f2612f44dde450b5c157aa5f95c05.js?body=1" for 127.0.0.1 at 2017-09-07 15:41:37 +0200
+
+
+Started GET "/assets/pages.self-e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855.css?body=1" for 127.0.0.1 at 2017-09-07 15:41:37 +0200
+
+
+Started GET "/assets/microposts.self-e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855.css?body=1" for 127.0.0.1 at 2017-09-07 15:41:37 +0200
+
+
+Started GET "/assets/bootstrap.self-9acfc28c4d35348d353eb47afc72c287bc271ea4f7e8c9b05f2f9554ddc3f202.js?body=1" for 127.0.0.1 at 2017-09-07 15:41:37 +0200
+
+
+Started GET "/assets/pages.self-877aef30ae1b040ab8a3aba4e3e309a11d7f2612f44dde450b5c157aa5f95c05.js?body=1" for 127.0.0.1 at 2017-09-07 15:41:37 +0200
+
+
+Started GET "/assets/sessions.self-e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855.css?body=1" for 127.0.0.1 at 2017-09-07 15:41:37 +0200
+
+
+Started GET "/assets/smart_shopping.self-e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855.css?body=1" for 127.0.0.1 at 2017-09-07 15:41:37 +0200
+
+
+Started GET "/assets/users.self-877aef30ae1b040ab8a3aba4e3e309a11d7f2612f44dde450b5c157aa5f95c05.js?body=1" for 127.0.0.1 at 2017-09-07 15:41:37 +0200
+
+
+Started GET "/assets/sessionsm.self-e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855.css?body=1" for 127.0.0.1 at 2017-09-07 15:41:37 +0200
+
+
+Started GET "/assets/bootstrap.min.self-f0ac71a63207973b5b1ad57e55be7fdbf03e684db1ec6dfeccc294db81110ead.js?body=1" for 127.0.0.1 at 2017-09-07 15:41:37 +0200
+
+
+Started GET "/assets/sessions.self-877aef30ae1b040ab8a3aba4e3e309a11d7f2612f44dde450b5c157aa5f95c05.js?body=1" for 127.0.0.1 at 2017-09-07 15:41:37 +0200
+
+
+Started GET "/assets/users.self-e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855.css?body=1" for 127.0.0.1 at 2017-09-07 15:41:37 +0200
+
+
+Started GET "/assets/jquery.self-bd7ddd393353a8d2480a622e80342adf488fb6006d667e8b42e4c0073393abee.js?body=1" for 127.0.0.1 at 2017-09-07 15:41:37 +0200
+
+
+Started GET "/assets/bootstrap/affix.self-d2b642d8fbfc1d7041e2edefd66683ada567a980789dcd6f94fddda0b33408b5.js?body=1" for 127.0.0.1 at 2017-09-07 15:41:37 +0200
+
+
+Started GET "/assets/application.self-e80e8f2318043e8af94dddc2adad5a4f09739a8ebb323b3ab31cd71d45fd9113.css?body=1" for 127.0.0.1 at 2017-09-07 15:41:37 +0200
+
+
+Started GET "/assets/managers.self-877aef30ae1b040ab8a3aba4e3e309a11d7f2612f44dde450b5c157aa5f95c05.js?body=1" for 127.0.0.1 at 2017-09-07 15:41:37 +0200
+
+
+Started GET "/assets/sessionsm.self-877aef30ae1b040ab8a3aba4e3e309a11d7f2612f44dde450b5c157aa5f95c05.js?body=1" for 127.0.0.1 at 2017-09-07 15:41:37 +0200
+
+
+Started GET "/assets/jquery_ujs.self-784a997f6726036b1993eb2217c9cb558e1cbb801c6da88105588c56f13b466a.js?body=1" for 127.0.0.1 at 2017-09-07 15:41:37 +0200
+
+
+Started GET "/assets/bootstrap/alert.self-a29e91e8cd3ddaba9bbc466901d53ec2127e9256b9b941905d525a3a716bd1a5.js?body=1" for 127.0.0.1 at 2017-09-07 15:41:37 +0200
+
+
+Started GET "/assets/bootstrap/button.self-a6cb16785434acb365ae426aef9f1fce05ed553cae7a965e4471c3da71509175.js?body=1" for 127.0.0.1 at 2017-09-07 15:41:37 +0200
+
+
+Started GET "/assets/markets.self-877aef30ae1b040ab8a3aba4e3e309a11d7f2612f44dde450b5c157aa5f95c05.js?body=1" for 127.0.0.1 at 2017-09-07 15:41:37 +0200
+
+
+Started GET "/assets/bootstrap/tab.self-122235057fbd4c6c7da377d59dc58f47b44cb1088a2e38e6ee6ce9d8ac29a26a.js?body=1" for 127.0.0.1 at 2017-09-07 15:41:37 +0200
+
+
+Started GET "/assets/bootstrap/transition.self-09ff30b1e8a93d1f7728b9855f55d9c9d8d5734c8861e0d8139994e50944572a.js?body=1" for 127.0.0.1 at 2017-09-07 15:41:37 +0200
+
+
+Started GET "/assets/bootstrap/dropdown.self-9314126777c6be5443e37ea7f7967d7914d72b3e60449ba50edc967446373059.js?body=1" for 127.0.0.1 at 2017-09-07 15:41:37 +0200
+
+
+Started GET "/assets/bootstrap/collapse.self-7dc8bfbc2fbfabd2bad62c58ff8ffeaf8f20fb87c7ca6cd35f06d4dc19632587.js?body=1" for 127.0.0.1 at 2017-09-07 15:41:37 +0200
+
+
+Started GET "/assets/bootstrap/scrollspy.self-a155b9d4b2f978905f0326c0f6635e1134fe91c6bfbfcbad079fa24a9fef2b0e.js?body=1" for 127.0.0.1 at 2017-09-07 15:41:37 +0200
+
+
+Started GET "/assets/bootstrap/carousel.self-57eb8422043cf0a85b7a9dc6843916eb0a3e35b419c7798a5eb254b918997631.js?body=1" for 127.0.0.1 at 2017-09-07 15:41:37 +0200
+
+
+Started GET "/assets/application.self-f8806224e027f3e3f0138ea9ce99319e298dfdb323304d1f1be6eae8e8c74724.js?body=1" for 127.0.0.1 at 2017-09-07 15:41:37 +0200
+
+
+Started GET "/assets/bootstrap/tooltip.self-11cf547be953f25f511cec668f6690473fd97b2f65502e4032f4030999a3f0c3.js?body=1" for 127.0.0.1 at 2017-09-07 15:41:37 +0200
+
+
+Started GET "/assets/bootstrap/popover.self-77d8e3a2499c1104ef146396a68b82469ee2bdb365199b874694698d10405e9a.js?body=1" for 127.0.0.1 at 2017-09-07 15:41:37 +0200
+
+
+Started GET "/assets/bootstrap/modal.self-72f95ffa1071297725a9ac91989693d56d1abf23f441a47455073b0da2857a5b.js?body=1" for 127.0.0.1 at 2017-09-07 15:41:37 +0200
+
+
+Started GET "/assets/bootstrap-sprockets.self-fbfa5ad7d9aa0afe439ec4ff3883acc4cb92b62cb67c40d674320c9aa1d4642d.js?body=1" for 127.0.0.1 at 2017-09-07 15:41:37 +0200
+
+
+Started GET "/assets/logo-26789614b681dcd891d324f6f2e2515eb06380d438d6ce7f729464e64ceb127e.jpg" for 127.0.0.1 at 2017-09-07 15:41:37 +0200
+
+
+Started GET "/" for 127.0.0.1 at 2017-09-07 15:45:12 +0200
+Processing by PagesController#homepage as HTML
+  Rendered pages/homepage.html.erb within layouts/application (1.3ms)
+  [1m[36mUser Load (0.3ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT 1[0m  [["id", 1]]
+Completed 200 OK in 414ms (Views: 412.0ms | ActiveRecord: 0.3ms)
+
+
+Started GET "/" for 127.0.0.1 at 2017-09-07 15:47:20 +0200
+Processing by PagesController#homepage as HTML
+  Rendered pages/homepage.html.erb within layouts/application (0.7ms)
+  [1m[35mUser Load (0.5ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."id" IS NULL LIMIT 1
+  [1m[36mManager Load (0.6ms)[0m  [1mSELECT  "managers".* FROM "managers" WHERE "managers"."id" IS NULL LIMIT 1[0m
+Completed 200 OK in 244ms (Views: 241.8ms | ActiveRecord: 1.1ms)
+
+
+Started GET "/login" for 127.0.0.1 at 2017-09-07 15:47:26 +0200
+Processing by SessionsController#new as HTML
+  Rendered sessions/new.html.erb within layouts/application (3.3ms)
+  [1m[35mUser Load (0.9ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."id" IS NULL LIMIT 1
+  [1m[36mManager Load (0.7ms)[0m  [1mSELECT  "managers".* FROM "managers" WHERE "managers"."id" IS NULL LIMIT 1[0m
+Completed 200 OK in 272ms (Views: 268.4ms | ActiveRecord: 1.7ms)
+
+
+Started POST "/login" for 127.0.0.1 at 2017-09-07 15:47:42 +0200
+Processing by SessionsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"KFNlKCz/Ggxw03psBZrg3PPLBNcfXvlmLAwnhBCyWIbyK6misgj7REZMU7e6WsGOu7UMGpv1JYQH5bUdTBFJtQ==", "session"=>{"email"=>"flavio@gmail.com", "password"=>"[FILTERED]"}, "commit"=>"Log in"}
+  [1m[35mUser Load (0.1ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."email" = ? LIMIT 1  [["email", "flavio@gmail.com"]]
+Redirected to http://localhost:3000/users/1
+Completed 302 Found in 103ms (ActiveRecord: 0.1ms)
+
+
+Started GET "/users/1" for 127.0.0.1 at 2017-09-07 15:47:42 +0200
+Processing by UsersController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mUser Load (0.4ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT 1[0m  [["id", 1]]
+  Rendered users/show.html.erb within layouts/application (2.6ms)
+  [1m[35mUser Load (0.3ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT 1  [["id", 1]]
+Completed 200 OK in 179ms (Views: 174.7ms | ActiveRecord: 0.7ms)
+
+
+Started DELETE "/logout" for 127.0.0.1 at 2017-09-07 15:47:49 +0200
+Processing by SessionsController#destroy as HTML
+  Parameters: {"authenticity_token"=>"2Z9dyaqxf6V6HkjmVRNWZ/0ZGey6pCydoQJD1zmDhbwD55FDNEae7UyBYT3q03c1tWcRIT4P8H+K69FOZSCUjw=="}
+Redirected to http://localhost:3000/
+Completed 302 Found in 4ms (ActiveRecord: 0.0ms)
+
+
+Started GET "/" for 127.0.0.1 at 2017-09-07 15:47:49 +0200
+Processing by PagesController#homepage as HTML
+  Rendered pages/homepage.html.erb within layouts/application (1.0ms)
+  [1m[36mUser Load (0.4ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."id" IS NULL LIMIT 1[0m
+  [1m[35mManager Load (0.4ms)[0m  SELECT  "managers".* FROM "managers" WHERE "managers"."id" IS NULL LIMIT 1
+Completed 200 OK in 170ms (Views: 167.8ms | ActiveRecord: 0.7ms)
+
+
+Started GET "/loginm" for 127.0.0.1 at 2017-09-07 15:47:52 +0200
+Processing by SessionsmController#new as HTML
+  Rendered sessionsm/new.html.erb within layouts/application (3.5ms)
+  [1m[36mUser Load (0.5ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."id" IS NULL LIMIT 1[0m
+  [1m[35mManager Load (0.5ms)[0m  SELECT  "managers".* FROM "managers" WHERE "managers"."id" IS NULL LIMIT 1
+Completed 200 OK in 206ms (Views: 203.4ms | ActiveRecord: 0.9ms)
+
+
+Started POST "/loginm" for 127.0.0.1 at 2017-09-07 15:48:06 +0200
+Processing by SessionsmController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"D/6ss+pKDWNQuAhoDuqmHOOSDhs8FN/aeYHlMMSHJLzVhmA5dL3sK2YnIbOxKodOq+wG1ri/AzhSaHepmCQ1jw==", "session"=>{"email"=>"rossi@gmail.com", "password"=>"[FILTERED]"}, "commit"=>"Log in"}
+  [1m[36mManager Load (0.4ms)[0m  [1mSELECT  "managers".* FROM "managers" WHERE "managers"."email" = ? LIMIT 1[0m  [["email", "rossi@gmail.com"]]
+Redirected to http://localhost:3000/managers/1
+Completed 302 Found in 103ms (ActiveRecord: 0.4ms)
+
+
+Started GET "/managers/1" for 127.0.0.1 at 2017-09-07 15:48:06 +0200
+Processing by ManagersController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[35mManager Load (0.3ms)[0m  SELECT  "managers".* FROM "managers" WHERE "managers"."id" = ? LIMIT 1  [["id", 1]]
+  Rendered managers/show.html.erb within layouts/application (0.1ms)
+  [1m[36mUser Load (0.9ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."id" IS NULL LIMIT 1[0m
+  [1m[35mManager Load (0.3ms)[0m  SELECT  "managers".* FROM "managers" WHERE "managers"."id" = ? LIMIT 1  [["id", 1]]
+Completed 200 OK in 155ms (Views: 150.6ms | ActiveRecord: 1.6ms)
+
+
+Started DELETE "/logoutm" for 127.0.0.1 at 2017-09-07 15:48:17 +0200
+Processing by SessionsmController#destroy as HTML
+  Parameters: {"authenticity_token"=>"tMd6CpsjqTIeC/p4PVdGUfbnSSQHq0JOimRixbWLCrxuv7aABdRIeiiU06OCl2cDvplB6YMAnqyhjfBc6Sgbjw=="}
+Redirected to http://localhost:3000/
+Completed 302 Found in 3ms (ActiveRecord: 0.0ms)
+
+
+Started GET "/" for 127.0.0.1 at 2017-09-07 15:48:17 +0200
+Processing by PagesController#homepage as HTML
+  Rendered pages/homepage.html.erb within layouts/application (0.5ms)
+  [1m[36mUser Load (0.6ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."id" IS NULL LIMIT 1[0m
+  [1m[35mManager Load (0.5ms)[0m  SELECT  "managers".* FROM "managers" WHERE "managers"."id" IS NULL LIMIT 1
+Completed 200 OK in 184ms (Views: 181.9ms | ActiveRecord: 1.1ms)
+
+
+Started GET "/login" for 127.0.0.1 at 2017-09-07 15:48:20 +0200
+Processing by SessionsController#new as HTML
+  Rendered sessions/new.html.erb within layouts/application (5.3ms)
+  [1m[36mUser Load (0.4ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."id" IS NULL LIMIT 1[0m
+  [1m[35mManager Load (0.5ms)[0m  SELECT  "managers".* FROM "managers" WHERE "managers"."id" IS NULL LIMIT 1
+Completed 200 OK in 203ms (Views: 200.9ms | ActiveRecord: 1.0ms)
+
+
+Started POST "/login" for 127.0.0.1 at 2017-09-07 15:48:31 +0200
+Processing by SessionsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"TeK95pEv09sTLDwuCUnx9DWtZIKPJ2HbYaJDN4FPAb6XmnFsD9gykyWzFfW2idCmfdNsTwuMvTlKS9Gu3ewQjQ==", "session"=>{"email"=>"flavio@gmail.com", "password"=>"[FILTERED]"}, "commit"=>"Log in"}
+  [1m[36mUser Load (0.5ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."email" = ? LIMIT 1[0m  [["email", "flavio@gmail.com"]]
+Redirected to http://localhost:3000/users/1
+Completed 302 Found in 104ms (ActiveRecord: 0.5ms)
+
+
+Started GET "/users/1" for 127.0.0.1 at 2017-09-07 15:48:31 +0200
+Processing by UsersController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[35mUser Load (0.3ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT 1  [["id", 1]]
+  Rendered users/show.html.erb within layouts/application (7.0ms)
+  [1m[36mUser Load (0.5ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT 1[0m  [["id", 1]]
+Completed 200 OK in 199ms (Views: 194.3ms | ActiveRecord: 0.8ms)
+
+
+Started DELETE "/logout" for 127.0.0.1 at 2017-09-07 15:50:04 +0200
+Processing by SessionsController#destroy as HTML
+  Parameters: {"authenticity_token"=>"/hTdeL1HIFIthMlyFr7x/SY1FmkCJMABOU1qPSOIBhEkbBHyI7DBGhsb4KmpftCvbksepIaPHOMSpPikfysXIg=="}
+Redirected to http://localhost:3000/
+Completed 302 Found in 2ms (ActiveRecord: 0.0ms)
+
+
+Started GET "/" for 127.0.0.1 at 2017-09-07 15:50:04 +0200
+Processing by PagesController#homepage as HTML
+  Rendered pages/homepage.html.erb within layouts/application (2.1ms)
+  [1m[35mUser Load (0.6ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."id" IS NULL LIMIT 1
+  [1m[36mManager Load (0.7ms)[0m  [1mSELECT  "managers".* FROM "managers" WHERE "managers"."id" IS NULL LIMIT 1[0m
+Completed 200 OK in 225ms (Views: 220.7ms | ActiveRecord: 1.3ms)
+
+
+Started GET "/" for 127.0.0.1 at 2017-09-07 15:54:11 +0200
+  [1m[36mActiveRecord::SchemaMigration Load (1.0ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+Processing by PagesController#homepage as HTML
+  Rendered pages/homepage.html.erb within layouts/application (5.3ms)
+  [1m[35mUser Load (0.6ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."id" IS NULL LIMIT 1
+  [1m[36mManager Load (0.5ms)[0m  [1mSELECT  "managers".* FROM "managers" WHERE "managers"."id" IS NULL LIMIT 1[0m
+Completed 200 OK in 1315ms (Views: 1294.3ms | ActiveRecord: 1.7ms)
+
+
+Started GET "/login" for 127.0.0.1 at 2017-09-07 15:54:18 +0200
+Processing by SessionsController#new as HTML
+  Rendered sessions/new.html.erb within layouts/application (74.7ms)
+  [1m[35mUser Load (0.3ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."id" IS NULL LIMIT 1
+  [1m[36mManager Load (1.5ms)[0m  [1mSELECT  "managers".* FROM "managers" WHERE "managers"."id" IS NULL LIMIT 1[0m
+Completed 200 OK in 307ms (Views: 300.9ms | ActiveRecord: 1.8ms)
+
+
+Started POST "/login" for 127.0.0.1 at 2017-09-07 15:54:30 +0200
+Processing by SessionsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"uJ/QQF2IG0TITE+idHuUFSZwL3m72veiTFAMGgfeXz/yvaS3bWEAYk5SJoC/nMAJ92MxS5ElJ/GHcgoqjtCa6w==", "session"=>{"email"=>"flavio@gmail.com", "password"=>"[FILTERED]"}, "commit"=>"Log in"}
+  [1m[35mUser Load (1.1ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."email" = ? LIMIT 1  [["email", "flavio@gmail.com"]]
+Redirected to http://localhost:3000/users/1
+Completed 302 Found in 179ms (ActiveRecord: 2.7ms)
+
+
+Started GET "/users/1" for 127.0.0.1 at 2017-09-07 15:54:31 +0200
+Processing by UsersController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mUser Load (1.1ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT 1[0m  [["id", 1]]
+  Rendered users/show.html.erb within layouts/application (9.2ms)
+  [1m[35mUser Load (0.3ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT 1  [["id", 1]]
+Completed 200 OK in 224ms (Views: 215.5ms | ActiveRecord: 1.4ms)
+
+
+Started DELETE "/logout" for 127.0.0.1 at 2017-09-07 15:54:35 +0200
+Processing by SessionsController#destroy as HTML
+  Parameters: {"authenticity_token"=>"8rbGFGBrp4YsgdHwWO9SL4y1jsP5WVx70mXz7WpNVg+4lLLjUIK8oKqfuNKTCAYzXaaQ8dOmjCgZR/Xd40OT2w=="}
+Redirected to http://localhost:3000/
+Completed 302 Found in 3ms (ActiveRecord: 0.0ms)
+
+
+Started GET "/" for 127.0.0.1 at 2017-09-07 15:54:35 +0200
+Processing by PagesController#homepage as HTML
+  Rendered pages/homepage.html.erb within layouts/application (0.9ms)
+  [1m[36mUser Load (0.4ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."id" IS NULL LIMIT 1[0m
+  [1m[35mManager Load (0.4ms)[0m  SELECT  "managers".* FROM "managers" WHERE "managers"."id" IS NULL LIMIT 1
+Completed 200 OK in 163ms (Views: 161.2ms | ActiveRecord: 0.8ms)
+
+
+Started GET "/loginm" for 127.0.0.1 at 2017-09-07 15:54:39 +0200
+Processing by SessionsmController#new as HTML
+  Rendered sessionsm/new.html.erb within layouts/application (6.5ms)
+  [1m[36mUser Load (0.5ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."id" IS NULL LIMIT 1[0m
+  [1m[35mManager Load (0.4ms)[0m  SELECT  "managers".* FROM "managers" WHERE "managers"."id" IS NULL LIMIT 1
+Completed 200 OK in 229ms (Views: 226.5ms | ActiveRecord: 0.9ms)
+
+
+Started POST "/loginm" for 127.0.0.1 at 2017-09-07 15:54:49 +0200
+Processing by SessionsmController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"QQBqDKtSfnBc33v35EOa7HvZ3ty5lF6UbSYCD1b3yqULIh77m7tlVtrBEtUvpM7wqsrA7pNrjsemBAQ/3/kPcQ==", "session"=>{"email"=>"flavio@gmail.com", "password"=>"[FILTERED]"}, "commit"=>"Log in"}
+  [1m[36mManager Load (0.7ms)[0m  [1mSELECT  "managers".* FROM "managers" WHERE "managers"."email" = ? LIMIT 1[0m  [["email", "flavio@gmail.com"]]
+  Rendered sessionsm/new.html.erb within layouts/application (3.9ms)
+  [1m[35mUser Load (0.5ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."id" IS NULL LIMIT 1
+  [1m[36mManager Load (0.6ms)[0m  [1mSELECT  "managers".* FROM "managers" WHERE "managers"."id" IS NULL LIMIT 1[0m
+Completed 200 OK in 211ms (Views: 203.7ms | ActiveRecord: 1.8ms)
+
+
+Started POST "/loginm" for 127.0.0.1 at 2017-09-07 15:55:03 +0200
+Processing by SessionsmController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"nbI8aIH/yWCIYL8U5hoYoSxJJlfq+2UUPql3eV/S8pfXkEifsRbSRg5+1jYt/Uy9/Vo4ZcAEtUf1i3FJ1tw3Qw==", "session"=>{"email"=>"rossi@gmail.com", "password"=>"[FILTERED]"}, "commit"=>"Log in"}
+  [1m[35mManager Load (0.3ms)[0m  SELECT  "managers".* FROM "managers" WHERE "managers"."email" = ? LIMIT 1  [["email", "rossi@gmail.com"]]
+Redirected to http://localhost:3000/managers/1
+Completed 302 Found in 125ms (ActiveRecord: 0.6ms)
+
+
+Started GET "/managers/1" for 127.0.0.1 at 2017-09-07 15:55:03 +0200
+Processing by ManagersController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mManager Load (1.2ms)[0m  [1mSELECT  "managers".* FROM "managers" WHERE "managers"."id" = ? LIMIT 1[0m  [["id", 1]]
+  Rendered managers/show.html.erb within layouts/application (0.9ms)
+  [1m[35mUser Load (0.5ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."id" IS NULL LIMIT 1
+  [1m[36mManager Load (0.7ms)[0m  [1mSELECT  "managers".* FROM "managers" WHERE "managers"."id" = ? LIMIT 1[0m  [["id", 1]]
+Completed 200 OK in 265ms (Views: 255.3ms | ActiveRecord: 2.4ms)
+
+
+Started DELETE "/logoutm" for 127.0.0.1 at 2017-09-07 15:55:23 +0200
+Processing by SessionsmController#destroy as HTML
+  Parameters: {"authenticity_token"=>"+SOuw+XyUhYk0719+MKmLRgJiJHB5YGklUePdVBwONGzAdo01RtJMKLN1F8zJfIxyRqWo+saUfdeZYlF2X79BQ=="}
+Redirected to http://localhost:3000/
+Completed 302 Found in 3ms (ActiveRecord: 0.0ms)
+
+
+Started GET "/" for 127.0.0.1 at 2017-09-07 15:55:23 +0200
+Processing by PagesController#homepage as HTML
+  Rendered pages/homepage.html.erb within layouts/application (0.9ms)
+  [1m[35mUser Load (0.6ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."id" IS NULL LIMIT 1
+  [1m[36mManager Load (0.5ms)[0m  [1mSELECT  "managers".* FROM "managers" WHERE "managers"."id" IS NULL LIMIT 1[0m
+Completed 200 OK in 231ms (Views: 228.3ms | ActiveRecord: 1.1ms)

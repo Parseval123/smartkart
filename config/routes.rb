@@ -14,6 +14,12 @@ Rails.application.routes.draw do
 
   delete 'logout' => 'sessions#destroy'
 
+  get 'loginm' => 'sessionsm#new'
+
+  post 'loginm' => 'sessionsm#create'
+
+  delete 'logoutm' => 'sessionsm#destroy'
+
   get 'howto' => 'pages#howto'
 
   get 'help' => 'pages#help'
@@ -25,6 +31,8 @@ Rails.application.routes.draw do
   resources :microposts
 
   resources :requests
+
+  resources :managers
 
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".

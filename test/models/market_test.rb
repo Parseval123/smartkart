@@ -25,6 +25,11 @@ class MarketTest < ActiveSupport::TestCase
     assert_not @market.valid?
   end
 
+  #test "manager_id should be present" do
+    #@market.manager_id=nil
+    #assert_not @market.valid?
+  #end
+
   test "address should not be too long" do
     @market.address = "a" * 61
     assert_not @market.valid?
