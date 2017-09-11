@@ -5,4 +5,8 @@ class MarketsController < ApplicationController
     @microposts = @market.microposts.paginate(page: params[:page])
   end
 
+  def index
+    
+  end
+
 end
