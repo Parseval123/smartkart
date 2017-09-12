@@ -1,17 +1,34 @@
-<% provide(:title, "Welcome") %>
-<h2>Welcome!!! <%= @user.name %></h2>
-<p>WHat do you want to do?</p>
+<% provide(:title, "WelcomeUser") %>
+<h2>Welcome <%= @user.name %>!!!!</h2>
+<h3><p>What do you want to do?</p></h3>
+<table  width="100%">
 <ul>
-<li>Feedback Supermarket</li>
-<li>smart shopping</li>
-</ul>
+<tr>
+<td width="40%"><h3><li>Smart Shopping</li></h3>
 <%= form_for(:session, url: smart_shopping_path) do |f| %>
 <%= f.label :address %>
 <%= f.text_field :address, class: 'form-control' %>
-<%= f.label :range %>
+<%= f.label :RangeInKm%>
 <%= f.number_field :range, class: 'form-control' %>
-<%= f.submit "Compose your shopping list", class: "btn btn-primary" %>
+<%= f.submit "SMART SHOPPING", class: "btn btn-primary" %>
 <% end %>
+</td>
+<td width="20%">
+</td>
+<td width="40%">
+<h3><li>Feedback Market</li></h3>
+<%= form_for(:session, url: market_path) do |f| %>
+<%= f.label :address %>
+<%= f.text_field :address, class: 'form-control' %>
+<%= f.label :RangeInKm %>
+<%= f.number_field :range, class: 'form-control' %>
+<%= f.submit "FEEDBACK MARKET", class: "btn btn-primary" %>
+<% end %>
+</td>
+</ul>
+</table>
+</br>
+
 
 
 

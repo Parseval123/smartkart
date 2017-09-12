@@ -6,9 +6,9 @@ class SessionsmController < ApplicationController
     manager = Manager.find_by(email: params[:session][:email].downcase)
     if manager && manager.authenticate(params[:session][:password]) #log in sucesso
       log_in_m(manager)
-      redirect_to manager  
+      redirect_to manager_path(manager)  
     else #log in fallito
-      flash[:danger] = 'Invalid email/password combination' # Not quite right!
+      flash.now[:danger] = 'Invalid email/password combination' # Not quite right!
       render 'new'
     end
   end
