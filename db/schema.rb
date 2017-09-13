@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170906202945) do
+ActiveRecord::Schema.define(version: 20170912102618) do
 
   create_table "managers", force: :cascade do |t|
     t.string   "name"
@@ -24,7 +24,10 @@ ActiveRecord::Schema.define(version: 20170906202945) do
     t.datetime "created_at",      null: false
     t.datetime "updated_at",      null: false
     t.string   "password_digest"
+    t.integer  "market_id"
   end
+
+  add_index "managers", ["market_id"], name: "index_managers_on_market_id"
 
   create_table "markets", force: :cascade do |t|
     t.string   "address"
@@ -34,10 +37,7 @@ ActiveRecord::Schema.define(version: 20170906202945) do
     t.datetime "updated_at", null: false
     t.float    "latitude"
     t.float    "longitude"
-    t.integer  "manager_id"
   end
-
-  add_index "markets", ["manager_id"], name: "index_markets_on_manager_id"
 
   create_table "microposts", force: :cascade do |t|
     t.text     "content"

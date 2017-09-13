@@ -1,7 +1,7 @@
 class Manager < ActiveRecord::Base
 
   #associations code
-  has_one :market
+  belongs_to :market
   #validations code
   validates :name, presence: true, length: { maximum: 50 }
   validates :surname, presence: true, length: { maximum: 50 }
