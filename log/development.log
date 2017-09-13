@@ -17259,3 +17259,1088 @@ Processing by ManagersController#show as HTML
 Completed 200 OK in 169ms (Views: 164.1ms | ActiveRecord: 1.1ms)
   [1m[36mMarket Load (4.6ms)[0m  [1mSELECT "markets".* FROM "markets"[0m
   [1m[35mManager Load (0.4ms)[0m  SELECT "managers".* FROM "managers"
+
+
+Started GET "/" for 127.0.0.1 at 2017-09-13 15:46:48 +0200
+  [1m[36mActiveRecord::SchemaMigration Load (0.2ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+Processing by PagesController#homepage as HTML
+  Rendered pages/homepage.html.erb within layouts/application (13.2ms)
+  [1m[35mUser Load (30.3ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."id" IS NULL LIMIT 1
+  [1m[36mManager Load (0.5ms)[0m  [1mSELECT  "managers".* FROM "managers" WHERE "managers"."id" = ? LIMIT 1[0m  [["id", 12]]
+Completed 200 OK in 10715ms (Views: 10487.4ms | ActiveRecord: 31.9ms)
+
+
+Started GET "/managers/new" for 127.0.0.1 at 2017-09-13 15:47:15 +0200
+Processing by ManagersController#new as HTML
+  Rendered shared/_error_messages2.html.erb (26.6ms)
+  Rendered managers/new.html.erb within layouts/application (318.7ms)
+  [1m[35mUser Load (0.3ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."id" IS NULL LIMIT 1
+  [1m[36mManager Load (0.2ms)[0m  [1mSELECT  "managers".* FROM "managers" WHERE "managers"."id" = ? LIMIT 1[0m  [["id", 12]]
+Completed 200 OK in 511ms (Views: 508.9ms | ActiveRecord: 0.5ms)
+
+
+Started POST "/managers" for 127.0.0.1 at 2017-09-13 15:47:49 +0200
+Processing by ManagersController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"IHLG2piJzeuJ+T/3lhHoMF/h73Zn1VNKxp6qwuGUkk2iUDnLoOao4dlMWWrERrI5n7b0CNz5c7mHx/2/DPDT4Q==", "manager"=>{"name"=>"alfonso", "surname"=>"bluejeans", "yearofbirth"=>"1975", "email"=>"bluejeans@gmail.com", "tel"=>"324324324", "curriculum"=>"ciaociao", "password"=>"[FILTERED]", "password_confirmation"=>"[FILTERED]"}, "commit"=>"Create my account"}
+  [1m[35m (0.3ms)[0m  begin transaction
+  [1m[36mManager Exists (0.3ms)[0m  [1mSELECT  1 AS one FROM "managers" WHERE LOWER("managers"."email") = LOWER('bluejeans@gmail.com') LIMIT 1[0m
+  [1m[35mSQL (868.5ms)[0m  INSERT INTO "managers" ("name", "surname", "tel", "yearofbirth", "email", "curriculum", "password_digest", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?)  [["name", "alfonso"], ["surname", "bluejeans"], ["tel", "324324324"], ["yearofbirth", 1975], ["email", "bluejeans@gmail.com"], ["curriculum", "ciaociao"], ["password_digest", "$2a$10$bpt0SmcpcG3VYogmXDk43.2Q49dBLdyRfCWEaGfGCLV1Pw1i/J.PW"], ["created_at", "2017-09-13 13:47:51.135858"], ["updated_at", "2017-09-13 13:47:51.135858"]]
+  [1m[36m (507.0ms)[0m  [1mcommit transaction[0m
+Redirected to http://localhost:3000/markets/new
+Completed 302 Found in 3098ms (ActiveRecord: 1376.2ms)
+
+
+Started GET "/markets/new" for 127.0.0.1 at 2017-09-13 15:47:52 +0200
+Processing by MarketsController#new as HTML
+  [1m[35mManager Load (0.2ms)[0m  SELECT  "managers".* FROM "managers" WHERE "managers"."id" = ? LIMIT 1  [["id", 13]]
+  Rendered markets/new.html.erb within layouts/application (6.5ms)
+  [1m[36mUser Load (0.2ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."id" IS NULL LIMIT 1[0m
+Completed 200 OK in 948ms (Views: 331.5ms | ActiveRecord: 0.8ms)
+
+
+Started POST "/markets" for 127.0.0.1 at 2017-09-13 15:48:40 +0200
+Processing by MarketsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"ILd1kd1scLwBdFUxWjNsngBLaGN9/kwOwbRyBo+lU5eilYqA5QMVtlHBM6wIZDaXwBxzHcbSbP2A7SV7YsESOw==", "market"=>{"group"=>"shopper24", "address"=>"via villa di lucina ,Roma ,Italia", "info"=>"24/7"}, "commit"=>"add market"}
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36mSQL (62.8ms)[0m  [1mINSERT INTO "markets" ("group", "address", "info", "latitude", "longitude", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?)[0m  [["group", "shopper24"], ["address", "via villa di lucina ,Roma ,Italia"], ["info", "24/7"], ["latitude", 41.8577034], ["longitude", 12.4852199], ["created_at", "2017-09-13 13:48:41.872724"], ["updated_at", "2017-09-13 13:48:41.872724"]]
+  [1m[35m (9.2ms)[0m  commit transaction
+  [1m[36mManager Load (0.1ms)[0m  [1mSELECT  "managers".* FROM "managers" WHERE "managers"."id" = ? LIMIT 1[0m  [["id", 13]]
+Redirected to http://localhost:3000/managers/13
+Completed 302 Found in 1573ms (ActiveRecord: 72.3ms)
+
+
+Started GET "/managers/13" for 127.0.0.1 at 2017-09-13 15:48:41 +0200
+Processing by ManagersController#show as HTML
+  Parameters: {"id"=>"13"}
+  [1m[35mManager Load (0.1ms)[0m  SELECT  "managers".* FROM "managers" WHERE "managers"."id" = ? LIMIT 1  [["id", 13]]
+  [1m[36mManager Load (0.5ms)[0m  [1mSELECT  "managers".* FROM "managers" WHERE "managers"."id" = ? LIMIT 1[0m  [["id", 13]]
+  Rendered managers/show.html.erb within layouts/application (0.4ms)
+  [1m[35mUser Load (2.3ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."id" IS NULL LIMIT 1
+Completed 200 OK in 200ms (Views: 193.6ms | ActiveRecord: 2.9ms)
+  [1m[36mMarket Load (16.5ms)[0m  [1mSELECT "markets".* FROM "markets"[0m
+  [1m[36mMarket Load (36.7ms)[0m  [1mSELECT "markets".* FROM "markets"[0m
+  [1m[35mManager Load (0.2ms)[0m  SELECT "managers".* FROM "managers"
+  [1m[36mManager Load (2.7ms)[0m  [1mSELECT "managers".* FROM "managers"[0m
+
+
+Started GET "/managers" for 127.0.0.1 at 2017-09-13 15:52:23 +0200
+  [1m[36mActiveRecord::SchemaMigration Load (0.3ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+
+AbstractController::ActionNotFound (The action 'index' could not be found for ManagersController):
+  actionpack (4.2.5.1) lib/abstract_controller/base.rb:132:in `process'
+  actionview (4.2.5.1) lib/action_view/rendering.rb:30:in `process'
+  actionpack (4.2.5.1) lib/action_controller/metal.rb:196:in `dispatch'
+  actionpack (4.2.5.1) lib/action_controller/metal/rack_delegation.rb:13:in `dispatch'
+  actionpack (4.2.5.1) lib/action_controller/metal.rb:237:in `block in action'
+  actionpack (4.2.5.1) lib/action_dispatch/routing/route_set.rb:74:in `dispatch'
+  actionpack (4.2.5.1) lib/action_dispatch/routing/route_set.rb:43:in `serve'
+  actionpack (4.2.5.1) lib/action_dispatch/journey/router.rb:43:in `block in serve'
+  actionpack (4.2.5.1) lib/action_dispatch/journey/router.rb:30:in `each'
+  actionpack (4.2.5.1) lib/action_dispatch/journey/router.rb:30:in `serve'
+  actionpack (4.2.5.1) lib/action_dispatch/routing/route_set.rb:815:in `call'
+  rack (1.6.5) lib/rack/etag.rb:24:in `call'
+  rack (1.6.5) lib/rack/conditionalget.rb:25:in `call'
+  rack (1.6.5) lib/rack/head.rb:13:in `call'
+  actionpack (4.2.5.1) lib/action_dispatch/middleware/params_parser.rb:27:in `call'
+  actionpack (4.2.5.1) lib/action_dispatch/middleware/flash.rb:260:in `call'
+  rack (1.6.5) lib/rack/session/abstract/id.rb:225:in `context'
+  rack (1.6.5) lib/rack/session/abstract/id.rb:220:in `call'
+  actionpack (4.2.5.1) lib/action_dispatch/middleware/cookies.rb:560:in `call'
+  activerecord (4.2.5.1) lib/active_record/query_cache.rb:36:in `call'
+  activerecord (4.2.5.1) lib/active_record/connection_adapters/abstract/connection_pool.rb:653:in `call'
+  activerecord (4.2.5.1) lib/active_record/migration.rb:377:in `call'
+  actionpack (4.2.5.1) lib/action_dispatch/middleware/callbacks.rb:29:in `block in call'
+  activesupport (4.2.5.1) lib/active_support/callbacks.rb:88:in `__run_callbacks__'
+  activesupport (4.2.5.1) lib/active_support/callbacks.rb:778:in `_run_call_callbacks'
+  activesupport (4.2.5.1) lib/active_support/callbacks.rb:81:in `run_callbacks'
+  actionpack (4.2.5.1) lib/action_dispatch/middleware/callbacks.rb:27:in `call'
+  actionpack (4.2.5.1) lib/action_dispatch/middleware/reloader.rb:73:in `call'
+  actionpack (4.2.5.1) lib/action_dispatch/middleware/remote_ip.rb:78:in `call'
+  actionpack (4.2.5.1) lib/action_dispatch/middleware/debug_exceptions.rb:17:in `call'
+  web-console (2.3.0) lib/web_console/middleware.rb:28:in `block in call'
+  web-console (2.3.0) lib/web_console/middleware.rb:18:in `catch'
+  web-console (2.3.0) lib/web_console/middleware.rb:18:in `call'
+  actionpack (4.2.5.1) lib/action_dispatch/middleware/show_exceptions.rb:30:in `call'
+  railties (4.2.5.1) lib/rails/rack/logger.rb:38:in `call_app'
+  railties (4.2.5.1) lib/rails/rack/logger.rb:20:in `block in call'
+  activesupport (4.2.5.1) lib/active_support/tagged_logging.rb:68:in `block in tagged'
+  activesupport (4.2.5.1) lib/active_support/tagged_logging.rb:26:in `tagged'
+  activesupport (4.2.5.1) lib/active_support/tagged_logging.rb:68:in `tagged'
+  railties (4.2.5.1) lib/rails/rack/logger.rb:20:in `call'
+  actionpack (4.2.5.1) lib/action_dispatch/middleware/request_id.rb:21:in `call'
+  rack (1.6.5) lib/rack/methodoverride.rb:22:in `call'
+  rack (1.6.5) lib/rack/runtime.rb:18:in `call'
+  activesupport (4.2.5.1) lib/active_support/cache/strategy/local_cache_middleware.rb:28:in `call'
+  rack (1.6.5) lib/rack/lock.rb:17:in `call'
+  actionpack (4.2.5.1) lib/action_dispatch/middleware/static.rb:116:in `call'
+  rack (1.6.5) lib/rack/sendfile.rb:113:in `call'
+  railties (4.2.5.1) lib/rails/engine.rb:518:in `call'
+  railties (4.2.5.1) lib/rails/application.rb:165:in `call'
+  rack (1.6.5) lib/rack/lock.rb:17:in `call'
+  rack (1.6.5) lib/rack/content_length.rb:15:in `call'
+  rack (1.6.5) lib/rack/handler/webrick.rb:88:in `service'
+  /home/biar/.rvm/rubies/ruby-2.3.0/lib/ruby/2.3.0/webrick/httpserver.rb:140:in `service'
+  /home/biar/.rvm/rubies/ruby-2.3.0/lib/ruby/2.3.0/webrick/httpserver.rb:96:in `run'
+  /home/biar/.rvm/rubies/ruby-2.3.0/lib/ruby/2.3.0/webrick/server.rb:296:in `block in start_thread'
+
+
+  Rendered /home/biar/.rvm/gems/ruby-2.3.0/gems/actionpack-4.2.5.1/lib/action_dispatch/middleware/templates/rescues/unknown_action.html.erb within rescues/layout (3.2ms)
+  Rendered /home/biar/.rvm/gems/ruby-2.3.0/gems/web-console-2.3.0/lib/web_console/templates/_markup.html.erb (0.7ms)
+  Rendered /home/biar/.rvm/gems/ruby-2.3.0/gems/web-console-2.3.0/lib/web_console/templates/_inner_console_markup.html.erb within layouts/inlined_string (0.8ms)
+  Rendered /home/biar/.rvm/gems/ruby-2.3.0/gems/web-console-2.3.0/lib/web_console/templates/_prompt_box_markup.html.erb within layouts/inlined_string (0.9ms)
+  Rendered /home/biar/.rvm/gems/ruby-2.3.0/gems/web-console-2.3.0/lib/web_console/templates/style.css.erb within layouts/inlined_string (0.6ms)
+  Rendered /home/biar/.rvm/gems/ruby-2.3.0/gems/web-console-2.3.0/lib/web_console/templates/console.js.erb within layouts/javascript (108.8ms)
+  Rendered /home/biar/.rvm/gems/ruby-2.3.0/gems/web-console-2.3.0/lib/web_console/templates/main.js.erb within layouts/javascript (0.5ms)
+  Rendered /home/biar/.rvm/gems/ruby-2.3.0/gems/web-console-2.3.0/lib/web_console/templates/error_page.js.erb within layouts/javascript (1.9ms)
+  Rendered /home/biar/.rvm/gems/ruby-2.3.0/gems/web-console-2.3.0/lib/web_console/templates/index.html.erb (156.3ms)
+
+
+Started GET "/" for 127.0.0.1 at 2017-09-13 15:52:34 +0200
+Processing by PagesController#homepage as HTML
+  Rendered pages/homepage.html.erb within layouts/application (1.0ms)
+  [1m[35mUser Load (0.6ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."id" IS NULL LIMIT 1
+  [1m[36mManager Load (0.5ms)[0m  [1mSELECT  "managers".* FROM "managers" WHERE "managers"."id" = ? LIMIT 1[0m  [["id", 13]]
+Completed 200 OK in 3202ms (Views: 3108.5ms | ActiveRecord: 2.1ms)
+
+
+Started GET "/" for 127.0.0.1 at 2017-09-13 15:52:37 +0200
+Processing by PagesController#homepage as HTML
+  Rendered pages/homepage.html.erb within layouts/application (0.5ms)
+  [1m[35mUser Load (0.4ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."id" IS NULL LIMIT 1
+  [1m[36mManager Load (0.2ms)[0m  [1mSELECT  "managers".* FROM "managers" WHERE "managers"."id" = ? LIMIT 1[0m  [["id", 13]]
+Completed 200 OK in 114ms (Views: 112.5ms | ActiveRecord: 0.5ms)
+
+
+Started GET "/managers/new" for 127.0.0.1 at 2017-09-13 15:52:40 +0200
+Processing by ManagersController#new as HTML
+  Rendered shared/_error_messages2.html.erb (17.1ms)
+  Rendered managers/new.html.erb within layouts/application (67.2ms)
+  [1m[35mUser Load (0.6ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."id" IS NULL LIMIT 1
+  [1m[36mManager Load (0.2ms)[0m  [1mSELECT  "managers".* FROM "managers" WHERE "managers"."id" = ? LIMIT 1[0m  [["id", 13]]
+Completed 200 OK in 185ms (Views: 182.5ms | ActiveRecord: 0.8ms)
+
+
+Started POST "/managers" for 127.0.0.1 at 2017-09-13 15:53:10 +0200
+Processing by ManagersController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"tw0pfm1Gbn7YsvRyfJH0HQ9ilqff6B1R+bKRLOzwsEg1L9ZvVSkLdIgHku8uxq4UzzWN2WTEPaK468ZRAZTx5A==", "manager"=>{"name"=>"carlo", "surname"=>"bembo", "yearofbirth"=>"1987", "email"=>"bembo@gmail.com", "tel"=>"356356356", "curriculum"=>"ciaociao", "password"=>"[FILTERED]", "password_confirmation"=>"[FILTERED]"}, "commit"=>"Create my account"}
+  [1m[35m (0.4ms)[0m  begin transaction
+  [1m[36mManager Exists (0.4ms)[0m  [1mSELECT  1 AS one FROM "managers" WHERE LOWER("managers"."email") = LOWER('bembo@gmail.com') LIMIT 1[0m
+  [1m[35mSQL (19.9ms)[0m  INSERT INTO "managers" ("name", "surname", "tel", "yearofbirth", "email", "curriculum", "password_digest", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?)  [["name", "carlo"], ["surname", "bembo"], ["tel", "356356356"], ["yearofbirth", 1987], ["email", "bembo@gmail.com"], ["curriculum", "ciaociao"], ["password_digest", "$2a$10$4uGpHKN0PteDLm.9.1U5SupeGEhgNGuwB.pz7l6VUHyk7TQcQU3Py"], ["created_at", "2017-09-13 13:53:11.058993"], ["updated_at", "2017-09-13 13:53:11.058993"]]
+  [1m[36m (25.1ms)[0m  [1mcommit transaction[0m
+Redirected to http://localhost:3000/markets/new
+Completed 302 Found in 226ms (ActiveRecord: 45.7ms)
+
+
+Started GET "/markets/new" for 127.0.0.1 at 2017-09-13 15:53:11 +0200
+Processing by MarketsController#new as HTML
+  [1m[35mManager Load (0.2ms)[0m  SELECT  "managers".* FROM "managers" WHERE "managers"."id" = ? LIMIT 1  [["id", 14]]
+  Rendered markets/new.html.erb within layouts/application (7.6ms)
+  [1m[36mUser Load (0.4ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."id" IS NULL LIMIT 1[0m
+Completed 200 OK in 211ms (Views: 185.3ms | ActiveRecord: 1.3ms)
+
+
+Started POST "/markets" for 127.0.0.1 at 2017-09-13 15:53:43 +0200
+Processing by MarketsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"u/cfamvz5LXzfCHWw20kRXDSHv7J8Y003t/bd+oiQzs51eB7U5yBv6PJR0uROn5MsIUFgHLdrcefhowKB0YClw==", "market"=>{"group"=>"conad", "address"=>"via villa di lucina ,Roma ,Italia", "info"=>"tutti i giorni aperto"}, "commit"=>"add market"}
+  [1m[35m (0.2ms)[0m  begin transaction
+  [1m[36mSQL (28.8ms)[0m  [1mINSERT INTO "markets" ("group", "address", "info", "latitude", "longitude", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?)[0m  [["group", "conad"], ["address", "via villa di lucina ,Roma ,Italia"], ["info", "tutti i giorni aperto"], ["latitude", 41.8577034], ["longitude", 12.4852199], ["created_at", "2017-09-13 13:53:44.093335"], ["updated_at", "2017-09-13 13:53:44.093335"]]
+  [1m[35m (6.7ms)[0m  commit transaction
+  [1m[36mManager Load (0.2ms)[0m  [1mSELECT  "managers".* FROM "managers" WHERE "managers"."id" = ? LIMIT 1[0m  [["id", 14]]
+Redirected to http://localhost:3000/managers/14
+Completed 302 Found in 711ms (ActiveRecord: 35.8ms)
+
+
+Started GET "/managers/14" for 127.0.0.1 at 2017-09-13 15:53:44 +0200
+Processing by ManagersController#show as HTML
+  Parameters: {"id"=>"14"}
+  [1m[35mManager Load (0.2ms)[0m  SELECT  "managers".* FROM "managers" WHERE "managers"."id" = ? LIMIT 1  [["id", 14]]
+  [1m[36mManager Load (0.2ms)[0m  [1mSELECT  "managers".* FROM "managers" WHERE "managers"."id" = ? LIMIT 1[0m  [["id", 14]]
+  Rendered managers/show.html.erb within layouts/application (0.5ms)
+  [1m[35mUser Load (0.4ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."id" IS NULL LIMIT 1
+Completed 200 OK in 198ms (Views: 191.8ms | ActiveRecord: 0.7ms)
+  [1m[36mMarket Load (2.5ms)[0m  [1mSELECT "markets".* FROM "markets"[0m
+  [1m[35mManager Load (0.6ms)[0m  SELECT "managers".* FROM "managers"
+
+
+Started DELETE "/logoutm" for 127.0.0.1 at 2017-09-13 15:54:54 +0200
+Processing by SessionsmController#destroy as HTML
+  Parameters: {"authenticity_token"=>"dZAfk0jhKpgyj27umXqnoA/Nhb3J0iWLQKQuH8p9Zs73suCCcI5PkmI6CHPLLf2pz5qew3L+BXgB/XliJxknYg=="}
+Redirected to http://localhost:3000/
+Completed 302 Found in 2ms (ActiveRecord: 0.0ms)
+
+
+Started GET "/" for 127.0.0.1 at 2017-09-13 15:54:54 +0200
+Processing by PagesController#homepage as HTML
+  Rendered pages/homepage.html.erb within layouts/application (1.2ms)
+  [1m[36mUser Load (0.3ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."id" IS NULL LIMIT 1[0m
+  [1m[35mManager Load (0.4ms)[0m  SELECT  "managers".* FROM "managers" WHERE "managers"."id" IS NULL LIMIT 1
+Completed 200 OK in 107ms (Views: 105.3ms | ActiveRecord: 0.7ms)
+
+
+Started GET "/login" for 127.0.0.1 at 2017-09-13 15:54:57 +0200
+Processing by SessionsController#new as HTML
+  Rendered sessions/new.html.erb within layouts/application (44.7ms)
+  [1m[36mUser Load (0.6ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."id" IS NULL LIMIT 1[0m
+  [1m[35mManager Load (0.2ms)[0m  SELECT  "managers".* FROM "managers" WHERE "managers"."id" IS NULL LIMIT 1
+Completed 200 OK in 230ms (Views: 228.1ms | ActiveRecord: 0.8ms)
+
+
+Started GET "/loginm" for 127.0.0.1 at 2017-09-13 15:55:09 +0200
+Processing by SessionsmController#new as HTML
+  Rendered sessionsm/new.html.erb within layouts/application (2.5ms)
+  [1m[36mUser Load (0.4ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."id" IS NULL LIMIT 1[0m
+  [1m[35mManager Load (0.3ms)[0m  SELECT  "managers".* FROM "managers" WHERE "managers"."id" IS NULL LIMIT 1
+Completed 200 OK in 162ms (Views: 159.4ms | ActiveRecord: 0.7ms)
+  [1m[36mManager Load (0.6ms)[0m  [1mSELECT "managers".* FROM "managers"[0m
+  [1m[35mMarket Load (1.0ms)[0m  SELECT "markets".* FROM "markets"
+
+
+Started POST "/loginm" for 127.0.0.1 at 2017-09-13 15:59:19 +0200
+Processing by SessionsmController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"jNb/HXk1l4dt/ExCXzaFuk1urBRH1AzGOJ2otRv3ZnsO9AAMQVryjT1JKt8NYd+zjTm3avz4LDV5xP/I9pMn1w==", "session"=>{"email"=>"bembo@gmail.com", "password"=>"[FILTERED]"}, "commit"=>"Log in"}
+  [1m[36mManager Load (0.3ms)[0m  [1mSELECT  "managers".* FROM "managers" WHERE "managers"."email" = ? LIMIT 1[0m  [["email", "bembo@gmail.com"]]
+Redirected to http://localhost:3000/managers/14
+Completed 302 Found in 109ms (ActiveRecord: 0.3ms)
+
+
+Started GET "/managers/14" for 127.0.0.1 at 2017-09-13 15:59:19 +0200
+Processing by ManagersController#show as HTML
+  Parameters: {"id"=>"14"}
+  [1m[35mManager Load (0.3ms)[0m  SELECT  "managers".* FROM "managers" WHERE "managers"."id" = ? LIMIT 1  [["id", 14]]
+  [1m[36mManager Load (0.3ms)[0m  [1mSELECT  "managers".* FROM "managers" WHERE "managers"."id" = ? LIMIT 1[0m  [["id", 14]]
+  Rendered managers/show.html.erb within layouts/application (0.2ms)
+  [1m[35mUser Load (1.1ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."id" IS NULL LIMIT 1
+Completed 200 OK in 248ms (Views: 241.3ms | ActiveRecord: 1.8ms)
+  [1m[36mUser Load (0.6ms)[0m  [1mSELECT "users".* FROM "users"[0m
+  [1m[35mUser Load (0.3ms)[0m  SELECT "users".* FROM "users"
+  [1m[36mMarket Load (0.6ms)[0m  [1mSELECT "markets".* FROM "markets"[0m
+  [1m[35mManager Load (0.3ms)[0m  SELECT "managers".* FROM "managers"
+  [1m[36mMarket Load (0.4ms)[0m  [1mSELECT  "markets".* FROM "markets" WHERE "markets"."id" = ? LIMIT 1[0m  [["id", 13]]
+  [1m[35mMarket Load (0.2ms)[0m  SELECT  "markets".* FROM "markets" WHERE "markets"."id" = ? LIMIT 1  [["id", 10]]
+  [1m[36mMarket Load (0.3ms)[0m  [1mSELECT  "markets".* FROM "markets" WHERE "markets"."id" = ? LIMIT 1[0m  [["id", 12]]
+  [1m[35mManager Load (0.2ms)[0m  SELECT  "managers".* FROM "managers" WHERE "managers"."id" = ? LIMIT 1  [["id", 10]]
+  [1m[36m (0.2ms)[0m  [1mbegin transaction[0m
+  [1m[35mManager Exists (0.3ms)[0m  SELECT  1 AS one FROM "managers" WHERE (LOWER("managers"."email") = LOWER('magenta@gmail.com') AND "managers"."id" != 10) LIMIT 1
+  [1m[36m (0.2ms)[0m  [1mrollback transaction[0m
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36mManager Exists (0.5ms)[0m  [1mSELECT  1 AS one FROM "managers" WHERE (LOWER("managers"."email") = LOWER('magenta@gmail.com') AND "managers"."id" != 10) LIMIT 1[0m
+  [1m[35m (0.1ms)[0m  rollback transaction
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35mManager Exists (0.3ms)[0m  SELECT  1 AS one FROM "managers" WHERE (LOWER("managers"."email") = LOWER('magenta@gmail.com') AND "managers"."id" != 10) LIMIT 1
+  [1m[36m (0.1ms)[0m  [1mrollback transaction[0m
+  [1m[35mManager Load (0.5ms)[0m  SELECT "managers".* FROM "managers"
+
+
+Started DELETE "/logoutm" for 127.0.0.1 at 2017-09-13 16:11:56 +0200
+Processing by SessionsmController#destroy as HTML
+  Parameters: {"authenticity_token"=>"0oiQuotdqlUV1mp5ACW76lWh/wXJqZfz6+CbGqlJPRRQqm+rszLPX0VjDORScuHjlfbke3KFtwCqucxnRC18uA=="}
+Redirected to http://localhost:3000/
+Completed 302 Found in 1ms (ActiveRecord: 0.0ms)
+
+
+Started GET "/" for 127.0.0.1 at 2017-09-13 16:11:56 +0200
+Processing by PagesController#homepage as HTML
+  Rendered pages/homepage.html.erb within layouts/application (0.3ms)
+  [1m[36mUser Load (1.4ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."id" IS NULL LIMIT 1[0m
+  [1m[35mManager Load (0.2ms)[0m  SELECT  "managers".* FROM "managers" WHERE "managers"."id" IS NULL LIMIT 1
+Completed 200 OK in 184ms (Views: 179.8ms | ActiveRecord: 2.3ms)
+
+
+Started GET "/managers/new" for 127.0.0.1 at 2017-09-13 16:11:58 +0200
+Processing by ManagersController#new as HTML
+  Rendered shared/_error_messages2.html.erb (0.1ms)
+  Rendered managers/new.html.erb within layouts/application (31.1ms)
+  [1m[36mUser Load (0.4ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."id" IS NULL LIMIT 1[0m
+  [1m[35mManager Load (0.3ms)[0m  SELECT  "managers".* FROM "managers" WHERE "managers"."id" IS NULL LIMIT 1
+Completed 200 OK in 150ms (Views: 133.4ms | ActiveRecord: 1.5ms)
+
+
+Started POST "/managers" for 127.0.0.1 at 2017-09-13 16:12:30 +0200
+Processing by ManagersController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"0GzPo+UKc3qewRHZJY7pt1OCQLqaw0xh7lKs/5b/S5pSTjCy3WUWcM50d0R32bO+k9VbxCHvbJKvC/uCe5sKNg==", "manager"=>{"name"=>"filippo", "surname"=>"fisichella", "yearofbirth"=>"1992", "email"=>"fisichella@gmail.com", "tel"=>"213234345", "curriculum"=>"ciaociao", "password"=>"[FILTERED]", "password_confirmation"=>"[FILTERED]"}, "commit"=>"Create my account"}
+  [1m[36m (0.2ms)[0m  [1mbegin transaction[0m
+  [1m[35mManager Exists (5.1ms)[0m  SELECT  1 AS one FROM "managers" WHERE LOWER("managers"."email") = LOWER('fisichella@gmail.com') LIMIT 1
+  [1m[36mSQL (69.6ms)[0m  [1mINSERT INTO "managers" ("name", "surname", "tel", "yearofbirth", "email", "curriculum", "password_digest", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?)[0m  [["name", "filippo"], ["surname", "fisichella"], ["tel", "213234345"], ["yearofbirth", 1992], ["email", "fisichella@gmail.com"], ["curriculum", "ciaociao"], ["password_digest", "$2a$10$1PvtB8Z8dOm0bxNfjBBQu.oWZtCaWBwKukppBjRBl4ySiZXaVKsBC"], ["created_at", "2017-09-13 14:12:30.769908"], ["updated_at", "2017-09-13 14:12:30.769908"]]
+  [1m[35m (5.4ms)[0m  commit transaction
+Redirected to http://localhost:3000/markets/new
+Completed 302 Found in 210ms (ActiveRecord: 80.3ms)
+
+
+Started GET "/markets/new" for 127.0.0.1 at 2017-09-13 16:12:30 +0200
+Processing by MarketsController#new as HTML
+  [1m[36mManager Load (0.5ms)[0m  [1mSELECT  "managers".* FROM "managers" WHERE "managers"."id" = ? LIMIT 1[0m  [["id", 15]]
+  Rendered markets/new.html.erb within layouts/application (5.0ms)
+  [1m[35mUser Load (0.4ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."id" IS NULL LIMIT 1
+Completed 200 OK in 242ms (Views: 196.9ms | ActiveRecord: 1.4ms)
+
+
+Started POST "/markets" for 127.0.0.1 at 2017-09-13 16:13:30 +0200
+Processing by MarketsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"XOzhTDY1ppTqaFLqA6OI+5R1mAcjKHXXGWUebFbdUZrezh5dDlrDnrrdNHdR9NLyVCKDeZgEVSRYPEkRu7kQNg==", "market"=>{"group"=>"ikea", "address"=>"via paolo paruta 20 ,Roma ,Italia", "info"=>" ciaociao"}, "commit"=>"add market"}
+  [1m[36m (0.2ms)[0m  [1mbegin transaction[0m
+  [1m[35mSQL (0.7ms)[0m  INSERT INTO "markets" ("group", "address", "info", "latitude", "longitude", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?)  [["group", "ikea"], ["address", "via paolo paruta 20 ,Roma ,Italia"], ["info", " ciaociao"], ["latitude", 41.875667], ["longitude", 12.5187343], ["created_at", "2017-09-13 14:13:31.583440"], ["updated_at", "2017-09-13 14:13:31.583440"]]
+  [1m[36m (60.2ms)[0m  [1mcommit transaction[0m
+  [1m[35mManager Load (0.2ms)[0m  SELECT  "managers".* FROM "managers" WHERE "managers"."id" = ? LIMIT 1  [["id", 15]]
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35mSQL (7.4ms)[0m  UPDATE "managers" SET "market_id" = ?, "updated_at" = ? WHERE "managers"."id" = ?  [["market_id", 13], ["updated_at", "2017-09-13 14:13:31.648840"], ["id", 15]]
+  [1m[36m (10.8ms)[0m  [1mcommit transaction[0m
+Redirected to http://localhost:3000/managers/15
+Completed 302 Found in 1485ms (ActiveRecord: 79.5ms)
+
+
+Started GET "/managers/15" for 127.0.0.1 at 2017-09-13 16:13:31 +0200
+Processing by ManagersController#show as HTML
+  Parameters: {"id"=>"15"}
+  [1m[35mManager Load (0.4ms)[0m  SELECT  "managers".* FROM "managers" WHERE "managers"."id" = ? LIMIT 1  [["id", 15]]
+  [1m[36mManager Load (0.2ms)[0m  [1mSELECT  "managers".* FROM "managers" WHERE "managers"."id" = ? LIMIT 1[0m  [["id", 15]]
+  Rendered managers/show.html.erb within layouts/application (0.2ms)
+  [1m[35mUser Load (0.3ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."id" IS NULL LIMIT 1
+Completed 200 OK in 157ms (Views: 150.9ms | ActiveRecord: 0.9ms)
+  [1m[36mManager Load (0.4ms)[0m  [1mSELECT "managers".* FROM "managers"[0m
+  [1m[35mManager Load (0.3ms)[0m  SELECT  "managers".* FROM "managers" WHERE "managers"."id" = ? LIMIT 1  [["id", 15]]
+  [1m[36mMarket Load (0.2ms)[0m  [1mSELECT  "markets".* FROM "markets" WHERE "markets"."id" = ? LIMIT 1[0m  [["id", 13]]
+  [1m[36mActiveRecord::SchemaMigration Load (0.2ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+Migrating to AddStockToOwners (20170913144048)
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36m (35.3ms)[0m  [1mALTER TABLE "owners" ADD "stock" integer[0m
+  [1m[35mSQL (0.3ms)[0m  INSERT INTO "schema_migrations" ("version") VALUES (?)  [["version", "20170913144048"]]
+  [1m[36m (23.4ms)[0m  [1mcommit transaction[0m
+  [1m[35mActiveRecord::SchemaMigration Load (0.2ms)[0m  SELECT "schema_migrations".* FROM "schema_migrations"
+  [1m[36m (0.3ms)[0m  [1m            SELECT sql
+            FROM sqlite_master
+            WHERE name='index_managers_on_market_id' AND type='index'
+            UNION ALL
+            SELECT sql
+            FROM sqlite_temp_master
+            WHERE name='index_managers_on_market_id' AND type='index'
+[0m
+  [1m[35m (0.2ms)[0m              SELECT sql
+            FROM sqlite_master
+            WHERE name='index_microposts_on_market_id' AND type='index'
+            UNION ALL
+            SELECT sql
+            FROM sqlite_temp_master
+            WHERE name='index_microposts_on_market_id' AND type='index'
+
+  [1m[36m (0.1ms)[0m  [1m            SELECT sql
+            FROM sqlite_master
+            WHERE name='index_microposts_on_user_id' AND type='index'
+            UNION ALL
+            SELECT sql
+            FROM sqlite_temp_master
+            WHERE name='index_microposts_on_user_id' AND type='index'
+[0m
+  [1m[35m (0.2ms)[0m              SELECT sql
+            FROM sqlite_master
+            WHERE name='index_owners_on_market_id' AND type='index'
+            UNION ALL
+            SELECT sql
+            FROM sqlite_temp_master
+            WHERE name='index_owners_on_market_id' AND type='index'
+
+  [1m[36m (0.1ms)[0m  [1m            SELECT sql
+            FROM sqlite_master
+            WHERE name='index_owners_on_product_id' AND type='index'
+            UNION ALL
+            SELECT sql
+            FROM sqlite_temp_master
+            WHERE name='index_owners_on_product_id' AND type='index'
+[0m
+  [1m[35m (0.1ms)[0m              SELECT sql
+            FROM sqlite_master
+            WHERE name='index_requests_on_product_id' AND type='index'
+            UNION ALL
+            SELECT sql
+            FROM sqlite_temp_master
+            WHERE name='index_requests_on_product_id' AND type='index'
+
+  [1m[36m (0.1ms)[0m  [1m            SELECT sql
+            FROM sqlite_master
+            WHERE name='index_requests_on_shopper_id' AND type='index'
+            UNION ALL
+            SELECT sql
+            FROM sqlite_temp_master
+            WHERE name='index_requests_on_shopper_id' AND type='index'
+[0m
+  [1m[35m (0.2ms)[0m              SELECT sql
+            FROM sqlite_master
+            WHERE name='index_shoppers_on_user_id' AND type='index'
+            UNION ALL
+            SELECT sql
+            FROM sqlite_temp_master
+            WHERE name='index_shoppers_on_user_id' AND type='index'
+
+
+
+Started GET "/managers/15" for 127.0.0.1 at 2017-09-13 16:54:23 +0200
+  [1m[36mActiveRecord::SchemaMigration Load (0.3ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+Processing by ManagersController#show as HTML
+  Parameters: {"id"=>"15"}
+  [1m[35mManager Load (0.2ms)[0m  SELECT  "managers".* FROM "managers" WHERE "managers"."id" = ? LIMIT 1  [["id", 15]]
+  [1m[36mManager Load (0.4ms)[0m  [1mSELECT  "managers".* FROM "managers" WHERE "managers"."id" = ? LIMIT 1[0m  [["id", 15]]
+Completed 500 Internal Server Error in 127ms (ActiveRecord: 2.6ms)
+
+NoMethodError (undefined method `owners' for 13:Fixnum):
+  app/controllers/managers_controller.rb:29:in `show'
+
+
+  Rendered /home/biar/.rvm/gems/ruby-2.3.0/gems/actionpack-4.2.5.1/lib/action_dispatch/middleware/templates/rescues/_source.erb (11.0ms)
+  Rendered /home/biar/.rvm/gems/ruby-2.3.0/gems/actionpack-4.2.5.1/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (2.1ms)
+  Rendered /home/biar/.rvm/gems/ruby-2.3.0/gems/actionpack-4.2.5.1/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (6.0ms)
+  Rendered /home/biar/.rvm/gems/ruby-2.3.0/gems/actionpack-4.2.5.1/lib/action_dispatch/middleware/templates/rescues/diagnostics.html.erb within rescues/layout (92.0ms)
+  Rendered /home/biar/.rvm/gems/ruby-2.3.0/gems/web-console-2.3.0/lib/web_console/templates/_markup.html.erb (1.6ms)
+  Rendered /home/biar/.rvm/gems/ruby-2.3.0/gems/web-console-2.3.0/lib/web_console/templates/_inner_console_markup.html.erb within layouts/inlined_string (0.9ms)
+  Rendered /home/biar/.rvm/gems/ruby-2.3.0/gems/web-console-2.3.0/lib/web_console/templates/_prompt_box_markup.html.erb within layouts/inlined_string (4.4ms)
+  Rendered /home/biar/.rvm/gems/ruby-2.3.0/gems/web-console-2.3.0/lib/web_console/templates/style.css.erb within layouts/inlined_string (0.5ms)
+  Rendered /home/biar/.rvm/gems/ruby-2.3.0/gems/web-console-2.3.0/lib/web_console/templates/console.js.erb within layouts/javascript (39.0ms)
+  Rendered /home/biar/.rvm/gems/ruby-2.3.0/gems/web-console-2.3.0/lib/web_console/templates/main.js.erb within layouts/javascript (0.9ms)
+  Rendered /home/biar/.rvm/gems/ruby-2.3.0/gems/web-console-2.3.0/lib/web_console/templates/error_page.js.erb within layouts/javascript (0.7ms)
+  Rendered /home/biar/.rvm/gems/ruby-2.3.0/gems/web-console-2.3.0/lib/web_console/templates/index.html.erb (82.5ms)
+  [1m[36mOwner Load (86.5ms)[0m  [1mSELECT "owners".* FROM "owners"[0m
+
+
+Started GET "/managers/15" for 127.0.0.1 at 2017-09-13 16:57:55 +0200
+Processing by ManagersController#show as HTML
+  Parameters: {"id"=>"15"}
+  [1m[35mManager Load (0.6ms)[0m  SELECT  "managers".* FROM "managers" WHERE "managers"."id" = ? LIMIT 1  [["id", 15]]
+  [1m[36mManager Load (0.2ms)[0m  [1mSELECT  "managers".* FROM "managers" WHERE "managers"."id" = ? LIMIT 1[0m  [["id", 15]]
+  [1m[35mMarket Load (0.5ms)[0m  SELECT  "markets".* FROM "markets" WHERE "markets"."id" = ? LIMIT 1  [["id", 13]]
+  [1m[36mOwner Load (0.3ms)[0m  [1mSELECT "owners".* FROM "owners" WHERE "owners"."market_id" = ?[0m  [["market_id", 13]]
+  Rendered managers/show.html.erb within layouts/application (43.1ms)
+Completed 500 Internal Server Error in 262ms (ActiveRecord: 3.2ms)
+
+ActionView::Template::Error (undefined method `owners_path' for #<#<Class:0x007f9d2a63fcd0>:0x007f9d2a636108>):
+    2: <%= current_manager.name %> </br>
+    3: add products to your supermarket
+    4: 
+    5: <%= form_for @owner do |f| %>
+    6: 
+    7: 
+    8:     <%= f.label :prodotto %><br>
+  app/views/managers/show.html.erb:5:in `_app_views_managers_show_html_erb__290664035918417629_70156498870980'
+
+
+  Rendered /home/biar/.rvm/gems/ruby-2.3.0/gems/actionpack-4.2.5.1/lib/action_dispatch/middleware/templates/rescues/_source.erb (8.9ms)
+  Rendered /home/biar/.rvm/gems/ruby-2.3.0/gems/actionpack-4.2.5.1/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (5.8ms)
+  Rendered /home/biar/.rvm/gems/ruby-2.3.0/gems/actionpack-4.2.5.1/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (4.3ms)
+  Rendered /home/biar/.rvm/gems/ruby-2.3.0/gems/actionpack-4.2.5.1/lib/action_dispatch/middleware/templates/rescues/template_error.html.erb within rescues/layout (44.9ms)
+  Rendered /home/biar/.rvm/gems/ruby-2.3.0/gems/web-console-2.3.0/lib/web_console/templates/_markup.html.erb (0.5ms)
+  Rendered /home/biar/.rvm/gems/ruby-2.3.0/gems/web-console-2.3.0/lib/web_console/templates/_inner_console_markup.html.erb within layouts/inlined_string (0.7ms)
+  Rendered /home/biar/.rvm/gems/ruby-2.3.0/gems/web-console-2.3.0/lib/web_console/templates/_prompt_box_markup.html.erb within layouts/inlined_string (0.9ms)
+  Rendered /home/biar/.rvm/gems/ruby-2.3.0/gems/web-console-2.3.0/lib/web_console/templates/style.css.erb within layouts/inlined_string (0.7ms)
+  Rendered /home/biar/.rvm/gems/ruby-2.3.0/gems/web-console-2.3.0/lib/web_console/templates/console.js.erb within layouts/javascript (36.2ms)
+  Rendered /home/biar/.rvm/gems/ruby-2.3.0/gems/web-console-2.3.0/lib/web_console/templates/main.js.erb within layouts/javascript (1.1ms)
+  Rendered /home/biar/.rvm/gems/ruby-2.3.0/gems/web-console-2.3.0/lib/web_console/templates/error_page.js.erb within layouts/javascript (1.2ms)
+  Rendered /home/biar/.rvm/gems/ruby-2.3.0/gems/web-console-2.3.0/lib/web_console/templates/index.html.erb (79.3ms)
+
+
+Started GET "/managers/15" for 127.0.0.1 at 2017-09-13 16:58:48 +0200
+Processing by ManagersController#show as HTML
+  Parameters: {"id"=>"15"}
+  [1m[35mManager Load (0.5ms)[0m  SELECT  "managers".* FROM "managers" WHERE "managers"."id" = ? LIMIT 1  [["id", 15]]
+  [1m[36mManager Load (0.2ms)[0m  [1mSELECT  "managers".* FROM "managers" WHERE "managers"."id" = ? LIMIT 1[0m  [["id", 15]]
+  [1m[35mMarket Load (0.2ms)[0m  SELECT  "markets".* FROM "markets" WHERE "markets"."id" = ? LIMIT 1  [["id", 13]]
+  Rendered managers/show.html.erb within layouts/application (9.2ms)
+Completed 500 Internal Server Error in 114ms (ActiveRecord: 5.7ms)
+
+ActionView::Template::Error (undefined method `map' for nil:NilClass
+Did you mean?  tap):
+     6: 
+     7: 
+     8:     <%= f.label :prodotto %><br>
+     9:     <%= f.select :product_id, @products.map { |c| [c.name, c.id] } %></br>
+    10: 
+    11:     <%= f.label :prezzo %><br>
+    12:     <%= f.number_field :price %></br>
+  app/views/managers/show.html.erb:9:in `block in _app_views_managers_show_html_erb__290664035918417629_70156498870980'
+  app/views/managers/show.html.erb:5:in `_app_views_managers_show_html_erb__290664035918417629_70156498870980'
+
+
+  Rendered /home/biar/.rvm/gems/ruby-2.3.0/gems/actionpack-4.2.5.1/lib/action_dispatch/middleware/templates/rescues/_source.erb (8.5ms)
+  Rendered /home/biar/.rvm/gems/ruby-2.3.0/gems/actionpack-4.2.5.1/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (4.6ms)
+  Rendered /home/biar/.rvm/gems/ruby-2.3.0/gems/actionpack-4.2.5.1/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (3.6ms)
+  Rendered /home/biar/.rvm/gems/ruby-2.3.0/gems/actionpack-4.2.5.1/lib/action_dispatch/middleware/templates/rescues/template_error.html.erb within rescues/layout (36.0ms)
+  Rendered /home/biar/.rvm/gems/ruby-2.3.0/gems/web-console-2.3.0/lib/web_console/templates/_markup.html.erb (1.0ms)
+  Rendered /home/biar/.rvm/gems/ruby-2.3.0/gems/web-console-2.3.0/lib/web_console/templates/_inner_console_markup.html.erb within layouts/inlined_string (0.7ms)
+  Rendered /home/biar/.rvm/gems/ruby-2.3.0/gems/web-console-2.3.0/lib/web_console/templates/_prompt_box_markup.html.erb within layouts/inlined_string (0.8ms)
+  Rendered /home/biar/.rvm/gems/ruby-2.3.0/gems/web-console-2.3.0/lib/web_console/templates/style.css.erb within layouts/inlined_string (1.5ms)
+  Rendered /home/biar/.rvm/gems/ruby-2.3.0/gems/web-console-2.3.0/lib/web_console/templates/console.js.erb within layouts/javascript (29.1ms)
+  Rendered /home/biar/.rvm/gems/ruby-2.3.0/gems/web-console-2.3.0/lib/web_console/templates/main.js.erb within layouts/javascript (0.6ms)
+  Rendered /home/biar/.rvm/gems/ruby-2.3.0/gems/web-console-2.3.0/lib/web_console/templates/error_page.js.erb within layouts/javascript (0.4ms)
+  Rendered /home/biar/.rvm/gems/ruby-2.3.0/gems/web-console-2.3.0/lib/web_console/templates/index.html.erb (51.3ms)
+
+
+Started GET "/managers/15" for 127.0.0.1 at 2017-09-13 16:59:39 +0200
+Processing by ManagersController#show as HTML
+  Parameters: {"id"=>"15"}
+  [1m[36mManager Load (0.2ms)[0m  [1mSELECT  "managers".* FROM "managers" WHERE "managers"."id" = ? LIMIT 1[0m  [["id", 15]]
+  [1m[35mManager Load (0.2ms)[0m  SELECT  "managers".* FROM "managers" WHERE "managers"."id" = ? LIMIT 1  [["id", 15]]
+  [1m[36mMarket Load (0.3ms)[0m  [1mSELECT  "markets".* FROM "markets" WHERE "markets"."id" = ? LIMIT 1[0m  [["id", 13]]
+  [1m[35mProduct Load (0.4ms)[0m  SELECT "products".* FROM "products"
+  [1m[36mOwner Load (0.5ms)[0m  [1mSELECT "owners".* FROM "owners" WHERE "owners"."market_id" = ?[0m  [["market_id", 13]]
+  Rendered managers/show.html.erb within layouts/application (61.0ms)
+  [1m[35mUser Load (0.5ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."id" IS NULL LIMIT 1
+Completed 200 OK in 1879ms (Views: 1747.8ms | ActiveRecord: 6.2ms)
+
+
+Started GET "/assets/owners.self-e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855.css?body=1" for 127.0.0.1 at 2017-09-13 16:59:41 +0200
+
+
+Started GET "/assets/owners.self-877aef30ae1b040ab8a3aba4e3e309a11d7f2612f44dde450b5c157aa5f95c05.js?body=1" for 127.0.0.1 at 2017-09-13 16:59:41 +0200
+
+
+Started POST "/owners" for 127.0.0.1 at 2017-09-13 17:00:24 +0200
+Processing by OwnersController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"rqZHIRAEenR2mjsOsO6ldqvkJKTZeJBLnMNeWN+KGo8shLgwKGsffiYvXZPiuf9/a7M/2mJUsLjdmgklMu5bIw==", "owner"=>{"product_id"=>"2", "price"=>"4", "stock"=>"20", "market_id"=>"13"}, "commit"=>"add product"}
+Completed 500 Internal Server Error in 64ms (ActiveRecord: 0.0ms)
+
+NameError (undefined local variable or method `request_params' for #<OwnersController:0x007f9d1c316ad0>
+Did you mean?  request_path):
+  app/controllers/owners_controller.rb:5:in `create'
+
+
+  Rendered /home/biar/.rvm/gems/ruby-2.3.0/gems/actionpack-4.2.5.1/lib/action_dispatch/middleware/templates/rescues/_source.erb (6.9ms)
+  Rendered /home/biar/.rvm/gems/ruby-2.3.0/gems/actionpack-4.2.5.1/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (4.2ms)
+  Rendered /home/biar/.rvm/gems/ruby-2.3.0/gems/actionpack-4.2.5.1/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (1.4ms)
+  Rendered /home/biar/.rvm/gems/ruby-2.3.0/gems/actionpack-4.2.5.1/lib/action_dispatch/middleware/templates/rescues/diagnostics.html.erb within rescues/layout (39.6ms)
+  Rendered /home/biar/.rvm/gems/ruby-2.3.0/gems/web-console-2.3.0/lib/web_console/templates/_markup.html.erb (0.8ms)
+  Rendered /home/biar/.rvm/gems/ruby-2.3.0/gems/web-console-2.3.0/lib/web_console/templates/_inner_console_markup.html.erb within layouts/inlined_string (0.8ms)
+  Rendered /home/biar/.rvm/gems/ruby-2.3.0/gems/web-console-2.3.0/lib/web_console/templates/_prompt_box_markup.html.erb within layouts/inlined_string (0.6ms)
+  Rendered /home/biar/.rvm/gems/ruby-2.3.0/gems/web-console-2.3.0/lib/web_console/templates/style.css.erb within layouts/inlined_string (0.7ms)
+  Rendered /home/biar/.rvm/gems/ruby-2.3.0/gems/web-console-2.3.0/lib/web_console/templates/console.js.erb within layouts/javascript (28.7ms)
+  Rendered /home/biar/.rvm/gems/ruby-2.3.0/gems/web-console-2.3.0/lib/web_console/templates/main.js.erb within layouts/javascript (0.8ms)
+  Rendered /home/biar/.rvm/gems/ruby-2.3.0/gems/web-console-2.3.0/lib/web_console/templates/error_page.js.erb within layouts/javascript (0.4ms)
+  Rendered /home/biar/.rvm/gems/ruby-2.3.0/gems/web-console-2.3.0/lib/web_console/templates/index.html.erb (58.1ms)
+
+
+Started POST "/owners" for 127.0.0.1 at 2017-09-13 17:01:16 +0200
+Processing by OwnersController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"rqZHIRAEenR2mjsOsO6ldqvkJKTZeJBLnMNeWN+KGo8shLgwKGsffiYvXZPiuf9/a7M/2mJUsLjdmgklMu5bIw==", "owner"=>{"product_id"=>"2", "price"=>"4", "stock"=>"20", "market_id"=>"13"}, "commit"=>"add product"}
+  [1m[36m (0.4ms)[0m  [1mbegin transaction[0m
+  [1m[35mOwner Exists (0.3ms)[0m  SELECT  1 AS one FROM "owners" WHERE ("owners"."product_id" = 2 AND "owners"."market_id" = 13) LIMIT 1
+  [1m[36mSQL (1.1ms)[0m  [1mINSERT INTO "owners" ("product_id", "market_id", "price", "stock", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?)[0m  [["product_id", 2], ["market_id", 13], ["price", 4], ["stock", 20], ["created_at", "2017-09-13 15:01:17.096174"], ["updated_at", "2017-09-13 15:01:17.096174"]]
+  [1m[35m (113.0ms)[0m  commit transaction
+Completed 500 Internal Server Error in 151ms (ActiveRecord: 116.2ms)
+
+ActionController::UrlGenerationError (No route matches {:action=>"show", :controller=>"managers"} missing required keys: [:id]):
+  app/controllers/owners_controller.rb:6:in `create'
+
+
+  Rendered /home/biar/.rvm/gems/ruby-2.3.0/gems/actionpack-4.2.5.1/lib/action_dispatch/middleware/templates/rescues/_source.erb (8.1ms)
+  Rendered /home/biar/.rvm/gems/ruby-2.3.0/gems/actionpack-4.2.5.1/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (11.6ms)
+  Rendered /home/biar/.rvm/gems/ruby-2.3.0/gems/actionpack-4.2.5.1/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (4.3ms)
+  Rendered /home/biar/.rvm/gems/ruby-2.3.0/gems/actionpack-4.2.5.1/lib/action_dispatch/middleware/templates/rescues/diagnostics.html.erb within rescues/layout (47.2ms)
+  Rendered /home/biar/.rvm/gems/ruby-2.3.0/gems/web-console-2.3.0/lib/web_console/templates/_markup.html.erb (1.5ms)
+  Rendered /home/biar/.rvm/gems/ruby-2.3.0/gems/web-console-2.3.0/lib/web_console/templates/_inner_console_markup.html.erb within layouts/inlined_string (0.9ms)
+  Rendered /home/biar/.rvm/gems/ruby-2.3.0/gems/web-console-2.3.0/lib/web_console/templates/_prompt_box_markup.html.erb within layouts/inlined_string (2.7ms)
+  Rendered /home/biar/.rvm/gems/ruby-2.3.0/gems/web-console-2.3.0/lib/web_console/templates/style.css.erb within layouts/inlined_string (0.7ms)
+  Rendered /home/biar/.rvm/gems/ruby-2.3.0/gems/web-console-2.3.0/lib/web_console/templates/console.js.erb within layouts/javascript (32.1ms)
+  Rendered /home/biar/.rvm/gems/ruby-2.3.0/gems/web-console-2.3.0/lib/web_console/templates/main.js.erb within layouts/javascript (2.5ms)
+  Rendered /home/biar/.rvm/gems/ruby-2.3.0/gems/web-console-2.3.0/lib/web_console/templates/error_page.js.erb within layouts/javascript (3.5ms)
+  Rendered /home/biar/.rvm/gems/ruby-2.3.0/gems/web-console-2.3.0/lib/web_console/templates/index.html.erb (69.5ms)
+
+
+Started POST "/owners" for 127.0.0.1 at 2017-09-13 17:01:51 +0200
+Processing by OwnersController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"rqZHIRAEenR2mjsOsO6ldqvkJKTZeJBLnMNeWN+KGo8shLgwKGsffiYvXZPiuf9/a7M/2mJUsLjdmgklMu5bIw==", "owner"=>{"product_id"=>"2", "price"=>"4", "stock"=>"20", "market_id"=>"13"}, "commit"=>"add product"}
+  [1m[36m (0.2ms)[0m  [1mbegin transaction[0m
+  [1m[35mOwner Exists (0.4ms)[0m  SELECT  1 AS one FROM "owners" WHERE ("owners"."product_id" = 2 AND "owners"."market_id" = 13) LIMIT 1
+  [1m[36m (0.2ms)[0m  [1mrollback transaction[0m
+  [1m[35mManager Load (0.2ms)[0m  SELECT  "managers".* FROM "managers" WHERE "managers"."id" = ? LIMIT 1  [["id", 15]]
+Redirected to http://localhost:3000/managers/15
+Completed 302 Found in 44ms (ActiveRecord: 2.7ms)
+
+
+Started GET "/managers/15" for 127.0.0.1 at 2017-09-13 17:01:51 +0200
+Processing by ManagersController#show as HTML
+  Parameters: {"id"=>"15"}
+  [1m[36mManager Load (0.2ms)[0m  [1mSELECT  "managers".* FROM "managers" WHERE "managers"."id" = ? LIMIT 1[0m  [["id", 15]]
+  [1m[35mManager Load (0.0ms)[0m  SELECT  "managers".* FROM "managers" WHERE "managers"."id" = ? LIMIT 1  [["id", 15]]
+  [1m[36mMarket Load (0.4ms)[0m  [1mSELECT  "markets".* FROM "markets" WHERE "markets"."id" = ? LIMIT 1[0m  [["id", 13]]
+  [1m[35mProduct Load (0.3ms)[0m  SELECT "products".* FROM "products"
+  [1m[36mOwner Load (0.2ms)[0m  [1mSELECT "owners".* FROM "owners" WHERE "owners"."market_id" = ?[0m  [["market_id", 13]]
+  [1m[35mProduct Load (0.4ms)[0m  SELECT  "products".* FROM "products" WHERE "products"."id" = ? LIMIT 1  [["id", 2]]
+  Rendered managers/show.html.erb within layouts/application (19.2ms)
+  [1m[36mUser Load (0.6ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."id" IS NULL LIMIT 1[0m
+Completed 200 OK in 174ms (Views: 126.4ms | ActiveRecord: 3.1ms)
+
+
+Started POST "/owners" for 127.0.0.1 at 2017-09-13 17:03:28 +0200
+Processing by OwnersController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"caiakurahg1VD11Ejr4uSCGf7b96LtYJ10FUmGP+DVzzimWD0rXjBwW6O9nc6XRB4cj2wcEC9vqWGAPljppM8A==", "owner"=>{"product_id"=>"2", "price"=>"4", "stock"=>"5", "market_id"=>"13"}, "commit"=>"add product"}
+  [1m[35m (0.2ms)[0m  begin transaction
+  [1m[36mOwner Exists (0.3ms)[0m  [1mSELECT  1 AS one FROM "owners" WHERE ("owners"."product_id" = 2 AND "owners"."market_id" = 13) LIMIT 1[0m
+  [1m[35m (0.1ms)[0m  rollback transaction
+  [1m[36mManager Load (0.1ms)[0m  [1mSELECT  "managers".* FROM "managers" WHERE "managers"."id" = ? LIMIT 1[0m  [["id", 15]]
+Redirected to http://localhost:3000/managers/15
+Completed 302 Found in 9ms (ActiveRecord: 0.7ms)
+
+
+Started GET "/managers/15" for 127.0.0.1 at 2017-09-13 17:03:28 +0200
+Processing by ManagersController#show as HTML
+  Parameters: {"id"=>"15"}
+  [1m[35mManager Load (0.3ms)[0m  SELECT  "managers".* FROM "managers" WHERE "managers"."id" = ? LIMIT 1  [["id", 15]]
+  [1m[36mManager Load (0.3ms)[0m  [1mSELECT  "managers".* FROM "managers" WHERE "managers"."id" = ? LIMIT 1[0m  [["id", 15]]
+  [1m[35mMarket Load (0.2ms)[0m  SELECT  "markets".* FROM "markets" WHERE "markets"."id" = ? LIMIT 1  [["id", 13]]
+  [1m[36mProduct Load (0.4ms)[0m  [1mSELECT "products".* FROM "products"[0m
+  [1m[35mOwner Load (0.4ms)[0m  SELECT "owners".* FROM "owners" WHERE "owners"."market_id" = ?  [["market_id", 13]]
+  [1m[36mProduct Load (0.2ms)[0m  [1mSELECT  "products".* FROM "products" WHERE "products"."id" = ? LIMIT 1[0m  [["id", 2]]
+  Rendered managers/show.html.erb within layouts/application (15.3ms)
+  [1m[35mUser Load (0.5ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."id" IS NULL LIMIT 1
+Completed 200 OK in 136ms (Views: 126.9ms | ActiveRecord: 2.2ms)
+
+
+Started POST "/owners" for 127.0.0.1 at 2017-09-13 17:03:32 +0200
+Processing by OwnersController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"VE5gvWlxpO2jURoqR3ocT0uITOkv+aY80P+Yp7uPOxrWbJ+sUR7B5/PkfLcVLUZGi99Xl5TVhs+Rps/aVut6tg==", "owner"=>{"product_id"=>"1", "price"=>"", "stock"=>"", "market_id"=>"13"}, "commit"=>"add product"}
+  [1m[36m (0.3ms)[0m  [1mbegin transaction[0m
+  [1m[35mOwner Exists (0.5ms)[0m  SELECT  1 AS one FROM "owners" WHERE ("owners"."product_id" = 1 AND "owners"."market_id" = 13) LIMIT 1
+  [1m[36mSQL (1.7ms)[0m  [1mINSERT INTO "owners" ("product_id", "market_id", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["product_id", 1], ["market_id", 13], ["created_at", "2017-09-13 15:03:32.779027"], ["updated_at", "2017-09-13 15:03:32.779027"]]
+  [1m[35m (35.6ms)[0m  commit transaction
+  [1m[36mManager Load (0.4ms)[0m  [1mSELECT  "managers".* FROM "managers" WHERE "managers"."id" = ? LIMIT 1[0m  [["id", 15]]
+Redirected to http://localhost:3000/managers/15
+Completed 302 Found in 63ms (ActiveRecord: 38.4ms)
+
+
+Started GET "/managers/15" for 127.0.0.1 at 2017-09-13 17:03:32 +0200
+Processing by ManagersController#show as HTML
+  Parameters: {"id"=>"15"}
+  [1m[35mManager Load (0.3ms)[0m  SELECT  "managers".* FROM "managers" WHERE "managers"."id" = ? LIMIT 1  [["id", 15]]
+  [1m[36mManager Load (0.5ms)[0m  [1mSELECT  "managers".* FROM "managers" WHERE "managers"."id" = ? LIMIT 1[0m  [["id", 15]]
+  [1m[35mMarket Load (0.2ms)[0m  SELECT  "markets".* FROM "markets" WHERE "markets"."id" = ? LIMIT 1  [["id", 13]]
+  [1m[36mProduct Load (0.5ms)[0m  [1mSELECT "products".* FROM "products"[0m
+  [1m[35mOwner Load (0.2ms)[0m  SELECT "owners".* FROM "owners" WHERE "owners"."market_id" = ?  [["market_id", 13]]
+  [1m[36mProduct Load (0.3ms)[0m  [1mSELECT  "products".* FROM "products" WHERE "products"."id" = ? LIMIT 1[0m  [["id", 2]]
+  [1m[35mProduct Load (0.3ms)[0m  SELECT  "products".* FROM "products" WHERE "products"."id" = ? LIMIT 1  [["id", 1]]
+  Rendered managers/show.html.erb within layouts/application (17.1ms)
+  [1m[36mUser Load (0.3ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."id" IS NULL LIMIT 1[0m
+Completed 200 OK in 128ms (Views: 118.8ms | ActiveRecord: 2.6ms)
+
+
+Started POST "/owners" for 127.0.0.1 at 2017-09-13 17:03:38 +0200
+Processing by OwnersController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"qIMZLzwREyu10lCXCjHkqIC+OSZT+DRv8vJS+pbN+vAqoeY+BH52IeVnNgpYZr6hQOkiWOjUFJyzqwWHe6m7XA==", "owner"=>{"product_id"=>"2", "price"=>"", "stock"=>"", "market_id"=>"13"}, "commit"=>"add product"}
+  [1m[35m (0.2ms)[0m  begin transaction
+  [1m[36mOwner Exists (0.5ms)[0m  [1mSELECT  1 AS one FROM "owners" WHERE ("owners"."product_id" = 2 AND "owners"."market_id" = 13) LIMIT 1[0m
+  [1m[35m (2.9ms)[0m  rollback transaction
+  [1m[36mManager Load (0.3ms)[0m  [1mSELECT  "managers".* FROM "managers" WHERE "managers"."id" = ? LIMIT 1[0m  [["id", 15]]
+Redirected to http://localhost:3000/managers/15
+Completed 302 Found in 21ms (ActiveRecord: 3.9ms)
+
+
+Started GET "/managers/15" for 127.0.0.1 at 2017-09-13 17:03:38 +0200
+Processing by ManagersController#show as HTML
+  Parameters: {"id"=>"15"}
+  [1m[35mManager Load (0.2ms)[0m  SELECT  "managers".* FROM "managers" WHERE "managers"."id" = ? LIMIT 1  [["id", 15]]
+  [1m[36mManager Load (0.2ms)[0m  [1mSELECT  "managers".* FROM "managers" WHERE "managers"."id" = ? LIMIT 1[0m  [["id", 15]]
+  [1m[35mMarket Load (0.1ms)[0m  SELECT  "markets".* FROM "markets" WHERE "markets"."id" = ? LIMIT 1  [["id", 13]]
+  [1m[36mProduct Load (0.6ms)[0m  [1mSELECT "products".* FROM "products"[0m
+  [1m[35mOwner Load (1.5ms)[0m  SELECT "owners".* FROM "owners" WHERE "owners"."market_id" = ?  [["market_id", 13]]
+  [1m[36mProduct Load (0.2ms)[0m  [1mSELECT  "products".* FROM "products" WHERE "products"."id" = ? LIMIT 1[0m  [["id", 2]]
+  [1m[35mProduct Load (0.2ms)[0m  SELECT  "products".* FROM "products" WHERE "products"."id" = ? LIMIT 1  [["id", 1]]
+  Rendered managers/show.html.erb within layouts/application (14.8ms)
+  [1m[36mUser Load (0.4ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."id" IS NULL LIMIT 1[0m
+Completed 200 OK in 122ms (Views: 112.3ms | ActiveRecord: 3.4ms)
+
+
+Started POST "/owners" for 127.0.0.1 at 2017-09-13 17:03:39 +0200
+Processing by OwnersController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"qIMZLzwREyu10lCXCjHkqIC+OSZT+DRv8vJS+pbN+vAqoeY+BH52IeVnNgpYZr6hQOkiWOjUFJyzqwWHe6m7XA==", "owner"=>{"product_id"=>"2", "price"=>"", "stock"=>"", "market_id"=>"13"}, "commit"=>"add product"}
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36mOwner Exists (0.3ms)[0m  [1mSELECT  1 AS one FROM "owners" WHERE ("owners"."product_id" = 2 AND "owners"."market_id" = 13) LIMIT 1[0m
+  [1m[35m (0.1ms)[0m  rollback transaction
+  [1m[36mManager Load (0.1ms)[0m  [1mSELECT  "managers".* FROM "managers" WHERE "managers"."id" = ? LIMIT 1[0m  [["id", 15]]
+Redirected to http://localhost:3000/managers/15
+Completed 302 Found in 8ms (ActiveRecord: 0.7ms)
+
+
+Started GET "/managers/15" for 127.0.0.1 at 2017-09-13 17:03:39 +0200
+Processing by ManagersController#show as HTML
+  Parameters: {"id"=>"15"}
+  [1m[35mManager Load (0.2ms)[0m  SELECT  "managers".* FROM "managers" WHERE "managers"."id" = ? LIMIT 1  [["id", 15]]
+  [1m[36mManager Load (0.3ms)[0m  [1mSELECT  "managers".* FROM "managers" WHERE "managers"."id" = ? LIMIT 1[0m  [["id", 15]]
+  [1m[35mMarket Load (0.4ms)[0m  SELECT  "markets".* FROM "markets" WHERE "markets"."id" = ? LIMIT 1  [["id", 13]]
+  [1m[36mProduct Load (0.2ms)[0m  [1mSELECT "products".* FROM "products"[0m
+  [1m[35mOwner Load (0.2ms)[0m  SELECT "owners".* FROM "owners" WHERE "owners"."market_id" = ?  [["market_id", 13]]
+  [1m[36mProduct Load (0.1ms)[0m  [1mSELECT  "products".* FROM "products" WHERE "products"."id" = ? LIMIT 1[0m  [["id", 2]]
+  [1m[35mProduct Load (0.1ms)[0m  SELECT  "products".* FROM "products" WHERE "products"."id" = ? LIMIT 1  [["id", 1]]
+  Rendered managers/show.html.erb within layouts/application (7.7ms)
+  [1m[36mUser Load (0.2ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."id" IS NULL LIMIT 1[0m
+Completed 200 OK in 159ms (Views: 149.0ms | ActiveRecord: 1.6ms)
+
+
+Started POST "/owners" for 127.0.0.1 at 2017-09-13 17:03:45 +0200
+Processing by OwnersController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"CaT8bGocdKQ6S+z6Zgf7tt4p/+ZcHgeFuGT7VKy5UWmLhgN9UnMRrmr+imc0UKG/Hn7kmOcyJ3b5PawpQd0QxQ==", "owner"=>{"product_id"=>"1", "price"=>"", "stock"=>"", "market_id"=>"13"}, "commit"=>"add product"}
+  [1m[35m (0.2ms)[0m  begin transaction
+  [1m[36mOwner Exists (1.8ms)[0m  [1mSELECT  1 AS one FROM "owners" WHERE ("owners"."product_id" = 1 AND "owners"."market_id" = 13) LIMIT 1[0m
+  [1m[35m (0.4ms)[0m  rollback transaction
+  [1m[36mManager Load (0.3ms)[0m  [1mSELECT  "managers".* FROM "managers" WHERE "managers"."id" = ? LIMIT 1[0m  [["id", 15]]
+Redirected to http://localhost:3000/managers/15
+Completed 302 Found in 28ms (ActiveRecord: 2.7ms)
+
+
+Started GET "/managers/15" for 127.0.0.1 at 2017-09-13 17:03:46 +0200
+Processing by ManagersController#show as HTML
+  Parameters: {"id"=>"15"}
+  [1m[35mManager Load (0.2ms)[0m  SELECT  "managers".* FROM "managers" WHERE "managers"."id" = ? LIMIT 1  [["id", 15]]
+  [1m[36mManager Load (0.2ms)[0m  [1mSELECT  "managers".* FROM "managers" WHERE "managers"."id" = ? LIMIT 1[0m  [["id", 15]]
+  [1m[35mMarket Load (0.1ms)[0m  SELECT  "markets".* FROM "markets" WHERE "markets"."id" = ? LIMIT 1  [["id", 13]]
+  [1m[36mProduct Load (0.4ms)[0m  [1mSELECT "products".* FROM "products"[0m
+  [1m[35mOwner Load (0.3ms)[0m  SELECT "owners".* FROM "owners" WHERE "owners"."market_id" = ?  [["market_id", 13]]
+  [1m[36mProduct Load (0.2ms)[0m  [1mSELECT  "products".* FROM "products" WHERE "products"."id" = ? LIMIT 1[0m  [["id", 2]]
+  [1m[35mProduct Load (0.1ms)[0m  SELECT  "products".* FROM "products" WHERE "products"."id" = ? LIMIT 1  [["id", 1]]
+  Rendered managers/show.html.erb within layouts/application (10.5ms)
+  [1m[36mUser Load (0.4ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."id" IS NULL LIMIT 1[0m
+Completed 200 OK in 110ms (Views: 100.0ms | ActiveRecord: 1.8ms)
+
+
+Started POST "/owners" for 127.0.0.1 at 2017-09-13 17:03:51 +0200
+Processing by OwnersController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"g3Qct4LaJyOTvDe1I2pKXQmTq8f051k7mmOYDHbC7M0BVuOmurVCKcMJUShxPRBUycSwuU/LecjbOs9xm6atYQ==", "owner"=>{"product_id"=>"1", "price"=>"", "stock"=>"", "market_id"=>"13"}, "commit"=>"add product"}
+  [1m[35m (0.2ms)[0m  begin transaction
+  [1m[36mOwner Exists (4.4ms)[0m  [1mSELECT  1 AS one FROM "owners" WHERE ("owners"."product_id" = 1 AND "owners"."market_id" = 13) LIMIT 1[0m
+  [1m[35m (0.2ms)[0m  rollback transaction
+  [1m[36mManager Load (0.3ms)[0m  [1mSELECT  "managers".* FROM "managers" WHERE "managers"."id" = ? LIMIT 1[0m  [["id", 15]]
+Redirected to http://localhost:3000/managers/15
+Completed 302 Found in 20ms (ActiveRecord: 5.1ms)
+
+
+Started GET "/managers/15" for 127.0.0.1 at 2017-09-13 17:03:51 +0200
+Processing by ManagersController#show as HTML
+  Parameters: {"id"=>"15"}
+  [1m[35mManager Load (0.3ms)[0m  SELECT  "managers".* FROM "managers" WHERE "managers"."id" = ? LIMIT 1  [["id", 15]]
+  [1m[36mManager Load (0.3ms)[0m  [1mSELECT  "managers".* FROM "managers" WHERE "managers"."id" = ? LIMIT 1[0m  [["id", 15]]
+  [1m[35mMarket Load (0.3ms)[0m  SELECT  "markets".* FROM "markets" WHERE "markets"."id" = ? LIMIT 1  [["id", 13]]
+  [1m[36mProduct Load (0.3ms)[0m  [1mSELECT "products".* FROM "products"[0m
+  [1m[35mOwner Load (0.1ms)[0m  SELECT "owners".* FROM "owners" WHERE "owners"."market_id" = ?  [["market_id", 13]]
+  [1m[36mProduct Load (0.1ms)[0m  [1mSELECT  "products".* FROM "products" WHERE "products"."id" = ? LIMIT 1[0m  [["id", 2]]
+  [1m[35mProduct Load (0.2ms)[0m  SELECT  "products".* FROM "products" WHERE "products"."id" = ? LIMIT 1  [["id", 1]]
+  Rendered managers/show.html.erb within layouts/application (6.7ms)
+  [1m[36mUser Load (0.4ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."id" IS NULL LIMIT 1[0m
+Completed 200 OK in 123ms (Views: 111.0ms | ActiveRecord: 2.0ms)
+
+
+Started POST "/owners" for 127.0.0.1 at 2017-09-13 17:03:53 +0200
+Processing by OwnersController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"wvJGfDcKBlU4jHuKR86uN+rx3VmcgQuHGLZd308CaexA0LltD2VjX2g5HRcVmfQ+KqbGJyetK3RZ7wqiomYoQA==", "owner"=>{"product_id"=>"1", "price"=>"", "stock"=>"", "market_id"=>"13"}, "commit"=>"add product"}
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36mOwner Exists (0.2ms)[0m  [1mSELECT  1 AS one FROM "owners" WHERE ("owners"."product_id" = 1 AND "owners"."market_id" = 13) LIMIT 1[0m
+  [1m[35m (0.1ms)[0m  rollback transaction
+  [1m[36mManager Load (0.1ms)[0m  [1mSELECT  "managers".* FROM "managers" WHERE "managers"."id" = ? LIMIT 1[0m  [["id", 15]]
+Redirected to http://localhost:3000/managers/15
+Completed 302 Found in 14ms (ActiveRecord: 0.5ms)
+
+
+Started GET "/managers/15" for 127.0.0.1 at 2017-09-13 17:03:53 +0200
+Processing by ManagersController#show as HTML
+  Parameters: {"id"=>"15"}
+  [1m[35mManager Load (0.4ms)[0m  SELECT  "managers".* FROM "managers" WHERE "managers"."id" = ? LIMIT 1  [["id", 15]]
+  [1m[36mManager Load (0.5ms)[0m  [1mSELECT  "managers".* FROM "managers" WHERE "managers"."id" = ? LIMIT 1[0m  [["id", 15]]
+  [1m[35mMarket Load (0.2ms)[0m  SELECT  "markets".* FROM "markets" WHERE "markets"."id" = ? LIMIT 1  [["id", 13]]
+  [1m[36mProduct Load (0.4ms)[0m  [1mSELECT "products".* FROM "products"[0m
+  [1m[35mOwner Load (0.3ms)[0m  SELECT "owners".* FROM "owners" WHERE "owners"."market_id" = ?  [["market_id", 13]]
+  [1m[36mProduct Load (0.3ms)[0m  [1mSELECT  "products".* FROM "products" WHERE "products"."id" = ? LIMIT 1[0m  [["id", 2]]
+  [1m[35mProduct Load (0.2ms)[0m  SELECT  "products".* FROM "products" WHERE "products"."id" = ? LIMIT 1  [["id", 1]]
+  Rendered managers/show.html.erb within layouts/application (16.7ms)
+  [1m[36mUser Load (0.5ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."id" IS NULL LIMIT 1[0m
+Completed 200 OK in 179ms (Views: 170.8ms | ActiveRecord: 2.8ms)
+
+
+Started POST "/owners" for 127.0.0.1 at 2017-09-13 17:04:01 +0200
+Processing by OwnersController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"FXxfpHYhXh4M4WlckKHsY+0SGpm2orRPwPTphw+lUnaXXqC1Tk47FFxUD8HC9rZqLUUB5w2OlLyBrb764sET2g==", "owner"=>{"product_id"=>"2", "price"=>"", "stock"=>"", "market_id"=>"13"}, "commit"=>"add product"}
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36mOwner Exists (0.5ms)[0m  [1mSELECT  1 AS one FROM "owners" WHERE ("owners"."product_id" = 2 AND "owners"."market_id" = 13) LIMIT 1[0m
+  [1m[35m (0.3ms)[0m  rollback transaction
+  [1m[36mManager Load (0.2ms)[0m  [1mSELECT  "managers".* FROM "managers" WHERE "managers"."id" = ? LIMIT 1[0m  [["id", 15]]
+Redirected to http://localhost:3000/managers/15
+Completed 302 Found in 10ms (ActiveRecord: 1.1ms)
+
+
+Started GET "/managers/15" for 127.0.0.1 at 2017-09-13 17:04:01 +0200
+Processing by ManagersController#show as HTML
+  Parameters: {"id"=>"15"}
+  [1m[35mManager Load (0.2ms)[0m  SELECT  "managers".* FROM "managers" WHERE "managers"."id" = ? LIMIT 1  [["id", 15]]
+  [1m[36mManager Load (0.3ms)[0m  [1mSELECT  "managers".* FROM "managers" WHERE "managers"."id" = ? LIMIT 1[0m  [["id", 15]]
+  [1m[35mMarket Load (0.2ms)[0m  SELECT  "markets".* FROM "markets" WHERE "markets"."id" = ? LIMIT 1  [["id", 13]]
+  [1m[36mProduct Load (0.4ms)[0m  [1mSELECT "products".* FROM "products"[0m
+  [1m[35mOwner Load (0.2ms)[0m  SELECT "owners".* FROM "owners" WHERE "owners"."market_id" = ?  [["market_id", 13]]
+  [1m[36mProduct Load (0.1ms)[0m  [1mSELECT  "products".* FROM "products" WHERE "products"."id" = ? LIMIT 1[0m  [["id", 2]]
+  [1m[35mProduct Load (0.2ms)[0m  SELECT  "products".* FROM "products" WHERE "products"."id" = ? LIMIT 1  [["id", 1]]
+  Rendered managers/show.html.erb within layouts/application (15.2ms)
+  [1m[36mUser Load (0.3ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."id" IS NULL LIMIT 1[0m
+Completed 200 OK in 193ms (Views: 181.5ms | ActiveRecord: 1.9ms)
+
+
+Started POST "/owners" for 127.0.0.1 at 2017-09-13 17:04:01 +0200
+Processing by OwnersController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"FXxfpHYhXh4M4WlckKHsY+0SGpm2orRPwPTphw+lUnaXXqC1Tk47FFxUD8HC9rZqLUUB5w2OlLyBrb764sET2g==", "owner"=>{"product_id"=>"2", "price"=>"", "stock"=>"", "market_id"=>"13"}, "commit"=>"add product"}
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36mOwner Exists (0.2ms)[0m  [1mSELECT  1 AS one FROM "owners" WHERE ("owners"."product_id" = 2 AND "owners"."market_id" = 13) LIMIT 1[0m
+  [1m[35m (0.1ms)[0m  rollback transaction
+  [1m[36mManager Load (0.3ms)[0m  [1mSELECT  "managers".* FROM "managers" WHERE "managers"."id" = ? LIMIT 1[0m  [["id", 15]]
+Redirected to http://localhost:3000/managers/15
+Completed 302 Found in 18ms (ActiveRecord: 0.8ms)
+
+
+Started GET "/managers/15" for 127.0.0.1 at 2017-09-13 17:04:01 +0200
+Processing by ManagersController#show as HTML
+  Parameters: {"id"=>"15"}
+  [1m[35mManager Load (0.2ms)[0m  SELECT  "managers".* FROM "managers" WHERE "managers"."id" = ? LIMIT 1  [["id", 15]]
+  [1m[36mManager Load (0.1ms)[0m  [1mSELECT  "managers".* FROM "managers" WHERE "managers"."id" = ? LIMIT 1[0m  [["id", 15]]
+  [1m[35mMarket Load (0.2ms)[0m  SELECT  "markets".* FROM "markets" WHERE "markets"."id" = ? LIMIT 1  [["id", 13]]
+  [1m[36mProduct Load (0.2ms)[0m  [1mSELECT "products".* FROM "products"[0m
+  [1m[35mOwner Load (0.3ms)[0m  SELECT "owners".* FROM "owners" WHERE "owners"."market_id" = ?  [["market_id", 13]]
+  [1m[36mProduct Load (0.5ms)[0m  [1mSELECT  "products".* FROM "products" WHERE "products"."id" = ? LIMIT 1[0m  [["id", 2]]
+  [1m[35mProduct Load (0.5ms)[0m  SELECT  "products".* FROM "products" WHERE "products"."id" = ? LIMIT 1  [["id", 1]]
+  Rendered managers/show.html.erb within layouts/application (19.4ms)
+  [1m[36mUser Load (0.3ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."id" IS NULL LIMIT 1[0m
+Completed 200 OK in 165ms (Views: 156.9ms | ActiveRecord: 2.2ms)
+  [1m[35mOwner Load (3.8ms)[0m  SELECT "owners".* FROM "owners"
+
+
+Started GET "/managers/15" for 127.0.0.1 at 2017-09-13 17:15:15 +0200
+Processing by ManagersController#show as HTML
+  Parameters: {"id"=>"15"}
+  [1m[35mManager Load (0.6ms)[0m  SELECT  "managers".* FROM "managers" WHERE "managers"."id" = ? LIMIT 1  [["id", 15]]
+  [1m[36mMarket Load (0.4ms)[0m  [1mSELECT  "markets".* FROM "markets" WHERE "markets"."id" = ? LIMIT 1[0m  [["id", 13]]
+  Rendered managers/show.html.erb within layouts/application (2.9ms)
+Completed 500 Internal Server Error in 149ms (ActiveRecord: 5.7ms)
+
+SyntaxError (/home/biar/Desktop/smartkart/app/views/managers/show.html.erb:32: syntax error, unexpected tLABEL
+...@output_buffer.append=( prezzo: r.price );@output_buffer.saf...
+...                               ^
+/home/biar/Desktop/smartkart/app/views/managers/show.html.erb:33: syntax error, unexpected tLABEL
+...;@output_buffer.append=( stock: r.stock );@output_buffer.saf...
+...                               ^):
+  app/views/managers/show.html.erb:32: syntax error, unexpected tLABEL
+  app/views/managers/show.html.erb:33: syntax error, unexpected tLABEL
+
+
+  Rendered /home/biar/.rvm/gems/ruby-2.3.0/gems/actionpack-4.2.5.1/lib/action_dispatch/middleware/templates/rescues/_source.erb (20.8ms)
+  Rendered /home/biar/.rvm/gems/ruby-2.3.0/gems/actionpack-4.2.5.1/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (8.9ms)
+  Rendered /home/biar/.rvm/gems/ruby-2.3.0/gems/actionpack-4.2.5.1/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (3.4ms)
+  Rendered /home/biar/.rvm/gems/ruby-2.3.0/gems/actionpack-4.2.5.1/lib/action_dispatch/middleware/templates/rescues/diagnostics.html.erb within rescues/layout (55.0ms)
+  Rendered /home/biar/.rvm/gems/ruby-2.3.0/gems/web-console-2.3.0/lib/web_console/templates/_markup.html.erb (0.8ms)
+  Rendered /home/biar/.rvm/gems/ruby-2.3.0/gems/web-console-2.3.0/lib/web_console/templates/_inner_console_markup.html.erb within layouts/inlined_string (0.4ms)
+  Rendered /home/biar/.rvm/gems/ruby-2.3.0/gems/web-console-2.3.0/lib/web_console/templates/_prompt_box_markup.html.erb within layouts/inlined_string (0.8ms)
+  Rendered /home/biar/.rvm/gems/ruby-2.3.0/gems/web-console-2.3.0/lib/web_console/templates/style.css.erb within layouts/inlined_string (1.2ms)
+  Rendered /home/biar/.rvm/gems/ruby-2.3.0/gems/web-console-2.3.0/lib/web_console/templates/console.js.erb within layouts/javascript (29.3ms)
+  Rendered /home/biar/.rvm/gems/ruby-2.3.0/gems/web-console-2.3.0/lib/web_console/templates/main.js.erb within layouts/javascript (0.7ms)
+  Rendered /home/biar/.rvm/gems/ruby-2.3.0/gems/web-console-2.3.0/lib/web_console/templates/error_page.js.erb within layouts/javascript (0.6ms)
+  Rendered /home/biar/.rvm/gems/ruby-2.3.0/gems/web-console-2.3.0/lib/web_console/templates/index.html.erb (52.0ms)
+
+
+Started GET "/managers/15" for 127.0.0.1 at 2017-09-13 17:16:11 +0200
+Processing by ManagersController#show as HTML
+  Parameters: {"id"=>"15"}
+  [1m[35mManager Load (0.2ms)[0m  SELECT  "managers".* FROM "managers" WHERE "managers"."id" = ? LIMIT 1  [["id", 15]]
+  [1m[36mMarket Load (0.4ms)[0m  [1mSELECT  "markets".* FROM "markets" WHERE "markets"."id" = ? LIMIT 1[0m  [["id", 13]]
+  [1m[35mProduct Load (0.3ms)[0m  SELECT "products".* FROM "products"
+  [1m[36mOwner Load (0.4ms)[0m  [1mSELECT "owners".* FROM "owners" WHERE "owners"."market_id" = ?[0m  [["market_id", 13]]
+  [1m[35mProduct Load (0.2ms)[0m  SELECT  "products".* FROM "products" WHERE "products"."id" = ? LIMIT 1  [["id", 2]]
+  [1m[36mProduct Load (0.5ms)[0m  [1mSELECT  "products".* FROM "products" WHERE "products"."id" = ? LIMIT 1[0m  [["id", 1]]
+  Rendered managers/show.html.erb within layouts/application (28.1ms)
+  [1m[35mUser Load (0.3ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."id" IS NULL LIMIT 1
+Completed 200 OK in 187ms (Views: 175.0ms | ActiveRecord: 2.8ms)
+
+
+Started GET "/managers/15" for 127.0.0.1 at 2017-09-13 17:18:06 +0200
+Processing by ManagersController#show as HTML
+  Parameters: {"id"=>"15"}
+  [1m[36mManager Load (0.2ms)[0m  [1mSELECT  "managers".* FROM "managers" WHERE "managers"."id" = ? LIMIT 1[0m  [["id", 15]]
+  [1m[35mMarket Load (0.2ms)[0m  SELECT  "markets".* FROM "markets" WHERE "markets"."id" = ? LIMIT 1  [["id", 13]]
+  [1m[36mProduct Load (0.4ms)[0m  [1mSELECT "products".* FROM "products"[0m
+  [1m[35mOwner Load (0.2ms)[0m  SELECT "owners".* FROM "owners" WHERE "owners"."market_id" = ?  [["market_id", 13]]
+  [1m[36mProduct Load (0.4ms)[0m  [1mSELECT  "products".* FROM "products" WHERE "products"."id" = ? LIMIT 1[0m  [["id", 2]]
+  [1m[35mProduct Load (0.2ms)[0m  SELECT  "products".* FROM "products" WHERE "products"."id" = ? LIMIT 1  [["id", 1]]
+  Rendered managers/show.html.erb within layouts/application (24.0ms)
+  [1m[36mUser Load (0.6ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."id" IS NULL LIMIT 1[0m
+Completed 200 OK in 152ms (Views: 138.4ms | ActiveRecord: 2.2ms)
+
+
+Started DELETE "/owners/12" for 127.0.0.1 at 2017-09-13 17:18:11 +0200
+
+AbstractController::ActionNotFound (The action 'destroy' could not be found for OwnersController):
+  actionpack (4.2.5.1) lib/abstract_controller/base.rb:132:in `process'
+  actionview (4.2.5.1) lib/action_view/rendering.rb:30:in `process'
+  actionpack (4.2.5.1) lib/action_controller/metal.rb:196:in `dispatch'
+  actionpack (4.2.5.1) lib/action_controller/metal/rack_delegation.rb:13:in `dispatch'
+  actionpack (4.2.5.1) lib/action_controller/metal.rb:237:in `block in action'
+  actionpack (4.2.5.1) lib/action_dispatch/routing/route_set.rb:74:in `dispatch'
+  actionpack (4.2.5.1) lib/action_dispatch/routing/route_set.rb:43:in `serve'
+  actionpack (4.2.5.1) lib/action_dispatch/journey/router.rb:43:in `block in serve'
+  actionpack (4.2.5.1) lib/action_dispatch/journey/router.rb:30:in `each'
+  actionpack (4.2.5.1) lib/action_dispatch/journey/router.rb:30:in `serve'
+  actionpack (4.2.5.1) lib/action_dispatch/routing/route_set.rb:815:in `call'
+  rack (1.6.5) lib/rack/etag.rb:24:in `call'
+  rack (1.6.5) lib/rack/conditionalget.rb:38:in `call'
+  rack (1.6.5) lib/rack/head.rb:13:in `call'
+  actionpack (4.2.5.1) lib/action_dispatch/middleware/params_parser.rb:27:in `call'
+  actionpack (4.2.5.1) lib/action_dispatch/middleware/flash.rb:260:in `call'
+  rack (1.6.5) lib/rack/session/abstract/id.rb:225:in `context'
+  rack (1.6.5) lib/rack/session/abstract/id.rb:220:in `call'
+  actionpack (4.2.5.1) lib/action_dispatch/middleware/cookies.rb:560:in `call'
+  activerecord (4.2.5.1) lib/active_record/query_cache.rb:36:in `call'
+  activerecord (4.2.5.1) lib/active_record/connection_adapters/abstract/connection_pool.rb:653:in `call'
+  activerecord (4.2.5.1) lib/active_record/migration.rb:377:in `call'
+  actionpack (4.2.5.1) lib/action_dispatch/middleware/callbacks.rb:29:in `block in call'
+  activesupport (4.2.5.1) lib/active_support/callbacks.rb:88:in `__run_callbacks__'
+  activesupport (4.2.5.1) lib/active_support/callbacks.rb:778:in `_run_call_callbacks'
+  activesupport (4.2.5.1) lib/active_support/callbacks.rb:81:in `run_callbacks'
+  actionpack (4.2.5.1) lib/action_dispatch/middleware/callbacks.rb:27:in `call'
+  actionpack (4.2.5.1) lib/action_dispatch/middleware/reloader.rb:73:in `call'
+  actionpack (4.2.5.1) lib/action_dispatch/middleware/remote_ip.rb:78:in `call'
+  actionpack (4.2.5.1) lib/action_dispatch/middleware/debug_exceptions.rb:17:in `call'
+  web-console (2.3.0) lib/web_console/middleware.rb:28:in `block in call'
+  web-console (2.3.0) lib/web_console/middleware.rb:18:in `catch'
+  web-console (2.3.0) lib/web_console/middleware.rb:18:in `call'
+  actionpack (4.2.5.1) lib/action_dispatch/middleware/show_exceptions.rb:30:in `call'
+  railties (4.2.5.1) lib/rails/rack/logger.rb:38:in `call_app'
+  railties (4.2.5.1) lib/rails/rack/logger.rb:20:in `block in call'
+  activesupport (4.2.5.1) lib/active_support/tagged_logging.rb:68:in `block in tagged'
+  activesupport (4.2.5.1) lib/active_support/tagged_logging.rb:26:in `tagged'
+  activesupport (4.2.5.1) lib/active_support/tagged_logging.rb:68:in `tagged'
+  railties (4.2.5.1) lib/rails/rack/logger.rb:20:in `call'
+  actionpack (4.2.5.1) lib/action_dispatch/middleware/request_id.rb:21:in `call'
+  rack (1.6.5) lib/rack/methodoverride.rb:22:in `call'
+  rack (1.6.5) lib/rack/runtime.rb:18:in `call'
+  activesupport (4.2.5.1) lib/active_support/cache/strategy/local_cache_middleware.rb:28:in `call'
+  rack (1.6.5) lib/rack/lock.rb:17:in `call'
+  actionpack (4.2.5.1) lib/action_dispatch/middleware/static.rb:116:in `call'
+  rack (1.6.5) lib/rack/sendfile.rb:113:in `call'
+  railties (4.2.5.1) lib/rails/engine.rb:518:in `call'
+  railties (4.2.5.1) lib/rails/application.rb:165:in `call'
+  rack (1.6.5) lib/rack/lock.rb:17:in `call'
+  rack (1.6.5) lib/rack/content_length.rb:15:in `call'
+  rack (1.6.5) lib/rack/handler/webrick.rb:88:in `service'
+  /home/biar/.rvm/rubies/ruby-2.3.0/lib/ruby/2.3.0/webrick/httpserver.rb:140:in `service'
+  /home/biar/.rvm/rubies/ruby-2.3.0/lib/ruby/2.3.0/webrick/httpserver.rb:96:in `run'
+  /home/biar/.rvm/rubies/ruby-2.3.0/lib/ruby/2.3.0/webrick/server.rb:296:in `block in start_thread'
+
+
+  Rendered /home/biar/.rvm/gems/ruby-2.3.0/gems/actionpack-4.2.5.1/lib/action_dispatch/middleware/templates/rescues/unknown_action.html.erb within rescues/layout (1.0ms)
+  Rendered /home/biar/.rvm/gems/ruby-2.3.0/gems/web-console-2.3.0/lib/web_console/templates/_markup.html.erb (2.3ms)
+  Rendered /home/biar/.rvm/gems/ruby-2.3.0/gems/web-console-2.3.0/lib/web_console/templates/_inner_console_markup.html.erb within layouts/inlined_string (0.6ms)
+  Rendered /home/biar/.rvm/gems/ruby-2.3.0/gems/web-console-2.3.0/lib/web_console/templates/_prompt_box_markup.html.erb within layouts/inlined_string (0.7ms)
+  Rendered /home/biar/.rvm/gems/ruby-2.3.0/gems/web-console-2.3.0/lib/web_console/templates/style.css.erb within layouts/inlined_string (0.8ms)
+  Rendered /home/biar/.rvm/gems/ruby-2.3.0/gems/web-console-2.3.0/lib/web_console/templates/console.js.erb within layouts/javascript (30.3ms)
+  Rendered /home/biar/.rvm/gems/ruby-2.3.0/gems/web-console-2.3.0/lib/web_console/templates/main.js.erb within layouts/javascript (0.7ms)
+  Rendered /home/biar/.rvm/gems/ruby-2.3.0/gems/web-console-2.3.0/lib/web_console/templates/error_page.js.erb within layouts/javascript (1.6ms)
+  Rendered /home/biar/.rvm/gems/ruby-2.3.0/gems/web-console-2.3.0/lib/web_console/templates/index.html.erb (57.4ms)
+
+
+Started GET "/managers/15" for 127.0.0.1 at 2017-09-13 17:18:57 +0200
+Processing by ManagersController#show as HTML
+  Parameters: {"id"=>"15"}
+  [1m[35mManager Load (0.5ms)[0m  SELECT  "managers".* FROM "managers" WHERE "managers"."id" = ? LIMIT 1  [["id", 15]]
+  [1m[36mMarket Load (0.3ms)[0m  [1mSELECT  "markets".* FROM "markets" WHERE "markets"."id" = ? LIMIT 1[0m  [["id", 13]]
+  [1m[35mProduct Load (0.2ms)[0m  SELECT "products".* FROM "products"
+  [1m[36mOwner Load (0.1ms)[0m  [1mSELECT "owners".* FROM "owners" WHERE "owners"."market_id" = ?[0m  [["market_id", 13]]
+  [1m[35mProduct Load (0.3ms)[0m  SELECT  "products".* FROM "products" WHERE "products"."id" = ? LIMIT 1  [["id", 2]]
+  [1m[36mProduct Load (0.2ms)[0m  [1mSELECT  "products".* FROM "products" WHERE "products"."id" = ? LIMIT 1[0m  [["id", 1]]
+  Rendered managers/show.html.erb within layouts/application (13.4ms)
+  [1m[35mUser Load (0.8ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."id" IS NULL LIMIT 1
+Completed 200 OK in 156ms (Views: 147.6ms | ActiveRecord: 2.5ms)
+
+
+Started GET "/managers/15" for 127.0.0.1 at 2017-09-13 17:23:24 +0200
+Processing by ManagersController#show as HTML
+  Parameters: {"id"=>"15"}
+  [1m[36mManager Load (0.3ms)[0m  [1mSELECT  "managers".* FROM "managers" WHERE "managers"."id" = ? LIMIT 1[0m  [["id", 15]]
+  [1m[35mMarket Load (0.2ms)[0m  SELECT  "markets".* FROM "markets" WHERE "markets"."id" = ? LIMIT 1  [["id", 13]]
+  [1m[36mProduct Load (1.3ms)[0m  [1mSELECT "products".* FROM "products"[0m
+  [1m[35mOwner Load (0.3ms)[0m  SELECT "owners".* FROM "owners" WHERE "owners"."market_id" = ?  [["market_id", 13]]
+  [1m[36mProduct Load (3.5ms)[0m  [1mSELECT  "products".* FROM "products" WHERE "products"."id" = ? LIMIT 1[0m  [["id", 2]]
+  [1m[35mProduct Load (0.3ms)[0m  SELECT  "products".* FROM "products" WHERE "products"."id" = ? LIMIT 1  [["id", 1]]
+  Rendered managers/show.html.erb within layouts/application (53.9ms)
+  [1m[36mUser Load (0.3ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."id" IS NULL LIMIT 1[0m
+Completed 200 OK in 314ms (Views: 209.1ms | ActiveRecord: 9.0ms)
+
+
+Started DELETE "/owners/12" for 127.0.0.1 at 2017-09-13 17:23:30 +0200
+Processing by OwnersController#destroy as HTML
+  Parameters: {"authenticity_token"=>"7SEGtc2XF6WBYp0ppOQIyeul2WvHKlTdARDJrXmiOiBvA/mk9fhyr9HX+7T2s1LAK/LCFXwGdC5ASZ7QlMZ7jA==", "id"=>"12"}
+  [1m[35mOwner Load (0.3ms)[0m  SELECT  "owners".* FROM "owners" WHERE "owners"."id" = ? LIMIT 1  [["id", 12]]
+  [1m[36m (0.2ms)[0m  [1mbegin transaction[0m
+  [1m[35mSQL (22.7ms)[0m  DELETE FROM "owners" WHERE "owners"."id" = ?  [["id", 12]]
+  [1m[36m (7.5ms)[0m  [1mcommit transaction[0m
+  [1m[35mManager Load (0.2ms)[0m  SELECT  "managers".* FROM "managers" WHERE "managers"."id" = ? LIMIT 1  [["id", 15]]
+Redirected to http://localhost:3000/managers/15
+Completed 302 Found in 45ms (ActiveRecord: 31.0ms)
+
+
+Started GET "/managers/15" for 127.0.0.1 at 2017-09-13 17:23:30 +0200
+Processing by ManagersController#show as HTML
+  Parameters: {"id"=>"15"}
+  [1m[36mManager Load (0.1ms)[0m  [1mSELECT  "managers".* FROM "managers" WHERE "managers"."id" = ? LIMIT 1[0m  [["id", 15]]
+  [1m[35mMarket Load (0.2ms)[0m  SELECT  "markets".* FROM "markets" WHERE "markets"."id" = ? LIMIT 1  [["id", 13]]
+  [1m[36mProduct Load (0.5ms)[0m  [1mSELECT "products".* FROM "products"[0m
+  [1m[35mOwner Load (0.2ms)[0m  SELECT "owners".* FROM "owners" WHERE "owners"."market_id" = ?  [["market_id", 13]]
+  [1m[36mProduct Load (0.2ms)[0m  [1mSELECT  "products".* FROM "products" WHERE "products"."id" = ? LIMIT 1[0m  [["id", 1]]
+  Rendered managers/show.html.erb within layouts/application (16.9ms)
+  [1m[35mUser Load (0.4ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."id" IS NULL LIMIT 1
+Completed 200 OK in 119ms (Views: 113.1ms | ActiveRecord: 1.6ms)
+
+
+Started DELETE "/owners/13" for 127.0.0.1 at 2017-09-13 17:23:47 +0200
+Processing by OwnersController#destroy as HTML
+  Parameters: {"authenticity_token"=>"isb9cSkKuPxwnCP1sv6RpZTI3IL6OVj4+GdgXOsnMPUI5AJgEWXd9iApRWjgqcusVJ/H/EEVeAu5PjchBkNxWQ==", "id"=>"13"}
+  [1m[36mOwner Load (0.2ms)[0m  [1mSELECT  "owners".* FROM "owners" WHERE "owners"."id" = ? LIMIT 1[0m  [["id", 13]]
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36mSQL (0.2ms)[0m  [1mDELETE FROM "owners" WHERE "owners"."id" = ?[0m  [["id", 13]]
+  [1m[35m (27.1ms)[0m  commit transaction
+  [1m[36mManager Load (0.1ms)[0m  [1mSELECT  "managers".* FROM "managers" WHERE "managers"."id" = ? LIMIT 1[0m  [["id", 15]]
+Redirected to http://localhost:3000/managers/15
+Completed 302 Found in 34ms (ActiveRecord: 27.8ms)
+
+
+Started GET "/managers/15" for 127.0.0.1 at 2017-09-13 17:23:47 +0200
+Processing by ManagersController#show as HTML
+  Parameters: {"id"=>"15"}
+  [1m[35mManager Load (0.3ms)[0m  SELECT  "managers".* FROM "managers" WHERE "managers"."id" = ? LIMIT 1  [["id", 15]]
+  [1m[36mMarket Load (6.0ms)[0m  [1mSELECT  "markets".* FROM "markets" WHERE "markets"."id" = ? LIMIT 1[0m  [["id", 13]]
+  [1m[35mProduct Load (0.2ms)[0m  SELECT "products".* FROM "products"
+  [1m[36mOwner Load (0.1ms)[0m  [1mSELECT "owners".* FROM "owners" WHERE "owners"."market_id" = ?[0m  [["market_id", 13]]
+  Rendered managers/show.html.erb within layouts/application (20.4ms)
+  [1m[35mUser Load (0.4ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."id" IS NULL LIMIT 1
+Completed 200 OK in 199ms (Views: 185.4ms | ActiveRecord: 7.0ms)
+
+
+Started POST "/owners" for 127.0.0.1 at 2017-09-13 17:23:58 +0200
+Processing by OwnersController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"qDgvFHMi6txfMjSd3I80czNv7FK9zQ8lDbmhNRuQwVwqGtAFS02P1g+HUgCO2G568zj3LAbhL9ZM4PZI9vSA8A==", "owner"=>{"product_id"=>"1", "price"=>"5", "stock"=>"34", "market_id"=>"13"}, "commit"=>"add product"}
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35mOwner Exists (3.9ms)[0m  SELECT  1 AS one FROM "owners" WHERE ("owners"."product_id" = 1 AND "owners"."market_id" = 13) LIMIT 1
+  [1m[36mSQL (0.8ms)[0m  [1mINSERT INTO "owners" ("product_id", "market_id", "price", "stock", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?)[0m  [["product_id", 1], ["market_id", 13], ["price", 5], ["stock", 34], ["created_at", "2017-09-13 15:23:58.095923"], ["updated_at", "2017-09-13 15:23:58.095923"]]
+  [1m[35m (9.8ms)[0m  commit transaction
+  [1m[36mManager Load (0.2ms)[0m  [1mSELECT  "managers".* FROM "managers" WHERE "managers"."id" = ? LIMIT 1[0m  [["id", 15]]
+Redirected to http://localhost:3000/managers/15
+Completed 302 Found in 44ms (ActiveRecord: 14.8ms)
+
+
+Started GET "/managers/15" for 127.0.0.1 at 2017-09-13 17:23:58 +0200
+Processing by ManagersController#show as HTML
+  Parameters: {"id"=>"15"}
+  [1m[35mManager Load (0.2ms)[0m  SELECT  "managers".* FROM "managers" WHERE "managers"."id" = ? LIMIT 1  [["id", 15]]
+  [1m[36mMarket Load (0.1ms)[0m  [1mSELECT  "markets".* FROM "markets" WHERE "markets"."id" = ? LIMIT 1[0m  [["id", 13]]
+  [1m[35mProduct Load (0.4ms)[0m  SELECT "products".* FROM "products"
+  [1m[36mOwner Load (0.3ms)[0m  [1mSELECT "owners".* FROM "owners" WHERE "owners"."market_id" = ?[0m  [["market_id", 13]]
+  [1m[35mProduct Load (0.2ms)[0m  SELECT  "products".* FROM "products" WHERE "products"."id" = ? LIMIT 1  [["id", 1]]
+  Rendered managers/show.html.erb within layouts/application (17.9ms)
+  [1m[36mUser Load (0.6ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."id" IS NULL LIMIT 1[0m
+Completed 200 OK in 149ms (Views: 139.0ms | ActiveRecord: 1.8ms)
+
+
+Started GET "/managers/15" for 127.0.0.1 at 2017-09-13 17:24:05 +0200
+Processing by ManagersController#show as HTML
+  Parameters: {"id"=>"15"}
+  [1m[35mManager Load (0.1ms)[0m  SELECT  "managers".* FROM "managers" WHERE "managers"."id" = ? LIMIT 1  [["id", 15]]
+  [1m[36mMarket Load (0.1ms)[0m  [1mSELECT  "markets".* FROM "markets" WHERE "markets"."id" = ? LIMIT 1[0m  [["id", 13]]
+  [1m[35mProduct Load (0.2ms)[0m  SELECT "products".* FROM "products"
+  [1m[36mOwner Load (0.2ms)[0m  [1mSELECT "owners".* FROM "owners" WHERE "owners"."market_id" = ?[0m  [["market_id", 13]]
+  [1m[35mProduct Load (0.1ms)[0m  SELECT  "products".* FROM "products" WHERE "products"."id" = ? LIMIT 1  [["id", 1]]
+  Rendered managers/show.html.erb within layouts/application (10.1ms)
+  [1m[36mUser Load (0.4ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."id" IS NULL LIMIT 1[0m
+Completed 200 OK in 151ms (Views: 147.3ms | ActiveRecord: 1.1ms)

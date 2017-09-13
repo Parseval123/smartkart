@@ -1,4 +1,5 @@
 class ManagersController < ApplicationController
+
   before_action :logged_in_manager, only: [:show, :edit, :update]
   before_action :sign_up_manager, only: [:addmarket]
 
@@ -7,32 +8,35 @@ class ManagersController < ApplicationController
   end
 
   def create
-    
+
     @manager = Manager.new(manager_params)
+
     if @manager.save #registrazione con successo
 
-          flash[:success] = "SignUp Successful as "+@manager.name+" "+@manager.surname
-        
+        flash[:success] = "SignUp Successful as "+" "+@manager.name+" "+@manager.surname
 	log_in_m @manager
         redirect_to new_market_path
       
-
     else #registrazione senza successo
+
           render 'new'
-        
+ 
     end
+
   end
 
   def show
-    @manager = Manager.find(params[:id])
-  end
 
-  def addmarket
-    @market=Market.new
+    @owner = Owner.new
+    @products = Product.all
+    @list_owners = current_manager.market.owners
+
   end
 
   def edit
+
     @manager = Manager.find(params[:id])
+
   end
 
   def update
@@ -47,9 +51,9 @@ class ManagersController < ApplicationController
 
   private 
 
-    def market_params 
-      params.require(:market).permit(:group,:address,:info)
-    end
+        def market_params 
+        params.require(:market).permit(:group,:address,:info)
+        end
  	
 	def manager_params 
 	params.require(:manager).permit(:name,:surname,:tel,:yearofbirth,:email,:curriculum,:password,:password_confirmation)

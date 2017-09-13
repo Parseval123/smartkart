@@ -1,3 +1,42 @@
-<% provide(:title, "WelcomeManager") %>
+<% provide(:title, "WelcomeManager") %> </br></br>
+<%= current_manager.name %> </br>
+add products to your supermarket
+</br>
+<%= form_for @owner do |f| %>
+
+
+    <%= f.label :prodotto %><br>
+    <%= f.select :product_id, @products.map { |c| [c.name, c.id] } %></br>
+
+    <%= f.label :prezzo %><br>
+    <%= f.number_field :price %></br>
+
+    <%= f.label :stock %><br>
+    <%= f.number_field :stock%></br>
+ 
+    <%= f.hidden_field :market_id, value: current_manager.market_id %>
+ 
+    <%= f.submit "add product", class: "btn btn-primary" %></br>
+
+<%end%>
+
+</br>
+INVENTARIO:
+</br>
+
+<div class="col-md-3">
+</br>
+<% @list_owners.each do |r| %>
+
+nome prodotto:<%= r.product.name %> <&nbsp>  <%= link_to "delete", r, method: :delete,
+                                  data: { confirm: "You sure?" } %> </br>
+prezzo:<%= r.price %> </br>
+stock:<%= r.stock %> </br>
+
+<hr/>
+
+<% end %>
+
+</div>
 
 

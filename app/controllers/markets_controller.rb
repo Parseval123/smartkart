@@ -16,14 +16,15 @@ class MarketsController < ApplicationController
 	
     if @market.save #registrazione
 	
-        flash[:success] = "market added with success "+@market.group
+        flash[:success] = "market added with success"+@market.group
        
-	Manager.includes(:market).find(current_manager.id)
+	current_manager.update_attribute(:market_id, @market.id)
 
         redirect_to manager_path(current_manager.id)
       
 
     else #registrazione senza successo
+
  	  flash[:danger] = "error during adding "
           redirect_to managers_addmarket_path
 
