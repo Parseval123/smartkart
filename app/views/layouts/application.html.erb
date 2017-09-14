@@ -31,7 +31,7 @@
 						<li><%= link_to "How to", howto_path %></li>
 						<li class="dropdown"><a class="dropdown-toggle" data-toggle="dropdown" href="#">Settings <span 							class="caret"></span></a>
 							<ul class="dropdown-menu">
-							 
+							  <li><%= link_to "Functionality of SMARTKART", user_path(current_user) %></li>
 							  <li><%= link_to "Change Personal Data", edit_user_path(current_user) %></li>
 							  <li><%= link_to "Log Out",logout_path , method: "delete" %></a></li>
 							</ul>
@@ -59,6 +59,7 @@
 						<li class="dropdown"><a class="dropdown-toggle" data-toggle="dropdown" href="#">Settings <span 							class="caret"></span></a>
 							<ul class="dropdown-menu">
 							  <li><%= link_to "Change Personal Data", edit_manager_path(current_manager) %></li>
+                                                          <li><%= link_to "Add Product at your Market", manager_path(current_manager) %></li>
 							  <li><%= link_to "Log Out",logoutm_path , method: "delete" %></a></li>
 							</ul>
 						</li>

@@ -4,8 +4,6 @@ Rails.application.routes.draw do
 
   get 'smart_shopping/corefunction'
 
-  get 'managers/addmarket'
-
   post 'smart_shopping' => 'smart_shopping#makelist'
 
   root 'pages#homepage'
@@ -30,7 +28,7 @@ Rails.application.routes.draw do
 
   resources :users
 
-  resources :microposts, only: [:create, :destroy]
+  resources :microposts
 
   resources :requests
 

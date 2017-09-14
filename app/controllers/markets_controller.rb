@@ -14,7 +14,7 @@ class MarketsController < ApplicationController
     @market = Market.new(market_params)
 	
 	
-    if @market.save #registrazione
+    if @market.save 
 	
         flash[:success] = "market added with success"+@market.group
        
@@ -23,10 +23,8 @@ class MarketsController < ApplicationController
         redirect_to manager_path(current_manager.id)
       
 
-    else #registrazione senza successo
-
- 	  flash[:danger] = "error during adding "
-          redirect_to managers_addmarket_path
+    else 
+          render 'new'
 
     end
   end
@@ -40,5 +38,9 @@ private
   def market_params 
       params.require(:market).permit(:group,:address,:info)
     end
+
+  def micropost_params 
+      params.require(:micropost).permit(:content,:vote)
+  end
 
 end

@@ -4,7 +4,6 @@ def create
 
 	@owner = Owner.create(owners_params)
         redirect_to manager_path(current_manager.id)
-
 end
 
 def destroy

@@ -4,15 +4,16 @@
 
 <%= form_for @market do |f| %>
 
+    <%= render 'shared/error_messages3' %>
 
-    <%= f.label :marketname %><br>
-    <%= f.text_field :group %> <br>
+    <%= f.label :marketname %>
+    <%= f.text_field :group %>
 
-    <%= f.label :address %><br>
-    <%= f.text_field :address %> <br>
+    <%= f.label :address %>
+    <%= f.text_field :address %>
 
-    <%= f.label :informations %><br>
-    <%= f.text_field :info %> <br>
+    <%= f.label :info %>
+    <%= f.text_field :info %>
  
     <%= f.submit "add market", class: "btn btn-primary" %>
 
