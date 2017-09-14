@@ -1,0 +1,17 @@
+<% provide(:title, "ComposeYourMicropost") %>
+
+<h3>COMPOSE YOUR MICROPOST</h3>
+
+<%= form_for @micropost do |f| %>
+
+    <%= render 'shared/error_messages5' %>
+
+    <%= f.label :content %>
+    <%= f.text_area :content, placeholder: "Compose new micropost..." %>
+
+    <%= f.label :vote %>
+    <%= f.number_field :vote %>
+ 
+    <%= f.submit "Post", class: "btn btn-primary" %>
+
+<%end%>
