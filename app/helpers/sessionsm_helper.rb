@@ -17,4 +17,8 @@ session.delete(:manager_id)
 @current_manager = nil
 end
 
+def current_manager?(manager)
+manager == current_manager
+end
+
 end

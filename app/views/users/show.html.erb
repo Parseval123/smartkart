@@ -1,3 +1,4 @@
+<meta name="turbolinks-cache-control" content="no-cache">
 <% provide(:title, "WelcomeUser") %>
 <h2>Welcome <%= @user.name %>!!!!</h2>
 <h3><p>What do you want to do?</p></h3>
@@ -5,7 +6,7 @@
 <ul>
 <tr>
 <td width="40%"><h3><li>Smart Shopping</li></h3>
-<%= form_for(:session, url: smart_shopping_path) do |f| %>
+<%= form_for(:session, url:  links_check_path) do |f| %>
 <%= f.label :address %>
 <%= f.text_field :address, class: 'form-control' %>
 <%= f.label :RangeInKm%>

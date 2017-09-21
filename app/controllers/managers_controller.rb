@@ -1,7 +1,7 @@
 class ManagersController < ApplicationController
 
   before_action :logged_in_manager, only: [:show, :edit, :update]
-  before_action :sign_up_manager, only: [:addmarket]
+  before_action :correct_manager, only: [:show, :edit, :update]
 
   def new
     @manager = Manager.new
@@ -66,11 +66,9 @@ class ManagersController < ApplicationController
           end
         end
 
-        def sign_up_manager
-          unless logged_in_m?
-            flash[:danger] = "Please sign up as Manager"
-            redirect_to new_manager_path
-          end
-        end
+	   def correct_manager
+	   @manager = Manager.find(params[:id])
+	   redirect_to(root_url) unless @manager = current_manager?(@manager)
+	   end
 
 end

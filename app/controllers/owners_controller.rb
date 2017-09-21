@@ -1,9 +1,12 @@
 class OwnersController < ApplicationController
 
+before_action :logged_in_manager, only: [:create, :destroy]
+
 def create
 
 	@owner = Owner.create(owners_params)
         redirect_to manager_path(current_manager.id)
+
 end
 
 def destroy
@@ -21,5 +24,12 @@ def owners_params
 	params.require(:owner).permit(:product_id,:market_id,:price,:stock)
 	
 end
+
+ def logged_in_manager
+          unless logged_in_m?
+            flash[:danger] = "Please log in as Manager"
+            redirect_to loginm_path
+          end
+        end
 
 end

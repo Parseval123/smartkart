@@ -1,5 +1,9 @@
 <% provide(:title, "CompileYourShoppingList") %>
 <h2>COMPILE YOUR SHOPPING LIST</h2>
+
+<%= session[:range] %>
+<%= session[:address] %>
+
 <%= form_for @request do |f| %>
 
 
@@ -31,4 +35,17 @@
 
 <% end %>
 
+
+
+inserisci il numero di supermercati che vuoi visitare </br>
+
+<%= form_for(:session, url: smart_shopping_cf_path, :method => "post") do |f| %>
+
+<%= f.label :supermercati %></br>
+<%= f.number_field :count, class: 'form-control' %></br>
+<%= f.submit "Go to smart shopping", class: "btn btn-primary" %>
+<% end %>
+
 </div>
+
+

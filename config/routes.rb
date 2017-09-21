@@ -1,10 +1,18 @@
 Rails.application.routes.draw do
 
+	post 'links/check' => 'links#check'
+
+  get 'links/check'
+
   get 'smart_shopping/makelist'
 
   get 'smart_shopping/corefunction'
 
-  post 'smart_shopping' => 'smart_shopping#makelist'
+  post 'smart_shopping/makelist' => 'smart_shopping#makelist'
+
+  post 'smart_shopping_cf' => 'smart_shopping#corefunction'
+
+get 'smart_shopping_cf' => 'smart_shopping#corefunction'
 
   root 'pages#homepage'
 

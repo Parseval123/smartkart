@@ -5,10 +5,10 @@ add products to your supermarket
 <%= form_for @owner do |f| %>
 
     <%= f.label :prodotto %><br>
-    <%= f.select :product_id, @products.map { |c| [c.name, c.id] } %></br>
+    <%= f.select :product_id, @products.map { |c| [c.name+" "+c.label+" "+c.package, c.id] } %></br>
 
     <%= f.label :prezzo %><br>
-    <%= f.number_field :price %></br>
+    <%= f.number_field :price , :step => 0.01 %></br>
 
     <%= f.label :stock %><br>
     <%= f.number_field :stock%></br>
@@ -27,7 +27,7 @@ INVENTARIO:
 </br>
 <% @list_owners.each do |r| %>
 
-nome prodotto:<%= r.product.name %> <&nbsp>  <%= link_to "delete", r, method: :delete,
+nome prodotto:<%= r.product.name %> &nbsp <%= r.product.label %> &nbsp <%= r.product.package %> &nbsp <%= link_to "delete", r, method: :delete,
                                   data: { confirm: "You sure?" } %> </br>
 prezzo:<%= r.price %> </br>
 stock:<%= r.stock %> </br>

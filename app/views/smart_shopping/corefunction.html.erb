@@ -1,2 +1,20 @@
-<h1>SmartShopping#corefunction</h1>
+<h1>SmartShopping corefunction</h1>
 <p>Find me in app/views/smart_shopping/corefunction.html.erb</p>
+range = <%= @range%>
+address = <%= @address%>
+count = <%= @count%>
+
+</br>
+</br>
+</br>
+
+<% @result.each do |r| %>
+
+<%= Product.find(r.product_id).name %>&nbsp<%= Market.find(r.market_id).group %>&nbsp<%= r.price %>></br>
+
+
+<% end %>
+
+il totale che pagherai è: <%= @cost_sum %>
+
+
