@@ -29,7 +29,9 @@ class MarketsController < ApplicationController
     end
   end
 
-  def index
+  def indexmarkets
+
+	
     
   end
 
