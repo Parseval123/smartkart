@@ -1,6 +1,8 @@
 Rails.application.routes.draw do
 
-	post 'links/check' => 'links#check'
+  post 'indexmarkets' => 'markets#indexmarkets'
+  
+  post 'links/check' => 'links#check'
 
   get 'links/check'
 
@@ -12,7 +14,7 @@ Rails.application.routes.draw do
 
   post 'smart_shopping_cf' => 'smart_shopping#corefunction'
 
-get 'smart_shopping_cf' => 'smart_shopping#corefunction'
+  get 'smart_shopping_cf' => 'smart_shopping#corefunction'
 
   root 'pages#homepage'
 

@@ -17,6 +17,21 @@ Owner.find(params[:id]).destroy
 
 end
 
+def edit
+ @owner = Owner.find(params[:id])
+end
+
+def update
+ @owner = Owner.find(params[:id])
+
+  if(@owner.update_attributes(owners_params))
+  flash[:success] = "owner updated"
+  redirect_to manager_path(current_manager)
+  else
+  render 'edit'
+  end
+end
+
 private
 
 def owners_params

@@ -7,10 +7,15 @@ class UsersController < ApplicationController
 	@user = User.find(params[:id])
  	session.delete(:range)
 	session.delete(:address)
+	#session.delete(:list_id)
   end
 
   def new
   	@user = User.new
+  end
+	
+  def index 
+  	redirect_to new_user_path
   end
 
   def create
@@ -25,7 +30,6 @@ class UsersController < ApplicationController
 
         else #registrazione senza successo
           render 'new'
-        
         end
   
   end
@@ -59,7 +63,7 @@ class UsersController < ApplicationController
 
    def correct_user
    @user = User.find(params[:id])
-   redirect_to(root_url) unless @user = current_user?(@user)
+   redirect_to current_user unless @user = current_user?(@user)
    end
 
 end

@@ -1,0 +1,9 @@
+<% provide(:title, "IndexOfMarkets") %>
+<h2>MARKETS IN YOUR RANGE</h2>
+
+<% @markets.each do |market| %>
+
+  <%= market.group %>( <%= market.address %> )
+  <%= link_to "Profilo", market_path(market) %></br>
+
+<% end %>

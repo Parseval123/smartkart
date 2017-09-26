@@ -1,16 +1,21 @@
 <% provide(:title, "ComposeYourMicropost") %>
 
-<h3>COMPOSE YOUR MICROPOST</h3>
+<h3>Hi <%=current_user.name%>, COMPOSE YOUR MICROPOST</h3>
+
 
 <%= form_for @micropost do |f| %>
 
-    <%= render 'shared/error_messages5' %>
+    <%= render 'shared/error_messages5' %>    
 
     <%= f.label :content %>
     <%= f.text_area :content, placeholder: "Compose new micropost..." %>
 
     <%= f.label :vote %>
     <%= f.number_field :vote %>
+
+    <%= f.hidden_field :market_id, value: @market.id %>
+
+    <%= f.hidden_field :user_id, value: current_user.id %>
  
     <%= f.submit "Post", class: "btn btn-primary" %>
 

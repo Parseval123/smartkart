@@ -1,6 +1,7 @@
 <li id="micropost-<%= micropost.id %>">
 <span class="user"><%= micropost.user.name %> <%= micropost.user.surname %></span>
 <span class="content">"<%= micropost.content %>"</span>
+<span class="vote">&nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp&nbsp vote:<%= micropost.vote %>/5</span>
 <span class="timestamp">
 Posted <%= time_ago_in_words(micropost.created_at) %> ago.
 </span>

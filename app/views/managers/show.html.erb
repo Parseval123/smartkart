@@ -1,4 +1,5 @@
 <% provide(:title, "WelcomeManager") %> </br></br>
+
 <%= current_manager.name %> </br>
 add products to your supermarket
 </br>
@@ -28,7 +29,7 @@ INVENTARIO:
 <% @list_owners.each do |r| %>
 
 nome prodotto:<%= r.product.name %> &nbsp <%= r.product.label %> &nbsp <%= r.product.package %> &nbsp <%= link_to "delete", r, method: :delete,
-                                  data: { confirm: "You sure?" } %> </br>
+                                  data: { confirm: "You sure?" } %> &nbsp&nbsp<%= link_to "edit", edit_owner_path(r)%></br>
 prezzo:<%= r.price %> </br>
 stock:<%= r.stock %> </br>
 

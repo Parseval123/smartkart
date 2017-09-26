@@ -8,7 +8,7 @@
 
 
     <%= f.label :prodotto %><br>
-    <%= f.select :product_id, @products.map { |c| [c.name, c.id] } %>
+    <%= f.select :product_id, @products.map { |c| [c.name+" "+c.label+" "+c.package, c.id] } %>
  
     <%= f.hidden_field :shopper_id, value: session[:list_id] %>
  
@@ -20,7 +20,7 @@
 
 <% @list_requests.each do |r| %>
 
-<%= r.product.name %> </br>
+<%= r.product.name %>&nbsp <%= r.product.label %> &nbsp<%= r.product.package %> </br>
 
 <% end %>
 

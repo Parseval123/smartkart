@@ -1,20 +1,48 @@
-<h1>SmartShopping corefunction</h1>
-<p>Find me in app/views/smart_shopping/corefunction.html.erb</p>
-range = <%= @range%>
-address = <%= @address%>
-count = <%= @count%>
+<div class="col-md-6">
+
+<%= @count %>
+
+<h1>Smart Shop Complete!</h1>
 
 </br>
+
+<h1>Result: </h1> 
+
 </br>
-</br>
+
+
 
 <% @result.each do |r| %>
 
-<%= Product.find(r.product_id).name %>&nbsp<%= Market.find(r.market_id).group %>&nbsp<%= r.price %>></br>
-
+<h3><%= Product.find(r.product_id).name %>&nbsp <%= Product.find(r.product_id).label %>&nbsp<%= Product.find(r.product_id).package %>&nbsp <%= Market.find(r.market_id).group %>&nbsp<%= Market.find(r.market_id).address %>&nbsp<%= r.price %></h3></br>
 
 <% end %>
 
-il totale che pagherai è: <%= @cost_sum %>
+<h3>il totale che pagherai è: <%= @sum %></h3>
+
+sottoinsiemi di market considerati </br>
+
+cardinalità dell'insieme = <%= @cardinal %>
+
+<% @markets_subsets.each do |r| %>
+
+<% r.each do |t| %>
+
+<%= t.group %> &nbsp <%=t.address%></br>
+
+<% end %>
+
+</br>
+</br>
+
+<% end %>
 
 
+
+
+
+</br>
+
+<%= link_to "Click here for a new Shop", user_path(current_user) %> 
+
+</div>

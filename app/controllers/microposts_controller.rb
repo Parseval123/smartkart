@@ -1,6 +1,7 @@
 class MicropostsController < ApplicationController
 
   def new
+    @market = Market.find(params[:marketid])
     @micropost = Micropost.new
   end
 
@@ -9,17 +10,24 @@ class MicropostsController < ApplicationController
 
     if @micropost.save
       flash[:success] = "micropost added with success"
-      @micropost.update_attribute(:user_id, current_user.id)
-      redirect_to market_path
+      redirect_to market_path(@micropost.market_id)
     else
-      render 'new'
+      @temp_params = micropost_params
+      @market = Market.find(@temp_params[:market_id])
+      redirect_to controller: 'microposts', action: 'index', marketid: @market.id
     end
+  end
+
+  def index
+  @market = Market.find(params[:marketid])
+  @micropost = Micropost.new
+  render 'new'
   end
 
 private
 
   def micropost_params 
-      params.require(:micropost).permit(:content,:vote)
+      params.require(:micropost).permit(:content,:vote,:user_id,:market_id)
     end
 
 end

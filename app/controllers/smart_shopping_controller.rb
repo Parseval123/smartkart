@@ -21,13 +21,12 @@ before_action :logged_in_user, only: [:makelist, :corefunction]
 
   def corefunction
 
-	if(current_list==nil)
+	if(!list_logged_in?)
 
         redirect_to smart_shopping_makelist_path
 
-        else
+        else   
 
-        
 	@requested_products = current_list.products
 	@markets = nearMarkets(session[:address],session[:range])
 	@count = 0
@@ -39,6 +38,7 @@ before_action :logged_in_user, only: [:makelist, :corefunction]
 		end
 
         @markets_subsets = @markets.combination(@count)
+	@cardinal = @markets_subsets.size
 
 	@result = nil
 	@sum = 10000
@@ -49,11 +49,12 @@ before_action :logged_in_user, only: [:makelist, :corefunction]
 
 			if(@requested_products.size == ((@temp.size)-1))
 
-					if(@temp.last < @sum)
+					if(@temp.last < @sum.to_f)
 					@result = @temp     
+					@sum = @result.pop
 					end
 
-			@cost_sum = @result.pop
+			
 			end 
 	
 		end
@@ -86,7 +87,7 @@ before_action :logged_in_user, only: [:makelist, :corefunction]
 	
 		nearmarks.each do |mark|
 		@own_act = Owner.find_by(:product_id => product.id,:market_id => mark.id)
-			if(!@own_act.nil?) #test per controllare se un supermercato possiede effettivamente un prodotto
+			if(@own_act!=nil) #test per controllare se un supermercato possiede effettivamente un prodotto
 				if(@own_act.price<@price)
 				@own_temp = @own_act
 				@price = @own_act.price

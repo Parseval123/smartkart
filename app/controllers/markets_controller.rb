@@ -1,5 +1,7 @@
 class MarketsController < ApplicationController
 
+include MarketsHelper
+
   def new
   @market = Market.new
   end
@@ -31,7 +33,18 @@ class MarketsController < ApplicationController
 
   def indexmarkets
 
-	
+	 #controlli sui campi
+       if(params[:session][:range]=='')
+         flash[:danger] = "Range is empty"
+         redirect_to user_path(current_user)
+       end
+       if(params[:session][:address]=='')
+         flash.now[:success] = "Use local address"
+         session[:address] = current_user.address
+       else
+         session[:address] = params[:session][:address]
+       end
+       @markets = nearMarkets(session[:address],params[:session][:range])
     
   end
 

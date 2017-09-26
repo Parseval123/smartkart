@@ -1,15 +1,22 @@
 <% provide(:title, @market.group) %>
   <div class="row">
-    <aside class="col-md-4">
+<div class = "col-md-3>
+</div>
+    <aside class="col-md-6">
       <div align="center">
-      <h2>
+      <h3>
         <%= @market.group %></br>
-	 [<%= @market.address %>]
-      </h2>
+	<%= @market.address %></br>
+      </h3>
       </div>
-      <div align="left">
+<div class = "col-md-3>
+</div>
+
+</br></br></br>
+
+      <div align="center">
         info:<%= @market.info %></br></br>
-        <%= link_to "Releases a micropost", new_micropost_path %>
+        <%= link_to "Releases a micropost", new_micropost_path(:marketid => @market.id) %>
       </div>
     
     </aside>

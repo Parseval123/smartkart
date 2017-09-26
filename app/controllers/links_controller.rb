@@ -14,7 +14,7 @@ class LinksController < ApplicationController
 	if(session[:address]==nil)
 		if(params[:session][:address]=='')	
 		flash[:danger] = "you are going to use your registration address"
-		session[:address] = params[:session][:address]   
+		session[:address] = current_user.address   
 		else
 		session[:address] = params[:session][:address]	
 		end
