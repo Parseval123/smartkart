@@ -3,7 +3,8 @@
 
 <% @markets.each do |market| %>
 
-  <%= market.group %>( <%= market.address %> )
-  <%= link_to "Profilo", market_path(market) %></br>
+  <% @string = market.group + " " + market.address %>
+  <%= link_to @string , market_path(market) %></br>
 
 <% end %>
+

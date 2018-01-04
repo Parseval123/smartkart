@@ -18,11 +18,11 @@
 </td>
 <td width="40%">
 <h3><li>Feedback Market</li></h3>
-<%= form_for(:session, url: indexmarkets_path) do |f| %>
+<%= form_for(:session, url: links_second_check_path) do |f| %>
 <%= f.label :address %>
-<%= f.text_field :address, class: 'form-control' %>
+<%= f.text_field :address2, class: 'form-control' %>
 <%= f.label :RangeInKm %>
-<%= f.number_field :range, class: 'form-control' %>
+<%= f.number_field :range2, class: 'form-control' %>
 <%= f.submit "FEEDBACK MARKET", class: "btn btn-primary" %>
 <% end %>
 </td>

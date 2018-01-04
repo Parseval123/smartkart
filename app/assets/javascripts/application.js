@@ -12,6 +12,15 @@
 //
 //= require jquery
 //= require jquery_ujs
-//= require turbolinks
+//= require tether
 //= require_tree .
 //= require bootstrap-sprockets
+//= require turbolinks
+//= require highcharts.js
+//= require chartkick
+
+
+
+
+
+

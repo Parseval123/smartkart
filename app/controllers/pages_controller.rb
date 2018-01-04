@@ -1,5 +1,8 @@
 class PagesController < ApplicationController
   def homepage
+
+	log_out
+
   end
 
   def howto

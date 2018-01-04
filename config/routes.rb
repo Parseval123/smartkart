@@ -1,6 +1,26 @@
 Rails.application.routes.draw do
 
+#admin's routes
+
+  get 'logina' => 'sessionsa#new'
+  post 'logina' => 'sessionsa#create'
+  delete 'logouta' => 'sessionsa#destroy'
+  post 'deny' => 'creationreports#deny'
+  post 'confirm' => 'creationreports#confirm'
+  post 'report' => 'micropostreports#create'
+  post 'destroyuser' => 'admins#deleteuser'
+  post 'destroymicropost' => 'admins#deletemicropost'
+  get 'resetrequest' => 'admins#resetrequest'
+
+#other routes
+
   post 'indexmarkets' => 'markets#indexmarkets'
+
+  get 'indexmarkets' => 'markets#indexmarkets'
+  
+  post 'links_third/check' => 'links_third#check'
+
+  post 'links_second/check' => 'links_second#check'
   
   post 'links/check' => 'links#check'
 
@@ -18,11 +38,15 @@ Rails.application.routes.draw do
 
   root 'pages#homepage'
 
+  #user's routes
+
   get 'login' => 'sessions#new'
 
   post 'login' => 'sessions#create'
 
   delete 'logout' => 'sessions#destroy'
+
+  #manager routes's
 
   get 'loginm' => 'sessionsm#new'
 
@@ -30,15 +54,19 @@ Rails.application.routes.draw do
 
   delete 'logoutm' => 'sessionsm#destroy'
 
+  #static_pages's routes
+
   get 'howto' => 'pages#howto'
 
   get 'help' => 'pages#help'
+
+  #model's routes
 
   resources :markets
 
   resources :users
 
-  resources :microposts
+  resources :microposts, except: :index
 
   resources :requests
 
@@ -46,6 +74,7 @@ Rails.application.routes.draw do
 
   resources :owners
 
+  resources :admins
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 

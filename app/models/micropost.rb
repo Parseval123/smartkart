@@ -1,4 +1,5 @@
 class Micropost < ActiveRecord::Base
+
   #associations code
   belongs_to :user
   belongs_to :market

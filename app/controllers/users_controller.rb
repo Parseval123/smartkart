@@ -7,7 +7,9 @@ class UsersController < ApplicationController
 	@user = User.find(params[:id])
  	session.delete(:range)
 	session.delete(:address)
-	#session.delete(:list_id)
+	session.delete(:list_id)
+	session.delete(:range2)
+	session.delete(:address2)
   end
 
   def new
@@ -21,13 +23,9 @@ class UsersController < ApplicationController
   def create
         @user = User.new(user_params)
     	if @user.save #registrazione con successo
-
           flash[:success] = "SignUp Successful as "+@user.name+" "+@user.surname
-        
-	log_in @user
-        redirect_to @user
-      
-
+	  log_in @user
+          redirect_to @user
         else #registrazione senza successo
           render 'new'
         end

@@ -50,21 +50,28 @@ Product.create(name: 'PringlesPaprika', label: 'Kellog s', package:'165g', id: 3
 Product.create(name: 'Vaniglia', label: 'Carte d or', package:'750g', id: 39)
 Product.create(name: 'Cremini', label: 'Algida', package:'6pezzi', id: 40)
 
+
+
 User.create(name: 'Flavio', surname:'Forlini', email:'flavio@gmail.com', yearofbirth:1992 , address:'Via Alessandro Severo, 71, 00145 Roma RM',        password:'foobar10', password_confirmation:'foobar10', id: 1)
 User.create(name: 'Claudio', surname:'Alicino', email:'claudio@gmail.com', yearofbirth:1992 , address:'Via Paolo Paruta, 20, 00179 Roma RM',   password:'foobar10', password_confirmation:'foobar10', id: 2)
 User.create(name: 'Luca', surname:'Amadori', email:'luca@gmail.com', yearofbirth:1983 , address:'Via Sansovino, 6, 20133 Milano MI',        password:'foobar10', password_confirmation:'foobar10', id: 3)
 #User.create(name: 'Andrea', surname:'Moroni', email:'andrea@gmail.com', yearofbirth:1978 , address:'Via Gherardo Silvani, 10, 50125 Firenze FI',      password:'foobar10', password_confirmation:'foobar10', id: 4)
 
-Market.create(group:'SimplyMarket', address:'Via Ruggero Leoncavallo, 15, 20131 Milano MI', info:'Tel: 02 266 6516  Orari: Lun-Sab 08-00 | Dom 09-00', id: 1)
-Market.create(group:'Lidl', address:'Via Giovanni da Udine, 28, 20156 Milano MI', info:'Tel: 02 459 7563  Orari: Lun-Sab 08.30-21.30 | Dom 09-20', id: 2)
-Market.create(group:'Il Gigante', address:'Via Aquileia, 72, 20092 Cinisello Balsamo MI', info:'Tel: 02 6129 0329   Orari: Lun-Sab 08-20 | Dom CHIUSO', id: 3)
-Market.create(group:'Elite', address:'Via Appia Nuova, 472, 00181 Roma RM', info:'Tel: 06 7834 7971  Orari: Lun-Sab 08-20 | Dom 09-13.30', id: 4)
-Market.create(group:'Pam', address:'Via di Boccea, 45, 00165 Roma RM', info:'Tel: 06 8937 1431  Orari: Lun-Sab 08-22 | Dom 09-22', id: 5)
-Market.create(group:'InCoop', address:'Viale Leonardo da Vinci, 111, 00145 Roma RM', info:'Tel: 06 5960 0328  Orari: Lun-Sab 08-20 | Dom 08.30-13.30', id: 6)
-Market.create(group:'SimplyMarket', address:'Via Cassia, 865, 00189 Roma RM', info:'Tel: 06 3031 1072  Orari: Lun-Sab 08-20 | Dom 08.30-13.30', id: 7)
-Market.create(group:'Pam', address:'Via Andrea da Pontedera, 30, 50143 Firenze FI', info:'Tel: 055 710097  Orari: Lun-Sab 08-20.30 | Dom 08.30-13.30', id: 8)
-Market.create(group:'Conad', address:'Corso dei Tintori, 20, 50122 Firenze FI', info:'Tel: 055 246 6580  Orari: Lun-Sab 08.30-21.30 | Dom 09-21.30', id: 9)
-Market.create(group:'ConadCity', address:'Via delle Gardenie, 23, 59100 Prato PO', info:'Tel: 0574 638532  Orari: Lun-Sab 07.30-20 | Dom 09-13', id: 10)
+
+
+Market.create(group:'SimplyMarket', address:'Via Ruggero Leoncavallo, 15, 20131 Milano MI', info:'Tel: 02 266 6516  Orari: Lun-Sab 08-00 | Dom 09-00', id: 1, status: true)
+Market.create(group:'Lidl', address:'Via Giovanni da Udine, 28, 20156 Milano MI', info:'Tel: 02 459 7563  Orari: Lun-Sab 08.30-21.30 | Dom 09-20', id: 2, status: true)
+Market.create(group:'Il Gigante', address:'Via Aquileia, 72, 20092 Cinisello Balsamo MI', info:'Tel: 02 6129 0329   Orari: Lun-Sab 08-20 | Dom CHIUSO', id: 3, status: true)
+Market.create(group:'Elite', address:'Via Appia Nuova, 472, 00181 Roma RM', info:'Tel: 06 7834 7971  Orari: Lun-Sab 08-20 | Dom 09-13.30', id: 4, status: true)
+
+sleep(2) #serve ad evitare il più possibile l'over query limit di google api
+
+Market.create(group:'Pam', address:'Via di Boccea, 45, 00165 Roma RM', info:'Tel: 06 8937 1431  Orari: Lun-Sab 08-22 | Dom 09-22', id: 5, status: true)
+Market.create(group:'InCoop', address:'Viale Leonardo da Vinci, 111, 00145 Roma RM', info:'Tel: 06 5960 0328  Orari: Lun-Sab 08-20 | Dom 08.30-13.30', id: 6,  status: true)
+Market.create(group:'SimplyMarket', address:'Via Cassia, 865, 00189 Roma RM', info:'Tel: 06 3031 1072  Orari: Lun-Sab 08-20 | Dom 08.30-13.30', id: 7,  status: true)
+Market.create(group:'Pam', address:'Via Andrea da Pontedera, 30, 50143 Firenze FI', info:'Tel: 055 710097  Orari: Lun-Sab 08-20.30 | Dom 08.30-13.30', id: 8, status: true)
+Market.create(group:'Conad', address:'Corso dei Tintori, 20, 50122 Firenze FI', info:'Tel: 055 246 6580  Orari: Lun-Sab 08.30-21.30 | Dom 09-21.30', id: 9, status: true)
+Market.create(group:'ConadCity', address:'Via delle Gardenie, 23, 59100 Prato PO', info:'Tel: 0574 638532  Orari: Lun-Sab 07.30-20 | Dom 09-13', id: 10, status: true)
 
 Manager.create(name:'Mario', surname:'Rossi', yearofbirth:1958 ,tel:'3395625489', email:'rossi@gmail.com', curriculum:'CurriculumRossi', password:'foobar10', password_confirmation:'foobar10', market_id: 1 ,id: 1)
 Manager.create(name:'Carlo', surname:'Verdi', yearofbirth:1960 ,tel:'3382698456', email:'verdi@gmail.com', curriculum:'CurriculumVerdi', password:'foobar10', password_confirmation:'foobar10', market_id: 2 ,id: 2)
@@ -286,4 +293,9 @@ Owner.create(market_id: 10, product_id: 26, stock: 25, price: 13.30, id: 197)
 Owner.create(market_id: 10, product_id: 18, stock: 25, price: 3.70, id: 198)
 Owner.create(market_id: 10, product_id: 29, stock: 30, price: 1.60, id: 199)
 Owner.create(market_id: 10, product_id: 21, stock: 20, price: 1.30, id: 200)
+Admin.create(name: "gaspare", surname: "melchioni", email: "melchioni@gmail.com", password: "foobar10", password_confirmation: "foobar10", id: 1)
+
+#some requests to visualize graphics
+
+
 

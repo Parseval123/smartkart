@@ -1,42 +1,62 @@
 <% provide(:title, "WelcomeManager") %> </br></br>
 
-<%= current_manager.name %> </br>
-add products to your supermarket
-</br>
-<%= form_for @owner do |f| %>
+	<%if current_manager.market_id == nil %>
+	Your market needs the approvation of our admins. They're checking your informations right now. 
 
-    <%= f.label :prodotto %><br>
-    <%= f.select :product_id, @products.map { |c| [c.name+" "+c.label+" "+c.package, c.id] } %></br>
+	<%else%>
+		<% if (Market.find(current_manager.market_id)).status == false %>
 
-    <%= f.label :prezzo %><br>
-    <%= f.number_field :price , :step => 0.01 %></br>
+		We're sorry <%= current_manager.name %> </br> but your market has been refused
+		<%= link_to "add your market" , new_market_path, data: {message: "don't miss anything this time!"} %>
+		<%else%>
 
-    <%= f.label :stock %><br>
-    <%= f.number_field :stock%></br>
- 
-    <%= f.hidden_field :market_id, value: current_manager.market_id %>
- 
-    <%= f.submit "add product", class: "btn btn-primary" %></br>
+		<%= current_manager.name %> </br>
 
-<%end%>
+		add products to your supermarket: <%= Market.find(current_manager.market_id).address %> </br>
+			
+			<%= form_for @owner do |f| %>
 
-</br>
-INVENTARIO:
-</br>
+			    <%= f.label :prodotto %><br>
+			    <%= f.select :product_id, @products.map { |c| [c.name+" "+c.label+" "+c.package, c.id] } %></br>
 
-<div class="col-md-3">
-</br>
-<% @list_owners.each do |r| %>
+			    <%= f.label :prezzo %><br>
+			    <%= f.number_field :price , :step => 0.01 %></br>
 
-nome prodotto:<%= r.product.name %> &nbsp <%= r.product.label %> &nbsp <%= r.product.package %> &nbsp <%= link_to "delete", r, method: :delete,
-                                  data: { confirm: "You sure?" } %> &nbsp&nbsp<%= link_to "edit", edit_owner_path(r)%></br>
-prezzo:<%= r.price %> </br>
-stock:<%= r.stock %> </br>
+			    <%= f.label :stock %><br>
+			    <%= f.number_field :stock%></br>
+			 
+			    <%= f.hidden_field :market_id, value: current_manager.market_id %>
+			 
+			    <%= f.submit "add product", class: "btn btn-primary" %></br>
 
-<hr/>
+			<%end%>
 
-<% end %>
+			</br>
+			INVENTARIO:
+			</br>
 
-</div>
+		<div class="col-md-3"></br>
+		
+			<% @list_owners.each do |r| %>
 
+			nome prodotto:<%= r.product.name %> &nbsp <%= r.product.label %> &nbsp <%= r.product.package %> &nbsp <%= link_to "delete "+r.product.name+" "+r.product.label, r, method: :delete,
+						          data: { confirm: "You sure?" } %> &nbsp&nbsp<%= link_to "edit", edit_owner_path(r)%></br>
+			prezzo:<%= r.price %> </br>
+			stock:<%= r.stock %> </br>
 
+			<hr/>
+
+			<% end %>
+
+		</div>
+
+		<div class="col-md-6">
+			<% if @hashgraph.size == 0%>
+	    		no request has been made yet
+			<%else%>
+				WEEKLY REQUESTS STATISTICS:
+				<%= column_chart @hashgraph %>
+				</div>
+			<%end%>
+		<% end %>
+	<%end%>

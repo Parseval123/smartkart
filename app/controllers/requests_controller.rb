@@ -2,6 +2,7 @@ class RequestsController < ApplicationController
 
 before_action :logged_in_user, only: [:create, :destroy]
 
+
 def create
    @request = Request.create(request_params)
    redirect_to smart_shopping_makelist_path

@@ -16,7 +16,7 @@
 
       <div align="center">
         info:<%= @market.info %></br></br>
-        <%= link_to "Releases a micropost", new_micropost_path(:marketid => @market.id) %>
+        <%= link_to "Release a micropost", new_micropost_path(:marketid => @market.id) %>
       </div>
     
     </aside>
@@ -24,7 +24,7 @@
       <% if @market.microposts.any? %>
         <h3>Microposts (<%= @market.microposts.count %>)</h3>
         <ol class="microposts">
-          <%= render @microposts %>
+          <%= render @microposts %> 
         </ol>
         <%= will_paginate @microposts %>
       <% end %>

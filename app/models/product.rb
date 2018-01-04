@@ -1,4 +1,5 @@
 class Product < ActiveRecord::Base
+
   #associations code
   has_many :owners
   has_many :requests
@@ -7,4 +8,5 @@ class Product < ActiveRecord::Base
   validates :name, presence: true, length: { maximum: 50 }
   validates :label, presence: true, length: { maximum: 50 }
   validates :package, presence: true, length: { maximum: 50 }
+
 end
