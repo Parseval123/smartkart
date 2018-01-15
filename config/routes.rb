@@ -59,6 +59,8 @@ Rails.application.routes.draw do
   get 'howto' => 'pages#howto'
 
   get 'help' => 'pages#help'
+  
+  get 'contacts' => 'pages#contacts'
 
   #model's routes
 
