@@ -1,8 +1,1 @@
-<<<<<<< HEAD
-# test2
-=======
-# smartkart
-university project
->>>>>>> 0119d111059bad342c6e502d4f479967f442c260
-
-ciao ciao 
+Questo è il codice sorgente di SmartKart con una base di dati già instanziata sia in development mode che in production mode. Lo scenario di utilizzo prevede 4 supermercati nella zona Di Roma, 3 in Toscana, 3 in Lombardia. C'è un admin preregistrato, i rispettivi manager dei supermercati, ed alcuni utenti. In tre costituiscono i ruoli dell'applicazione.  
