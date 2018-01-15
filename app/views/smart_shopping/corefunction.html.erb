@@ -20,27 +20,6 @@
 
 <h3>il totale che pagherai è: <%= @sum %></h3>
 
-sottoinsiemi di market considerati </br>
-
-cardinalità dell'insieme = <%= @cardinal %>
-
-<% @markets_subsets.each do |r| %>
-
-<% r.each do |t| %>
-
-<%= t.group %> &nbsp <%=t.address%></br>
-
-<% end %>
-
-</br>
-</br>
-
-<% end %>
-
-
-
-
-
 </br>
 
 <%= link_to "Click here for a new Shop", user_path(current_user) %> 
