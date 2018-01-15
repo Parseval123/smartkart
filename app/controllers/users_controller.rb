@@ -2,6 +2,7 @@ class UsersController < ApplicationController
 
   before_action :logged_in_user, only: [:show, :edit, :update]
   before_action :correct_user, only: [:show,:edit, :update]
+  before_action :logged_in_admin, only: [:destroy]
 
   def show
 	@user = User.find(params[:id])
@@ -46,6 +47,11 @@ class UsersController < ApplicationController
     end
   end
 
+ def destroy
+ User.destroy(params[:id])
+ redirect_to current_admin
+ end
+
   private 
  	
     def user_params 
@@ -63,5 +69,12 @@ class UsersController < ApplicationController
    @user = User.find(params[:id])
    redirect_to current_user unless @user = current_user?(@user)
    end
+
+    def logged_in_admin
+		unless logged_in_a?
+		  flash[:danger] = "Please log in as Admin"
+		  redirect_to logina_path
+		end
+          end
 
 end

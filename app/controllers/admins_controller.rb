@@ -2,6 +2,12 @@ class AdminsController < ApplicationController
 
 before_action :logged_in_admin, only: [:show, :deleteuser, :deletemicropost, :resetrequest]
 
+	def allusers
+
+	@users = User.all
+	
+	end
+
 	  def show
 
 	  @creationreports = Creationreport.all

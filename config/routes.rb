@@ -11,6 +11,7 @@ Rails.application.routes.draw do
   post 'destroyuser' => 'admins#deleteuser'
   post 'destroymicropost' => 'admins#deletemicropost'
   get 'resetrequest' => 'admins#resetrequest'
+  get 'allusers' => 'admins#allusers'
 
 #other routes
 

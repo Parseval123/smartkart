@@ -1,0 +1,8 @@
+This is a list of all user </br>
+
+<% @users.each do |r| %>
+
+<%=r.name%> &nbsp <%=r.surname%> &nbsp <%=r.email%> &nbsp <%= link_to "delete", r, method: :delete,
+                                  data: { confirm: "You sure?" } %> </br>
+
+<%end%>
