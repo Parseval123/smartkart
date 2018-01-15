@@ -1,6 +1,6 @@
 class AdminsController < ApplicationController
 
-before_action :logged_in_admin, only: [:show, :deleteuser, :deletemicropost, :resetrequest]
+before_action :logged_in_admin, only: [:show, :deleteuser, :deletemicropost, :resetrequest,:allusers]
 
 	def allusers
 
