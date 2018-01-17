@@ -10,6 +10,7 @@ Rails.application.routes.draw do
   post 'report' => 'micropostreports#create'
   post 'destroyuser' => 'admins#deleteuser'
   post 'destroymicropost' => 'admins#deletemicropost'
+  post 'donothing' => 'admins#donothing'
   get 'resetrequest' => 'admins#resetrequest'
   get 'allusers' => 'admins#allusers'
 
