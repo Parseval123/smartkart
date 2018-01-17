@@ -12,7 +12,7 @@
 
 <% @result.each do |r| %>
 
-<h3><%= Product.find(r.product_id).name %>&nbsp <%= Product.find(r.product_id).label %>&nbsp<%= Product.find(r.product_id).package %>&nbsp <%= Market.find(r.market_id).group %>&nbsp<%= Market.find(r.market_id).address %>&nbsp<%= r.price %></h3></br>
+<h3><%= Product.find(r.product_id).name %>&nbsp <%= Product.find(r.product_id).label %>&nbsp<%= Product.find(r.product_id).package %>&nbsp <%= Market.find(r.market_id).group %>&nbsp<%= Market.find(r.market_id).address %>&nbsp<%= r.price %></h3>ci sono ancora <%=r.stock%> unità disponibili</br>
 
 <% end %>
 
