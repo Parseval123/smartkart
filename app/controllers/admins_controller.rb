@@ -44,6 +44,11 @@ before_action :logged_in_admin, only: [:show, :deleteuser, :deletemicropost, :re
 
 	  end
 
+	  def donothing
+	  Micropostreport.destroy(params[:session][:id])
+          redirect_to current_admin
+	  end
+	
 	  def deletemicropost
 
 	  @micropostreports = Micropostreport.find(params[:session][:id])
