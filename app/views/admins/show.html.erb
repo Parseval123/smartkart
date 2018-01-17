@@ -54,6 +54,12 @@
 			<%= f.submit "delete micropost", class: "btn btn-primary" %></br>
 			<%end%>
 
+			<%= form_for(:session, url: donothing_path) do |f| %>
+			<%= f.hidden_field :id, value: r.id %>
+			<%= f.submit "ignore", class: "btn btn-primary" %></br>
+			<%end%>
+
+
 		<%end%>
 
 	<%end%>
