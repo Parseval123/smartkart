@@ -24,11 +24,11 @@ before(:each) do
 
 	#markets used for tests
 
-	@market1 = FactoryGirl.create(:market, address: 'via alessandro manzoni, 31, 03031 Aquino FR', group: 'Conad', info: 'Aperto dal lunedi al sabato//08.00-20.00', manager: nil)
-	@market2 = FactoryGirl.create(:market, address: 'via risorgimento, 4, 03030 Piedimonte San Germano FR', group: 'Gecop', info: 'Aperto dalla Domenica al venerdi//08.00-20.00', manager: nil)
-	@market3 = FactoryGirl.create(:market, address: 'corso achille spatuzzi, 1, 03047 San Giorgio A Liri FR', group: 'Sigma', info: 'Aperto dal lunedi al sabato//08.00-20.00 martedi riposo', manager: nil)
-	@market4 = FactoryGirl.create(:market, address: 'strada statale casilina, 1, 03030 Piedimonte San Germano FR', group: 'Carrefour', info: 'si rispetteranno gli orari del centro commerciale', manager: nil)
-	@market5 = FactoryGirl.create(:market, address: 'via melfi urbana, 1, 03037 Pontecorvo FR', group: 'Lidl', info: 'Aperto dal lunedi al sabato//08.00-20.30', manager: nil)
+	@market1 = FactoryGirl.create(:market, address: 'via alessandro manzoni, 31, 03031 Aquino FR', group: 'Conad', info: 'Aperto dal lunedi al sabato//08.00-20.00', manager: nil, status: true)
+	@market2 = FactoryGirl.create(:market, address: 'via risorgimento, 4, 03030 Piedimonte San Germano FR', group: 'Gecop', info: 'Aperto dalla Domenica al venerdi//08.00-20.00', manager: nil, status: true)
+	@market3 = FactoryGirl.create(:market, address: 'corso achille spatuzzi, 1, 03047 San Giorgio A Liri FR', group: 'Sigma', info: 'Aperto dal lunedi al sabato//08.00-20.00 martedi riposo', manager: nil, status: true)
+	@market4 = FactoryGirl.create(:market, address: 'strada statale casilina, 1, 03030 Piedimonte San Germano FR', group: 'Carrefour', info: 'si rispetteranno gli orari del centro commerciale', manager: nil, status: true)
+	@market5 = FactoryGirl.create(:market, address: 'via melfi urbana, 1, 03037 Pontecorvo FR', group: 'Lidl', info: 'Aperto dal lunedi al sabato//08.00-20.30', manager: nil, status: true)
 
 	#owners used for tests
 	
