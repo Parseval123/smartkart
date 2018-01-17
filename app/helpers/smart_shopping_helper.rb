@@ -2,7 +2,16 @@ module SmartShoppingHelper
 
 def nearMarkets(addr1,range)
 market = Market.near(addr1, range)
-return market
+  @markets = Array.new
+	market.each do |f|
+	
+		if(f.status == nil || f.status == false)
+		else
+		@markets.push(f)
+		end
+
+	end
+return @markets
 end
 
 def log_list(list)
