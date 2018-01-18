@@ -39,9 +39,9 @@
 		
 			<% @list_owners.each do |r| %>
 
-			nome prodotto:<%= r.product.name %> &nbsp <%= r.product.label %> &nbsp <%= r.product.package %> &nbsp <%= link_to "delete "+r.product.name+" "+r.product.label, r, method: :delete,
+			product name:<%= r.product.name %> &nbsp <%= r.product.label %> &nbsp <%= r.product.package %> &nbsp <%= link_to "delete "+r.product.name+" "+r.product.label, r, method: :delete,
 						          data: { confirm: "You sure?" } %> &nbsp&nbsp<%= link_to "edit", edit_owner_path(r)%></br>
-			prezzo:<%= r.price %> </br>
+			price:<%= r.price %> </br>
 			stock:<%= r.stock %> </br>
 
 			<hr/>
